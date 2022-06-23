@@ -1,0 +1,99 @@
+app-configuration:
+  name: firmapi
+
+master:
+  customers:
+    10000262:
+      name: SAP테스트
+      callback: https://p200029-iflmap.hcisbp.ap1.hana.ondemand.com/http/BankStatementPost
+    10000263:
+      name: 인스피언(주)
+      
+
+server:
+  port: 9000
+  tomcat:
+    threads:
+      max: 100 # 생성할 수 있는 thread의 총 개수
+      min-spare: 3 # 항상 활성화 되어있는(idle) thread의 개수
+    max-connections: 8192 # 수립가능한 connection의 총 개수
+    accept-count: 100 # 작업큐의 사이즈
+    connection-timeout: 20000 # timeout 판단 기준 시간, 20초
+  ssl:
+    enabled: true
+    key-alias: firmkey
+    key-store: firmkeystore.pkcs12
+    key-store-password: 123456
+    key-password: 123456
+    trust-store: firmkeytrust.ts
+    trust-store-password: 123456
+
+van:
+  duzn:
+    telegramrepo: repo
+    test:
+      open: https://test-gw-firm.dozn.co.kr/api/rt/v1/account/open
+      transfer: https://test-gw-firm.dozn.co.kr/api/rt/v1/transfer
+    prd:
+      open: https://firmapi-pub.dozn.co.kr
+      transfer:
+
+
+    
+mocklogging:
+  location: ./logs
+  header: true
+  body: true
+
+http:
+  # TimeUnit = second
+  connectTimeout: 10
+  responseTimeout: 120
+
+spring:
+  devtools:
+    livereload:
+      enabled: true
+  quartz:
+    scheduler-name: QuartzScheduler
+    properties:
+      org:
+        quartz:
+          threadPool:
+            threadCount: 1
+  thymeleaf:
+    enabled: true
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+    check-template-location: true
+
+  mail:
+#    host: ezsmtp.bizmeka.com
+#    port: 25
+#    username: edi-help@inspien.co.kr
+#    password: ENC(XsfHraiqkZe1IRpvXl1H9B6L76yf39Vm)
+    host: smtp.gmail.com
+    port: 587
+    username: cloudedi.noreply@gmail.com
+    password: frprunjxztsbxova
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 10000
+          timeout: 10000
+          writetimeout: 5000
+  profile:
+    active: local
+
+jasypt:
+  encryptor:
+    bean: encryptorBean
+    
+
+logging:
+  config: config/logback-spring.xml
+    

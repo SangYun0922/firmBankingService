@@ -1,0 +1,13 @@
+[2022-06-23 08:57:16.833:754][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 51991 (/Users/skwx50000/Desktop/spring/FirmBankingAPI-main/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/FirmBankingAPI-main)
+[2022-06-23 08:57:16.849:770][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-06-23 08:57:16.851:772][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-06-23 09:10:19.398:770][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 52713 (/Users/skwx50000/Desktop/spring/FirmBankingAPI-main/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/FirmBankingAPI-main)
+[2022-06-23 09:10:19.400:772][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-06-23 09:10:19.402:774][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-06-23 09:32:56.190:827][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 53033 (/Users/skwx50000/Desktop/spring/FirmBankingAPI-main/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/FirmBankingAPI-main)
+[2022-06-23 09:32:56.192:829][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-06-23 09:32:56.193:830][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-06-23 09:33:37.259:732][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 53039 (/Users/skwx50000/Desktop/spring/FirmBankingAPI-main/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/FirmBankingAPI-main)
+[2022-06-23 09:33:37.268:741][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-06-23 09:33:37.269:742][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-06-23 09:33:39.227:2700][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 2.508 seconds (JVM running for 3.229)
