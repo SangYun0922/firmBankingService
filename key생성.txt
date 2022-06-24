@@ -1,1 +1,4 @@
 keytool -genkey -alias firmkey -keyalg RSA -keystore firmkeystore.pkcs12 -storetype pkcs12 -validity 10000 -keysize 2048
+
+
+

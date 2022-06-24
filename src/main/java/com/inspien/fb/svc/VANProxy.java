@@ -76,28 +76,29 @@ public abstract class VANProxy {
 
 	}
 	protected String callAPIPost(String url, String req, Map<String, String> headers) throws URISyntaxException, IOException, ParseException {
-		String responseBody = null;
+		String responseBody = null; //응답데이터를 기록하기 위한 변수
 		CloseableHttpClient httpClient = HttpClients.custom().setConnectionManager(cm).build();
-		
+		System.out.println("!@#$httpClient = " + HttpClients.custom()); //게시전문을 확인할때는 null ok, 그러나, 왜 transfer를 할때는, 왜 값이 들어오게 되는가?
+
         final HttpPost httppost = new HttpPost(url);
-        
+
     	for (Map.Entry<String, String> entry : headers.entrySet()) {
 			String key = entry.getKey();
 			String val = entry.getValue();
         	httppost.setHeader(key, val);
-		}
+		} // 헤더에 있는 데이터를 가져와 loop를 돌면서 httppost 변수의 헤더에 부착
         //httppost.setHeader(HttpHeaders.CONTENT_TYPE, "application/json;charset=utf-8");
         //httppost.setHeader("Accept", "application/json");
         
-        // set requestbody
+        // set requestbody json을 받아서 setEntity로 httppost 변수의 body에 데이터 전달.
         httppost.setEntity(new StringEntity(req));
         
     	log.debug("----------------------------------------");
         log.debug("Executing request {} {} ==> {}" , httppost.getMethod() , httppost.getUri(), req);
-
-        final HttpClientContext clientContext = HttpClientContext.create();
+		//httppost.getMethod()를 하게 되면, POST가 추출되고, httppost.geturi()를 하게되면, final HttpPost httppost = new HttpPost(url);주었던 url이 추출된다.
+		//그후 openRequest객체의 속성값을 출력한다.
+        final HttpClientContext clientContext = HttpClientContext.create(); //clientContext
         try (CloseableHttpResponse response = httpClient.execute(httppost, clientContext)) {
-            
             responseBody = EntityUtils.toString(response.getEntity());
         	log.debug("----------------------------------------");
         	log.debug("{} {} ==> {}", response.getCode(), response.getReasonPhrase(), responseBody);
@@ -110,7 +111,7 @@ public abstract class VANProxy {
         finally {
         }
         
-		return responseBody;
+		return responseBody; // "status","error_code","error_message", 등등이 json형식으로 리턴된다.
 	}
 	protected String callAPIGet(String url, String req, Map<String, String> headers) throws URISyntaxException, IOException, ParseException {
 		String responseBody = null;
@@ -144,6 +145,6 @@ public abstract class VANProxy {
 		return responseBody;
 	}
 	
-	abstract public OpenResponse open(OpenRequest req) throws Exception;
-	abstract public TransferResponse transfer(TransferRequest req) throws Exception;
+	abstract public OpenResponse open(OpenRequest req) throws Exception; //DuznProxyImpl에서 구현
+	abstract public TransferResponse transfer(TransferRequest req) throws Exception; //DuznProxyImpl에서 구현
 }
