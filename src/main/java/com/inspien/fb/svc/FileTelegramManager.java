@@ -54,9 +54,9 @@ public class FileTelegramManager {
 
 					String[] tokens = s.split(",");
 					if (tokens != null && tokens.length == 3) {
-						String orgCode = tokens[0];
-						String date = tokens[1];
-						long no = Long.valueOf(tokens[2]);
+						String orgCode = tokens[0].trim();
+						String date = tokens[1].trim();
+						long no = Long.valueOf(tokens[2].trim());
 
 						Map<String, AtomicLong> m = new HashMap<String, AtomicLong>();
 						m.put(today, new AtomicLong(no));
