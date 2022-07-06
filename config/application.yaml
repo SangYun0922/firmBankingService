@@ -8,7 +8,10 @@ master:
       callback: https://p200029-iflmap.hcisbp.ap1.hana.ondemand.com/http/BankStatementPost
     10000263:
       name: 인스피언(주)
-      
+    10000264: # 테스트 organization 20220630 추가
+      name: 테스트
+      callback: https://localhost:9000/bankstatement/test
+
 
 server:
   port: 9000
@@ -19,14 +22,22 @@ server:
     max-connections: 8192 # 수립가능한 connection의 총 개수
     accept-count: 100 # 작업큐의 사이즈
     connection-timeout: 20000 # timeout 판단 기준 시간, 20초
+#ssl:
+#  enabled: true
+#  key-alias: firmkey
+#  key-store: config/firmkeystore.pkcs12
+#  key-store-password: 'inspien0@'
+#  key-password: 'inspien0@'
+#  #trust-store: ayotrust.pkcs12
+#  #trust-store-password: '@ayotera@'
   ssl:
     enabled: true
     key-alias: firmkey
     key-store: firmkeystore.pkcs12
     key-store-password: 123456
     key-password: 123456
-    trust-store: firmkeytrust.ts
-    trust-store-password: 123456
+    #trust-store: ayotrust.pkcs12
+    #trust-store-password: '@ayotera@'
 
 van:
   duzn:
@@ -39,7 +50,7 @@ van:
       transfer:
 
 
-    
+
 mocklogging:
   location: ./logs
   header: true
@@ -67,12 +78,25 @@ spring:
     suffix: .html
     cache: false
     check-template-location: true
+  # 코드추가 시작 (6/29)
+  datasource:
+    url: jdbc:mariadb://localhost:3306/firmbanking
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: inspien_test
+    password: 1234
+  jpa:
+    open-in-view: false
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  # 코드추가 끝 (6/29)
 
   mail:
-#    host: ezsmtp.bizmeka.com
-#    port: 25
-#    username: edi-help@inspien.co.kr
-#    password: ENC(XsfHraiqkZe1IRpvXl1H9B6L76yf39Vm)
+    #    host: ezsmtp.bizmeka.com
+    #    port: 25
+    #    username: edi-help@inspien.co.kr
+    #    password: ENC(XsfHraiqkZe1IRpvXl1H9B6L76yf39Vm)
     host: smtp.gmail.com
     port: 587
     username: cloudedi.noreply@gmail.com
@@ -92,8 +116,7 @@ spring:
 jasypt:
   encryptor:
     bean: encryptorBean
-    
+
 
 logging:
   config: config/logback-spring.xml
-    

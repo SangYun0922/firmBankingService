@@ -28,41 +28,41 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class FileTelegramManager {
 
-	@Value("${van.duzn.telegramrepo}")
+	@Value("${van.duzn.telegramrepo}") 
 	static public String REPO = "config";
 
 	private static String timezone = "Asia/Seoul";
 
-	private static Map<String, Map<String, AtomicLong>> custCounter = new HashMap<String, Map<String, AtomicLong>>();
+	private static Map<String , Map<String, AtomicLong> > custCounter = new HashMap<String , Map<String, AtomicLong>>();
 
 	private static boolean bInit = false;
-
+	
 	public FileTelegramManager() {
-		if (!bInit)
+		if(!bInit)
 			init();
 	}
-
+	
 	synchronized public void init() {
 		String today = DateTimeFormatter.ofPattern("yyyyMMdd").format(ZonedDateTime.now(ZoneId.of(timezone)));
 		File dir = Paths.get(REPO, today).toFile();
-		if (dir.exists()) {
+		if(dir.exists()) {
 			File[] files = dir.listFiles();
 			for (int i = 0; i < files.length; i++) {
 				try {
 					Path path = FileSystems.getDefault().getPath(dir.getPath(), files[i].getName());
 					String s = Files.readString(path);
-
+					
 					String[] tokens = s.split(",");
-					if (tokens != null && tokens.length == 3) {
+					if(tokens != null && tokens.length == 3) {
 						String orgCode = tokens[0].trim();
 						String date = tokens[1].trim();
 						long no = Long.valueOf(tokens[2].trim());
-
+						
 						Map<String, AtomicLong> m = new HashMap<String, AtomicLong>();
-						m.put(today, new AtomicLong(no));
-						custCounter.put(orgCode, m);
+						m.put(today, new AtomicLong(no)); 
+						custCounter.put(orgCode, m );
 					}
-
+					
 				} catch (IOException e) {
 					log.error("FileTelegramManager init failed.", e);
 				}
@@ -70,42 +70,43 @@ public class FileTelegramManager {
 		}
 		bInit = true;
 	}
-
+	
 	public long getNextCounter(String orgCode) throws IOException {
 		String today = DateTimeFormatter.ofPattern("yyyyMMdd").format(ZonedDateTime.now(ZoneId.of(timezone)));
-
+		
 		long txNo = 1;
-		if (custCounter.containsKey(orgCode)) {
-			if (custCounter.get(orgCode).containsKey(today)) {
+		if(custCounter.containsKey(orgCode)) {
+			if(custCounter.get(orgCode).containsKey(today)) {
 				txNo = custCounter.get(orgCode).get(today).incrementAndGet();
-			} else {
+			}
+			else {
 				// delete all data before put today
 				custCounter.get(orgCode).clear();
 				custCounter.get(orgCode).put(today, new AtomicLong(txNo));
 			}
-		} else {
+		}
+		else {
 			Map<String, AtomicLong> counter = new HashMap<String, AtomicLong>();
 			counter.put(today, new AtomicLong(txNo));
 			custCounter.put(orgCode, counter);
 		}
-
+		
 		syncCounter(orgCode, today, txNo);
-
+		
 		return txNo;
 	}
-
+	
 	private void syncCounter(String orgCode, String date, long no) throws IOException {
 		File dir = Paths.get(REPO, date).toFile();
-		if (!dir.exists()) {
+		if(!dir.exists()) {
 			dir.mkdirs();
 		}
-
-		File f = Paths.get(REPO, date, orgCode + ".txt").toFile();
-
+		
+		File f = Paths.get(REPO, date, orgCode+".txt" ).toFile();
+		
 		StringBuffer sb = new StringBuffer();
 		sb.append(orgCode).append(",").append(date).append(",").append(no);
-		Files.write(Paths.get(REPO, date, orgCode + ".txt"), sb.toString().getBytes(), StandardOpenOption.CREATE,
-				StandardOpenOption.TRUNCATE_EXISTING);
+		Files.write(Paths.get(REPO, date, orgCode+".txt" ), sb.toString().getBytes(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
 
 	}
 }

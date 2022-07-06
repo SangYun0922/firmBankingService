@@ -14,7 +14,11 @@ import lombok.ToString;
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class TransferResponse {
 	public TransferResponse() {}
-	public TransferResponse(int status, String error_code, String error_message) {}
+	public TransferResponse(int status, String error_code, String error_message) {
+		this.status = status;
+		this.error_code = error_code;
+		this.error_message = error_message;
+	}
 	
 	private int status;
 	private String natv_tr_no;

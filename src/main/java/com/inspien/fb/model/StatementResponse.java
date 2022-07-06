@@ -13,9 +13,7 @@ import lombok.ToString;
 @ToString
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class StatementResponse {
-    public StatementResponse() {
-    }
-
+    public StatementResponse() {}
     public StatementResponse(int status, String error_code, String error_message) {
         this.status = status;
         this.error_code = error_code;
