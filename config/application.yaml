@@ -84,12 +84,13 @@ spring:
     driver-class-name: org.mariadb.jdbc.Driver
     username: inspien_test
     password: 1234
-  jpa:
-    open-in-view: false
-    generate-ddl: true
-    show-sql: true
-    hibernate:
-      ddl-auto: update
+    # jpa 주석처리 (7/05)
+#  jpa:
+#    open-in-view: false
+#    generate-ddl: true
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
   # 코드추가 끝 (6/29)
 
   mail:

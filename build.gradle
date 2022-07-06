@@ -33,8 +33,10 @@ dependencies {
 	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 	implementation 'com.google.code.gson:gson:2.9.0'
 		implementation group: 'org.apache.httpcomponents.client5', name: 'httpclient5', version: '5.1'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' //use JPA
-	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client' // use MariaDB
+
+//	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' //use JPA
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'//use mybatis
+	implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.4' // use MariaDB
 	
 }
 

@@ -25,6 +25,7 @@ import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.inspien.fb.mapper.SampleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -61,7 +62,10 @@ import lombok.extern.slf4j.Slf4j;
 public class FirmAPIController {
 	
 	// ec2-3-39-156-237.ap-northeast-2.compute.amazonaws.com
-	
+
+	// 2022.07.05 SampleMapper 추가;
+	@Autowired
+	SampleMapper sampleMapper;
 	@Value("${mocklogging.header}") 
 	boolean bHeaderLogging;
 	@Value("${mocklogging.body}") 
@@ -138,6 +142,10 @@ public class FirmAPIController {
 	//2022.07.01 update
 	@PostMapping("/firmapi/rt/v1/bankstatement")
 	public ResponseEntity vanGateway(HttpServletRequest request, @RequestHeader HttpHeaders headers,  @RequestBody(required = false) byte[] body) throws IOException, URISyntaxException {
+
+		// 2022.07.05 테스트코드 추가;
+		System.out.println(sampleMapper.selectSampleData());
+		
 		long count = vanAccessCount.incrementAndGet();
 
 		String uri = request.getRequestURI();
