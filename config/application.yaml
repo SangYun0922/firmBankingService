@@ -84,14 +84,10 @@ spring:
     driver-class-name: org.mariadb.jdbc.Driver
     username: inspien_test
     password: 1234
-    # jpa 주석처리 (7/05)
-#  jpa:
-#    open-in-view: false
-#    generate-ddl: true
-#    show-sql: true
-#    hibernate:
-#      ddl-auto: update
-  # 코드추가 끝 (6/29)
+  # update (07/07)
+  mybatis:
+    type-aliases-package: com.inspien.fb.domain;  # entity가 존재하는 경로작성.
+    mapper-locations: mybatis/**.xml        # Mapper.xml이 존재하는 경로작성.
 
   mail:
     #    host: ezsmtp.bizmeka.com
