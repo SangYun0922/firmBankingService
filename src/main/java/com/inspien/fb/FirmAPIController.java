@@ -131,10 +131,6 @@ public class FirmAPIController {
 	//2022.07.01 update
 	@PostMapping("/firmapi/rt/v1/bankstatement")
 	public ResponseEntity vanGateway(HttpServletRequest request, @RequestHeader HttpHeaders headers,  @RequestBody(required = false) byte[] body) throws IOException, URISyntaxException {
-		String OrgCd = "10000264";
-		// 2022.07.07 테스트코드 updated;
-		log.debug("CustMst={}", custMstMapper.getData(OrgCd));
-
 		long count = vanAccessCount.incrementAndGet();
 
 		String uri = request.getRequestURI();
@@ -158,6 +154,15 @@ public class FirmAPIController {
 		StatementResponse response = null; //svc.transfer(null);
 		String callbackUrl = "";
 
+		List<CustMst> custData = custMstMapper.getData(statementReq.getOrg_code());
+		log.debug("CustMst List ={}", custData.get(0));
+
+		if (!custData.isEmpty() && custData.get(0).getCallbackURL() != null) {
+			log.info("OK, custData is {}", custData);
+		}
+		else {
+			log.info("Sorry, custData is {}", custData);
+		}
 		if(configMgmt.getCustomers().containsKey( statementReq.getOrg_code() )) {
 			try {
 				log.info("statememtReq.org_code={}",statementReq.getOrg_code());
