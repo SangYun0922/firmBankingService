@@ -100,7 +100,7 @@ public abstract class VANProxy {
         log.debug("Executing request {} {} ==> {}" , httppost.getMethod() , httppost.getUri(), req);
 
         final HttpClientContext clientContext = HttpClientContext.create();
-		log.debug("clientContext = ", clientContext.getSSLSession());
+
         try (CloseableHttpResponse response = httpClient.execute(httppost, clientContext)) {
             responseBody = EntityUtils.toString(response.getEntity());
         	log.debug("----------------------------------------");

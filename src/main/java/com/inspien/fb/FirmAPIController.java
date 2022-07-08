@@ -86,8 +86,7 @@ public class FirmAPIController {
 	@PostMapping("/firmapi/rt/v1/**")
 	public ResponseEntity proxyPost(HttpServletRequest request, @RequestHeader HttpHeaders headers,  @RequestBody(required = false) byte[] body) throws IOException, URISyntaxException {
 		long count = accessCount.incrementAndGet();
-		
-		
+
 		String uri = request.getRequestURI();
 		String method = request.getMethod();
 		long size = request.getContentLengthLong();
@@ -98,9 +97,7 @@ public class FirmAPIController {
 		}
 
 		writeLog(request, headers, body);
-		
-		log.debug("cust={}", configMgmt.getCustomers());
-		
+
 		Gson gson = new Gson();
 		TransferRequest transferReq = gson.fromJson(new String(body), TransferRequest.class);
 		
@@ -108,10 +105,12 @@ public class FirmAPIController {
 		
 		//FBService svc = new FBService();
 		TransferResponse response = null;
-		
-		// if customer is valid
-		if(configMgmt.getCustomers().containsKey( transferReq.getOrg_code() )) {
+
+		List<CustMst> custData = custMstMapper.getData(transferReq.getOrg_code()); //Connect to mariaDB
+
+		if(!custData.isEmpty()) {
 			try {
+				log.debug("CustMst List ={}", custData.get(0));
 				response = fbSvc.transfer(transferReq);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -123,8 +122,6 @@ public class FirmAPIController {
 		else {
 			response = new TransferResponse(401, "1001", "no customer code found.");
 		}
-		
-		
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
 
@@ -152,7 +149,7 @@ public class FirmAPIController {
 		StatementResponse response = null; //svc.transfer(null);
 		String callbackUrl = "";
 
-		List<CustMst> custData = custMstMapper.getData(statementReq.getOrg_code());
+		List<CustMst> custData = custMstMapper.getData(statementReq.getOrg_code()); //Connection to mariaDB
 
 		if (!custData.isEmpty()) {
 			try {
