@@ -14,9 +14,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.inspien.fb.domain.CustMst;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -129,9 +131,9 @@ public class FirmAPIController {
 	//2022.07.01 update
 	@PostMapping("/firmapi/rt/v1/bankstatement")
 	public ResponseEntity vanGateway(HttpServletRequest request, @RequestHeader HttpHeaders headers,  @RequestBody(required = false) byte[] body) throws IOException, URISyntaxException {
-
+		String OrgCd = "10000264";
 		// 2022.07.07 테스트코드 updated;
-		System.out.println(custMstMapper.getData());
+		log.debug("CustMst={}", custMstMapper.getData(OrgCd));
 
 		long count = vanAccessCount.incrementAndGet();
 
