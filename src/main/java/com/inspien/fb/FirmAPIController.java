@@ -141,8 +141,6 @@ public class FirmAPIController {
 			log.info("vanAccessCount={}, {}, {}, {}", count , method, size, uri);
 		}
 
-		log.debug("cust={}", configMgmt.getCustomers());
-
 		Gson gson = new Gson();
 		StatementRequest statementReq = gson.fromJson(new String(body), StatementRequest.class);
 
@@ -155,22 +153,15 @@ public class FirmAPIController {
 		String callbackUrl = "";
 
 		List<CustMst> custData = custMstMapper.getData(statementReq.getOrg_code());
-		log.debug("CustMst List ={}", custData.get(0));
 
-		if (!custData.isEmpty() && custData.get(0).getCallbackURL() != null) {
-			log.info("OK, custData is {}", custData);
-		}
-		else {
-			log.info("Sorry, custData is {}", custData);
-		}
-		if(configMgmt.getCustomers().containsKey( statementReq.getOrg_code() )) {
+		if (!custData.isEmpty()) {
 			try {
-				log.info("statememtReq.org_code={}",statementReq.getOrg_code());
-				if (configMgmt.getCustomers().get(statementReq.getOrg_code()).containsKey("callback")) {
-					try {
-						callbackUrl = configMgmt.getCustomers().get(statementReq.getOrg_code()).get("callback");
-						response = fbSvc.transfer(statementReq, callbackUrl);
+				log.debug("CustMst List ={}", custData.get(0));
+				if (custData.get(0).getCallbackURL() != null) {
+					try{
+						callbackUrl = custData.get(0).getCallbackURL();
 						log.info("callbackurl={}", callbackUrl); //테스트 callbackurl 가져오기
+						response = fbSvc.transfer(statementReq, callbackUrl);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -178,17 +169,17 @@ public class FirmAPIController {
 						response = new StatementResponse(500, "9999", e.getMessage()); //에러코드 메시지를 보기 위한 code
 					}
 				} else {
-					response = new StatementResponse(401, "1001","no callback url code found.");
-					System.out.println("response = " + response);
+					response = new StatementResponse(401, "1001", "no callback url code found.");
+					log.info("response = {}" + response);
 				}
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				log.error("{}", e);
-				response = new StatementResponse(401, "1001", e.getMessage()); //에러코드 메시지를 보기 위한 code
+				response = new StatementResponse(500, "9999", e.getMessage()); //에러코드 메시지를 보기 위한 code
 			}
 		} else {
-			response = new StatementResponse(401, "1001", "no customer code found.");
+			response = new StatementResponse(401, "1001", "no org_code code found.");
 		}
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
