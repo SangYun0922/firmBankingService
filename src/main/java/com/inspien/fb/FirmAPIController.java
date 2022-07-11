@@ -125,7 +125,7 @@ public class FirmAPIController {
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
 
-	//2022.07.01 update
+	//2022.07.08 update
 	@PostMapping("/firmapi/rt/v1/bankstatement")
 	public ResponseEntity vanGateway(HttpServletRequest request, @RequestHeader HttpHeaders headers,  @RequestBody(required = false) byte[] body) throws IOException, URISyntaxException {
 		long count = vanAccessCount.incrementAndGet();

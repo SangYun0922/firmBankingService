@@ -7,3 +7,4 @@
         SELECT * FROM CustMst WHERE OrgCd = #{OrgCd}
     </select>
 </mapper>
+
