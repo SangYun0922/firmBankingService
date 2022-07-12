@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +15,7 @@ import com.inspien.fb.model.TransferResponse;
 import com.inspien.fb.svc.FBService;
 import com.inspien.fb.svc.FileTelegramManager;
 
-import lombok.extern.slf4j.Slf4j;
+
 
 @Slf4j
 class FBServiceTest {
@@ -71,7 +72,6 @@ class FBServiceTest {
 		for (int i=0; i<100; i++) {
 			no = m.getNextCounter("1234");
 		}
-		
 		log.debug("last telegram_no={}", no);
 	}
 }

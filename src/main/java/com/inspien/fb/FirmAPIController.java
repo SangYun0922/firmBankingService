@@ -108,7 +108,7 @@ public class FirmAPIController {
 
 		List<CustMst> custData = custMstMapper.getData(transferReq.getOrg_code()); //Connect to mariaDB
 
-		if(!custData.isEmpty()) {
+		if(custData.size() == 1) {
 			try {
 				log.debug("CustMst List ={}", custData.get(0));
 				response = fbSvc.transfer(transferReq);
@@ -119,8 +119,11 @@ public class FirmAPIController {
 				response = new TransferResponse(500, "9999", e.getMessage());
 			}
 		}
-		else {
-			response = new TransferResponse(401, "1001", "no customer code found.");
+		else if (custData.isEmpty()) {
+			response = new TransferResponse(401, "1001", "ORG_CODE_DOES_NOT_EXIST");
+		}
+		else if (custData.size() > 1) {
+			response = new TransferResponse(401, "1001", "ORG_CODE_DUPLICATE_OCCURRENCE");
 		}
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
@@ -151,7 +154,7 @@ public class FirmAPIController {
 
 		List<CustMst> custData = custMstMapper.getData(statementReq.getOrg_code()); //Connection to mariaDB
 
-		if (!custData.isEmpty()) {
+		if (custData.size() == 1) { //org_code는 유일해야 한다. 따라서 쿼리 결과도 오직 단 한개이다.
 			try {
 				log.debug("CustMst List ={}", custData.get(0));
 				if (custData.get(0).getCallbackURL() != null) {
@@ -166,8 +169,7 @@ public class FirmAPIController {
 						response = new StatementResponse(500, "9999", e.getMessage()); //에러코드 메시지를 보기 위한 code
 					}
 				} else {
-					response = new StatementResponse(401, "1001", "no callback url code found.");
-					log.info("response = {}" + response);
+					response = new StatementResponse(401, "1001", "CALLBACK_URL_DOES_NOT_EXIST");
 				}
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -175,8 +177,10 @@ public class FirmAPIController {
 				log.error("{}", e);
 				response = new StatementResponse(500, "9999", e.getMessage()); //에러코드 메시지를 보기 위한 code
 			}
-		} else {
-			response = new StatementResponse(401, "1001", "no org_code code found.");
+		} else if (custData.isEmpty()) {
+			response = new StatementResponse(401, "1001", "ORG_CODE_DOES_NOT_EXIST"); //org_code로 쿼리하였을떄, 결과값이 없다면 에러
+		} else if (custData.size() > 1) {
+			response = new StatementResponse(401, "1001", "ORG_CODE_DUPLICATE_OCCURRENCE"); //org_code로 쿼리하였을떄, 결과값이 여러개라면 에러
 		}
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}

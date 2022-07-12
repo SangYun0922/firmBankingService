@@ -13,11 +13,7 @@ public class CustMst {
     private String CustNm;
     private String OrgCd;
     private String CallbackURL;
+    private String InUse;
 
     public CustMst() {}
-//    public CustMst(String CustNm,String OrgCd,String CallbackURL) {
-//        this.CustNm = CustNm;
-//        this.OrgCd = OrgCd;
-//        this.CallbackURL = CallbackURL;
-//    }
 }
