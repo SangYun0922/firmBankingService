@@ -109,14 +109,18 @@ public class FirmAPIController {
 		List<CustMst> custData = custMstMapper.getData(transferReq.getOrg_code()); //Connect to mariaDB
 
 		if(custData.size() == 1) {
-			try {
-				log.debug("CustMst List ={}", custData.get(0));
-				response = fbSvc.transfer(transferReq);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				log.error("{}", e);
-				response = new TransferResponse(500, "9999", e.getMessage());
+			if (custData.get(0).getInUse().equals("Y")) { //각 고객정보의 InUse 필드를 조회하여 "Y"라면 현재 사용하는 계정이고, "Y"가 아니라면 사용하지 않는 계정이다.
+				try {
+					log.debug("CustMst List ={}", custData.get(0));
+					response = fbSvc.transfer(transferReq);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					log.error("{}", e);
+					response = new TransferResponse(500, "9999", e.getMessage());
+				}
+			} else {
+				response = new TransferResponse(401, "1001", "UNUSED_CUSTOMER");
 			}
 		}
 		else if (custData.isEmpty()) {
@@ -155,31 +159,38 @@ public class FirmAPIController {
 		List<CustMst> custData = custMstMapper.getData(statementReq.getOrg_code()); //Connection to mariaDB
 
 		if (custData.size() == 1) { //org_code는 유일해야 한다. 따라서 쿼리 결과도 오직 단 한개이다.
-			try {
-				log.debug("CustMst List ={}", custData.get(0));
-				if (custData.get(0).getCallbackURL() != null) {
-					try{
-						callbackUrl = custData.get(0).getCallbackURL();
-						log.info("callbackurl={}", callbackUrl); //테스트 callbackurl 가져오기
-						response = fbSvc.transfer(statementReq, callbackUrl);
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-						log.error("{}", e);
-						response = new StatementResponse(500, "9999", e.getMessage()); //에러코드 메시지를 보기 위한 code
+			if (custData.get(0).getInUse().equals("Y")) { //각 고객정보의 InUse 필드를 조회하여 "Y"라면 현재 사용하는 계정이고, "Y"가 아니라면 사용하지 않는 계정이다.
+				try {
+					log.debug("CustMst List ={}", custData.get(0));
+					if (custData.get(0).getCallbackURL() != null) {
+						try{
+							callbackUrl = custData.get(0).getCallbackURL();
+							log.info("callbackurl={}", callbackUrl); //테스트 callbackurl 가져오기
+							response = fbSvc.transfer(statementReq, callbackUrl);
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+							log.error("{}", e);
+							response = new StatementResponse(500, "9999", e.getMessage()); //에러코드 메시지를 보기 위한 code
+						}
+					} else {
+						response = new StatementResponse(401, "1001", "CALLBACK_URL_DOES_NOT_EXIST");
 					}
-				} else {
-					response = new StatementResponse(401, "1001", "CALLBACK_URL_DOES_NOT_EXIST");
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					log.error("{}", e);
+					response = new StatementResponse(500, "9999", e.getMessage()); //에러코드 메시지를 보기 위한 code
 				}
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				log.error("{}", e);
-				response = new StatementResponse(500, "9999", e.getMessage()); //에러코드 메시지를 보기 위한 code
 			}
-		} else if (custData.isEmpty()) {
+			else {
+				response = new StatementResponse(401, "1001", "UNUSED_CUSTOMER");
+			}
+		}
+		else if (custData.isEmpty()) {
 			response = new StatementResponse(401, "1001", "ORG_CODE_DOES_NOT_EXIST"); //org_code로 쿼리하였을떄, 결과값이 없다면 에러
-		} else if (custData.size() > 1) {
+		}
+		else if (custData.size() > 1) {
 			response = new StatementResponse(401, "1001", "ORG_CODE_DUPLICATE_OCCURRENCE"); //org_code로 쿼리하였을떄, 결과값이 여러개라면 에러
 		}
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
