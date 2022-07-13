@@ -2,6 +2,8 @@ package com.inspien.fb;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
@@ -53,7 +55,7 @@ class FBServiceTest {
 				.rv_bank_code("081")
 				.rv_account("46291012501007")
 				.rv_account_cntn("핍랄샐")
-				.amount(900)
+				.amount(1000)
 				.tr_dt(timeStamp.substring(0, 8))
 				.tr_tm(timeStamp.substring(8))
 				.build();
@@ -73,5 +75,15 @@ class FBServiceTest {
 			no = m.getNextCounter("1234");
 		}
 		log.debug("last telegram_no={}", no);
+	}
+
+	@Test //MariaDB와 테스트가 되는지 체크
+	void testDB() {
+		try
+		{
+			Connection con = DriverManager.getConnection("jdbc:mariadb://localhost:3306/firmbanking","inspien_test","123456");
+			log.debug("con = {}", con);
+		} catch (Exception e) {
+		}
 	}
 }

@@ -19,6 +19,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import com.inspien.fb.domain.CustMst;
+import com.inspien.fb.svc.CustMstService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -53,7 +54,7 @@ public class FirmAPIController {
 
 	//2022.07.07 created;
 	@Autowired
-	CustMstMapper custMstMapper;
+	CustMstService custMstService;
 
 	@Value("${mocklogging.header}") 
 	boolean bHeaderLogging;
@@ -106,7 +107,7 @@ public class FirmAPIController {
 		//FBService svc = new FBService();
 		TransferResponse response = null;
 
-		List<CustMst> custData = custMstMapper.getData(transferReq.getOrg_code()); //Connect to mariaDB
+		List<CustMst> custData = custMstService.getData(transferReq.getOrg_code()); //Connect to mariaDB
 
 		if(custData.size() == 1) {
 			if (custData.get(0).getInUse().equals("Y")) { //각 고객정보의 InUse 필드를 조회하여 "Y"라면 현재 사용하는 계정이고, "Y"가 아니라면 사용하지 않는 계정이다.
@@ -156,7 +157,7 @@ public class FirmAPIController {
 		StatementResponse response = null; //svc.transfer(null);
 		String callbackUrl = "";
 
-		List<CustMst> custData = custMstMapper.getData(statementReq.getOrg_code()); //Connection to mariaDB
+		List<CustMst> custData = custMstService.getData(statementReq.getOrg_code()); //Connection to mariaDB
 
 		if (custData.size() == 1) { //org_code는 유일해야 한다. 따라서 쿼리 결과도 오직 단 한개이다.
 			if (custData.get(0).getInUse().equals("Y")) { //각 고객정보의 InUse 필드를 조회하여 "Y"라면 현재 사용하는 계정이고, "Y"가 아니라면 사용하지 않는 계정이다.
