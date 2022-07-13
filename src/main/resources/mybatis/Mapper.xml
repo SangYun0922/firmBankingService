@@ -3,8 +3,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.inspien.fb.mapper.CustMstMapper">
-    <select id="getData" parameterType="String" resultType="CustMst">
+    <select id="selectOne" parameterType="String" resultType="CustMst">
         SELECT * FROM CustMst WHERE OrgCd = #{OrgCd}
     </select>
+
+    <update id="update" parameterType="CustMst">
+        SELECT * FROM CustMstUPDATE CustMst SET CustNm = #{CustNm} WHERE OrgCd = #{OrgCd}
+    </update>
 </mapper>
 

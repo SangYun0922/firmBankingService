@@ -11,6 +11,7 @@ import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
@@ -44,6 +45,7 @@ import com.inspien.fb.model.StatementResponse;
 import com.inspien.fb.mapper.CustMstMapper;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.servlet.tags.Param;
 
 @Slf4j
 @RestController
@@ -197,10 +199,9 @@ public class FirmAPIController {
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
 
-	@PostMapping ("/bankstatement/test") //테스팅을 위한 라우터
-	public ResponseEntity externalcust(HttpServletRequest request, @RequestHeader HttpHeaders headers,  @RequestBody(required = false) byte[] body) throws IOException, URISyntaxException {
+	@PostMapping ("/bankstatement/test") //거래명세 CallBackURL 테스팅을 위한 라우터
+	public ResponseEntity externalCust(HttpServletRequest request, @RequestHeader HttpHeaders headers,  @RequestBody(required = false) byte[] body) throws IOException, URISyntaxException {
 		String today = DateTimeFormatter.ofPattern("yyyyMMddmmss").format(ZonedDateTime.now());
-		System.out.println("today = " + today);
 		Gson gson = new Gson();
 		StatementRequest statementReq = gson.fromJson(new String(body), StatementRequest.class);
 		log.info("StatementRequest={},{}", statementReq.getOrg_code(), statementReq);
@@ -210,6 +211,23 @@ public class FirmAPIController {
 		response.setRequest_at(today);
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
+
+
+	@PostMapping("/CustMst/update") //DB update 라우터
+	public void dbUpdate(@RequestBody Map<String, Object> requestData) {
+		requestData.entrySet().forEach(stringObjectEntry -> {
+			System.out.println("stringObjectEntry.getKey() = " + stringObjectEntry.getKey());
+			System.out.println("stringObjectEntry.getValue() = " + stringObjectEntry.getValue());
+		});
+		log.info("requestData = {}",requestData);
+	}
+
+//	@PostMapping("/CustMst/update") //DB update 라우터
+//	public void dbUpdate(@RequestBody(required = false) byte[] body) {
+//		Gson gson = new Gson();
+//		CustMst custMst = gson.fromJson(new String(body), CustMst.class);
+//		log.info("CustMst = {}", new String(body));
+//	}
 
 	private void writeLog(HttpServletRequest request, HttpHeaders headers, byte[] body) {
 		LocalDateTime dateTime = LocalDateTime.now();
