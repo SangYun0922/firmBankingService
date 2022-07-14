@@ -1,14 +1,11 @@
 //2022.07.07 created
 package com.inspien.fb.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
-@Builder
+@Data
 @AllArgsConstructor
 public class CustMst {
     private String CustId;
@@ -18,4 +15,5 @@ public class CustMst {
     private String InUse;
 
     public CustMst() {}
+
 }

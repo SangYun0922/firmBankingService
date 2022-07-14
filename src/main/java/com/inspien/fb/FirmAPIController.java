@@ -11,6 +11,7 @@ import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
@@ -157,10 +158,10 @@ public class FirmAPIController {
 
 		List<CustMst> custData = custMstService.getData(statementReq.getOrg_code()); //Connection to mariaDB
 
+		log.debug("CustMst = {}", custData);
 		if (custData.size() == 1) { //org_code는 유일해야 한다. 따라서 쿼리 결과도 오직 단 한개이다.
 			if (custData.get(0).getInUse().equals("Y")) { //각 고객정보의 InUse 필드를 조회하여 "Y"라면 현재 사용하는 계정이고, "Y"가 아니라면 사용하지 않는 계정이다.
 				try {
-					log.debug("CustMst List ={}", custData.get(0));
 					if (custData.get(0).getCallbackURL() != null) {
 						try{
 							callbackUrl = custData.get(0).getCallbackURL();
@@ -209,24 +210,25 @@ public class FirmAPIController {
 	}
 
 
-	@PutMapping("/CustMst/update/{id}") //DB update 라우터. put메소드이며 경로에 id를 주었다.
-	public void dbUpdate(@PathVariable String id, @RequestBody byte[] requestData) {
+	@PostMapping("/CustMst/update/") //DB update 라우터. put메소드이며 경로에 id를 주었다. id pk다.
+	public void dbUpdate(@RequestBody Map<String, Map<String, String>> requestData) {
+		log.debug("----------------------------------------");
+		log.info("requestData = {}", requestData);
 
 		Gson gson = new Gson();
-		CustMst custMst = gson.fromJson(new String(requestData), CustMst.class);
-		custMst.setCustId(id);
+		String jsonStr = gson.toJson(requestData.get("SET"));
+		CustMst custMst = gson.fromJson(jsonStr, CustMst.class);
+		custMst.setCustId(requestData.get("WHERE").get("CustId"));
+
 		log.info("custMst = {}", custMst.getCustId());
 		log.info("custMst = {}", custMst.getCustNm());
 		log.info("custMst = {}", custMst.getInUse());
 		log.info("custMst = {}", custMst.getCallbackURL());
 		log.info("custMst = {}", custMst.getOrgCd());
+		log.info("cache_key = {}", requestData.get("WHERE").get("pre_OrgCd"));
 
-//		CustMst custMst = CustMst.builder()
-//				.CustId("0000000004")
-//				.CustNm("최지희_2")
-//				.InUse("Y")
-//				.build();
-		log.info("updateResult = {}", custMstService.updateData(custMst));
+		log.info("updateResult = {}", custMstService.updateData(custMst, requestData.get("WHERE").get("pre_OrgCd")));
+		log.debug("----------------------------------------");
 	}
 
 //	@PostMapping("/CustMst/update") //DB update 라우터
