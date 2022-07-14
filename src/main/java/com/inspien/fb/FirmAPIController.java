@@ -26,11 +26,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.google.gson.Gson;
 import com.inspien.fb.model.TransferRequest;
@@ -213,13 +209,24 @@ public class FirmAPIController {
 	}
 
 
-	@PostMapping("/CustMst/update") //DB update 라우터
-	public void dbUpdate(@RequestBody Map<String, Object> requestData) {
-		requestData.entrySet().forEach(stringObjectEntry -> {
-			System.out.println("stringObjectEntry.getKey() = " + stringObjectEntry.getKey());
-			System.out.println("stringObjectEntry.getValue() = " + stringObjectEntry.getValue());
-		});
-		log.info("requestData = {}",requestData);
+	@PutMapping("/CustMst/update/{id}") //DB update 라우터. put메소드이며 경로에 id를 주었다.
+	public void dbUpdate(@PathVariable String id, @RequestBody byte[] requestData) {
+
+		Gson gson = new Gson();
+		CustMst custMst = gson.fromJson(new String(requestData), CustMst.class);
+		custMst.setCustId(id);
+		log.info("custMst = {}", custMst.getCustId());
+		log.info("custMst = {}", custMst.getCustNm());
+		log.info("custMst = {}", custMst.getInUse());
+		log.info("custMst = {}", custMst.getCallbackURL());
+		log.info("custMst = {}", custMst.getOrgCd());
+
+//		CustMst custMst = CustMst.builder()
+//				.CustId("0000000004")
+//				.CustNm("최지희_2")
+//				.InUse("Y")
+//				.build();
+		log.info("updateResult = {}", custMstService.updateData(custMst));
 	}
 
 //	@PostMapping("/CustMst/update") //DB update 라우터

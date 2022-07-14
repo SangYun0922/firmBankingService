@@ -13,7 +13,9 @@ import java.util.Map;
 @Mapper
 public interface CustMstMapper {
 
-    List<CustMst> selectOne(String OrgCd);
+    public int insert(CustMst params); //insertOne
+    public List<CustMst> selectOne(String OrgCd); //read
+    public int update(CustMst params); //updateOne
 }
 
 

@@ -22,5 +22,8 @@ public class CustMstService {
         return  custMstMapper.selectOne(OrgCd);
     }
 
+    public int updateData(CustMst custMst) {
+        return custMstMapper.update(custMst);
+    }
 //    @CachePut(value = "CustMst", key = "")
 }
