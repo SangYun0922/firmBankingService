@@ -13,6 +13,7 @@ public class CustMst {
     private String OrgCd;
     private String CallbackURL;
     private String InUse;
+    private String isErr; //MariaDb에서 쿼리한 결과에 에러가 있는지 판별하기 위한 변수
 
     public CustMst() {}
 

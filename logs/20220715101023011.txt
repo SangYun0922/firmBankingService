@@ -1,0 +1,20 @@
+content-type = application/json
+user-agent = PostmanRuntime/7.29.0
+accept = */*
+postman-token = bc15ebf6-2213-4d39-9c68-62adc98c0abd
+host = localhost:9000
+accept-encoding = gzip, deflate, br
+connection = keep-alive
+content-length = 598
+
+{
+"org_code":"10000264","bank_code":"081",
+"natv_tr_no":"090001","send_dt":"20220602","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}
