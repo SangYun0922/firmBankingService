@@ -209,28 +209,6 @@ public class FirmAPIController {
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
 
-
-//	@PostMapping("/CustMst/update/") //DB update 라우터. put메소드이며 경로에 id를 주었다. id pk다.
-//	public void dbUpdate(@RequestBody Map<String, Map<String, String>> requestData) {
-//		log.debug("----------------------------------------");
-//		log.info("requestData = {}", requestData);
-//
-//		Gson gson = new Gson();
-//		String jsonStr = gson.toJson(requestData.get("SET"));
-//		CustMst custMst = gson.fromJson(jsonStr, CustMst.class);
-//		custMst.setCustId(requestData.get("WHERE").get("CustId"));
-//
-//		log.info("custMst = {}", custMst.getCustId());
-//		log.info("custMst = {}", custMst.getCustNm());
-//		log.info("custMst = {}", custMst.getInUse());
-//		log.info("custMst = {}", custMst.getCallbackURL());
-//		log.info("custMst = {}", custMst.getOrgCd());
-//		log.info("cache_key = {}", requestData.get("WHERE").get("CacheKey"));
-//
-//		log.info("updateResult = {}", custMstService.updateData(custMst, requestData.get("WHERE").get("CacheKey")));
-//		log.debug("----------------------------------------");
-//	}
-
 	@PutMapping("/CustMst/update/{id}") //DB update 라우터
 	public void dbUpdate(@PathVariable String id, @RequestBody(required = false) byte[] body) {
 		Gson gson = new Gson();
