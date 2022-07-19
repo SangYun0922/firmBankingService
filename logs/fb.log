@@ -75,3 +75,61 @@
 [2022-07-18 17:24:59.742:28972][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
 [2022-07-18 17:24:59.742:28972][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - 200  ==> {"status":200,"request_at":"202207182459"}
 [2022-07-18 17:24:59.742:28972][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.3, cipher suite TLS_AES_128_GCM_SHA256
+[2022-07-19 15:05:34.391:921][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 93221 (/Users/skwx50000/Desktop/spring/firmBankingService/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService)
+[2022-07-19 15:05:34.394:924][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-07-19 15:05:34.398:928][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-07-19 15:05:36.691:3221][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 2.98 seconds (JVM running for 3.883)
+[2022-07-19 15:05:45.700:12230][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.FirmAPIController - vanAccessCount=1, POST, 598, /firmapi/rt/v1/bankstatement
+[2022-07-19 15:05:45.708:12238][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.FirmAPIController - StatementRequest=10000264,StatementRequest(org_code=10000264, bank_code=081, natv_tr_no=090001, send_dt=20220602, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665)
+[2022-07-19 15:05:45.976:12506][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT CustId, CustNm, OrgCd, CallbackURL, InUse FROM CustMst WHERE OrgCd = ?
+[2022-07-19 15:05:45.988:12518][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-07-19 15:05:46.007:12537][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-07-19 15:05:46.010:12540][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.FirmAPIController - CustMst = [CustMst(CustId=0000000003, CustNm=Test_acc1, OrgCd=10000264, CallbackURL=https://localhost:9000/bankstatement/test, InUse=Y, isErr=null)]
+[2022-07-19 15:05:46.016:12546][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.FirmAPIController - callbackurl=https://localhost:9000/bankstatement/test
+[2022-07-19 15:05:46.045:12575][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.svc.FBService - req, callbackURL= StatementRequest(org_code=10000264, bank_code=081, natv_tr_no=090001, send_dt=20220602, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665), https://localhost:9000/bankstatement/test
+[2022-07-19 15:05:46.115:12645][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-07-19 15:05:46.116:12646][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://localhost:9000/bankstatement/test ==> {
+  "org_code" : "10000264",
+  "bank_code" : "081",
+  "natv_tr_no" : "090001",
+  "send_dt" : "20220602",
+  "send_tm" : "133243",
+  "account" : "52212601",
+  "scf_dt" : "20201222",
+  "scf_tm" : "150550",
+  "rnd_gb_code" : "21",
+  "scf_code" : "30",
+  "amount" : 5000,
+  "obc_amount" : 0,
+  "after_sign" : "-",
+  "after_amount" : 10000,
+  "cms_code" : "",
+  "can_tr_no" : "000000",
+  "can_ogn_dt" : "00000000",
+  "account_cntn" : "XXXXXX",
+  "cpt_rtu_org_code" : "100000XX",
+  "cpt_rtu_ogn_tr_dt" : "20220124",
+  "cpt_rtu_ogn_orr_no" : "ORRNO20220124142358912582",
+  "rv_nm" : "XXXXX",
+  "cpt_rtu_yn" : "Y",
+  "cpt_rq_dt" : "20201223",
+  "cpt_rq_no" : "FR5829495665"
+}
+[2022-07-19 15:05:46.206:12736][https-jsse-nio-9000-exec-2] INFO  com.inspien.fb.FirmAPIController - StatementRequest=10000264,StatementRequest(org_code=10000264, bank_code=081, natv_tr_no=090001, send_dt=20220602, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665)
+[2022-07-19 15:05:46.243:12773][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-07-19 15:05:46.244:12774][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - 200  ==> {"status":200,"request_at":"202207190546"}
+[2022-07-19 15:05:46.244:12774][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.3, cipher suite TLS_AES_128_GCM_SHA256
+[2022-07-19 15:06:23.347:49877][https-jsse-nio-9000-exec-2] INFO  com.inspien.fb.FirmAPIController - CustMst = {
+    "CustNm" : "Test_acc_change",
+    "InUse" : "N"
+}
+
+
+
+[2022-07-19 15:06:23.364:49894][https-jsse-nio-9000-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.update - ==>  Preparing: UPDATE CustMst SET CustNm = CASE WHEN ? IS NULL THEN CustNm ELSE ? END, CallbackURL = CASE WHEN ? IS NULL THEN CallbackURL ELSE ? END, InUse = CASE WHEN ? IS NULL THEN InUse ELSE ? END, UpdatedAt = NOW() WHERE OrgCd = ?
+[2022-07-19 15:06:23.371:49901][https-jsse-nio-9000-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.update - ==> Parameters: Test_acc_change(String), Test_acc_change(String), null, null, N(String), N(String), 10000265(String)
+[2022-07-19 15:06:23.382:49912][https-jsse-nio-9000-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.update - <==    Updates: 1
+[2022-07-19 15:06:23.383:49913][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT CustId, CustNm, OrgCd, CallbackURL, InUse FROM CustMst WHERE OrgCd = ?
+[2022-07-19 15:06:23.383:49913][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000265(String)
+[2022-07-19 15:06:23.395:49925][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-07-19 15:06:23.406:49936][https-jsse-nio-9000-exec-2] INFO  com.inspien.fb.FirmAPIController - updateResult = [CustMst(CustId=0000000004, CustNm=Test_acc_change, OrgCd=10000265, CallbackURL=https://localhost:9000/bankstatement/test, InUse=N, isErr=null)]
