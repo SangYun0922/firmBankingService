@@ -11,8 +11,6 @@ import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
@@ -38,29 +36,26 @@ import com.inspien.fb.svc.FBService;
 import com.inspien.fb.model.StatementRequest;
 import com.inspien.fb.model.StatementResponse;
 
-//2022.07.07 created
-import com.inspien.fb.mapper.CustMstMapper;
-
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.servlet.tags.Param;
 
 @Slf4j
 @RestController
-//@RequestMapping("/mock")
 public class FirmAPIController {
 	
 	// ec2-3-39-156-237.ap-northeast-2.compute.amazonaws.com
 
 	//2022.07.07 created;
-	@Autowired
-	CustMstService custMstService;
+	private CustMstService custMstService;
+	public FirmAPIController(CustMstService custMstService) {
+		this.custMstService = custMstService;
+	}
 
-	@Value("${mocklogging.header}") 
-	boolean bHeaderLogging;
-	@Value("${mocklogging.body}") 
-	boolean bBodyLogging;
-	@Value("${mocklogging.location}") 
-	String location;
+//	@Value("${mocklogging.header}")
+	boolean bHeaderLogging = true; //true
+//	@Value("${mocklogging.body}")
+	boolean bBodyLogging = true; // true
+//	@Value("${mocklogging.location}")
+	String location = "./logs"; // ./logs
 	
 	private AtomicInteger index = new AtomicInteger();
 	DecimalFormat intFormatter = new DecimalFormat("000");
