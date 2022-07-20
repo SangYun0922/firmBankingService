@@ -102,11 +102,10 @@ public class FirmAPIController {
 		TransferResponse response = null;
 
 		List<CustMst> custData = custMstService.getData(transferReq.getOrg_code()); //Connect to mariaDB
-
+		log.info("CustMst List ={}", custData.get(0));
 		if(custData.size() == 1) {
 			if (custData.get(0).getInUse().equals("Y")) { //각 고객정보의 InUse 필드를 조회하여 "Y"라면 현재 사용하는 계정이고, "Y"가 아니라면 사용하지 않는 계정이다.
 				try {
-					log.debug("CustMst List ={}", custData.get(0));
 					response = fbSvc.transfer(transferReq);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -153,7 +152,7 @@ public class FirmAPIController {
 
 		List<CustMst> custData = custMstService.getData(statementReq.getOrg_code()); //Connection to mariaDB
 
-		log.debug("CustMst = {}", custData);
+		log.info("CustMst = {}", custData);
 		if (custData.size() == 1) { //org_code는 유일해야 한다. 따라서 쿼리 결과도 오직 단 한개이다.
 			if (custData.get(0).getInUse().equals("Y")) { //각 고객정보의 InUse 필드를 조회하여 "Y"라면 현재 사용하는 계정이고, "Y"가 아니라면 사용하지 않는 계정이다.
 				try {
@@ -211,6 +210,15 @@ public class FirmAPIController {
 		custMst.setOrgCd(id);
 		log.info("CustMst = {}", new String(body));
 		log.info("updateResult = {}", custMstService.updateData(custMst));
+	}
+
+	@PostMapping("/CachingTest") //CacheTest 라우터 (cache의 경우)
+	public void Cached(@RequestBody(required = false) byte[] body) throws IOException, URISyntaxException {
+		Gson gson = new Gson();
+		TransferRequest transferReq = gson.fromJson(new String(body), TransferRequest.class);
+		log.info("TransferRequest={},{}", transferReq.getOrg_code(), transferReq);
+		List<CustMst> custData = custMstService.getData(transferReq.getOrg_code()); //Connect to mariaDB
+		log.info("CustMst = {}", custData);
 	}
 
 	private void writeLog(HttpServletRequest request, HttpHeaders headers, byte[] body) {
