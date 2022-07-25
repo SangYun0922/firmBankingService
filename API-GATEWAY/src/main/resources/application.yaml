@@ -1,0 +1,49 @@
+
+spring:
+  application:
+    name: api-gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: FIRMBANKING-TRANSFER
+          uri: https://localhost:9000/
+          predicates:
+            - Path=/firmapi/**
+          filters:
+            - RewritePath=/firmapi/(?<segment>.*), /$\{segment}
+        - id: TEST-SERVICE-1
+          predicates:
+            - Path=/first-service/**
+          uri: lb://TEST-SERVICE-1
+          filters:
+            - RewritePath=/first-service/(?<segment>.*), /$\{segment}
+        - id: TEST-SERVICE-2
+          predicates:
+            - Path=/second-service/**
+          uri: lb://TEST-SERVICE-2
+          filters:
+            - RewritePath=/second-service/(?<segment>.*), /$\{segment}
+
+server:
+  port: 8080
+  ssl:
+    enabled: true
+    key-alias: firmkey
+    key-store: firmkeystore-test.pkcs12
+    key-store-password: 123456
+    key-password: 123456
+    trust-store: firmkeytrust.ts
+    trust-store-password: 123456
+
+eureka:
+  instance:
+    hostname: localhost
+    non-secure-port-enabled: false
+    secure-port-enabled: true
+    secure-port: ${server.port}
+    home-page-url: https://${eureka.instance.hostname}:${server.port}/
+    status-page-url: https://${eureka.instance.hostname}:${server.port}/info
+    health-check-url: https://${eureka.instance.hostname}:${server.port}/health
+  client:
+    service-url:
+      defaultZone: http://localhost:6901/eureka/
