@@ -5,12 +5,18 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: FIRMBANKING-TRANSFER
-          uri: https://localhost:9000/
+        - id: TRANSFER-SERVICE
+          uri: lb://TRANSFER-SERVICE
           predicates:
-            - Path=/firmapi/**
-          filters:
-            - RewritePath=/firmapi/(?<segment>.*), /$\{segment}
+            - Path=/transfer/**
+#          filters:
+#            - RewritePath=/firmapi/(?<segment>.*), /$\{segment}
+        - id: BANKSTATEMENT-SERVICE
+          uri: lb://BANKSTATEMENT-SERVICE
+          predicates:
+            - Path=/bankstatement/**
+#          filters:
+#            - RewritePath=/firmapi-2/(?<segment>.*), /$\{segment}
         - id: TEST-SERVICE-1
           predicates:
             - Path=/first-service/**
