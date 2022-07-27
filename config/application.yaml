@@ -84,7 +84,9 @@ spring:
     driver-class-name: org.mariadb.jdbc.Driver
     username: root
     password: 1234
-
+  # update (07/07)
+  mybatis:
+    aes-encrypt-key: test
 
   mail:
     #    host: ezsmtp.bizmeka.com

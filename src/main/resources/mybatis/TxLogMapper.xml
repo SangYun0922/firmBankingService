@@ -15,13 +15,17 @@
         Status,
         StartDT,
         EndDT,
-        EncData
+        EncData,
+        NatvTrNo,
+        ErrCode,
+        ErrMsg
     </sql>
 
-    <insert id="logAdd" parameterType="TxLog">
+    <insert id="logAdd" parameterType="MAP">
 
         INSERT INTO txlog(<include refid="TxLogColums" />) values(
-                  #{TxIdx},#{CustId},#{TxDate},#{TelegramNo},#{TxType},#{BankCd},
-                     #{Size},#{RoundTrip},#{StmtCnt},#{Status},#{StartDT},#{EndDT},#{EncData})
+        #{logData.TxIdx},#{logData.CustId},#{logData.TxDate},#{logData.TelegramNo},#{logData.TxType},#{logData.BankCd},
+                     #{logData.Size},#{logData.RoundTrip},#{logData.StmtCnt},#{logData.Status},#{logData.StartDT},#{logData.EndDT},
+                        HEX(AES_ENCRYPT(#{logData.EncData},SHA2(#{key},512))),#{logData.NatvTrNo},#{logData.ErrCode},#{logData.ErrMsg})
     </insert>
 </mapper>

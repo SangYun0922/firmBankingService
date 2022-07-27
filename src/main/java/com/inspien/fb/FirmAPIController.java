@@ -63,6 +63,8 @@ public class FirmAPIController {
 	boolean bBodyLogging;
 	@Value("${mocklogging.location}") 
 	String location;
+	@Value("${spring.mybatis.aes-encrypt-key}")
+	private String key;
 	
 	private AtomicInteger index = new AtomicInteger();
 	DecimalFormat intFormatter = new DecimalFormat("000");
@@ -97,7 +99,7 @@ public class FirmAPIController {
 		stopWatch.start();
 		String txIndexFormat = DateTimeFormatter.ofPattern("yyyyMMddHHmmss").format(startDateTime);
 		String dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(startDateTime);
-		System.out.println(startDateTime);
+		System.out.println(key);
 
 		if (this.index.intValue() >= 999) {
 			this.index.set(0);
@@ -119,6 +121,8 @@ public class FirmAPIController {
 
 		Gson gson = new Gson();
 		TransferRequest transferReq = gson.fromJson(new String(body), TransferRequest.class);
+		String encData = gson.toJson(new String(body));
+		System.out.println("encData ==> " + encData);
 		log.info("TransferRequest={},{}", transferReq.getOrg_code(), transferReq);
 
 		System.out.println("(상세)1-1  고객으로부터 ==> "+request+" | "+transferReq);
@@ -127,13 +131,15 @@ public class FirmAPIController {
 
 		txLogByJson.addProperty("TxIdx",txIndex);
 		txLogByJson.addProperty("TelegramNo",transferReq.getTelegram_no());
-//		txLogByJson.addProperty("TxType",);
+		txLogByJson.addProperty("TxType",1); //transfer = 1; read = 2; bankstatment = 3
 		txLogByJson.addProperty("BankCd",transferReq.getRv_bank_code());
 		txLogByJson.addProperty("Size",size);
 		txLogByJson.addProperty("TxDate", dateFormat);
 		txLogByJson.addProperty("StartDT", String.valueOf((startDateTime)) + ZoneId.of("+09:00"));
 		long txNo = telegramMgr.getNowCounter(transferReq.getOrg_code());
 		txLogByJson.addProperty("StmtCnt", txNo);
+		txLogByJson.addProperty("EncData", encData);
+
 
 
 		//FBService svc = new FBService();
@@ -166,20 +172,27 @@ public class FirmAPIController {
 		System.out.println("(상세)1-4  고객에게 ==> "+response+" | "+gson.toJson(response));
 		LocalDateTime endDateTime = LocalDateTime.now();
 		stopWatch.stop();
-		System.out.println(response.getStatus());
+
+		//json에 res넣기
 		if (Objects.equals(response.getStatus(), 200)){
-			txLogByJson.addProperty("Status","T");
+			txLogByJson.addProperty("NatvTrNo",response.getNatv_tr_no());
+//			txLogByJson.addProperty("ErrCode","test");
+//			txLogByJson.addProperty("ErrMsg","test");
+
 		}else{
-			txLogByJson.addProperty("Status","F");
+//			txLogByJson.addProperty("NatvTrNo","test");
+			txLogByJson.addProperty("ErrCode",response.getError_code());
+			txLogByJson.addProperty("ErrMsg",response.getError_message());
 		}
+		txLogByJson.addProperty("Status",response.getStatus());
 		txLogByJson.addProperty("EndDT", String.valueOf((endDateTime)) + ZoneId.of("+09:00"));
 		txLogByJson.addProperty("RoundTrip",stopWatch.getTotalTimeSeconds());
 		System.out.println(txLogByJson);
 
-		//json을 TxLog클래스로 변환
+		//json을 TxLog클래스로 변환 후 insert
 		txLog = gson.fromJson(txLogByJson,TxLog.class);
-		System.out.println(txLog.getTxDate());
-		txLogMapper.logAdd(txLog);
+
+		txLogMapper.logAdd(key,txLog);
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
 
@@ -271,58 +284,4 @@ public class FirmAPIController {
 		log.info("updateResult = {}", custMstService.updateData(custMst));
 	}
 
-//	private void writeLog(HttpServletRequest request, HttpHeaders headers, byte[] body) {
-//		LocalDateTime dateTime = LocalDateTime.now();
-//        String timeStamp = DateTimeFormatter.ofPattern("yyyyMMddHHmmss").format(dateTime);
-//		if (this.index.intValue() >= 999) {
-//			this.index.set(0);
-//		}
-//		String seq = intFormatter.format(this.index.incrementAndGet());
-//
-//		Path p = Paths.get(location, timeStamp+seq+".txt");
-//		try {
-//			ByteArrayOutputStream bos = new ByteArrayOutputStream();
-//
-//			if(bHeaderLogging && headers != null) {
-//
-//				headers.forEach((key, value) -> {
-//					try {
-//						bos.write(String.format(
-//						  "%s = %s" + System.lineSeparator(), key, value.stream().collect(Collectors.joining("|"))).getBytes());
-//					} catch (IOException e) {
-//					}
-//			    });
-//				bos.write(System.lineSeparator().getBytes());
-//
-//			}
-//			if(bBodyLogging && body != null) {
-//				bos.write(body);
-//				Enumeration params = request.getParameterNames();
-//				while(params.hasMoreElements()) {
-//					String name = (String) params.nextElement();
-//					System.out.println(name + " : " + request.getParameter(name) + "     ");
-//				}
-//
-//			}
-//			Files.write(p, bos.toByteArray(), StandardOpenOption.CREATE);
-//
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//	}
-
-//	private TxLog insertLog() {
-//		TxLog txLog = new TxLog();
-//		LocalDateTime dateTime = LocalDateTime.now();
-//		String timeStamp = DateTimeFormatter.ofPattern("yyyyMMddHHmmss").format(dateTime);
-//		String sqlDateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(dateTime);
-//		if (this.index.intValue() >= 999) {
-//			this.index.set(0);
-//		}
-//		String seq = intFormatter.format(this.index.incrementAndGet());
-//		txLog.setTxIdx(timeStamp+seq);
-//		txLog.setTxDate(Date.valueOf(sqlDateFormat));
-//		txLog.setStartDT(Timestamp.valueOf(dateTime));
-//		return txLog;
-//	}
 }

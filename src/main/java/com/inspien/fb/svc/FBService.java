@@ -93,6 +93,7 @@ public class FBService{
 		}
 		
 		TransferResponse res = null;
+		log.info("txNo : {}", txNo);
 		try {
 			req.setTelegram_no(txNo);
 	 		res = proxy.transfer(req);

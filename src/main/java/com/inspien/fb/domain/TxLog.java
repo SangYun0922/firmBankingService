@@ -23,11 +23,14 @@ public class TxLog {
     private long Size; //header content-length
     private BigDecimal RoundTrip; //
     private int StmtCnt; //
-    private Character Status;
+    private String Status;
     private Timestamp StartDT;
     private Timestamp EndDT;
-//    private String EncData;
-    private byte[] EncData;
+    private String EncData;
+//    private byte[] EncData;
+    private String NatvTrNo;
+    private String ErrCode;
+    private String ErrMsg;
 
     public TxLog(){}
 }

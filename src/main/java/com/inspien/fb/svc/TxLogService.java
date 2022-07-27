@@ -8,7 +8,7 @@ public class TxLogService {
     @Autowired
     private TxLogMapper txLogMapper;
 
-    public boolean logAdd(TxLog log){
-        return txLogMapper.logAdd(log);
+    public boolean logAdd(String key,TxLog log){
+        return txLogMapper.logAdd(key,log);
     }
 }
