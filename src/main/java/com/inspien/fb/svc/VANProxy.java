@@ -83,7 +83,7 @@ public abstract class VANProxy {
 		String responseBody = null;
 		CloseableHttpClient httpClient = HttpClients.custom().setConnectionManager(cm).build();
 		
-        final HttpPost httppost = new HttpPost(url);
+        final HttpPost httppost = new HttpPost(url); //url = callback URL
         
     	for (Map.Entry<String, String> entry : headers.entrySet()) {
 			String key = entry.getKey();
@@ -101,8 +101,12 @@ public abstract class VANProxy {
 
         final HttpClientContext clientContext = HttpClientContext.create();
 
+		//1-2
+		System.out.println("(상세)1-2  고객으로부터 ==> " + req);
         try (CloseableHttpResponse response = httpClient.execute(httppost, clientContext)) {
             responseBody = EntityUtils.toString(response.getEntity());
+			//1-3
+			System.out.println("(상세)1-3  고객에게 ==> " + response);
         	log.debug("----------------------------------------");
         	log.debug("{} {} ==> {}", response.getCode(), response.getReasonPhrase(), responseBody);
 
