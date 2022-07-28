@@ -1,19 +1,13 @@
 package com.inspien.fb;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.text.DecimalFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -99,14 +93,13 @@ public class FirmAPIController {
 		stopWatch.start();
 		String txIndexFormat = DateTimeFormatter.ofPattern("yyyyMMddHHmmss").format(startDateTime);
 		String dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(startDateTime);
-		System.out.println(key);
+		String txtype = "1";
 
 		if (this.index.intValue() >= 999) {
 			this.index.set(0);
 		}
 		String seq = intFormatter.format(this.index.incrementAndGet());
-		System.out.println(seq);
-		String txIndex = txIndexFormat + seq;
+		String txIndex = txIndexFormat+ "_"+txtype +seq;
 
 		long count = accessCount.incrementAndGet();
 		String uri = request.getRequestURI();
@@ -117,36 +110,20 @@ public class FirmAPIController {
 			//log.debug("{}", new String(body));
 			log.debug("accessCount={}, {}, {}, {}", count , method, size, uri);
 		}
-//		writeLog(request, headers, body);
 
 		Gson gson = new Gson();
 		TransferRequest transferReq = gson.fromJson(new String(body), TransferRequest.class);
 		String encData = gson.toJson(new String(body));
-		System.out.println("encData ==> " + encData);
-		log.info("TransferRequest={},{}", transferReq.getOrg_code(), transferReq);
-
-		System.out.println("(상세)1-1  고객으로부터 ==> "+request+" | "+transferReq);
-		JsonObject txLogByJson = new JsonObject();
-		TxLog txLog = null;
-
-		txLogByJson.addProperty("TxIdx",txIndex);
-		txLogByJson.addProperty("TelegramNo",transferReq.getTelegram_no());
-		txLogByJson.addProperty("TxType",1); //transfer = 1; read = 2; bankstatment = 3
-		txLogByJson.addProperty("BankCd",transferReq.getRv_bank_code());
-		txLogByJson.addProperty("Size",size);
-		txLogByJson.addProperty("TxDate", dateFormat);
-		txLogByJson.addProperty("StartDT", String.valueOf((startDateTime)) + ZoneId.of("+09:00"));
 		long txNo = telegramMgr.getNowCounter(transferReq.getOrg_code());
-		txLogByJson.addProperty("StmtCnt", txNo);
-		txLogByJson.addProperty("EncData", encData);
 
+		log.info("TransferRequest={},{}", transferReq.getOrg_code(), transferReq);
+		System.out.println("(상세)1-1  고객으로부터 ==> "+request+" | "+transferReq);
 
 
 		//FBService svc = new FBService();
 		TransferResponse response = null;
 
 		List<CustMst> custData = custMstService.getData(transferReq.getOrg_code()); //Connect to mariaDB
-		txLogByJson.addProperty("CustId",custData.get(0).getCustId());
 
 		if(custData.size() == 1) {
 			if (custData.get(0).getInUse().equals("Y")) { //각 고객정보의 InUse 필드를 조회하여 "Y"라면 현재 사용하는 계정이고, "Y"가 아니라면 사용하지 않는 계정이다.
@@ -173,25 +150,33 @@ public class FirmAPIController {
 		LocalDateTime endDateTime = LocalDateTime.now();
 		stopWatch.stop();
 
+		JsonObject txLogByJson = new JsonObject();
+		TxLog txLog = null;
+
 		//json에 res넣기
 		if (Objects.equals(response.getStatus(), 200)){
 			txLogByJson.addProperty("NatvTrNo",response.getNatv_tr_no());
-//			txLogByJson.addProperty("ErrCode","test");
-//			txLogByJson.addProperty("ErrMsg","test");
-
 		}else{
-//			txLogByJson.addProperty("NatvTrNo","test");
 			txLogByJson.addProperty("ErrCode",response.getError_code());
 			txLogByJson.addProperty("ErrMsg",response.getError_message());
 		}
-		txLogByJson.addProperty("Status",response.getStatus());
-		txLogByJson.addProperty("EndDT", String.valueOf((endDateTime)) + ZoneId.of("+09:00"));
+		txLogByJson.addProperty("TxIdx",txIndex);
+		txLogByJson.addProperty("CustId",custData.get(0).getCustId());
+		txLogByJson.addProperty("TxDate", dateFormat);
+		txLogByJson.addProperty("TelegramNo",transferReq.getTelegram_no());
+		txLogByJson.addProperty("TxType", txtype); //transfer = 1; read = 2; bankstatment = 3
+		txLogByJson.addProperty("BankCd",transferReq.getRv_bank_code());
+		txLogByJson.addProperty("Size",size);
 		txLogByJson.addProperty("RoundTrip",stopWatch.getTotalTimeSeconds());
-		System.out.println(txLogByJson);
+		txLogByJson.addProperty("StmtCnt", txNo);
+		txLogByJson.addProperty("Status",response.getStatus());
+		txLogByJson.addProperty("StartDT", String.valueOf((startDateTime)) + ZoneId.of("+09:00"));
+		txLogByJson.addProperty("EncData", encData);
+		txLogByJson.addProperty("EndDT", String.valueOf((endDateTime)) + ZoneId.of("+09:00"));
+		log.info("transaction json Data for DB ==> {}",txLogByJson);
 
 		//json을 TxLog클래스로 변환 후 insert
 		txLog = gson.fromJson(txLogByJson,TxLog.class);
-
 		txLogMapper.logAdd(key,txLog);
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
@@ -199,7 +184,19 @@ public class FirmAPIController {
 	//거래명세 라우터 => van -> 서비스 -> 고객사
 	@PostMapping("/firmapi/rt/v1/bankstatement")
 	public ResponseEntity vanGateway(HttpServletRequest request, @RequestHeader HttpHeaders headers,  @RequestBody(required = false) byte[] body) throws IOException, URISyntaxException {
+		LocalDateTime startDateTime = LocalDateTime.now();
+		StopWatch stopWatch = new StopWatch();
+		stopWatch.start();
+		String txIndexFormat = DateTimeFormatter.ofPattern("yyyyMMddHHmmss").format(startDateTime);
+		String dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(startDateTime);
+		String txtype = "3";
 		long count = vanAccessCount.incrementAndGet();
+
+		if (this.vanAccessCount.intValue() >= 999) {
+			this.vanAccessCount.set(0);
+		}
+		String seq = intFormatter.format(count);
+		String txIndex = txIndexFormat + "_"+txtype +seq;
 
 		String uri = request.getRequestURI();
 		String method = request.getMethod();
@@ -211,12 +208,11 @@ public class FirmAPIController {
 
 		Gson gson = new Gson();
 		StatementRequest statementReq = gson.fromJson(new String(body), StatementRequest.class);
-
+		String encData = gson.toJson(new String(body));
 		log.info("StatementRequest={},{}", statementReq.getOrg_code(), statementReq);
 
-//		writeLog(request, headers, body);
+		System.out.println("(상세)2-1  고객으로부터 ==> "+request+" | "+statementReq);
 
-		//FBService svc = new FBService();
 		StatementResponse response = null; //svc.transfer(null);
 		String callbackUrl = "";
 
@@ -257,6 +253,36 @@ public class FirmAPIController {
 		else if (custData.size() > 1) {
 			response = new StatementResponse(401, "1001", "ORG_CODE_DUPLICATE_OCCURRENCE"); //org_code로 쿼리하였을떄, 결과값이 여러개라면 에러
 		}
+		log.info("bankStatement response ==> {}",response);
+		LocalDateTime endDateTime = LocalDateTime.now();
+		stopWatch.stop();
+
+		JsonObject txLogByJson = new JsonObject();
+		TxLog txLog = null;
+
+		//json에 res넣기
+		if (response.getStatus()!=200){
+			txLogByJson.addProperty("ErrCode",response.getError_code());
+			txLogByJson.addProperty("ErrMsg",response.getError_message());
+		}
+		txLogByJson.addProperty("TxIdx",txIndex);
+		txLogByJson.addProperty("CustId",custData.get(0).getCustId());
+		txLogByJson.addProperty("TxDate", dateFormat);
+//		txLogByJson.addProperty("TelegramNo",);
+		txLogByJson.addProperty("TxType", txtype); //transfer = 1; read = 2; bankstatment = 3
+		txLogByJson.addProperty("BankCd",statementReq.getBank_code());
+		txLogByJson.addProperty("Size",size);
+		txLogByJson.addProperty("RoundTrip",stopWatch.getTotalTimeSeconds());
+//		txLogByJson.addProperty("StmtCnt", count);
+		txLogByJson.addProperty("Status",response.getStatus());
+		txLogByJson.addProperty("StartDT", String.valueOf((startDateTime)) + ZoneId.of("+09:00"));
+		txLogByJson.addProperty("EncData", encData);
+		txLogByJson.addProperty("EndDT", String.valueOf((endDateTime)) + ZoneId.of("+09:00"));
+		log.info("bankStatement json Data for DB ==> {}",txLogByJson);
+
+		//json을 TxLog클래스로 변환 후 insert
+		txLog = gson.fromJson(txLogByJson,TxLog.class);
+		txLogMapper.logAdd(key,txLog);
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
 
@@ -283,5 +309,9 @@ public class FirmAPIController {
 		log.info("CustMst = {}", new String(body));
 		log.info("updateResult = {}", custMstService.updateData(custMst));
 	}
+
+//	public void insertDataBaseLog(String TxIdx,String CustId,String TxDate,String TelegramNo,String TxType,String BankCd){
+//
+//	}
 
 }

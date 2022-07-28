@@ -14,15 +14,15 @@ import java.sql.Timestamp;
 
 public class TxLog {
     //VO
-    private String TxIdx; //timestamp + seq
-    private String CustId; //?
-    private String TxDate; //now
-    private String TelegramNo; //telegram_no
-    private String TxType; //?
-    private String BankCd; //rv_bank_code
-    private long Size; //header content-length
-    private BigDecimal RoundTrip; //
-    private int StmtCnt; //
+    private String TxIdx; //timestamp + _txtyp + seq
+    private String CustId;
+    private String TxDate; //now date
+    private String TelegramNo; //?
+    private String TxType; //transfer = 1; read = 2; bankstate = 3
+    private String BankCd;
+    private long Size; //header's content-length
+    private BigDecimal RoundTrip;
+    private int StmtCnt; //transfer -> txNo; bankstate -> vanAccessCount
     private String Status;
     private Timestamp StartDT;
     private Timestamp EndDT;
