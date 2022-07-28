@@ -1,7 +1,9 @@
 package com.inspien.fb;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URISyntaxException;
+import java.sql.Timestamp;
 import java.text.DecimalFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -12,11 +14,14 @@ import java.util.concurrent.atomic.AtomicLong;
 import javax.servlet.http.HttpServletRequest;
 
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.inspien.fb.domain.CustMst;
 import com.inspien.fb.domain.TxLog;
 import com.inspien.fb.mapper.TxLogMapper;
 import com.inspien.fb.svc.CustMstService;
 import com.inspien.fb.svc.FileTelegramManager;
+import org.apache.ibatis.jdbc.Null;
+import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -60,7 +65,7 @@ public class FirmAPIController {
 	@Value("${spring.mybatis.aes-encrypt-key}")
 	private String key;
 	
-	private AtomicInteger index = new AtomicInteger();
+	private AtomicLong index = new AtomicLong();
 	DecimalFormat intFormatter = new DecimalFormat("000");
 	
 	private AtomicLong accessCount = new AtomicLong(0);
@@ -91,15 +96,8 @@ public class FirmAPIController {
 		LocalDateTime startDateTime = LocalDateTime.now();
 		StopWatch stopWatch = new StopWatch();
 		stopWatch.start();
-		String txIndexFormat = DateTimeFormatter.ofPattern("yyyyMMddHHmmss").format(startDateTime);
-		String dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(startDateTime);
-		String txtype = "1";
 
-		if (this.index.intValue() >= 999) {
-			this.index.set(0);
-		}
-		String seq = intFormatter.format(this.index.incrementAndGet());
-		String txIndex = txIndexFormat+ "_"+txtype +seq;
+
 
 		long count = accessCount.incrementAndGet();
 		String uri = request.getRequestURI();
@@ -113,7 +111,7 @@ public class FirmAPIController {
 
 		Gson gson = new Gson();
 		TransferRequest transferReq = gson.fromJson(new String(body), TransferRequest.class);
-		String encData = gson.toJson(new String(body));
+		System.out.println("String Body ===> "+new String(body));
 		long txNo = telegramMgr.getNowCounter(transferReq.getOrg_code());
 
 		log.info("TransferRequest={},{}", transferReq.getOrg_code(), transferReq);
@@ -149,35 +147,10 @@ public class FirmAPIController {
 		System.out.println("(상세)1-4  고객에게 ==> "+response+" | "+gson.toJson(response));
 		LocalDateTime endDateTime = LocalDateTime.now();
 		stopWatch.stop();
-
-		JsonObject txLogByJson = new JsonObject();
-		TxLog txLog = null;
-
-		//json에 res넣기
-		if (Objects.equals(response.getStatus(), 200)){
-			txLogByJson.addProperty("NatvTrNo",response.getNatv_tr_no());
-		}else{
-			txLogByJson.addProperty("ErrCode",response.getError_code());
-			txLogByJson.addProperty("ErrMsg",response.getError_message());
-		}
-		txLogByJson.addProperty("TxIdx",txIndex);
-		txLogByJson.addProperty("CustId",custData.get(0).getCustId());
-		txLogByJson.addProperty("TxDate", dateFormat);
-		txLogByJson.addProperty("TelegramNo",transferReq.getTelegram_no());
-		txLogByJson.addProperty("TxType", txtype); //transfer = 1; read = 2; bankstatment = 3
-		txLogByJson.addProperty("BankCd",transferReq.getRv_bank_code());
-		txLogByJson.addProperty("Size",size);
-		txLogByJson.addProperty("RoundTrip",stopWatch.getTotalTimeSeconds());
-		txLogByJson.addProperty("StmtCnt", txNo);
-		txLogByJson.addProperty("Status",response.getStatus());
-		txLogByJson.addProperty("StartDT", String.valueOf((startDateTime)) + ZoneId.of("+09:00"));
-		txLogByJson.addProperty("EncData", encData);
-		txLogByJson.addProperty("EndDT", String.valueOf((endDateTime)) + ZoneId.of("+09:00"));
-		log.info("transaction json Data for DB ==> {}",txLogByJson);
-
-		//json을 TxLog클래스로 변환 후 insert
-		txLog = gson.fromJson(txLogByJson,TxLog.class);
-		txLogMapper.logAdd(key,txLog);
+		System.out.println("String respond ===>" + gson.toJson(response));
+		String reqBody = new String(body);
+		String resBody = gson.toJson(response);
+		insertDataBaseLog(custData.get(0).getCustId(),startDateTime,endDateTime,1,size,stopWatch.getTotalTimeSeconds(),txNo,reqBody,resBody,index);
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
 
@@ -189,21 +162,13 @@ public class FirmAPIController {
 		stopWatch.start();
 		String txIndexFormat = DateTimeFormatter.ofPattern("yyyyMMddHHmmss").format(startDateTime);
 		String dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(startDateTime);
-		String txtype = "3";
-		long count = vanAccessCount.incrementAndGet();
-
-		if (this.vanAccessCount.intValue() >= 999) {
-			this.vanAccessCount.set(0);
-		}
-		String seq = intFormatter.format(count);
-		String txIndex = txIndexFormat + "_"+txtype +seq;
 
 		String uri = request.getRequestURI();
 		String method = request.getMethod();
 		long size = request.getContentLengthLong();
 
 		if(log.isInfoEnabled()) {
-			log.info("vanAccessCount={}, {}, {}, {}", count , method, size, uri);
+			log.info("vanAccessCount={}, {}, {}, {}", vanAccessCount , method, size, uri);
 		}
 
 		Gson gson = new Gson();
@@ -257,32 +222,10 @@ public class FirmAPIController {
 		LocalDateTime endDateTime = LocalDateTime.now();
 		stopWatch.stop();
 
-		JsonObject txLogByJson = new JsonObject();
-		TxLog txLog = null;
+		String reqBody = new String(body);
+		String resBody = gson.toJson(response);
+		insertDataBaseLog(custData.get(0).getCustId(),startDateTime,endDateTime,3,size,stopWatch.getTotalTimeSeconds(),0,reqBody,resBody,vanAccessCount);
 
-		//json에 res넣기
-		if (response.getStatus()!=200){
-			txLogByJson.addProperty("ErrCode",response.getError_code());
-			txLogByJson.addProperty("ErrMsg",response.getError_message());
-		}
-		txLogByJson.addProperty("TxIdx",txIndex);
-		txLogByJson.addProperty("CustId",custData.get(0).getCustId());
-		txLogByJson.addProperty("TxDate", dateFormat);
-//		txLogByJson.addProperty("TelegramNo",);
-		txLogByJson.addProperty("TxType", txtype); //transfer = 1; read = 2; bankstatment = 3
-		txLogByJson.addProperty("BankCd",statementReq.getBank_code());
-		txLogByJson.addProperty("Size",size);
-		txLogByJson.addProperty("RoundTrip",stopWatch.getTotalTimeSeconds());
-//		txLogByJson.addProperty("StmtCnt", count);
-		txLogByJson.addProperty("Status",response.getStatus());
-		txLogByJson.addProperty("StartDT", String.valueOf((startDateTime)) + ZoneId.of("+09:00"));
-		txLogByJson.addProperty("EncData", encData);
-		txLogByJson.addProperty("EndDT", String.valueOf((endDateTime)) + ZoneId.of("+09:00"));
-		log.info("bankStatement json Data for DB ==> {}",txLogByJson);
-
-		//json을 TxLog클래스로 변환 후 insert
-		txLog = gson.fromJson(txLogByJson,TxLog.class);
-		txLogMapper.logAdd(key,txLog);
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
 
@@ -310,8 +253,51 @@ public class FirmAPIController {
 		log.info("updateResult = {}", custMstService.updateData(custMst));
 	}
 
-//	public void insertDataBaseLog(String TxIdx,String CustId,String TxDate,String TelegramNo,String TxType,String BankCd){
-//
-//	}
+	public void insertDataBaseLog(String CustId, LocalDateTime startDateTime,LocalDateTime endDateTime, int TxType,
+								  long Size, double RoundTrip, long StmtCnt,String request,String response,AtomicLong cnt){
+		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		String txIndexFormat = DateTimeFormatter.ofPattern("yyyyMMddHHmmss").format(startDateTime);
+
+		Gson gson = new Gson();
+		JsonObject txLogByJson = new JsonObject();
+		TxLog txLog = null;
+		JsonObject reqJson = JsonParser.parseString(request).getAsJsonObject();
+		JsonObject resJson = JsonParser.parseString(response).getAsJsonObject();
+		System.out.println("inner method respond ==> "+resJson);
+		System.out.println("inner method request ==> "+reqJson);
+
+		if (cnt.intValue() >= 999) {
+			cnt.set(0);
+		}
+		String seq = intFormatter.format(cnt.incrementAndGet());
+		String txIndex = txIndexFormat+ "_"+TxType +seq;
+
+		if (Objects.equals(resJson.get("status").getAsInt(), 200)){
+			if(Objects.equals(TxType,1)){
+				txLogByJson.addProperty("NatvTrNo",resJson.get("natv_tr_no").getAsString());
+			} else if(Objects.equals(TxType,3)){
+				txLogByJson.addProperty("NatvTrNo",reqJson.get("natv_tr_no").getAsString());
+			}
+		}else{
+			txLogByJson.addProperty("ErrCode",resJson.get("error_code").getAsString());
+			txLogByJson.addProperty("ErrMsg",resJson.get("error_message").getAsString());
+		}
+		txLogByJson.addProperty("TxIdx",txIndex);
+		txLogByJson.addProperty("CustId",CustId);
+		txLogByJson.addProperty("TxDate", dateFormat.format(startDateTime));
+		txLogByJson.addProperty("TelegramNo",TxType == 1?reqJson.get("telegram_no").getAsString() : null);
+		txLogByJson.addProperty("TxType", TxType); //transfer = 1; read = 2; bankstatment = 3
+		txLogByJson.addProperty("BankCd",reqJson.get(TxType == 1?"rv_bank_code":"bank_code").getAsString());
+		txLogByJson.addProperty("Size",Size);
+		txLogByJson.addProperty("RoundTrip",RoundTrip);
+		txLogByJson.addProperty("StmtCnt", StmtCnt);
+		txLogByJson.addProperty("Status",resJson.get("status").getAsString());
+		txLogByJson.addProperty("StartDT",String.valueOf((startDateTime)) + ZoneId.of("+09:00"));
+		txLogByJson.addProperty("EncData", request);
+		txLogByJson.addProperty("EndDT", String.valueOf((endDateTime)) + ZoneId.of("+09:00"));
+
+		txLog = gson.fromJson(txLogByJson,TxLog.class);
+		txLogMapper.logAdd(key,txLog);
+	}
 
 }

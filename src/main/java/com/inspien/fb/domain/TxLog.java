@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 
 public class TxLog {
     //VO
-    private String TxIdx; //timestamp + _txtyp + seq
+    private String TxIdx; //timestamp_txtyp seq
     private String CustId;
     private String TxDate; //now date
     private String TelegramNo; //?
