@@ -11,11 +11,15 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
+import java.time.LocalDateTime;
 import java.util.Map;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 
+import com.google.gson.Gson;
+import com.inspien.fb.ApplicationContextProvider;
+import com.inspien.fb.WriteLogs;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
@@ -58,6 +62,8 @@ public abstract class VANProxy {
 	CloseableHttpClient httpClient = null;
 	KeyStore trustKeyStore;
 	HttpClientConnectionManager cm = null;
+
+	private WriteLogs writeLogs = (WriteLogs) ApplicationContextProvider.getBean(WriteLogs.class);
 	
 	public void init(String trustKeyStorePath, String trustKeyStorePassword) throws KeyManagementException, NoSuchAlgorithmException, KeyStoreException, CertificateException, FileNotFoundException, IOException, UnrecoverableKeyException {
 		if(trustKeyStorePath != null) {
@@ -95,6 +101,7 @@ public abstract class VANProxy {
         
         // set requestbody
         httppost.setEntity(new StringEntity(req));
+		Gson gson = new Gson();
         
     	log.debug("----------------------------------------");
         log.debug("Executing request {} {} ==> {}" , httppost.getMethod() , httppost.getUri(), req);
@@ -102,12 +109,13 @@ public abstract class VANProxy {
         final HttpClientContext clientContext = HttpClientContext.create();
 
 		//1-2
-		System.out.println("(상세)1-2  고객으로부터 ==> " + req);
+		writeLogs.insertFileLog(2,1,"null","null", LocalDateTime.now(),"server","van  ",gson.toJson(req));
         try (CloseableHttpResponse response = httpClient.execute(httppost, clientContext)) {
             responseBody = EntityUtils.toString(response.getEntity());
 			//1-3
-			System.out.println("(상세)1-3  고객에게 ==> " + response);
-        	log.debug("----------------------------------------");
+			writeLogs.insertFileLog(3,1,"null","null", LocalDateTime.now(),"van  ","server",responseBody);
+
+			log.debug("----------------------------------------");
         	log.debug("{} {} ==> {}", response.getCode(), response.getReasonPhrase(), responseBody);
 
             final SSLSession sslSession = clientContext.getSSLSession();

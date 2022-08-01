@@ -22,7 +22,7 @@ public class TxLog {
     private String BankCd;
     private long Size; //header's content-length
     private BigDecimal RoundTrip;
-    private int StmtCnt; //transfer -> txNo; bankstate -> vanAccessCount
+    private Integer StmtCnt; //transfer -> txNo; bankstate -> vanAccessCount
     private String Status;
     private Timestamp StartDT;
     private Timestamp EndDT;
