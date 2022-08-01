@@ -19,7 +19,9 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.inspien.fb.domain.CustMst;
 import com.inspien.fb.domain.TxLog;
+import com.inspien.fb.domain.TxTrace;
 import com.inspien.fb.mapper.TxLogMapper;
+import com.inspien.fb.mapper.TxTraceMapper;
 import com.inspien.fb.svc.CustMstService;
 import com.inspien.fb.svc.FileTelegramManager;
 import org.apache.ibatis.jdbc.Null;
@@ -74,6 +76,8 @@ public class FirmAPIController {
 
 	@Autowired
 	ConfigMgmt configMgmt;
+	@Autowired
+	FileTelegramManager telegramMgr;
 	
 	@Autowired
 	FBService fbSvc;
@@ -92,6 +96,7 @@ public class FirmAPIController {
 		stopWatch.start();
 
 		String txIndexFormat = DateTimeFormatter.ofPattern("yyyyMMddHHmmss").format(startDateTime);
+		String custId = custData.get(0).getCustId();
 
 		String uri = request.getRequestURI();
 		String method = request.getMethod();
@@ -114,7 +119,7 @@ public class FirmAPIController {
 		List<CustMst> custData = custMstService.getData(transferReq.getOrg_code()); //Connect to mariaDB
 
 		log.info("TransferRequest={},{}", transferReq.getOrg_code(), transferReq);
-		writeLogs.insertFileLog(1,1,txIndex,custData.get(0).getCustId(),startDateTime,"null","server",String.valueOf(transferReq));
+		writeLogs.insertFileLog(1,1,txIndex,custId,startDateTime,"null","server",String.valueOf(transferReq));
 
 		//log file 작성
 		Path p = Paths.get(location, txIndex+".txt");
@@ -142,10 +147,12 @@ public class FirmAPIController {
 		}
 		LocalDateTime endDateTime = LocalDateTime.now();
 		stopWatch.stop();
-		writeLogs.insertFileLog(4,1,txIndex,custData.get(0).getCustId(),endDateTime,"server","null",String.valueOf(response));
+		writeLogs.insertFileLog(4,1,txIndex,custId,endDateTime,"server","null",String.valueOf(response));
 		String reqBody = new String(body);
 		String resBody = gson.toJson(response);
-		writeLogs.insertDataBaseLog(custData.get(0).getCustId(),startDateTime,endDateTime,1,size,stopWatch.getTotalTimeSeconds(),reqBody,resBody,txIndex);
+		writeLogs.insertDataBaseLog(custId,startDateTime,endDateTime,1,size,stopWatch.getTotalTimeSeconds(),reqBody,resBody,txIndex);
+		writeLogs.insertTxTraceLog(startDateTime,custId,telegramMgr.getNowCounter(transferReq.getOrg_code()));
+
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
 
@@ -156,7 +163,7 @@ public class FirmAPIController {
 		StopWatch stopWatch = new StopWatch();
 		stopWatch.start();
 		String txIndexFormat = DateTimeFormatter.ofPattern("yyyyMMddHHmmss").format(startDateTime);
-
+		String custId = custData.get(0).getCustId();
 		String uri = request.getRequestURI();
 		String method = request.getMethod();
 		long size = request.getContentLengthLong();
@@ -178,7 +185,7 @@ public class FirmAPIController {
 		List<CustMst> custData = custMstService.getData(statementReq.getOrg_code()); //Connection to mariaDB
 
 		System.out.println("(상세)2-1  고객으로부터 ==> "+request+" | "+statementReq);
-		writeLogs.insertFileLog(1,3,txIndex,custData.get(0).getCustId(),startDateTime,"server","null",String.valueOf(statementReq));
+		writeLogs.insertFileLog(1,3,txIndex,custId,startDateTime,"van  ","server",String.valueOf(statementReq));
 
 
 		StatementResponse response = null; //svc.transfer(null);
@@ -223,12 +230,11 @@ public class FirmAPIController {
 		log.info("bankStatement response ==> {}",response);
 		LocalDateTime endDateTime = LocalDateTime.now();
 		stopWatch.stop();
-		writeLogs.insertFileLog(4,3,txIndex,custData.get(0).getCustId(),endDateTime,"server","van  ",String.valueOf(response));
+		writeLogs.insertFileLog(4,3,txIndex,custId,endDateTime,"server","van  ",String.valueOf(response));
 
 		String reqBody = new String(body);
 		String resBody = gson.toJson(response);
-		writeLogs.insertDataBaseLog(custData.get(0).getCustId(),startDateTime,endDateTime,3,size,stopWatch.getTotalTimeSeconds(),reqBody,resBody,txIndex);
-
+		writeLogs.insertDataBaseLog(custId,startDateTime,endDateTime,3,size,stopWatch.getTotalTimeSeconds(),reqBody,resBody,txIndex);
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
 

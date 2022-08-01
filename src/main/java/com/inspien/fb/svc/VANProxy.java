@@ -107,13 +107,23 @@ public abstract class VANProxy {
         log.debug("Executing request {} {} ==> {}" , httppost.getMethod() , httppost.getUri(), req);
 
         final HttpClientContext clientContext = HttpClientContext.create();
+		int txType = 0;
+		String to = "";
+		String from = "";
+		if (httppost.getUri().getPath().contains("transfer")){
+			txType = 1;
+			to = "server";
+			from = "van  ";
+		}else if(httppost.getUri().getPath().contains("bankstatement")){
+			txType = 3;
+			to = "server";
+			from = "null";
+		}
 
-		//1-2
-		writeLogs.insertFileLog(2,1,"null","null", LocalDateTime.now(),"server","van  ",gson.toJson(req));
+		writeLogs.insertFileLog(2,txType,"null","null", LocalDateTime.now(),to,from,gson.toJson(req));
         try (CloseableHttpResponse response = httpClient.execute(httppost, clientContext)) {
             responseBody = EntityUtils.toString(response.getEntity());
-			//1-3
-			writeLogs.insertFileLog(3,1,"null","null", LocalDateTime.now(),"van  ","server",responseBody);
+			writeLogs.insertFileLog(3,txType,"null","null", LocalDateTime.now(),from,to,responseBody);
 
 			log.debug("----------------------------------------");
         	log.debug("{} {} ==> {}", response.getCode(), response.getReasonPhrase(), responseBody);
