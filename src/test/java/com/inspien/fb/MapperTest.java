@@ -38,19 +38,5 @@ public class MapperTest {
 
     @Test
     public void testOfUpdate() {
-         CustMst custMst = CustMst.builder()
-                 .CustId("0000000004")
-                 .CustNm("최지희")
-                 .OrgCd("19990916")
-                 .CallbackURL("https://localhost:9000/변경완료")
-                 .InUse("N")
-                 .build();
-         log.info("CustMst = {}", custMst.getCustNm());
-         int result = custMstMapper.update(custMst);
-         if (result == 1) {
-             System.out.println("update완료!");
-         } else {
-             System.out.println("update실패ㅠㅠ");
-         }
     }
 }

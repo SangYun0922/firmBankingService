@@ -41,35 +41,33 @@ import com.inspien.fb.model.TransferRequest;
 import com.inspien.fb.model.TransferResponse;
 import com.inspien.fb.svc.FBService;
 
-//2022.07.01 StatementRequest, StatementResponse added
 import com.inspien.fb.model.StatementRequest;
 import com.inspien.fb.model.StatementResponse;
-
-//2022.07.07 created
-
 import lombok.extern.slf4j.Slf4j;
-
 import static java.time.LocalTime.now;
 
 @Slf4j
 @RestController
-//@RequestMapping("/mock")
 public class FirmAPIController {
 	
 	// ec2-3-39-156-237.ap-northeast-2.compute.amazonaws.com
 
-	//2022.07.07 created;
 	@Autowired
 	CustMstService custMstService;
-
-	@Value("${mocklogging.header}") 
-	boolean bHeaderLogging;
-	@Value("${mocklogging.body}") 
-	boolean bBodyLogging;
-	@Value("${mocklogging.location}") 
-	String location;
-
 	private AtomicLong index = new AtomicLong();
+
+	public FirmAPIController(CustMstService custMstService) {
+		this.custMstService = custMstService;
+	}
+
+//	@Value("${mocklogging.header}")
+	boolean bHeaderLogging = true; //true
+//	@Value("${mocklogging.body}")
+	boolean bBodyLogging = true; // true
+//	@Value("${mocklogging.location}")
+	String location = "./logs"; // ./logs
+	
+
 	DecimalFormat intFormatter = new DecimalFormat("000");
 	
 	private AtomicLong accessCount = new AtomicLong(0);
@@ -125,13 +123,9 @@ public class FirmAPIController {
 		log.info("TransferRequest={},{}", transferReq.getOrg_code(), transferReq);
 		writeLogs.insertFileLog(1,1,txIndex,custId,startDateTime,"null","server",String.valueOf(transferReq));
 
-		//log file 작성
-		Path p = Paths.get(location, txIndex+".txt");
-
 		if(custData.size() == 1) {
 			if (custData.get(0).getInUse().equals("Y")) { //각 고객정보의 InUse 필드를 조회하여 "Y"라면 현재 사용하는 계정이고, "Y"가 아니라면 사용하지 않는 계정이다.
 				try {
-					log.debug("CustMst List ={}", custData.get(0));
 					response = fbSvc.transfer(transferReq);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -193,7 +187,7 @@ public class FirmAPIController {
 		String callbackUrl = "";
 
 
-		log.debug("CustMst = {}", custData);
+		log.info("CustMst = {}", custData);
 		if (custData.size() == 1) { //org_code는 유일해야 한다. 따라서 쿼리 결과도 오직 단 한개이다.
 			if (custData.get(0).getInUse().equals("Y")) { //각 고객정보의 InUse 필드를 조회하여 "Y"라면 현재 사용하는 계정이고, "Y"가 아니라면 사용하지 않는 계정이다.
 				try {
@@ -264,5 +258,13 @@ public class FirmAPIController {
 		log.info("updateResult = {}", custMstService.updateData(custMst));
 	}
 
+	@PostMapping("/CachingTest") //CacheTest 라우터 (cache의 경우)
+	public void Cached(@RequestBody(required = false) byte[] body) throws IOException, URISyntaxException {
+		Gson gson = new Gson();
+		TransferRequest transferReq = gson.fromJson(new String(body), TransferRequest.class);
+		log.info("TransferRequest={},{}", transferReq.getOrg_code(), transferReq);
+		List<CustMst> custData = custMstService.getData(transferReq.getOrg_code()); //Connect to mariaDB
+		log.info("CustMst = {}", custData);
+	}
 
 }
