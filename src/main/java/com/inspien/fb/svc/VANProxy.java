@@ -11,11 +11,15 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
+import java.time.LocalDateTime;
 import java.util.Map;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 
+import com.google.gson.Gson;
+import com.inspien.fb.ApplicationContextProvider;
+import com.inspien.fb.WriteLogs;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
@@ -58,6 +62,8 @@ public abstract class VANProxy {
 	CloseableHttpClient httpClient = null;
 	KeyStore trustKeyStore;
 	HttpClientConnectionManager cm = null;
+
+	private WriteLogs writeLogs = (WriteLogs) ApplicationContextProvider.getBean(WriteLogs.class);
 	
 	public void init(String trustKeyStorePath, String trustKeyStorePassword) throws KeyManagementException, NoSuchAlgorithmException, KeyStoreException, CertificateException, FileNotFoundException, IOException, UnrecoverableKeyException {
 		if(trustKeyStorePath != null) {
@@ -83,7 +89,7 @@ public abstract class VANProxy {
 		String responseBody = null;
 		CloseableHttpClient httpClient = HttpClients.custom().setConnectionManager(cm).build();
 		
-        final HttpPost httppost = new HttpPost(url);
+        final HttpPost httppost = new HttpPost(url); //url = callback URL
         
     	for (Map.Entry<String, String> entry : headers.entrySet()) {
 			String key = entry.getKey();
@@ -95,15 +101,31 @@ public abstract class VANProxy {
         
         // set requestbody
         httppost.setEntity(new StringEntity(req));
+		Gson gson = new Gson();
         
     	log.debug("----------------------------------------");
         log.debug("Executing request {} {} ==> {}" , httppost.getMethod() , httppost.getUri(), req);
 
         final HttpClientContext clientContext = HttpClientContext.create();
+		int txType = 0;
+		String to = "";
+		String from = "";
+		if (httppost.getUri().getPath().contains("transfer")){
+			txType = 1;
+			to = "server";
+			from = "van  ";
+		}else if(httppost.getUri().getPath().contains("bankstatement")){
+			txType = 3;
+			to = "server";
+			from = "null";
+		}
 
+		writeLogs.insertFileLog(2,txType,"null","null", LocalDateTime.now(),to,from,gson.toJson(req));
         try (CloseableHttpResponse response = httpClient.execute(httppost, clientContext)) {
             responseBody = EntityUtils.toString(response.getEntity());
-        	log.debug("----------------------------------------");
+			writeLogs.insertFileLog(3,txType,"null","null", LocalDateTime.now(),from,to,responseBody);
+
+			log.debug("----------------------------------------");
         	log.debug("{} {} ==> {}", response.getCode(), response.getReasonPhrase(), responseBody);
 
             final SSLSession sslSession = clientContext.getSSLSession();

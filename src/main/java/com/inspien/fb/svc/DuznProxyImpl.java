@@ -70,9 +70,6 @@ public class DuznProxyImpl extends VANProxy{
 		Map<String, String> headers = new HashMap<String, String>();
 		headers.put("Content-Type", "application/json");
 
-		System.out.println("headers = " + headers);
-		System.out.println("targetUrl = " + targetUrl);
-		System.out.println("reqJson = " + reqJson);
 		String responseBody = callAPIPost(targetUrl, reqJson, headers);
 		StatementResponse response = om.readValue(responseBody, StatementResponse.class) ;
 

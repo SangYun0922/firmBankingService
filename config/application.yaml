@@ -77,15 +77,22 @@ spring:
     cache: false
     check-template-location: true
   # update (07/19) 기존 local Storage에서 RDS로 연결
+
+  datasource:
+    url: jdbc:mariadb://localhost:3307/firmbanking
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: root
+    password: 1234
+
 #  datasource:
 #    url: jdbc:mariadb://firmbankingapi.cwtbzbyluijp.ap-northeast-2.rds.amazonaws.com/firmbanking
 #    driver-class-name: org.mariadb.jdbc.Driver
 #    username: inspien_test
 #    password: 12345678
+
   # update (07/07)
   mybatis:
-    type-aliases-package: com.inspien.fb.domain;  # entity가 존재하는 경로작성.
-    mapper-locations: mybatis/**.xml        # Mapper.xml이 존재하는 경로작성.
+    aes-encrypt-key: test
 
   mail:
     #    host: ezsmtp.bizmeka.com

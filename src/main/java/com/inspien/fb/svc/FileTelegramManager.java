@@ -70,6 +70,17 @@ public class FileTelegramManager {
 		}
 		bInit = true;
 	}
+
+	public long getNowCounter(String orgCode) {
+		String today = DateTimeFormatter.ofPattern("yyyyMMdd").format(ZonedDateTime.now(ZoneId.of(timezone)));
+		long txNo = 0;
+		if (custCounter.containsKey(orgCode)) {
+			if (custCounter.get(orgCode).containsKey(today)) {
+				txNo = custCounter.get(orgCode).get(today).get();
+			}
+		}
+		return txNo;
+	}
 	
 	public long getNextCounter(String orgCode) throws IOException {
 		String today = DateTimeFormatter.ofPattern("yyyyMMdd").format(ZonedDateTime.now(ZoneId.of(timezone)));

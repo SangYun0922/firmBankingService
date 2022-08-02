@@ -1,0 +1,15 @@
+TxType      To      From        TxIdx                   CustId          TxDate       startDT                 EndDT                       Data
+1       -----       server      20220727164802002       0000000001      2022-07-27      -------------------     2022-07-28 09:47:32         No content to map due to end-of-input at [Source: (String)""; line: 1, column: 0]
+1       server      van         20220727164802002       0000000001      2022-07-27      2022-07-28 09:47:30     -------------------         No content to map due to end-of-input at [Source: (String)""; line: 1, column: 0]
+1       van         server      20220727164802002       0000000001      2022-07-27      -------------------     2022-07-28 09:47:32         No content to map due to end-of-input at [Source: (String)""; line: 1, column: 0]
+1       server      -----       20220727164802002       0000000001      2022-07-27     2022-07-28 09:47:30     -------------------         No content to map due to end-of-input at [Source: (String)""; line: 1, column: 0]
+
+3       van      server       20220727164802002       0000000001      2022-07-27      -------------------     2022-07-28 09:47:30         No content to map due to end-of-input at [Source: (String)""; line: 1, column: 0]
+3       server      -----       20220727164802002       0000000001      2022-07-27      2022-07-28 09:47:30     -------------------         No content to map due to end-of-input at [Source: (String)""; line: 1, column: 0]
+3       -----      server       20220727164802002       0000000001      2022-07-27      -------------------     2022-07-28 09:47:30         No content to map due to end-of-input at [Source: (String)""; line: 1, column: 0]
+3       server      van       20220727164802002       0000000001      2022-07-27      2022-07-28 09:47:30     -------------------         No content to map due to end-of-input at [Source: (String)""; line: 1, column: 0]
+
+
+
+
+1       20220727164802002       0000000001      2022-07-27

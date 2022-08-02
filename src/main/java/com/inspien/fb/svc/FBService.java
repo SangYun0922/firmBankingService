@@ -80,7 +80,7 @@ public class FBService{
 		VANProxy proxy = new DuznProxyImpl();
 		proxy.init(null	, null);
 
-		// call VAN API
+		// call VAN API -> 개시전문
 		if(txNo == 1) {
 			OpenRequest openReq = OpenRequest.builder()
 					.api_key(req.getApi_key())
@@ -93,6 +93,7 @@ public class FBService{
 		}
 		
 		TransferResponse res = null;
+		log.info("txNo : {}", txNo);
 		try {
 			req.setTelegram_no(txNo);
 	 		res = proxy.transfer(req);
