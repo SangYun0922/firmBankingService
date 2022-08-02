@@ -12,9 +12,9 @@
         TxSize
     </sql>
 
-<insert id="insetTxStat" parameterType="TxStat">
-<!--    INSERT INTO TxStat(<include refid="TxStatColumns"/>) VALUES(-->
-<!--        #{TxStat}-->
-<!--    )-->
+<insert id="insertTxStat" parameterType="TxStat">
+    INSERT INTO TxStat(<include refid="TxStatColumns"/>) VALUES(
+        #{CustId},#{TxDate},#{BankCd},#{TxType},#{TxCnt},#{TxSize}) ON DUPLICATE KEY UPDATE
+        TxCnt =TxCnt+ #{TxCnt},TxSize = TxSize+ #{TxSize}
 </insert>
 </mapper>

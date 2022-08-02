@@ -4,8 +4,10 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.inspien.fb.domain.TxLog;
+import com.inspien.fb.domain.TxStat;
 import com.inspien.fb.domain.TxTrace;
 import com.inspien.fb.mapper.TxLogMapper;
+import com.inspien.fb.mapper.TxStatMapper;
 import com.inspien.fb.mapper.TxTraceMapper;
 import com.inspien.fb.svc.FileTelegramManager;
 import lombok.extern.slf4j.Slf4j;
@@ -35,23 +37,26 @@ public class WriteLogs {
 
     @Autowired
     private TxLogMapper txLogMapper;
-
     @Autowired
     private FileTelegramManager telegramMgr;
-
     @Autowired
     private TxTraceMapper txTraceMapper;
+    @Autowired
+    private TxStatMapper txStatMapper;
+
 
     DecimalFormat intFormatter = new DecimalFormat("000");
     private String transactionIdx;
     private String customerId;
+
+    Gson gson = new Gson();
+
 
     public void insertDataBaseLog(String custId, LocalDateTime startDateTime, LocalDateTime endDateTime, int TxType,
                                   long Size, double RoundTrip, String request, String response, String idx){
         log.info("start db insert");
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-        Gson gson = new Gson();
         JsonObject txLogByJson = new JsonObject();
         TxLog txLog = null;
         JsonObject reqJson = JsonParser.parseString(request).getAsJsonObject();
@@ -96,15 +101,13 @@ public class WriteLogs {
 
         FileInputStream fis = null;
         FileOutputStream fos = null;
-        final String nowTxIdx= txIdx+txType;
-        final String nowCustId = custId;
 
         try{
             if (cnt == 1){
                 this.transactionIdx = txIdx+txType;
                 this.customerId = custId;
                 fis = new FileInputStream("logs/format.txt");
-                fos = new FileOutputStream(String.format("logs/%s.txt",nowTxIdx));
+                fos = new FileOutputStream(String.format("logs/%s.txt",transactionIdx));
                 int readData = 0;
                 while(readData !=-1){
                     readData = fis.read();
@@ -114,14 +117,13 @@ public class WriteLogs {
 
             }
 
-            System.out.println("nowTxIdx ==>" + nowTxIdx+" nowCustId ==>" + nowCustId);
             String fromFormat = dateTimeFormatter.format(dateTime);
-            fos = new FileOutputStream(String.format("logs/%s.txt",nowTxIdx),true);
+            fos = new FileOutputStream(String.format("logs/%s.txt",transactionIdx),true);
             fos.write(String.format("%d\t\t",txType).getBytes());
             fos.write(Objects.equals(to, "null") ?"-----\t\t".getBytes():(to+"\t\t").getBytes());
             fos.write(Objects.equals(from, "null") ?"-----\t\t".getBytes():(from+"\t\t").getBytes());
-            fos.write(String.format("%s\t\t",nowTxIdx).getBytes());
-            fos.write(String.format("%s\t\t",nowCustId).getBytes());
+            fos.write(String.format("%s\t\t",transactionIdx).getBytes());
+            fos.write(String.format("%s\t\t",customerId).getBytes());
             fos.write(String.format("%s\t\t",dateFormat.format(dateTime)).getBytes());
             fos.write(Objects.equals(to,"server")?String.format("%s\t\t-------------------\t\t",fromFormat).getBytes():String.format("-------------------\t\t%s\t\t",fromFormat).getBytes());
             fos.write(data.getBytes());
@@ -134,18 +136,32 @@ public class WriteLogs {
     }
 
     //transfer일때만 사용
-    public void insertTxTraceLog(LocalDateTime dateTime,String custId,long telegramNo) throws IOException {
-        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    public void insertTxTraceLog(String dateTime,String custId,long telegramNo) throws IOException {
         JsonObject txTraceByJson = new JsonObject();
         TxTrace txTrace = null;
-        Gson gson = new Gson();
+
         txTraceByJson.addProperty("CustId",custId);
-        txTraceByJson.addProperty("TxDate",dateFormat.format(dateTime));
+        txTraceByJson.addProperty("TxDate",dateTime);
         txTraceByJson.addProperty("TxSequence",telegramNo);
         txTraceByJson.addProperty("TxStarted","Y");
         txTrace = gson.fromJson(txTraceByJson,TxTrace.class);
 
         txTraceMapper.insertOrUpdateTxTrace(txTrace);
+    }
+
+    public void insertTxStatLog(String dateTime, String custId,int txType,long size,String bankCd ){
+        JsonObject txStatByJson = new JsonObject();
+        TxStat txStat = null;
+
+        txStatByJson.addProperty("CustId",custId);
+        txStatByJson.addProperty("TxDate",dateTime);
+        txStatByJson.addProperty("BankCd",bankCd);
+        txStatByJson.addProperty("TxType",txType);
+        txStatByJson.addProperty("TxCnt",1);
+        txStatByJson.addProperty("TxSize",size);
+
+        txStat = gson.fromJson(txStatByJson,TxStat.class);
+        txStatMapper.insertTxStat(txStat);
     }
 
 

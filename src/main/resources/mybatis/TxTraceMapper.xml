@@ -12,7 +12,7 @@
     <insert id="insertOrUpdateTxTrace" parameterType="TxTrace">
         INSERT INTO TxTrace(<include refid="TxTraceColumns"/>) VALUES (
             #{CustId},#{TxDate},#{TxSequence},#{TxStarted}) ON DUPLICATE KEY UPDATE
-            CustId = #{CustId}, TxDate = #{TxDate}, TxSequence = #{TxSequence}, TxStarted = #{TxStarted}
+            TxSequence = #{TxSequence}
     </insert>
 
 </mapper>

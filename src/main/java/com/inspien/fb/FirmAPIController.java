@@ -19,8 +19,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.inspien.fb.domain.CustMst;
 import com.inspien.fb.domain.TxLog;
+import com.inspien.fb.domain.TxStat;
 import com.inspien.fb.domain.TxTrace;
 import com.inspien.fb.mapper.TxLogMapper;
+import com.inspien.fb.mapper.TxStatMapper;
 import com.inspien.fb.mapper.TxTraceMapper;
 import com.inspien.fb.svc.CustMstService;
 import com.inspien.fb.svc.FileTelegramManager;
@@ -78,6 +80,8 @@ public class FirmAPIController {
 	ConfigMgmt configMgmt;
 	@Autowired
 	FileTelegramManager telegramMgr;
+	@Autowired
+	TxStatMapper txStatMapper;
 	
 	@Autowired
 	FBService fbSvc;
@@ -96,7 +100,6 @@ public class FirmAPIController {
 		stopWatch.start();
 
 		String txIndexFormat = DateTimeFormatter.ofPattern("yyyyMMddHHmmss").format(startDateTime);
-		String custId = custData.get(0).getCustId();
 
 		String uri = request.getRequestURI();
 		String method = request.getMethod();
@@ -117,6 +120,7 @@ public class FirmAPIController {
 		TransferRequest transferReq = gson.fromJson(new String(body), TransferRequest.class);
 		TransferResponse response = null;
 		List<CustMst> custData = custMstService.getData(transferReq.getOrg_code()); //Connect to mariaDB
+		String custId = custData.get(0).getCustId();
 
 		log.info("TransferRequest={},{}", transferReq.getOrg_code(), transferReq);
 		writeLogs.insertFileLog(1,1,txIndex,custId,startDateTime,"null","server",String.valueOf(transferReq));
@@ -151,8 +155,8 @@ public class FirmAPIController {
 		String reqBody = new String(body);
 		String resBody = gson.toJson(response);
 		writeLogs.insertDataBaseLog(custId,startDateTime,endDateTime,1,size,stopWatch.getTotalTimeSeconds(),reqBody,resBody,txIndex);
-		writeLogs.insertTxTraceLog(startDateTime,custId,telegramMgr.getNowCounter(transferReq.getOrg_code()));
-
+		writeLogs.insertTxTraceLog(txIndexFormat,custId,telegramMgr.getNowCounter(transferReq.getOrg_code()));
+		writeLogs.insertTxStatLog(txIndexFormat,custId,1,size,transferReq.getRv_bank_code());
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
 
@@ -163,7 +167,6 @@ public class FirmAPIController {
 		StopWatch stopWatch = new StopWatch();
 		stopWatch.start();
 		String txIndexFormat = DateTimeFormatter.ofPattern("yyyyMMddHHmmss").format(startDateTime);
-		String custId = custData.get(0).getCustId();
 		String uri = request.getRequestURI();
 		String method = request.getMethod();
 		long size = request.getContentLengthLong();
@@ -183,11 +186,9 @@ public class FirmAPIController {
 		String encData = gson.toJson(new String(body));
 		log.info("StatementRequest={},{}", statementReq.getOrg_code(), statementReq);
 		List<CustMst> custData = custMstService.getData(statementReq.getOrg_code()); //Connection to mariaDB
+		String custId = custData.get(0).getCustId();
 
-		System.out.println("(상세)2-1  고객으로부터 ==> "+request+" | "+statementReq);
 		writeLogs.insertFileLog(1,3,txIndex,custId,startDateTime,"van  ","server",String.valueOf(statementReq));
-
-
 		StatementResponse response = null; //svc.transfer(null);
 		String callbackUrl = "";
 
@@ -235,6 +236,7 @@ public class FirmAPIController {
 		String reqBody = new String(body);
 		String resBody = gson.toJson(response);
 		writeLogs.insertDataBaseLog(custId,startDateTime,endDateTime,3,size,stopWatch.getTotalTimeSeconds(),reqBody,resBody,txIndex);
+		writeLogs.insertTxStatLog(txIndexFormat,custId,3,size,statementReq.getBank_code());
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
 
