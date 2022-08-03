@@ -92,6 +92,7 @@ public class WriteLogs {
         txLogByJson.addProperty("EndDT", String.valueOf((endDateTime)) + ZoneId.of("+09:00"));
 
         txLog = gson.fromJson(txLogByJson,TxLog.class);
+        log.debug("txlog : {}", txLog);
         txLogMapper.logAdd(key,txLog);
     }
 
@@ -107,7 +108,7 @@ public class WriteLogs {
                 this.transactionIdx = txIdx+txType;
                 this.customerId = custId;
                 fis = new FileInputStream("logs/format.txt");
-                fos = new FileOutputStream(String.format("logs/%s.txt",transactionIdx));
+                fos = new FileOutputStream(String.format("../logs/%s.txt",transactionIdx));
                 int readData = 0;
                 while(readData !=-1){
                     readData = fis.read();
@@ -118,7 +119,7 @@ public class WriteLogs {
             }
 
             String fromFormat = dateTimeFormatter.format(dateTime);
-            fos = new FileOutputStream(String.format("logs/%s.txt",transactionIdx),true);
+            fos = new FileOutputStream(String.format("../logs/%s.txt",transactionIdx),true);
             fos.write(String.format("%d\t\t",txType).getBytes());
             fos.write(Objects.equals(to, "null") ?"-----\t\t".getBytes():(to+"\t\t").getBytes());
             fos.write(Objects.equals(from, "null") ?"-----\t\t".getBytes():(from+"\t\t").getBytes());

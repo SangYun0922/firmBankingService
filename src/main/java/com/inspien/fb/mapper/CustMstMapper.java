@@ -15,6 +15,7 @@ import java.util.Map;
 @Repository
 public interface CustMstMapper {
 
+    public List<String> initData(); //Cache initializing
     public List<CustMst> selectOne(String OrgCd); //read
     public int update(CustMst params); //updateOne
 }

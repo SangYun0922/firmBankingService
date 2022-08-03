@@ -21,9 +21,11 @@ import com.inspien.fb.domain.CustMst;
 import com.inspien.fb.domain.TxLog;
 import com.inspien.fb.domain.TxStat;
 import com.inspien.fb.domain.TxTrace;
+import com.inspien.fb.mapper.CustMstMapper;
 import com.inspien.fb.mapper.TxLogMapper;
 import com.inspien.fb.mapper.TxStatMapper;
 import com.inspien.fb.mapper.TxTraceMapper;
+import com.inspien.fb.model.*;
 import com.inspien.fb.svc.CustMstService;
 import com.inspien.fb.svc.FileTelegramManager;
 import org.apache.ibatis.jdbc.Null;
@@ -37,12 +39,8 @@ import org.springframework.util.StopWatch;
 import org.springframework.web.bind.annotation.*;
 
 import com.google.gson.Gson;
-import com.inspien.fb.model.TransferRequest;
-import com.inspien.fb.model.TransferResponse;
 import com.inspien.fb.svc.FBService;
 
-import com.inspien.fb.model.StatementRequest;
-import com.inspien.fb.model.StatementResponse;
 import lombok.extern.slf4j.Slf4j;
 import static java.time.LocalTime.now;
 
@@ -54,18 +52,16 @@ public class FirmAPIController {
 
 	@Autowired
 	CustMstService custMstService;
+	@Autowired
+	CustMstMapper custMstMapper;
 	private AtomicLong index = new AtomicLong();
 
-	public FirmAPIController(CustMstService custMstService) {
-		this.custMstService = custMstService;
-	}
-
-//	@Value("${mocklogging.header}")
-	boolean bHeaderLogging = true; //true
-//	@Value("${mocklogging.body}")
-	boolean bBodyLogging = true; // true
-//	@Value("${mocklogging.location}")
-	String location = "./logs"; // ./logs
+	@Value("${mocklogging.header}")
+	boolean bHeaderLogging;
+	@Value("${mocklogging.body}")
+	boolean bBodyLogging;
+	@Value("${mocklogging.location}")
+	String location;
 	
 
 	DecimalFormat intFormatter = new DecimalFormat("000");
@@ -91,7 +87,7 @@ public class FirmAPIController {
 	}
 
 	//계좌이체 라우터 => 외부고객 -> 서비스 -> van
-	@PostMapping("/firmapi/rt/v1/**")
+	@PostMapping("/transfer")
 	public ResponseEntity proxyPost(HttpServletRequest request, @RequestHeader HttpHeaders headers,  @RequestBody(required = false) byte[] body) throws IOException, URISyntaxException {
 		LocalDateTime startDateTime = LocalDateTime.now();
 		StopWatch stopWatch = new StopWatch();
@@ -154,8 +150,24 @@ public class FirmAPIController {
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
 
+	@PostMapping("/api/rt/v1/transfer/check")
+	public ResponseEntity checkTransfer(HttpServletRequest request, @RequestHeader HttpHeaders headers, @RequestBody(required = false) byte[] body) throws IOException, URISyntaxException {
+		Gson gson = new Gson();
+		TransferCheckRequest transferCheckReq = gson.fromJson(new String(body), TransferCheckRequest.class);
+		log.info("transferCheckRequest : {}", transferCheckReq);
+		TransferCheckResponse response = null;
+		try {
+			response = fbSvc.transfer(transferCheckReq);
+		} catch (Exception e) {
+			e.printStackTrace();
+			log.error("{}", e);
+			response = new TransferCheckResponse(500, "9999", e.getMessage());
+		}
+		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
+	}
+
 	//거래명세 라우터 => van -> 서비스 -> 고객사
-	@PostMapping("/firmapi/rt/v1/bankstatement")
+	@PostMapping("/bankstatement")
 	public ResponseEntity vanGateway(HttpServletRequest request, @RequestHeader HttpHeaders headers,  @RequestBody(required = false) byte[] body) throws IOException, URISyntaxException {
 		LocalDateTime startDateTime = LocalDateTime.now();
 		StopWatch stopWatch = new StopWatch();
@@ -248,14 +260,21 @@ public class FirmAPIController {
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
 
-	//cache 테스트를 위한 라우터
-	@PutMapping("/CustMst/update/{id}") //DB update 라우터
-	public void dbUpdate(@PathVariable String id, @RequestBody(required = false) byte[] body) {
-		Gson gson = new Gson();
-		CustMst custMst = gson.fromJson(new String(body), CustMst.class);
-		custMst.setOrgCd(id);
-		log.info("CustMst = {}", new String(body));
-		log.info("updateResult = {}", custMstService.updateData(custMst));
+	@GetMapping("/update") //DB update 라우터, 해당 라우터로 요청이 들어오게 되면, Cache를 Evict한뒤, 다시 refresh한다.
+	public String dbUpdate() {
+		log.debug("----------------------------------------");
+		System.out.println("Arrived Message!");
+		log.debug("----------------------------------------");
+		log.debug("start local cache initializing");
+		log.debug("----------------------------------------");
+		custMstService.clearData();
+		List<String> OrgCdList = custMstMapper.initData();
+		for (String e : OrgCdList)
+			custMstService.getData(e);
+		log.debug("----------------------------------------");
+		log.debug("complete local cache initializing");
+		log.debug("----------------------------------------");
+		return "update complete";
 	}
 
 	@PostMapping("/CachingTest") //CacheTest 라우터 (cache의 경우)

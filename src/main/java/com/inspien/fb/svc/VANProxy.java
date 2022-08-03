@@ -20,6 +20,7 @@ import javax.net.ssl.SSLSession;
 import com.google.gson.Gson;
 import com.inspien.fb.ApplicationContextProvider;
 import com.inspien.fb.WriteLogs;
+import com.inspien.fb.model.*;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
@@ -39,14 +40,7 @@ import org.apache.hc.core5.ssl.SSLContexts;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 
-import com.inspien.fb.model.OpenRequest;
-import com.inspien.fb.model.OpenResponse;
-import com.inspien.fb.model.TransferRequest;
-import com.inspien.fb.model.TransferResponse;
-
 //2022.07.01 StatementRequest, StatementResponse added
-import com.inspien.fb.model.StatementRequest;
-import com.inspien.fb.model.StatementResponse;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -175,4 +169,5 @@ public abstract class VANProxy {
 
 	//2022.07.01 transfer added
 	abstract public StatementResponse transfer(StatementRequest req, String callbackURL) throws Exception;
+	abstract public TransferCheckResponse transfer(TransferCheckRequest req) throws Exception;
 }

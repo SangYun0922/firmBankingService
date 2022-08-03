@@ -23,7 +23,7 @@
 
     <insert id="logAdd" parameterType="MAP">
 
-        INSERT INTO txlog(<include refid="TxLogColums" />) values(
+        INSERT INTO TxLog(<include refid="TxLogColums" />) values(
         #{logData.TxIdx},#{logData.CustId},#{logData.TxDate},#{logData.TelegramNo},#{logData.TxType},#{logData.BankCd},
                      #{logData.Size},#{logData.RoundTrip},#{logData.StmtCnt},#{logData.Status},#{logData.StartDT},#{logData.EndDT},
                         HEX(AES_ENCRYPT(#{logData.EncData},SHA2(#{key},512))),#{logData.NatvTrNo},#{logData.ErrCode},#{logData.ErrMsg})

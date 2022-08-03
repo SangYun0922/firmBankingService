@@ -3,16 +3,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.inspien.fb.mapper.CustMstMapper">
-    <sql id="CustMstColumns">
-        CustId,
-        CustNm,
-        OrgCd,
-        CallbackURL,
-        InUse
-    </sql>
+    <select id="initData" resultType="String">
+        SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+    </select>
 
     <select id="selectOne" parameterType="String" resultType="CustMst">
-        SELECT <include refid="CustMstColumns" /> FROM CustMst WHERE OrgCd = #{OrgCd}
+        SELECT  * FROM CustMst WHERE OrgCd = #{OrgCd}
     </select>
 
     <update id="update" parameterType="CustMst">
@@ -26,9 +22,5 @@
         WHERE
             OrgCd = #{OrgCd}
     </update>
-
-<!--    <insert id="insert" parameterType="CustMst">-->
-<!--        INSERT INTO CustMst VALUES -->
-<!--    </insert>-->
 </mapper>
 

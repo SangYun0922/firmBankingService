@@ -5,6 +5,7 @@ import com.inspien.fb.mapper.CustMstMapper;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -33,4 +34,7 @@ public class CustMstService {
         return custMstMapper.selectOne(custMst.getOrgCd());
     }
 
+    @CacheEvict(value = "CustMst", allEntries = true)
+    public void clearData() {
+    }
 }
