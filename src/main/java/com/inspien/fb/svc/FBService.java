@@ -13,10 +13,15 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
+import com.inspien.fb.WriteLogs;
+import com.inspien.fb.domain.CustMst;
+import com.inspien.fb.mapper.CustMstMapper;
+import com.inspien.fb.mapper.TxTraceMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
@@ -48,6 +53,12 @@ public class FBService{
 
 	@Autowired
 	FileTelegramManager telegramMgr;
+	@Autowired
+	WriteLogs writeLogs;
+	@Autowired
+	CustMstMapper custMstMapper;
+	@Autowired
+	TxTraceMapper txTraceMapper;
 	
 	public long getCounter(String orgCode) {
 		String today = DateTimeFormatter.ofPattern("yyyyMMdd").format(ZonedDateTime.now(ZoneId.of(timezone)));
@@ -70,18 +81,23 @@ public class FBService{
 		}
 		return txNo;
 	}
-	public TransferResponse transfer(TransferRequest req) throws Exception {
-		
+	public TransferResponse transfer(TransferRequest req) throws Exception { //transfer
 		boolean bNeedStart = true;
+		boolean openReqFlag = true; // 개시전문 여부(= 해당 컬럼 존재 여부 확인)
+		String today = DateTimeFormatter.ofPattern("yyyyMMdd").format(ZonedDateTime.now(ZoneId.of(timezone)));
 //		long txNo = getCounter(req.getOrg_code());
-
-		long txNo = telegramMgr.getNextCounter(req.getOrg_code());
-		
 		VANProxy proxy = new DuznProxyImpl();
 		proxy.init(null	, null);
 
-		// call VAN API -> 개시전문
-		if(txNo == 1) {
+		List<CustMst> custMsts = custMstMapper.selectOne((req.getOrg_code()));
+		String custId = custMsts.get(0).getCustId();
+		openReqFlag = txTraceMapper.isExistTxTrace(custId,today);
+		log.info("개시전문 여부 : {}",openReqFlag );
+
+		if(!openReqFlag) { //개시전문
+			log.info("start openReq");
+			writeLogs.insertTxTraceLog(today,custId,1); //컬럼 생성
+			long txNo = 1;
 			OpenRequest openReq = OpenRequest.builder()
 					.api_key(req.getApi_key())
 					.org_code(req.getOrg_code())
@@ -89,9 +105,10 @@ public class FBService{
 					.telegram_no(txNo)
 					.build();
 			proxy.open(openReq);
-			txNo = telegramMgr.getNextCounter(req.getOrg_code());
+			telegramMgr.getNextCounter(req.getOrg_code());
+
 		}
-		
+		long txNo = telegramMgr.getNextCounter(req.getOrg_code());
 		TransferResponse res = null;
 		log.info("txNo : {}", txNo);
 		try {

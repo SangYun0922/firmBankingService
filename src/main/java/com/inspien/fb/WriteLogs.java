@@ -9,7 +9,6 @@ import com.inspien.fb.domain.TxTrace;
 import com.inspien.fb.mapper.TxLogMapper;
 import com.inspien.fb.mapper.TxStatMapper;
 import com.inspien.fb.mapper.TxTraceMapper;
-import com.inspien.fb.svc.FileTelegramManager;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,11 +21,7 @@ import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicLong;
 
 @Slf4j
 @Component
@@ -37,8 +32,7 @@ public class WriteLogs {
 
     @Autowired
     private TxLogMapper txLogMapper;
-    @Autowired
-    private FileTelegramManager telegramMgr;
+
     @Autowired
     private TxTraceMapper txTraceMapper;
     @Autowired
@@ -63,6 +57,8 @@ public class WriteLogs {
         JsonObject resJson = JsonParser.parseString(response).getAsJsonObject();
 //		System.out.println("inner method respond ==> "+resJson);
 //		System.out.println("inner method request ==> "+reqJson);
+        long txSequence = Long.parseLong(txTraceMapper.selectTxTrace(custId,dateFormat.format(startDateTime)));
+        System.out.println("txSequence ===> "+txSequence);
 
         if (Objects.equals(resJson.get("status").getAsInt(), 200)){
             if(Objects.equals(TxType,1)){
@@ -80,7 +76,7 @@ public class WriteLogs {
         txLogByJson.addProperty("TxIdx",idx);
         txLogByJson.addProperty("CustId",custId);
         txLogByJson.addProperty("TxDate", dateFormat.format(startDateTime));
-        txLogByJson.addProperty("TelegramNo",TxType == 1?telegramMgr.getNowCounter(reqJson.get("org_code").getAsString()):null);
+        txLogByJson.addProperty("TelegramNo",TxType == 1?txSequence:null);
         txLogByJson.addProperty("TxType", TxType); //transfer = 1; read = 2; bankstatment = 3
         txLogByJson.addProperty("BankCd",reqJson.get(TxType == 1?"rv_bank_code":"bank_code").getAsString());
         txLogByJson.addProperty("Size",Size);
@@ -143,10 +139,10 @@ public class WriteLogs {
         txTraceByJson.addProperty("CustId",custId);
         txTraceByJson.addProperty("TxDate",dateTime);
         txTraceByJson.addProperty("TxSequence",telegramNo);
-        txTraceByJson.addProperty("TxStarted","Y");
+        txTraceByJson.addProperty("TxStarted",telegramNo==0?"N":"Y");
         txTrace = gson.fromJson(txTraceByJson,TxTrace.class);
 
-        txTraceMapper.insertOrUpdateTxTrace(txTrace);
+        txTraceMapper.upsertTxTrace(txTrace);
     }
 
     public void insertTxStatLog(String dateTime, String custId,int txType,long size,String bankCd ){

@@ -149,7 +149,7 @@ public class FirmAPIController {
 		String reqBody = new String(body);
 		String resBody = gson.toJson(response);
 		writeLogs.insertDataBaseLog(custId,startDateTime,endDateTime,1,size,stopWatch.getTotalTimeSeconds(),reqBody,resBody,txIndex);
-		writeLogs.insertTxTraceLog(txIndexFormat,custId,telegramMgr.getNowCounter(transferReq.getOrg_code()));
+//		writeLogs.insertTxTraceLog(txIndexFormat,custId,telegramMgr.getNowCounter(transferReq.getOrg_code()));
 		writeLogs.insertTxStatLog(txIndexFormat,custId,1,size,transferReq.getRv_bank_code());
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}

@@ -1,1 +1,0 @@
-TxType      To      From       TxIdx                    CustId          TxDate          startDT                 EndDT                   Data
