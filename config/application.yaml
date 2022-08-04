@@ -73,11 +73,16 @@ spring:
     cache: false
     check-template-location: true
   # update (07/19) 기존 local Storage에서 RDS로 연결
+#  datasource:
+#    url: jdbc:mariadb://firmbankingapi.cwtbzbyluijp.ap-northeast-2.rds.amazonaws.com/firmbanking
+#    driver-class-name: org.mariadb.jdbc.Driver
+#    username: inspien_test
+#    password: 12345678
   datasource:
-    url: jdbc:mariadb://firmbankingapi.cwtbzbyluijp.ap-northeast-2.rds.amazonaws.com/firmbanking
+    url: jdbc:mariadb://localhost:3307/firmbanking
     driver-class-name: org.mariadb.jdbc.Driver
-    username: inspien_test
-    password: 12345678
+    username: root
+    password: 1234
 
   # update (07/07)
   mybatis:

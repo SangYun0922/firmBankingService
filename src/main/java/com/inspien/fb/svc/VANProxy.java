@@ -104,14 +104,18 @@ public abstract class VANProxy {
 		int txType = 0;
 		String to = "";
 		String from = "";
-		if (httppost.getUri().getPath().contains("transfer")){
+		if(httppost.getUri().getPath().contains("transfer/check")){
+			txType = 2;
+			to = "server\t";
+			from = "van  \t";
+		} else if (httppost.getUri().getPath().contains("transfer")){
 			txType = 1;
-			to = "server";
-			from = "van  ";
+			to = "server\t";
+			from = "van  \t";
 		}else if(httppost.getUri().getPath().contains("bankstatement")){
 			txType = 3;
-			to = "server";
-			from = "null";
+			to = "server\t";
+			from = "CallbackURL";
 		}
 
 		writeLogs.insertFileLog(2,txType,"null","null", LocalDateTime.now(),to,from,gson.toJson(req));

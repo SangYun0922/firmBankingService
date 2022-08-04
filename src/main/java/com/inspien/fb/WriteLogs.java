@@ -9,7 +9,6 @@ import com.inspien.fb.domain.TxTrace;
 import com.inspien.fb.mapper.TxLogMapper;
 import com.inspien.fb.mapper.TxStatMapper;
 import com.inspien.fb.mapper.TxTraceMapper;
-import com.inspien.fb.svc.FileTelegramManager;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,11 +21,7 @@ import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicLong;
 
 @Slf4j
 @Component
@@ -37,8 +32,7 @@ public class WriteLogs {
 
     @Autowired
     private TxLogMapper txLogMapper;
-    @Autowired
-    private FileTelegramManager telegramMgr;
+
     @Autowired
     private TxTraceMapper txTraceMapper;
     @Autowired
@@ -63,9 +57,10 @@ public class WriteLogs {
         JsonObject resJson = JsonParser.parseString(response).getAsJsonObject();
 //		System.out.println("inner method respond ==> "+resJson);
 //		System.out.println("inner method request ==> "+reqJson);
+        long txSequence = Long.parseLong(txTraceMapper.selectTxTrace(custId,dateFormat.format(startDateTime)));
 
         if (Objects.equals(resJson.get("status").getAsInt(), 200)){
-            if(Objects.equals(TxType,1)){
+            if(TxType==1 || TxType==2) {
                 txLogByJson.addProperty("NatvTrNo",resJson.get("natv_tr_no").getAsString());
             } else if(Objects.equals(TxType,3)){
                 txLogByJson.addProperty("NatvTrNo",reqJson.get("natv_tr_no").getAsString());
@@ -80,9 +75,9 @@ public class WriteLogs {
         txLogByJson.addProperty("TxIdx",idx);
         txLogByJson.addProperty("CustId",custId);
         txLogByJson.addProperty("TxDate", dateFormat.format(startDateTime));
-        txLogByJson.addProperty("TelegramNo",TxType == 1?telegramMgr.getNowCounter(reqJson.get("org_code").getAsString()):null);
+        txLogByJson.addProperty("TelegramNo",TxType == 1?txSequence:null);
         txLogByJson.addProperty("TxType", TxType); //transfer = 1; read = 2; bankstatment = 3
-        txLogByJson.addProperty("BankCd",reqJson.get(TxType == 1?"rv_bank_code":"bank_code").getAsString());
+        txLogByJson.addProperty("BankCd",reqJson.get(TxType == 1?"rv_bank_code":(TxType==2?"drw_bank_code":"bank_code")).getAsString());
         txLogByJson.addProperty("Size",Size);
         txLogByJson.addProperty("RoundTrip",RoundTrip);
         txLogByJson.addProperty("StmtCnt", 1);
@@ -120,13 +115,13 @@ public class WriteLogs {
 
             String fromFormat = dateTimeFormatter.format(dateTime);
             fos = new FileOutputStream(String.format("../logs/%s.txt",transactionIdx),true);
-            fos.write(String.format("%d\t\t",txType).getBytes());
-            fos.write(Objects.equals(to, "null") ?"-----\t\t".getBytes():(to+"\t\t").getBytes());
-            fos.write(Objects.equals(from, "null") ?"-----\t\t".getBytes():(from+"\t\t").getBytes());
-            fos.write(String.format("%s\t\t",transactionIdx).getBytes());
-            fos.write(String.format("%s\t\t",customerId).getBytes());
-            fos.write(String.format("%s\t\t",dateFormat.format(dateTime)).getBytes());
-            fos.write(Objects.equals(to,"server")?String.format("%s\t\t-------------------\t\t",fromFormat).getBytes():String.format("-------------------\t\t%s\t\t",fromFormat).getBytes());
+            fos.write(String.format("%d\t",txType).getBytes());
+            fos.write(String.format("%s\t",to).getBytes());
+            fos.write(String.format("%s\t",from).getBytes());
+            fos.write(String.format("%s\t",transactionIdx).getBytes());
+            fos.write(String.format("%s\t",customerId).getBytes());
+            fos.write(String.format("%s\t",dateFormat.format(dateTime)).getBytes());
+            fos.write(Objects.equals(to,"server")?String.format("%s\t-------------------\t",fromFormat).getBytes():String.format("-------------------\t%s\t",fromFormat).getBytes());
             fos.write(data.getBytes());
             fos.write("\n".getBytes());
 
@@ -144,10 +139,10 @@ public class WriteLogs {
         txTraceByJson.addProperty("CustId",custId);
         txTraceByJson.addProperty("TxDate",dateTime);
         txTraceByJson.addProperty("TxSequence",telegramNo);
-        txTraceByJson.addProperty("TxStarted","Y");
+        txTraceByJson.addProperty("TxStarted",telegramNo==0?"N":"Y");
         txTrace = gson.fromJson(txTraceByJson,TxTrace.class);
 
-        txTraceMapper.insertOrUpdateTxTrace(txTrace);
+        txTraceMapper.upsertTxTrace(txTrace);
     }
 
     public void insertTxStatLog(String dateTime, String custId,int txType,long size,String bankCd ){

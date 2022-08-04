@@ -1,12 +1,7 @@
 package com.inspien.fb.svc;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.channels.FileLock;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -16,9 +11,16 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
+import com.inspien.fb.ApplicationContextProvider;
+import com.inspien.fb.WriteLogs;
+import com.inspien.fb.domain.CustMst;
+import com.inspien.fb.mapper.CustMstMapper;
+import com.inspien.fb.mapper.TxTraceMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -36,7 +38,16 @@ public class FileTelegramManager {
 	private static Map<String , Map<String, AtomicLong> > custCounter = new HashMap<String , Map<String, AtomicLong>>();
 
 	private static boolean bInit = false;
-	
+//	@Autowired
+//	private TxTraceMapper txTraceMapper;
+	private TxTraceMapper txTraceMapper = (TxTraceMapper) ApplicationContextProvider.getBean(TxTraceMapper.class);
+
+	@Autowired
+	private CustMstMapper custMstMapper;
+//	private WriteLogs writeLogs = (WriteLogs) ApplicationContextProvider.getBean(WriteLogs.class);
+	@Autowired
+	private WriteLogs writeLogs;
+
 	public FileTelegramManager() {
 		if(!bInit)
 			init();
@@ -70,25 +81,19 @@ public class FileTelegramManager {
 		}
 		bInit = true;
 	}
-
-	public long getNowCounter(String orgCode) {
-		String today = DateTimeFormatter.ofPattern("yyyyMMdd").format(ZonedDateTime.now(ZoneId.of(timezone)));
-		long txNo = 0;
-		if (custCounter.containsKey(orgCode)) {
-			if (custCounter.get(orgCode).containsKey(today)) {
-				txNo = custCounter.get(orgCode).get(today).get();
-			}
-		}
-		return txNo;
-	}
 	
 	public long getNextCounter(String orgCode) throws IOException {
 		String today = DateTimeFormatter.ofPattern("yyyyMMdd").format(ZonedDateTime.now(ZoneId.of(timezone)));
-		
-		long txNo = 1;
-		if(custCounter.containsKey(orgCode)) {
-			if(custCounter.get(orgCode).containsKey(today)) {
-				txNo = custCounter.get(orgCode).get(today).incrementAndGet();
+		List<CustMst> custMsts = custMstMapper.selectOne(orgCode);
+		String custId = custMsts.get(0).getCustId();
+
+		long txNo = 0;
+		if(custCounter.containsKey(orgCode)) { //custCounter에 해당 orgCode가 있으면
+			if(custCounter.get(orgCode).containsKey(today)) { //오늘 거래 내역이 있으면
+				writeLogs.insertTxTraceLog(today,custId,1);
+				txNo =  Long.parseLong(txTraceMapper.selectTxTrace(custId,today));
+
+//				txNo = custCounter.get(orgCode).get(today).incrementAndGet();
 			}
 			else {
 				// delete all data before put today
@@ -101,9 +106,9 @@ public class FileTelegramManager {
 			counter.put(today, new AtomicLong(txNo));
 			custCounter.put(orgCode, counter);
 		}
-		
+
 		syncCounter(orgCode, today, txNo);
-		
+
 		return txNo;
 	}
 	

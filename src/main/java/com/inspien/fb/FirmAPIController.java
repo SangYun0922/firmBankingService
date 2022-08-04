@@ -117,7 +117,7 @@ public class FirmAPIController {
 		String custId = custData.get(0).getCustId();
 
 		log.info("TransferRequest={},{}", transferReq.getOrg_code(), transferReq);
-		writeLogs.insertFileLog(1,1,txIndex,custId,startDateTime,"null","server",String.valueOf(transferReq));
+		writeLogs.insertFileLog(1,1,txIndex,custId,startDateTime,"-----\t","server\t",String.valueOf(transferReq));
 
 		if(custData.size() == 1) {
 			if (custData.get(0).getInUse().equals("Y")) { //각 고객정보의 InUse 필드를 조회하여 "Y"라면 현재 사용하는 계정이고, "Y"가 아니라면 사용하지 않는 계정이다.
@@ -141,20 +141,36 @@ public class FirmAPIController {
 		}
 		LocalDateTime endDateTime = LocalDateTime.now();
 		stopWatch.stop();
-		writeLogs.insertFileLog(4,1,txIndex,custId,endDateTime,"server","null",String.valueOf(response));
+		writeLogs.insertFileLog(4,1,txIndex,custId,endDateTime,"server\t","-----\t",String.valueOf(response));
 		String reqBody = new String(body);
 		String resBody = gson.toJson(response);
 		writeLogs.insertDataBaseLog(custId,startDateTime,endDateTime,1,size,stopWatch.getTotalTimeSeconds(),reqBody,resBody,txIndex);
-		writeLogs.insertTxTraceLog(txIndexFormat,custId,telegramMgr.getNowCounter(transferReq.getOrg_code()));
+//		writeLogs.insertTxTraceLog(txIndexFormat,custId,telegramMgr.getNowCounter(transferReq.getOrg_code()));
 		writeLogs.insertTxStatLog(txIndexFormat,custId,1,size,transferReq.getRv_bank_code());
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
 
 	@PostMapping("/api/rt/v1/transfer/check")
 	public ResponseEntity checkTransfer(HttpServletRequest request, @RequestHeader HttpHeaders headers, @RequestBody(required = false) byte[] body) throws IOException, URISyntaxException {
+		LocalDateTime startDateTime = LocalDateTime.now();
+		StopWatch stopWatch = new StopWatch();
+		stopWatch.start();
+		String txIndexFormat = DateTimeFormatter.ofPattern("yyyyMMddHHmmss").format(startDateTime);
+
+		if (index.intValue() >= 999) {
+			index.set(0);
+		}
+		String seq = intFormatter.format(index.incrementAndGet());
+		String txIndex = txIndexFormat+seq;
+		long size = request.getContentLengthLong();
+
 		Gson gson = new Gson();
 		TransferCheckRequest transferCheckReq = gson.fromJson(new String(body), TransferCheckRequest.class);
 		log.info("transferCheckRequest : {}", transferCheckReq);
+		List<CustMst> custData = custMstService.getData(transferCheckReq.getOrg_code()); //Connect to mariaDB
+		String custId = custData.get(0).getCustId();
+		writeLogs.insertFileLog(1,2,txIndex,custId,startDateTime,"-----\t","server\t",String.valueOf(transferCheckReq));
+
 		TransferCheckResponse response = null;
 		try {
 			response = fbSvc.transfer(transferCheckReq);
@@ -163,6 +179,12 @@ public class FirmAPIController {
 			log.error("{}", e);
 			response = new TransferCheckResponse(500, "9999", e.getMessage());
 		}
+		LocalDateTime endDateTime = LocalDateTime.now();
+		stopWatch.stop();
+		String reqBody = new String(body);
+		String resBody = gson.toJson(response);
+		writeLogs.insertFileLog(4,2,txIndex,custId,endDateTime,"server\t","-----\t",String.valueOf(response));
+		writeLogs.insertDataBaseLog(custId,startDateTime,endDateTime,2,size,stopWatch.getTotalTimeSeconds(),reqBody,resBody,txIndex);
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
 
@@ -194,7 +216,7 @@ public class FirmAPIController {
 		List<CustMst> custData = custMstService.getData(statementReq.getOrg_code()); //Connection to mariaDB
 		String custId = custData.get(0).getCustId();
 
-		writeLogs.insertFileLog(1,3,txIndex,custId,startDateTime,"van  ","server",String.valueOf(statementReq));
+		writeLogs.insertFileLog(1,3,txIndex,custId,startDateTime,"van  \t","server\t",String.valueOf(statementReq));
 		StatementResponse response = null; //svc.transfer(null);
 		String callbackUrl = "";
 
@@ -237,7 +259,7 @@ public class FirmAPIController {
 		log.info("bankStatement response ==> {}",response);
 		LocalDateTime endDateTime = LocalDateTime.now();
 		stopWatch.stop();
-		writeLogs.insertFileLog(4,3,txIndex,custId,endDateTime,"server","van  ",String.valueOf(response));
+		writeLogs.insertFileLog(4,3,txIndex,custId,endDateTime,"server\t","van  \t",String.valueOf(response));
 
 		String reqBody = new String(body);
 		String resBody = gson.toJson(response);

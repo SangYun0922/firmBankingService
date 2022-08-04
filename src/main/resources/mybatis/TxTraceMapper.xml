@@ -9,10 +9,21 @@
         TxSequence,
         TxStarted
     </sql>
-    <insert id="insertOrUpdateTxTrace" parameterType="TxTrace">
+    <insert id="upsertTxTrace" parameterType="TxTrace">
         INSERT INTO TxTrace(<include refid="TxTraceColumns"/>) VALUES (
             #{CustId},#{TxDate},#{TxSequence},#{TxStarted}) ON DUPLICATE KEY UPDATE
-            TxSequence = #{TxSequence}
+            TxSequence = TxSequence+1
     </insert>
+
+    <select id="selectTxTrace" parameterType="MAP" resultType="String">
+        SELECT IFNULL(TxTrace.TxSequence,'0') FROM txtrace
+            WHERE CustId = #{custId} AND TxDate = #{today}
+    </select>
+
+    <select id="isExistTxTrace" parameterType="MAP" resultType="boolean">
+        SELECT EXISTS(
+            SELECT * FROM txtrace
+            WHERE CustId = #{custId} AND TxDate = #{today})
+    </select>
 
 </mapper>
