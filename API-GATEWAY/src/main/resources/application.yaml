@@ -1,7 +1,7 @@
 
 spring:
   application:
-    name: api-gateway-service
+    name: Api-Gateway-Service
   cloud:
     gateway:
       routes:
@@ -19,12 +19,14 @@ spring:
             - Path=/crud-service/**
           filters:
             - RewritePath=/crud-service/(?<segment>.*), /$\{segment}
-        - id: TEST-SERVICE-1
+        - id: TRANSFERCHECK-SERVICE
+          uri: lb://TRANSFERCHECK-SERVICE
           predicates:
-            - Path=/first-service/**
-          uri: lb://TEST-SERVICE-1
+            - Path=/transfercheck/**
           filters:
-            - RewritePath=/first-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/transfercheck/(?<segment>.*), /$\{segment}
+
+
 
 server:
   port: 8080
