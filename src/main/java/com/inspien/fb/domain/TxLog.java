@@ -1,5 +1,6 @@
 package com.inspien.fb.domain;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +12,7 @@ import java.sql.Timestamp;
 
 @Getter
 @Setter
-
+@Data
 public class TxLog {
     //VO
     private String TxIdx; //timestamp_txtyp seq

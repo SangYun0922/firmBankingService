@@ -58,10 +58,9 @@ public class WriteLogs {
 //		System.out.println("inner method respond ==> "+resJson);
 //		System.out.println("inner method request ==> "+reqJson);
         long txSequence = Long.parseLong(txTraceMapper.selectTxTrace(custId,dateFormat.format(startDateTime)));
-        System.out.println("txSequence ===> "+txSequence);
 
         if (Objects.equals(resJson.get("status").getAsInt(), 200)){
-            if(Objects.equals(TxType,1)){
+            if(TxType==1 || TxType==2) {
                 txLogByJson.addProperty("NatvTrNo",resJson.get("natv_tr_no").getAsString());
             } else if(Objects.equals(TxType,3)){
                 txLogByJson.addProperty("NatvTrNo",reqJson.get("natv_tr_no").getAsString());
@@ -78,7 +77,7 @@ public class WriteLogs {
         txLogByJson.addProperty("TxDate", dateFormat.format(startDateTime));
         txLogByJson.addProperty("TelegramNo",TxType == 1?txSequence:null);
         txLogByJson.addProperty("TxType", TxType); //transfer = 1; read = 2; bankstatment = 3
-        txLogByJson.addProperty("BankCd",reqJson.get(TxType == 1?"rv_bank_code":"bank_code").getAsString());
+        txLogByJson.addProperty("BankCd",reqJson.get(TxType == 1?"rv_bank_code":(TxType==2?"drw_bank_code":"bank_code")).getAsString());
         txLogByJson.addProperty("Size",Size);
         txLogByJson.addProperty("RoundTrip",RoundTrip);
         txLogByJson.addProperty("StmtCnt", 1);
@@ -88,6 +87,7 @@ public class WriteLogs {
         txLogByJson.addProperty("EndDT", String.valueOf((endDateTime)) + ZoneId.of("+09:00"));
 
         txLog = gson.fromJson(txLogByJson,TxLog.class);
+        log.debug("txlog : {}", txLog);
         txLogMapper.logAdd(key,txLog);
     }
 
@@ -103,7 +103,7 @@ public class WriteLogs {
                 this.transactionIdx = txIdx+txType;
                 this.customerId = custId;
                 fis = new FileInputStream("logs/format.txt");
-                fos = new FileOutputStream(String.format("logs/%s.txt",transactionIdx));
+                fos = new FileOutputStream(String.format("../logs/%s.txt",transactionIdx));
                 int readData = 0;
                 while(readData !=-1){
                     readData = fis.read();
@@ -114,14 +114,14 @@ public class WriteLogs {
             }
 
             String fromFormat = dateTimeFormatter.format(dateTime);
-            fos = new FileOutputStream(String.format("logs/%s.txt",transactionIdx),true);
-            fos.write(String.format("%d\t\t",txType).getBytes());
-            fos.write(Objects.equals(to, "null") ?"-----\t\t".getBytes():(to+"\t\t").getBytes());
-            fos.write(Objects.equals(from, "null") ?"-----\t\t".getBytes():(from+"\t\t").getBytes());
-            fos.write(String.format("%s\t\t",transactionIdx).getBytes());
-            fos.write(String.format("%s\t\t",customerId).getBytes());
-            fos.write(String.format("%s\t\t",dateFormat.format(dateTime)).getBytes());
-            fos.write(Objects.equals(to,"server")?String.format("%s\t\t-------------------\t\t",fromFormat).getBytes():String.format("-------------------\t\t%s\t\t",fromFormat).getBytes());
+            fos = new FileOutputStream(String.format("../logs/%s.txt",transactionIdx),true);
+            fos.write(String.format("%d\t",txType).getBytes());
+            fos.write(String.format("%s\t",to).getBytes());
+            fos.write(String.format("%s\t",from).getBytes());
+            fos.write(String.format("%s\t",transactionIdx).getBytes());
+            fos.write(String.format("%s\t",customerId).getBytes());
+            fos.write(String.format("%s\t",dateFormat.format(dateTime)).getBytes());
+            fos.write(Objects.equals(to,"server")?String.format("%s\t-------------------\t",fromFormat).getBytes():String.format("-------------------\t%s\t",fromFormat).getBytes());
             fos.write(data.getBytes());
             fos.write("\n".getBytes());
 

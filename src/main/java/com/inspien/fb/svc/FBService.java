@@ -22,19 +22,11 @@ import com.inspien.fb.WriteLogs;
 import com.inspien.fb.domain.CustMst;
 import com.inspien.fb.mapper.CustMstMapper;
 import com.inspien.fb.mapper.TxTraceMapper;
+import com.inspien.fb.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.inspien.fb.model.OpenRequest;
-import com.inspien.fb.model.TransferRequest;
-import com.inspien.fb.model.TransferResponse;
-
-//2022.07.01 StatementRequest, StatementResponse added
-import com.inspien.fb.model.StatementRequest;
-import com.inspien.fb.model.StatementResponse;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -105,7 +97,6 @@ public class FBService{
 					.telegram_no(txNo)
 					.build();
 			proxy.open(openReq);
-			telegramMgr.getNextCounter(req.getOrg_code());
 
 		}
 		long txNo = telegramMgr.getNextCounter(req.getOrg_code());
@@ -134,6 +125,14 @@ public class FBService{
 			log.info("req, callbackURL= {}, {}", req, callbackUrl);
 			res = proxy.transfer(req, callbackUrl);
 
+		return res;
+	}
+
+	public TransferCheckResponse transfer(TransferCheckRequest req) throws Exception {
+		VANProxy proxy = new DuznProxyImpl();
+		proxy.init(null	, null);
+		TransferCheckResponse res = null;
+		res = proxy.transfer(req);
 		return res;
 	}
 }

@@ -12,8 +12,15 @@ public class CustMst {
     private String CustNm;
     private String OrgCd;
     private String CallbackURL;
+    private String ApiKey;
+    private String PriContactNm;
+    private String PriContactTel;
+    private String PriContactEmail;
+    private String SecContactNm;
+    private String SecContactTel;
+    private String SecContactEmail;
+    private String TxSequence;
     private String InUse;
-    private String isErr; //MariaDb에서 쿼리한 결과에 에러가 있는지 판별하기 위한 변수
 
     public CustMst() {}
 

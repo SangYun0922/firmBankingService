@@ -22,14 +22,6 @@ server:
     max-connections: 8192 # 수립가능한 connection의 총 개수
     accept-count: 100 # 작업큐의 사이즈
     connection-timeout: 20000 # timeout 판단 기준 시간, 20초
-  #ssl:
-  #  enabled: true
-  #  key-alias: firmkey
-  #  key-store: config/firmkeystore.pkcs12
-  #  key-store-password: 'inspien0@'
-  #  key-password: 'inspien0@'
-  #  #trust-store: ayotrust.pkcs12
-  #  #trust-store-password: '@ayotera@'
   ssl:
     enabled: true
     key-alias: firmkey
@@ -45,9 +37,11 @@ van:
     test:
       open: https://test-gw-firm.dozn.co.kr/api/rt/v1/account/open
       transfer: https://test-gw-firm.dozn.co.kr/api/rt/v1/transfer
+      transfer-check : https://test-gw-firm.dozn.co.kr/api/rt/v1/transfer/check
     prd:
       open: https://firmapi-pub.dozn.co.kr
       transfer:
+      trnasfer-check :
 
 mocklogging:
   location: ./logs
@@ -60,6 +54,8 @@ http:
   responseTimeout: 120
 
 spring:
+  application:
+    name: Transfer-Service
   devtools:
     livereload:
       enabled: true
@@ -77,18 +73,16 @@ spring:
     cache: false
     check-template-location: true
   # update (07/19) 기존 local Storage에서 RDS로 연결
-
-  datasource:
-    url: jdbc:mariadb://localhost:3307/firmbanking
-    driver-class-name: org.mariadb.jdbc.Driver
-    username: root
-    password: 1234
-
 #  datasource:
 #    url: jdbc:mariadb://firmbankingapi.cwtbzbyluijp.ap-northeast-2.rds.amazonaws.com/firmbanking
 #    driver-class-name: org.mariadb.jdbc.Driver
 #    username: inspien_test
 #    password: 12345678
+  datasource:
+    url: jdbc:mariadb://localhost:3307/firmbanking
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: root
+    password: 1234
 
   # update (07/07)
   mybatis:
@@ -119,8 +113,17 @@ jasypt:
   encryptor:
     bean: encryptorBean
 
-
 logging:
   config: config/logback-spring.xml
 
-cache:
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:6901/eureka/
+  instance:
+    hostname: localhost
+    non-secure-port-enabled: false
+    secure-port-enabled: true
+    secure-port: ${server.port}
