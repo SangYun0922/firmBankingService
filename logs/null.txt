@@ -1,2 +1,0 @@
-1		server		van  		null		null		2022-08-04		2022-08-04 15:03:29		-------------------		"{\n  \"api_key\" : \"7242191d-865c-48df-aa02-e3cf10bffd6d\",\n  \"org_code\" : \"10000262\",\n  \"org_telegram_no\" : 8,\n  \"tr_dt\" : \"20220804\",\n  \"drw_bank_code\" : \"088\"\n}"
-1		van  		server		null		null		2022-08-04		-------------------		2022-08-04 15:03:30		{"status":200,"natv_tr_no":"20220804002089000022","transfer_at":"20220804145723","amount":1000}

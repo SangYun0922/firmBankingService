@@ -8,23 +8,30 @@ spring:
         - id: TRANSFER-SERVICE
           uri: lb://TRANSFER-SERVICE
           predicates:
-            - Path=/transfer/**
+            - Path=/api/rt/v1/transfer/**
+          filters:
+            - RewritePath=/api/rt/v1/(?<segment>.*), /$\{segment}
+
         - id: BANKSTATEMENT-SERVICE
           uri: lb://BANKSTATEMENT-SERVICE
           predicates:
-            - Path=/bankstatement/**
+            - Path=/api/rt/v1/bankstatement/**
+          filters:
+            - RewritePath=/api/rt/v1/(?<segment>.*), /$\{segment}
+
         - id: CRUD-SERVICE
           uri: lb://CRUD-SERVICE
           predicates:
-            - Path=/crud-service/**
+            - Path=/api/rt/v1/**
           filters:
-            - RewritePath=/crud-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/api/rt/v1/(?<segment>.*), /$\{segment}
+
         - id: TRANSFERCHECK-SERVICE
           uri: lb://TRANSFERCHECK-SERVICE
           predicates:
-            - Path=/transfercheck/**
+            - Path=/api/rt/v1/transfer/check/**
           filters:
-            - RewritePath=/transfercheck/(?<segment>.*), /$\{segment}
+            - RewritePath=/api/rt/v1/(?<segment>.*), /$\{segment}
 
 
 
