@@ -1,5 +1,0 @@
-TxType      To                  From                    TxIdx                               CustId                 TxDate                 startDT                EndDT                         	Data�
-2	-----		server		202208041717340022	0000000001	2022-08-04	-------------------	2022-08-04 17:17:34	TransferCheckRequest(api_key=7242191d-865c-48df-aa02-e3cf10bffd6d, org_code=10000262, org_telegram_no=8, tr_dt=20220803, drw_bank_code=088)
-2	server		van  		202208041717340022	0000000001	2022-08-04	-------------------	2022-08-04 17:17:34	"{\n  \"api_key\" : \"7242191d-865c-48df-aa02-e3cf10bffd6d\",\n  \"org_code\" : \"10000262\",\n  \"org_telegram_no\" : 8,\n  \"tr_dt\" : \"20220803\",\n  \"drw_bank_code\" : \"088\"\n}"
-2	van  		server		202208041717340022	0000000001	2022-08-04	-------------------	2022-08-04 17:17:34	{"status":520,"error_code":"D029","error_message":"내역 없음"}
-2	server		-----		202208041717340022	0000000001	2022-08-04	-------------------	2022-08-04 17:17:34	TransferCheckResponse(status=520, natv_tr_no=null, transfer_at=null, amount=0, error_code=D029, error_message=내역 없음)
