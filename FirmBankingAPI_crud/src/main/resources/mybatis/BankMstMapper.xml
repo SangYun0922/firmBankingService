@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.inspien.fb.mapper.BankMstMapper">
+
+    <insert id="insert" parameterType="BankMst">
+        INSERT INTO BankMst VALUES(#{BankId}, #{BankCd}, #{BankNm}, #{SwiftCd}, NOW(), NULL)
+    </insert>
+
+    <select id="selectOne" parameterType="String" resultType="BankMst">
+        SELECT * FROM BankMst WHERE BankId = #{BankId}
+    </select>
+
+    <select id="selectMany" parameterType="String" resultType="BankMst">
+        SELECT * FROM BankMst
+    </select>
+
+    <update id="update" parameterType="BankMst">
+        UPDATE
+            BankMst
+        SET
+            BankCd = CASE WHEN #{BankCd} IS NULL THEN BankCd ELSE #{BankCd} END,
+            BankNm = CASE WHEN #{BankNm} IS NULL THEN BankNm ELSE #{BankNm} END,
+            SwiftCd = CASE WHEN #{SwiftCd} IS NULL THEN SwiftCd ELSE #{SwiftCd} END,
+            UpdatedAt = NOW()
+        WHERE
+            BankId = #{Id}
+    </update>
+
+    <delete id="delete" parameterType="String">
+        DELETE FROM CustMst WHERE BankId = #{BankId}
+    </delete>
+<!--    <insert id="insert" parameterType="CustMst">-->
+<!--        INSERT INTO CustMst VALUES -->
+<!--    </insert>-->
+</mapper>
+
+

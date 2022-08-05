@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.inspien.fb.mapper.TxLogMapper">
+    <sql id="TxLogColums">
+        TxIdx,
+        CustId,
+        TxDate,
+        TelegramNo,
+        TxType,
+        BankCd,
+        Size,
+        RoundTrip,
+        StmtCnt,
+        Status,
+        StartDT,
+        EndDT,
+        EncData,
+        NatvTrNo,
+        ErrCode,
+        ErrMsg
+    </sql>
+
+    <insert id="logAdd" parameterType="MAP">
+
+        INSERT INTO TxLog(<include refid="TxLogColums" />) values(
+        #{logData.TxIdx},#{logData.CustId},#{logData.TxDate},#{logData.TelegramNo},#{logData.TxType},#{logData.BankCd},
+                     #{logData.Size},#{logData.RoundTrip},#{logData.StmtCnt},#{logData.Status},#{logData.StartDT},#{logData.EndDT},
+                        HEX(AES_ENCRYPT(#{logData.EncData},SHA2(#{key},512))),#{logData.NatvTrNo},#{logData.ErrCode},#{logData.ErrMsg})
+    </insert>
+</mapper>

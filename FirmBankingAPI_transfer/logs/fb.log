@@ -1,0 +1,1674 @@
+[2022-08-05 09:18:32.112:1341][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 30843 (/Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer)
+[2022-08-05 09:18:32.123:1352][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-05 09:18:32.128:1357][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-05 09:18:36.349:5578][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 5.315 seconds (JVM running for 6.155)
+[2022-08-05 09:18:36.355:5584][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 09:18:36.357:5586][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
+[2022-08-05 09:18:36.357:5586][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 09:18:36.509:5738][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-05 09:18:36.518:5747][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-05 09:18:36.544:5773][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 2
+[2022-08-05 09:18:36.572:5801][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:18:36.575:5804][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 09:18:36.586:5815][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:18:36.587:5816][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:18:36.588:5817][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:18:36.597:5826][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:18:36.598:5827][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 09:18:36.598:5827][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
+[2022-08-05 09:18:36.598:5827][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 09:29:29.021:658250][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 09:29:29.029:658258][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.FirmAPIController - TransferRequest=10000262,TransferRequest(api_key=7242191d-865c-48df-aa02-e3cf10bffd6d, org_code=10000262, drw_bank_code=088, telegram_no=0, drw_account=832210312031, drw_account_cntn=문세인, rv_bank_code=081, rv_account=46291012501007, rv_account_cntn=핍랄샐, amount=1000, tr_dt=20220602, tr_tm=155011)
+[2022-08-05 09:29:29.090:658319][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:29:29.090:658319][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 09:29:29.099:658328][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:29:29.103:658332][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-05 09:29:29.103:658332][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000001(String), 20220805(String)
+[2022-08-05 09:29:29.116:658345][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-05 09:29:29.116:658345][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.svc.FBService - 개시전문 여부 : false
+[2022-08-05 09:29:29.116:658345][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.svc.FBService - start openReq
+[2022-08-05 09:29:29.119:658348][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==>  Preparing: INSERT INTO TxTrace( CustId, TxDate, TxSequence, TxStarted ) VALUES ( ?,?,?,?) ON DUPLICATE KEY UPDATE TxSequence = TxSequence+1
+[2022-08-05 09:29:29.120:658349][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==> Parameters: 0000000001(String), 20220805(String), 1(String), Y(String)
+[2022-08-05 09:29:29.129:658358][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - <==    Updates: 1
+[2022-08-05 09:29:29.153:658382][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:29:29.153:658382][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/account/open ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000262",
+  "drw_bank_code" : "088",
+  "telegram_no" : 1
+}
+[2022-08-05 09:29:29.456:658685][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:29:29.456:658685][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - 200 200 ==> {"status":200,"drw_bank_code":"088","open_state":"SUCCESS"}
+[2022-08-05 09:29:29.456:658685][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 09:29:29.465:658694][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:29:29.465:658694][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 09:29:29.478:658707][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:29:29.480:658709][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.svc.FBService - txNo : 0
+[2022-08-05 09:29:29.483:658712][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:29:29.483:658712][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/transfer ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000262",
+  "drw_bank_code" : "088",
+  "telegram_no" : 0,
+  "drw_account" : "832210312031",
+  "drw_account_cntn" : "문세인",
+  "rv_bank_code" : "081",
+  "rv_account" : "46291012501007",
+  "rv_account_cntn" : "핍랄샐",
+  "amount" : 1000,
+  "tr_dt" : "20220602",
+  "tr_tm" : "155011"
+}
+[2022-08-05 09:29:39.915:669144][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:29:39.916:669145][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - 200 200 ==> {"status":200,"natv_tr_no":"20220805002089000001","request_at":"20220805092941","amount":1000}
+[2022-08-05 09:29:39.916:669145][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 09:29:39.950:669179][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-05 09:29:39.960:669189][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 09:29:39.960:669189][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000001(String), 2022-08-05(String)
+[2022-08-05 09:29:39.968:669197][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 09:29:39.996:669225][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220805092929001, CustId=0000000001, TxDate=2022-08-05, TelegramNo=1, TxType=1, BankCd=081, Size=370, RoundTrip=10.907994459, StmtCnt=1, Status=200, StartDT=2022-08-05 09:29:29.018, EndDT=2022-08-05 09:29:39.927, EncData={
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000262", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}, NatvTrNo=20220805002089000001, ErrCode=null, ErrMsg=null)
+[2022-08-05 09:29:40.026:669255][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-05 09:29:40.036:669265][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220805092929001(String), 0000000001(String), 2022-08-05(String), 1(String), 1(String), 081(String), 370(Long), 10.907994459(BigDecimal), 1(Integer), 200(String), 2022-08-05 09:29:29.018(Timestamp), 2022-08-05 09:29:39.927(Timestamp), {
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000262", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}(String), test(String), 20220805002089000001(String), null, null
+[2022-08-05 09:29:40.049:669278][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-05 09:29:40.050:669279][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-05 09:29:40.050:669279][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000001(String), 20220805092929(String), 081(String), 1(String), 1(Long), 370(Long), 1(Long), 370(Long)
+[2022-08-05 09:29:40.059:669288][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 1
+[2022-08-05 09:39:21.473:1028][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 33025 (/Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer)
+[2022-08-05 09:39:21.475:1030][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-05 09:39:21.475:1030][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-05 09:39:25.590:5145][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.882 seconds (JVM running for 5.854)
+[2022-08-05 09:39:25.598:5153][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 09:39:25.598:5153][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
+[2022-08-05 09:39:25.598:5153][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 09:39:25.730:5285][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-05 09:39:25.740:5295][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-05 09:39:25.772:5327][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 2
+[2022-08-05 09:39:25.797:5352][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:39:25.798:5353][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 09:39:25.809:5364][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:39:25.810:5365][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:39:25.810:5365][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:39:25.819:5374][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:39:25.819:5374][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 09:39:25.819:5374][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
+[2022-08-05 09:39:25.819:5374][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 09:39:53.114:32669][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 09:39:53.124:32679][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.FirmAPIController - TransferRequest=10000263,TransferRequest(api_key=7242191d-865c-48df-aa02-e3cf10bffd6d, org_code=10000263, drw_bank_code=088, telegram_no=0, drw_account=832210312031, drw_account_cntn=문세인, rv_bank_code=081, rv_account=46291012501007, rv_account_cntn=핍랄샐, amount=1000, tr_dt=20220602, tr_tm=155011)
+[2022-08-05 09:39:53.184:32739][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:39:53.185:32740][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:39:53.201:32756][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:39:53.203:32758][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-05 09:39:53.203:32758][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000002(String), 20220805(String)
+[2022-08-05 09:39:53.227:32782][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-05 09:39:53.227:32782][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.svc.FBService - 개시전문 여부 : false
+[2022-08-05 09:39:53.228:32783][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.svc.FBService - start openReq
+[2022-08-05 09:39:53.231:32786][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==>  Preparing: INSERT INTO TxTrace( CustId, TxDate, TxSequence, TxStarted ) VALUES ( ?,?,?,?) ON DUPLICATE KEY UPDATE TxSequence = TxSequence+1
+[2022-08-05 09:39:53.235:32790][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==> Parameters: 0000000002(String), 20220805(String), 1(String), Y(String)
+[2022-08-05 09:39:53.253:32808][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - <==    Updates: 1
+[2022-08-05 09:39:53.279:32834][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:39:53.279:32834][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/account/open ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000263",
+  "drw_bank_code" : "088",
+  "telegram_no" : 1
+}
+[2022-08-05 09:39:54.843:34398][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:39:54.843:34398][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - 500 500 ==> {"status":500,"error_code":"9999","error_message":"서버에러"}
+[2022-08-05 09:39:54.844:34399][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 09:39:54.874:34429][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:39:54.874:34429][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:39:54.888:34443][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:39:54.888:34443][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.svc.FileTelegramManager - custCounter : {10000262={20220805=0}}
+[2022-08-05 09:39:54.891:34446][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.svc.FBService - txNo : 0
+[2022-08-05 09:39:54.895:34450][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:39:54.895:34450][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/transfer ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000263",
+  "drw_bank_code" : "088",
+  "telegram_no" : 0,
+  "drw_account" : "832210312031",
+  "drw_account_cntn" : "문세인",
+  "rv_bank_code" : "081",
+  "rv_account" : "46291012501007",
+  "rv_account_cntn" : "핍랄샐",
+  "amount" : 1000,
+  "tr_dt" : "20220602",
+  "tr_tm" : "155011"
+}
+[2022-08-05 09:39:55.441:34996][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:39:55.441:34996][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - 500 500 ==> {"status":500,"error_code":"9999","error_message":"서버에러"}
+[2022-08-05 09:39:55.441:34996][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 09:39:55.455:35010][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-05 09:39:55.467:35022][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 09:39:55.467:35022][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000002(String), 2022-08-05(String)
+[2022-08-05 09:39:55.495:35050][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 09:39:55.501:35056][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220805093953001, CustId=0000000002, TxDate=2022-08-05, TelegramNo=1, TxType=1, BankCd=081, Size=370, RoundTrip=2.331948708, StmtCnt=1, Status=500, StartDT=2022-08-05 09:39:53.112, EndDT=2022-08-05 09:39:55.445, EncData={
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000263", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}, NatvTrNo=null, ErrCode=9999, ErrMsg=서버에러)
+[2022-08-05 09:39:55.524:35079][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-05 09:39:55.534:35089][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220805093953001(String), 0000000002(String), 2022-08-05(String), 1(String), 1(String), 081(String), 370(Long), 2.331948708(BigDecimal), 1(Integer), 500(String), 2022-08-05 09:39:53.112(Timestamp), 2022-08-05 09:39:55.445(Timestamp), {
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000263", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}(String), test(String), null, 9999(String), 서버에러(String)
+[2022-08-05 09:39:55.555:35110][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-05 09:39:55.555:35110][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-05 09:39:55.556:35111][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000002(String), 20220805093953(String), 081(String), 1(String), 1(Long), 370(Long), 1(Long), 370(Long)
+[2022-08-05 09:39:55.567:35122][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 1
+[2022-08-05 09:41:49.636:149191][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 09:41:49.639:149194][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.FirmAPIController - TransferRequest=10000263,TransferRequest(api_key=7242191d-865c-48df-aa02-e3cf10bffd6d, org_code=10000263, drw_bank_code=088, telegram_no=0, drw_account=832210312031, drw_account_cntn=문세인, rv_bank_code=081, rv_account=46291012501007, rv_account_cntn=핍랄샐, amount=1000, tr_dt=20220602, tr_tm=155011)
+[2022-08-05 09:41:49.665:149220][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:41:49.667:149222][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:41:49.681:149236][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:41:49.684:149239][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-05 09:41:49.692:149247][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000002(String), 20220805(String)
+[2022-08-05 09:41:49.701:149256][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-05 09:41:49.708:149263][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.svc.FBService - 개시전문 여부 : true
+[2022-08-05 09:41:49.712:149267][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:41:49.713:149268][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:41:49.727:149282][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:41:49.728:149283][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.svc.FileTelegramManager - custCounter : {10000262={20220805=0}, 10000263={20220805=0}}
+[2022-08-05 09:41:49.730:149285][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==>  Preparing: INSERT INTO TxTrace( CustId, TxDate, TxSequence, TxStarted ) VALUES ( ?,?,?,?) ON DUPLICATE KEY UPDATE TxSequence = TxSequence+1
+[2022-08-05 09:41:49.731:149286][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==> Parameters: 0000000002(String), 20220805(String), 1(String), Y(String)
+[2022-08-05 09:41:49.742:149297][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - <==    Updates: 2
+[2022-08-05 09:41:49.743:149298][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 09:41:49.744:149299][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000002(String), 20220805(String)
+[2022-08-05 09:41:49.761:149316][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 09:41:49.775:149330][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.svc.FBService - txNo : 2
+[2022-08-05 09:41:49.789:149344][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:41:49.789:149344][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/transfer ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000263",
+  "drw_bank_code" : "088",
+  "telegram_no" : 2,
+  "drw_account" : "832210312031",
+  "drw_account_cntn" : "문세인",
+  "rv_bank_code" : "081",
+  "rv_account" : "46291012501007",
+  "rv_account_cntn" : "핍랄샐",
+  "amount" : 1000,
+  "tr_dt" : "20220602",
+  "tr_tm" : "155011"
+}
+[2022-08-05 09:41:51.256:150811][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:41:51.256:150811][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - 500 500 ==> {"status":500,"error_code":"9999","error_message":"서버에러"}
+[2022-08-05 09:41:51.256:150811][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 09:41:51.263:150818][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-05 09:41:51.272:150827][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 09:41:51.273:150828][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000002(String), 2022-08-05(String)
+[2022-08-05 09:41:51.281:150836][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 09:41:51.285:150840][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220805094149002, CustId=0000000002, TxDate=2022-08-05, TelegramNo=2, TxType=1, BankCd=081, Size=370, RoundTrip=1.626785209, StmtCnt=1, Status=500, StartDT=2022-08-05 09:41:49.634, EndDT=2022-08-05 09:41:51.261, EncData={
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000263", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}, NatvTrNo=null, ErrCode=9999, ErrMsg=서버에러)
+[2022-08-05 09:41:51.290:150845][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-05 09:41:51.291:150846][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220805094149002(String), 0000000002(String), 2022-08-05(String), 2(String), 1(String), 081(String), 370(Long), 1.626785209(BigDecimal), 1(Integer), 500(String), 2022-08-05 09:41:49.634(Timestamp), 2022-08-05 09:41:51.261(Timestamp), {
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000263", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}(String), test(String), null, 9999(String), 서버에러(String)
+[2022-08-05 09:41:51.304:150859][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-05 09:41:51.306:150861][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-05 09:41:51.306:150861][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000002(String), 20220805094149(String), 081(String), 1(String), 1(Long), 370(Long), 1(Long), 370(Long)
+[2022-08-05 09:41:51.318:150873][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 2
+[2022-08-05 09:43:24.072:1030][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 33142 (/Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer)
+[2022-08-05 09:43:24.074:1032][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-05 09:43:24.075:1033][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-05 09:43:28.123:5081][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.88 seconds (JVM running for 5.722)
+[2022-08-05 09:43:28.130:5088][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 09:43:28.130:5088][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
+[2022-08-05 09:43:28.130:5088][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 09:43:28.246:5204][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-05 09:43:28.256:5214][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-05 09:43:28.283:5241][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 2
+[2022-08-05 09:43:28.307:5265][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:43:28.307:5265][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 09:43:28.318:5276][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:43:28.318:5276][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:43:28.318:5276][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:43:28.328:5286][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:43:28.328:5286][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 09:43:28.328:5286][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
+[2022-08-05 09:43:28.328:5286][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 09:43:39.256:16214][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 09:43:39.263:16221][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.FirmAPIController - TransferRequest=10000263,TransferRequest(api_key=7242191d-865c-48df-aa02-e3cf10bffd6d, org_code=10000263, drw_bank_code=088, telegram_no=0, drw_account=832210312031, drw_account_cntn=문세인, rv_bank_code=081, rv_account=46291012501007, rv_account_cntn=핍랄샐, amount=1000, tr_dt=20220602, tr_tm=155011)
+[2022-08-05 09:43:39.322:16280][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:43:39.322:16280][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:43:39.330:16288][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:43:39.332:16290][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-05 09:43:39.332:16290][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000002(String), 20220805(String)
+[2022-08-05 09:43:39.342:16300][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-05 09:43:39.342:16300][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.svc.FBService - 개시전문 여부 : true
+[2022-08-05 09:43:39.343:16301][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:43:39.343:16301][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:43:39.352:16310][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:43:39.352:16310][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.svc.FileTelegramManager - custCounter : {10000262={20220805=0}, 10000263={20220805=2}}
+[2022-08-05 09:43:39.355:16313][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==>  Preparing: INSERT INTO TxTrace( CustId, TxDate, TxSequence, TxStarted ) VALUES ( ?,?,?,?) ON DUPLICATE KEY UPDATE TxSequence = TxSequence+1
+[2022-08-05 09:43:39.358:16316][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==> Parameters: 0000000002(String), 20220805(String), 1(String), Y(String)
+[2022-08-05 09:43:39.366:16324][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - <==    Updates: 2
+[2022-08-05 09:43:39.367:16325][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 09:43:39.368:16326][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000002(String), 20220805(String)
+[2022-08-05 09:43:39.375:16333][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 09:43:39.377:16335][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.svc.FBService - txNo : 3
+[2022-08-05 09:43:39.402:16360][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:43:39.402:16360][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/transfer ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000263",
+  "drw_bank_code" : "088",
+  "telegram_no" : 3,
+  "drw_account" : "832210312031",
+  "drw_account_cntn" : "문세인",
+  "rv_bank_code" : "081",
+  "rv_account" : "46291012501007",
+  "rv_account_cntn" : "핍랄샐",
+  "amount" : 1000,
+  "tr_dt" : "20220602",
+  "tr_tm" : "155011"
+}
+[2022-08-05 09:43:40.841:17799][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:43:40.843:17801][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - 500 500 ==> {"status":500,"error_code":"9999","error_message":"서버에러"}
+[2022-08-05 09:43:40.843:17801][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 09:43:40.873:17831][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-05 09:43:40.883:17841][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 09:43:40.883:17841][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000002(String), 2022-08-05(String)
+[2022-08-05 09:43:40.892:17850][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 09:43:40.901:17859][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220805094339001, CustId=0000000002, TxDate=2022-08-05, TelegramNo=3, TxType=1, BankCd=081, Size=370, RoundTrip=1.599516334, StmtCnt=1, Status=500, StartDT=2022-08-05 09:43:39.254, EndDT=2022-08-05 09:43:40.854, EncData={
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000263", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}, NatvTrNo=null, ErrCode=9999, ErrMsg=서버에러)
+[2022-08-05 09:43:40.928:17886][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-05 09:43:40.939:17897][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220805094339001(String), 0000000002(String), 2022-08-05(String), 3(String), 1(String), 081(String), 370(Long), 1.599516334(BigDecimal), 1(Integer), 500(String), 2022-08-05 09:43:39.254(Timestamp), 2022-08-05 09:43:40.854(Timestamp), {
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000263", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}(String), test(String), null, 9999(String), 서버에러(String)
+[2022-08-05 09:43:40.949:17907][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-05 09:43:40.950:17908][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-05 09:43:40.950:17908][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000002(String), 20220805094339(String), 081(String), 1(String), 1(Long), 370(Long), 1(Long), 370(Long)
+[2022-08-05 09:43:40.961:17919][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 2
+[2022-08-05 09:45:10.064:107022][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 09:45:10.068:107026][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.FirmAPIController - TransferRequest=10000263,TransferRequest(api_key=7242191d-865c-48df-aa02-e3cf10bffd6d, org_code=10000263, drw_bank_code=088, telegram_no=0, drw_account=832210312031, drw_account_cntn=문세인, rv_bank_code=081, rv_account=46291012501007, rv_account_cntn=핍랄샐, amount=1000, tr_dt=20220602, tr_tm=155011)
+[2022-08-05 09:45:10.083:107041][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:45:10.085:107043][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:45:10.093:107051][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:45:10.094:107052][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-05 09:45:10.095:107053][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000002(String), 20220805(String)
+[2022-08-05 09:45:10.103:107061][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-05 09:45:10.104:107062][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.svc.FBService - 개시전문 여부 : true
+[2022-08-05 09:45:10.104:107062][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:45:10.104:107062][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:45:10.115:107073][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:45:10.115:107073][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.svc.FileTelegramManager - custCounter : {10000262={20220805=0}, 10000263={20220805=2}}
+[2022-08-05 09:45:10.117:107075][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==>  Preparing: INSERT INTO TxTrace( CustId, TxDate, TxSequence, TxStarted ) VALUES ( ?,?,?,?) ON DUPLICATE KEY UPDATE TxSequence = TxSequence+1
+[2022-08-05 09:45:10.117:107075][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==> Parameters: 0000000002(String), 20220805(String), 1(String), Y(String)
+[2022-08-05 09:45:10.126:107084][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - <==    Updates: 2
+[2022-08-05 09:45:10.126:107084][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 09:45:10.127:107085][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000002(String), 20220805(String)
+[2022-08-05 09:45:10.137:107095][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 09:45:10.139:107097][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.svc.FBService - txNo : 4
+[2022-08-05 09:45:10.147:107105][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:45:10.148:107106][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/transfer ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000263",
+  "drw_bank_code" : "088",
+  "telegram_no" : 4,
+  "drw_account" : "832210312031",
+  "drw_account_cntn" : "문세인",
+  "rv_bank_code" : "081",
+  "rv_account" : "46291012501007",
+  "rv_account_cntn" : "핍랄샐",
+  "amount" : 1000,
+  "tr_dt" : "20220602",
+  "tr_tm" : "155011"
+}
+[2022-08-05 09:45:11.450:108408][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:45:11.450:108408][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - 500 500 ==> {"status":500,"error_code":"9999","error_message":"서버에러"}
+[2022-08-05 09:45:11.450:108408][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 09:45:11.455:108413][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-05 09:45:11.464:108422][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 09:45:11.465:108423][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000002(String), 2022-08-05(String)
+[2022-08-05 09:45:11.485:108443][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 09:45:11.489:108447][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220805094510002, CustId=0000000002, TxDate=2022-08-05, TelegramNo=4, TxType=1, BankCd=081, Size=370, RoundTrip=1.389875791, StmtCnt=1, Status=500, StartDT=2022-08-05 09:45:10.064, EndDT=2022-08-05 09:45:11.454, EncData={
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000263", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}, NatvTrNo=null, ErrCode=9999, ErrMsg=서버에러)
+[2022-08-05 09:45:11.490:108448][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-05 09:45:11.490:108448][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220805094510002(String), 0000000002(String), 2022-08-05(String), 4(String), 1(String), 081(String), 370(Long), 1.389875791(BigDecimal), 1(Integer), 500(String), 2022-08-05 09:45:10.064(Timestamp), 2022-08-05 09:45:11.454(Timestamp), {
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000263", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}(String), test(String), null, 9999(String), 서버에러(String)
+[2022-08-05 09:45:11.504:108462][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-05 09:45:11.505:108463][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-05 09:45:11.505:108463][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000002(String), 20220805094510(String), 081(String), 1(String), 1(Long), 370(Long), 1(Long), 370(Long)
+[2022-08-05 09:45:11.515:108473][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 2
+[2022-08-05 09:47:38.988:255946][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 09:47:38.994:255952][https-jsse-nio-9000-exec-2] INFO  com.inspien.fb.FirmAPIController - TransferRequest=10000263,TransferRequest(api_key=7242191d-865c-48df-aa02-e3cf10bffd6d, org_code=10000263, drw_bank_code=088, telegram_no=0, drw_account=832210312031, drw_account_cntn=문세인, rv_bank_code=081, rv_account=46291012501007, rv_account_cntn=핍랄샐, amount=1000, tr_dt=20220602, tr_tm=155011)
+[2022-08-05 09:47:39.010:255968][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:47:39.011:255969][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:47:39.026:255984][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:47:39.026:255984][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-05 09:47:39.026:255984][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000002(String), 20220805(String)
+[2022-08-05 09:47:39.039:255997][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-05 09:47:39.040:255998][https-jsse-nio-9000-exec-2] INFO  com.inspien.fb.svc.FBService - 개시전문 여부 : true
+[2022-08-05 09:47:39.041:255999][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:47:39.041:255999][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:47:39.049:256007][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:47:39.050:256008][https-jsse-nio-9000-exec-2] DEBUG c.i.fb.svc.FileTelegramManager - custCounter : {10000262={20220805=0}, 10000263={20220805=2}}
+[2022-08-05 09:47:39.050:256008][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==>  Preparing: INSERT INTO TxTrace( CustId, TxDate, TxSequence, TxStarted ) VALUES ( ?,?,?,?) ON DUPLICATE KEY UPDATE TxSequence = TxSequence+1
+[2022-08-05 09:47:39.050:256008][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==> Parameters: 0000000002(String), 20220805(String), 1(String), Y(String)
+[2022-08-05 09:47:39.063:256021][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - <==    Updates: 2
+[2022-08-05 09:47:39.063:256021][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 09:47:39.064:256022][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000002(String), 20220805(String)
+[2022-08-05 09:47:39.072:256030][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 09:47:39.081:256039][https-jsse-nio-9000-exec-2] INFO  com.inspien.fb.svc.FBService - txNo : 5
+[2022-08-05 09:47:39.086:256044][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:47:39.087:256045][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/transfer ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000263",
+  "drw_bank_code" : "088",
+  "telegram_no" : 5,
+  "drw_account" : "832210312031",
+  "drw_account_cntn" : "문세인",
+  "rv_bank_code" : "081",
+  "rv_account" : "46291012501007",
+  "rv_account_cntn" : "핍랄샐",
+  "amount" : 1000,
+  "tr_dt" : "20220602",
+  "tr_tm" : "155011"
+}
+[2022-08-05 09:47:40.440:257398][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:47:40.441:257399][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - 500 500 ==> {"status":500,"error_code":"9999","error_message":"서버에러"}
+[2022-08-05 09:47:40.444:257402][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 09:47:40.452:257410][https-jsse-nio-9000-exec-2] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-05 09:47:40.461:257419][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 09:47:40.463:257421][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000002(String), 2022-08-05(String)
+[2022-08-05 09:47:40.472:257430][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 09:47:40.485:257443][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220805094738003, CustId=0000000002, TxDate=2022-08-05, TelegramNo=5, TxType=1, BankCd=081, Size=370, RoundTrip=1.462338625, StmtCnt=1, Status=500, StartDT=2022-08-05 09:47:38.987, EndDT=2022-08-05 09:47:40.449, EncData={
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000263", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}, NatvTrNo=null, ErrCode=9999, ErrMsg=서버에러)
+[2022-08-05 09:47:40.487:257445][https-jsse-nio-9000-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-05 09:47:40.489:257447][https-jsse-nio-9000-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220805094738003(String), 0000000002(String), 2022-08-05(String), 5(String), 1(String), 081(String), 370(Long), 1.462338625(BigDecimal), 1(Integer), 500(String), 2022-08-05 09:47:38.987(Timestamp), 2022-08-05 09:47:40.449(Timestamp), {
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000263", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}(String), test(String), null, 9999(String), 서버에러(String)
+[2022-08-05 09:47:40.506:257464][https-jsse-nio-9000-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-05 09:47:40.508:257466][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-05 09:47:40.509:257467][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000002(String), 20220805094738(String), 081(String), 1(String), 1(Long), 370(Long), 1(Long), 370(Long)
+[2022-08-05 09:47:40.521:257479][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 2
+[2022-08-05 09:51:39.314:496272][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 09:51:39.322:496280][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.FirmAPIController - TransferRequest=10000263,TransferRequest(api_key=7242191d-865c-48df-aa02-e3cf10bffd6d, org_code=10000263, drw_bank_code=088, telegram_no=0, drw_account=832210312031, drw_account_cntn=문세인, rv_bank_code=081, rv_account=46291012501007, rv_account_cntn=핍랄샐, amount=1000, tr_dt=20220602, tr_tm=155011)
+[2022-08-05 09:51:39.346:496304][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:51:39.354:496312][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:51:39.367:496325][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:51:39.369:496327][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-05 09:51:39.369:496327][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000002(String), 20220805(String)
+[2022-08-05 09:51:39.396:496354][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-05 09:51:39.407:496365][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.svc.FBService - 개시전문 여부 : true
+[2022-08-05 09:51:39.409:496367][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:51:39.415:496373][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:51:39.426:496384][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:51:39.427:496385][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.svc.FileTelegramManager - custCounter : {10000262={20220805=0}, 10000263={20220805=2}}
+[2022-08-05 09:51:39.428:496386][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==>  Preparing: INSERT INTO TxTrace( CustId, TxDate, TxSequence, TxStarted ) VALUES ( ?,?,?,?) ON DUPLICATE KEY UPDATE TxSequence = TxSequence+1
+[2022-08-05 09:51:39.429:496387][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==> Parameters: 0000000002(String), 20220805(String), 1(String), Y(String)
+[2022-08-05 09:51:39.458:496416][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - <==    Updates: 2
+[2022-08-05 09:51:39.458:496416][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 09:51:39.459:496417][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000002(String), 20220805(String)
+[2022-08-05 09:51:39.476:496434][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 09:51:39.478:496436][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.svc.FBService - txNo : 6
+[2022-08-05 09:51:39.481:496439][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:51:39.481:496439][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/transfer ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000263",
+  "drw_bank_code" : "088",
+  "telegram_no" : 6,
+  "drw_account" : "832210312031",
+  "drw_account_cntn" : "문세인",
+  "rv_bank_code" : "081",
+  "rv_account" : "46291012501007",
+  "rv_account_cntn" : "핍랄샐",
+  "amount" : 1000,
+  "tr_dt" : "20220602",
+  "tr_tm" : "155011"
+}
+[2022-08-05 09:51:40.712:497670][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:51:40.713:497671][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - 500 500 ==> {"status":500,"error_code":"9999","error_message":"서버에러"}
+[2022-08-05 09:51:40.713:497671][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 09:51:40.717:497675][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-05 09:51:40.728:497686][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 09:51:40.728:497686][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000002(String), 2022-08-05(String)
+[2022-08-05 09:51:40.736:497694][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 09:51:40.737:497695][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220805095139004, CustId=0000000002, TxDate=2022-08-05, TelegramNo=6, TxType=1, BankCd=081, Size=370, RoundTrip=1.400842083, StmtCnt=1, Status=500, StartDT=2022-08-05 09:51:39.313, EndDT=2022-08-05 09:51:40.714, EncData={
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000263", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}, NatvTrNo=null, ErrCode=9999, ErrMsg=서버에러)
+[2022-08-05 09:51:40.738:497696][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-05 09:51:40.741:497699][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220805095139004(String), 0000000002(String), 2022-08-05(String), 6(String), 1(String), 081(String), 370(Long), 1.400842083(BigDecimal), 1(Integer), 500(String), 2022-08-05 09:51:39.313(Timestamp), 2022-08-05 09:51:40.714(Timestamp), {
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000263", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}(String), test(String), null, 9999(String), 서버에러(String)
+[2022-08-05 09:51:40.751:497709][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-05 09:51:40.752:497710][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-05 09:51:40.752:497710][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000002(String), 20220805095139(String), 081(String), 1(String), 1(Long), 370(Long), 1(Long), 370(Long)
+[2022-08-05 09:51:40.760:497718][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 2
+[2022-08-05 09:52:35.779:961][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 33325 (/Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer)
+[2022-08-05 09:52:35.780:962][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-05 09:52:35.781:963][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-05 09:52:37.889:3071][main] DEBUG c.i.fb.svc.FileTelegramManager - init.custCounter : {10000262={20220805=0}}
+[2022-08-05 09:52:37.890:3072][main] DEBUG c.i.fb.svc.FileTelegramManager - init.custCounter : {10000262={20220805=0}, 10000263={20220805=6}}
+[2022-08-05 09:52:39.388:4570][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.364 seconds (JVM running for 5.084)
+[2022-08-05 09:52:39.395:4577][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 09:52:39.395:4577][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
+[2022-08-05 09:52:39.395:4577][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 09:52:39.517:4699][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-05 09:52:39.528:4710][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-05 09:52:39.560:4742][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 2
+[2022-08-05 09:52:39.585:4767][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:52:39.585:4767][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 09:52:39.596:4778][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:52:39.596:4778][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:52:39.597:4779][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:52:39.605:4787][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:52:39.605:4787][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 09:52:39.605:4787][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
+[2022-08-05 09:52:39.605:4787][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 09:53:26.239:51421][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 09:53:26.246:51428][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.FirmAPIController - TransferRequest=10000263,TransferRequest(api_key=7242191d-865c-48df-aa02-e3cf10bffd6d, org_code=10000263, drw_bank_code=088, telegram_no=0, drw_account=832210312031, drw_account_cntn=문세인, rv_bank_code=081, rv_account=46291012501007, rv_account_cntn=핍랄샐, amount=1000, tr_dt=20220602, tr_tm=155011)
+[2022-08-05 09:53:26.300:51482][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:53:26.301:51483][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:53:26.308:51490][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:53:26.311:51493][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-05 09:53:26.314:51496][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000002(String), 20220805(String)
+[2022-08-05 09:53:26.327:51509][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-05 09:53:26.327:51509][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.svc.FBService - 개시전문 여부 : true
+[2022-08-05 09:53:26.328:51510][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:53:26.328:51510][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:53:26.337:51519][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:53:26.337:51519][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.svc.FileTelegramManager - getNextCounter.custCounter : {10000262={20220805=0}, 10000263={20220805=6}}
+[2022-08-05 09:53:26.337:51519][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.svc.FileTelegramManager - custCounter.get(orgCode).containsKey(today) : true
+[2022-08-05 09:53:26.340:51522][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==>  Preparing: INSERT INTO TxTrace( CustId, TxDate, TxSequence, TxStarted ) VALUES ( ?,?,?,?) ON DUPLICATE KEY UPDATE TxSequence = TxSequence+1
+[2022-08-05 09:53:26.341:51523][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==> Parameters: 0000000002(String), 20220805(String), 1(String), Y(String)
+[2022-08-05 09:53:26.348:51530][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - <==    Updates: 2
+[2022-08-05 09:53:26.348:51530][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 09:53:26.349:51531][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000002(String), 20220805(String)
+[2022-08-05 09:53:26.357:51539][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 09:53:26.360:51542][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.svc.FBService - txNo : 7
+[2022-08-05 09:53:26.383:51565][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:53:26.383:51565][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/transfer ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000263",
+  "drw_bank_code" : "088",
+  "telegram_no" : 7,
+  "drw_account" : "832210312031",
+  "drw_account_cntn" : "문세인",
+  "rv_bank_code" : "081",
+  "rv_account" : "46291012501007",
+  "rv_account_cntn" : "핍랄샐",
+  "amount" : 1000,
+  "tr_dt" : "20220602",
+  "tr_tm" : "155011"
+}
+[2022-08-05 09:53:27.638:52820][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:53:27.639:52821][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - 500 500 ==> {"status":500,"error_code":"9999","error_message":"서버에러"}
+[2022-08-05 09:53:27.639:52821][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 09:53:27.673:52855][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-05 09:53:27.686:52868][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 09:53:27.686:52868][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000002(String), 2022-08-05(String)
+[2022-08-05 09:53:27.694:52876][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 09:53:27.704:52886][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220805095326001, CustId=0000000002, TxDate=2022-08-05, TelegramNo=7, TxType=1, BankCd=081, Size=370, RoundTrip=1.41603325, StmtCnt=1, Status=500, StartDT=2022-08-05 09:53:26.237, EndDT=2022-08-05 09:53:27.654, EncData={
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000263", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}, NatvTrNo=null, ErrCode=9999, ErrMsg=서버에러)
+[2022-08-05 09:53:27.730:52912][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-05 09:53:27.741:52923][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220805095326001(String), 0000000002(String), 2022-08-05(String), 7(String), 1(String), 081(String), 370(Long), 1.41603325(BigDecimal), 1(Integer), 500(String), 2022-08-05 09:53:26.237(Timestamp), 2022-08-05 09:53:27.654(Timestamp), {
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000263", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}(String), test(String), null, 9999(String), 서버에러(String)
+[2022-08-05 09:53:27.753:52935][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-05 09:53:27.754:52936][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-05 09:53:27.755:52937][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000002(String), 20220805095326(String), 081(String), 1(String), 1(Long), 370(Long), 1(Long), 370(Long)
+[2022-08-05 09:53:27.763:52945][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 2
+[2022-08-05 09:53:57.641:82823][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 09:53:57.642:82824][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.FirmAPIController - TransferRequest=10000263,TransferRequest(api_key=7242191d-865c-48df-aa02-e3cf10bffd6d, org_code=10000263, drw_bank_code=088, telegram_no=0, drw_account=832210312031, drw_account_cntn=문세인, rv_bank_code=081, rv_account=46291012501007, rv_account_cntn=핍랄샐, amount=1000, tr_dt=20220602, tr_tm=155011)
+[2022-08-05 09:53:57.655:82837][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:53:57.656:82838][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:53:57.666:82848][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:53:57.667:82849][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-05 09:53:57.668:82850][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000002(String), 20220805(String)
+[2022-08-05 09:53:57.677:82859][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-05 09:53:57.677:82859][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.svc.FBService - 개시전문 여부 : true
+[2022-08-05 09:53:57.678:82860][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:53:57.678:82860][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:53:57.687:82869][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:53:57.688:82870][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.svc.FileTelegramManager - getNextCounter.custCounter : {10000262={20220805=0}, 10000263={20220805=6}}
+[2022-08-05 09:53:57.688:82870][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.svc.FileTelegramManager - custCounter.get(orgCode).containsKey(today) : true
+[2022-08-05 09:53:57.689:82871][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==>  Preparing: INSERT INTO TxTrace( CustId, TxDate, TxSequence, TxStarted ) VALUES ( ?,?,?,?) ON DUPLICATE KEY UPDATE TxSequence = TxSequence+1
+[2022-08-05 09:53:57.689:82871][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==> Parameters: 0000000002(String), 20220805(String), 1(String), Y(String)
+[2022-08-05 09:53:57.697:82879][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - <==    Updates: 2
+[2022-08-05 09:53:57.697:82879][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 09:53:57.698:82880][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000002(String), 20220805(String)
+[2022-08-05 09:53:57.708:82890][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 09:53:57.710:82892][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.svc.FBService - txNo : 8
+[2022-08-05 09:53:57.717:82899][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:53:57.718:82900][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/transfer ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000263",
+  "drw_bank_code" : "088",
+  "telegram_no" : 8,
+  "drw_account" : "832210312031",
+  "drw_account_cntn" : "문세인",
+  "rv_bank_code" : "081",
+  "rv_account" : "46291012501007",
+  "rv_account_cntn" : "핍랄샐",
+  "amount" : 1000,
+  "tr_dt" : "20220602",
+  "tr_tm" : "155011"
+}
+[2022-08-05 09:53:58.943:84125][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:53:58.950:84132][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - 500 500 ==> {"status":500,"error_code":"9999","error_message":"서버에러"}
+[2022-08-05 09:53:58.951:84133][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 09:53:58.965:84147][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-05 09:53:58.974:84156][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 09:53:58.975:84157][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000002(String), 2022-08-05(String)
+[2022-08-05 09:53:58.983:84165][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 09:53:58.988:84170][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220805095357002, CustId=0000000002, TxDate=2022-08-05, TelegramNo=8, TxType=1, BankCd=081, Size=370, RoundTrip=1.322782, StmtCnt=1, Status=500, StartDT=2022-08-05 09:53:57.64, EndDT=2022-08-05 09:53:58.963, EncData={
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000263", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}, NatvTrNo=null, ErrCode=9999, ErrMsg=서버에러)
+[2022-08-05 09:53:58.991:84173][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-05 09:53:58.994:84176][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220805095357002(String), 0000000002(String), 2022-08-05(String), 8(String), 1(String), 081(String), 370(Long), 1.322782(BigDecimal), 1(Integer), 500(String), 2022-08-05 09:53:57.64(Timestamp), 2022-08-05 09:53:58.963(Timestamp), {
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000263", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}(String), test(String), null, 9999(String), 서버에러(String)
+[2022-08-05 09:53:59.003:84185][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-05 09:53:59.006:84188][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-05 09:53:59.007:84189][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000002(String), 20220805095357(String), 081(String), 1(String), 1(Long), 370(Long), 1(Long), 370(Long)
+[2022-08-05 09:53:59.019:84201][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 2
+[2022-08-05 09:55:13.802:158984][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 09:55:13.817:158999][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:55:13.818:159000][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-05 09:55:13.829:159011][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:55:13.829:159011][https-jsse-nio-9000-exec-2] INFO  com.inspien.fb.FirmAPIController - TransferRequest=10000264,TransferRequest(api_key=7242191d-865c-48df-aa02-e3cf10bffd6d, org_code=10000264, drw_bank_code=088, telegram_no=0, drw_account=832210312031, drw_account_cntn=문세인, rv_bank_code=081, rv_account=46291012501007, rv_account_cntn=핍랄샐, amount=1000, tr_dt=20220602, tr_tm=155011)
+[2022-08-05 09:55:13.833:159015][https-jsse-nio-9000-exec-2] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-05 09:55:13.834:159016][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 09:55:13.834:159016][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000003(String), 2022-08-05(String)
+[2022-08-05 09:55:13.847:159029][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 0
+[2022-08-05 09:55:13.849:159031][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220805095513003, CustId=0000000003, TxDate=2022-08-05, TelegramNo=null, TxType=1, BankCd=081, Size=370, RoundTrip=0.031819333, StmtCnt=1, Status=401, StartDT=2022-08-05 09:55:13.8, EndDT=2022-08-05 09:55:13.833, EncData={
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000264", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}, NatvTrNo=null, ErrCode=1001, ErrMsg=UNUSED_CUSTOMER)
+[2022-08-05 09:55:13.849:159031][https-jsse-nio-9000-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-05 09:55:13.850:159032][https-jsse-nio-9000-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220805095513003(String), 0000000003(String), 2022-08-05(String), null, 1(String), 081(String), 370(Long), 0.031819333(BigDecimal), 1(Integer), 401(String), 2022-08-05 09:55:13.8(Timestamp), 2022-08-05 09:55:13.833(Timestamp), {
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000264", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}(String), test(String), null, 1001(String), UNUSED_CUSTOMER(String)
+[2022-08-05 09:55:13.860:159042][https-jsse-nio-9000-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-05 09:55:13.861:159043][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-05 09:55:13.861:159043][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000003(String), 20220805095513(String), 081(String), 1(String), 1(Long), 370(Long), 1(Long), 370(Long)
+[2022-08-05 09:55:13.867:159049][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 1
+[2022-08-05 09:55:32.901:178083][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
+[2022-08-05 09:55:32.901:178083][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
+[2022-08-05 09:55:32.901:178083][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.FirmAPIController - start local cache initializing
+[2022-08-05 09:55:32.901:178083][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
+[2022-08-05 09:55:32.912:178094][https-jsse-nio-9000-exec-2] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-05 09:55:32.912:178094][https-jsse-nio-9000-exec-2] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-05 09:55:32.922:178104][https-jsse-nio-9000-exec-2] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 3
+[2022-08-05 09:55:32.923:178105][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:55:32.924:178106][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 09:55:32.934:178116][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:55:32.936:178118][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:55:32.936:178118][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 09:55:32.946:178128][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:55:32.946:178128][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:55:32.947:178129][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-05 09:55:32.957:178139][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:55:32.959:178141][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
+[2022-08-05 09:55:32.959:178141][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.FirmAPIController - complete local cache initializing
+[2022-08-05 09:55:32.959:178141][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
+[2022-08-05 09:55:42.852:188034][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 09:55:42.856:188038][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.FirmAPIController - TransferRequest=10000264,TransferRequest(api_key=7242191d-865c-48df-aa02-e3cf10bffd6d, org_code=10000264, drw_bank_code=088, telegram_no=0, drw_account=832210312031, drw_account_cntn=문세인, rv_bank_code=081, rv_account=46291012501007, rv_account_cntn=핍랄샐, amount=1000, tr_dt=20220602, tr_tm=155011)
+[2022-08-05 09:55:42.870:188052][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:55:42.871:188053][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-05 09:55:42.881:188063][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:55:42.881:188063][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-05 09:55:42.881:188063][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000003(String), 20220805(String)
+[2022-08-05 09:55:42.890:188072][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-05 09:55:42.890:188072][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.svc.FBService - 개시전문 여부 : false
+[2022-08-05 09:55:42.891:188073][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.svc.FBService - start openReq
+[2022-08-05 09:55:42.891:188073][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==>  Preparing: INSERT INTO TxTrace( CustId, TxDate, TxSequence, TxStarted ) VALUES ( ?,?,?,?) ON DUPLICATE KEY UPDATE TxSequence = TxSequence+1
+[2022-08-05 09:55:42.891:188073][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==> Parameters: 0000000003(String), 20220805(String), 1(String), Y(String)
+[2022-08-05 09:55:42.903:188085][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - <==    Updates: 1
+[2022-08-05 09:55:42.915:188097][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:55:42.915:188097][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/account/open ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000264",
+  "drw_bank_code" : "088",
+  "telegram_no" : 1
+}
+[2022-08-05 09:55:42.985:188167][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:55:42.985:188167][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - 401 401 ==> {"status":401,"error_code":"1000","error_message":"잘못된 API Key"}
+[2022-08-05 09:55:42.985:188167][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 09:55:42.989:188171][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:55:42.992:188174][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-05 09:55:43.003:188185][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:55:43.005:188187][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.svc.FileTelegramManager - getNextCounter.custCounter : {10000262={20220805=0}, 10000263={20220805=6}}
+[2022-08-05 09:55:43.005:188187][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.svc.FBService - txNo : 0
+[2022-08-05 09:55:43.007:188189][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:55:43.007:188189][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/transfer ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000264",
+  "drw_bank_code" : "088",
+  "telegram_no" : 0,
+  "drw_account" : "832210312031",
+  "drw_account_cntn" : "문세인",
+  "rv_bank_code" : "081",
+  "rv_account" : "46291012501007",
+  "rv_account_cntn" : "핍랄샐",
+  "amount" : 1000,
+  "tr_dt" : "20220602",
+  "tr_tm" : "155011"
+}
+[2022-08-05 09:55:43.054:188236][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:55:43.054:188236][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - 401 401 ==> {"status":401,"error_code":"1000","error_message":"잘못된 API Key"}
+[2022-08-05 09:55:43.054:188236][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 09:55:43.059:188241][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-05 09:55:43.059:188241][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 09:55:43.060:188242][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000003(String), 2022-08-05(String)
+[2022-08-05 09:55:43.068:188250][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 09:55:43.070:188252][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220805095542004, CustId=0000000003, TxDate=2022-08-05, TelegramNo=1, TxType=1, BankCd=081, Size=370, RoundTrip=0.205264791, StmtCnt=1, Status=401, StartDT=2022-08-05 09:55:42.851, EndDT=2022-08-05 09:55:43.056, EncData={
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000264", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}, NatvTrNo=null, ErrCode=1000, ErrMsg=잘못된 API Key)
+[2022-08-05 09:55:43.071:188253][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-05 09:55:43.073:188255][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220805095542004(String), 0000000003(String), 2022-08-05(String), 1(String), 1(String), 081(String), 370(Long), 0.205264791(BigDecimal), 1(Integer), 401(String), 2022-08-05 09:55:42.851(Timestamp), 2022-08-05 09:55:43.056(Timestamp), {
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000264", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}(String), test(String), null, 1000(String), 잘못된 API Key(String)
+[2022-08-05 09:55:43.085:188267][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-05 09:55:43.086:188268][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-05 09:55:43.088:188270][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000003(String), 20220805095542(String), 081(String), 1(String), 1(Long), 370(Long), 1(Long), 370(Long)
+[2022-08-05 09:55:43.098:188280][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 2
+[2022-08-05 09:59:03.285:388467][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 09:59:03.289:388471][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.FirmAPIController - TransferRequest=10000264,TransferRequest(api_key=7242191d-865c-48df-aa02-e3cf10bffd6d, org_code=10000264, drw_bank_code=088, telegram_no=0, drw_account=832210312031, drw_account_cntn=문세인, rv_bank_code=081, rv_account=46291012501007, rv_account_cntn=핍랄샐, amount=1000, tr_dt=20220602, tr_tm=155011)
+[2022-08-05 09:59:03.302:388484][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:59:03.303:388485][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-05 09:59:03.313:388495][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:59:03.314:388496][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-05 09:59:03.314:388496][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000003(String), 20220805(String)
+[2022-08-05 09:59:03.323:388505][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-05 09:59:03.324:388506][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.svc.FBService - 개시전문 여부 : true
+[2022-08-05 09:59:03.325:388507][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 09:59:03.326:388508][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-05 09:59:03.335:388517][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 09:59:03.335:388517][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.svc.FileTelegramManager - getNextCounter.custCounter : {10000262={20220805=0}, 10000263={20220805=6}, 10000264={20220805=0}}
+[2022-08-05 09:59:03.335:388517][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.svc.FileTelegramManager - custCounter.get(orgCode).containsKey(today) : true
+[2022-08-05 09:59:03.335:388517][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==>  Preparing: INSERT INTO TxTrace( CustId, TxDate, TxSequence, TxStarted ) VALUES ( ?,?,?,?) ON DUPLICATE KEY UPDATE TxSequence = TxSequence+1
+[2022-08-05 09:59:03.335:388517][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==> Parameters: 0000000003(String), 20220805(String), 1(String), Y(String)
+[2022-08-05 09:59:03.346:388528][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - <==    Updates: 2
+[2022-08-05 09:59:03.347:388529][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 09:59:03.347:388529][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000003(String), 20220805(String)
+[2022-08-05 09:59:03.356:388538][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 09:59:03.358:388540][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.svc.FBService - txNo : 2
+[2022-08-05 09:59:03.364:388546][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:59:03.365:388547][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/transfer ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000264",
+  "drw_bank_code" : "088",
+  "telegram_no" : 2,
+  "drw_account" : "832210312031",
+  "drw_account_cntn" : "문세인",
+  "rv_bank_code" : "081",
+  "rv_account" : "46291012501007",
+  "rv_account_cntn" : "핍랄샐",
+  "amount" : 1000,
+  "tr_dt" : "20220602",
+  "tr_tm" : "155011"
+}
+[2022-08-05 09:59:03.450:388632][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 09:59:03.452:388634][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - 401 401 ==> {"status":401,"error_code":"1000","error_message":"잘못된 API Key"}
+[2022-08-05 09:59:03.452:388634][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 09:59:03.455:388637][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-05 09:59:03.457:388639][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 09:59:03.457:388639][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000003(String), 2022-08-05(String)
+[2022-08-05 09:59:03.464:388646][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 09:59:03.467:388649][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220805095903005, CustId=0000000003, TxDate=2022-08-05, TelegramNo=2, TxType=1, BankCd=081, Size=370, RoundTrip=0.169157917, StmtCnt=1, Status=401, StartDT=2022-08-05 09:59:03.284, EndDT=2022-08-05 09:59:03.453, EncData={
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000264", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}, NatvTrNo=null, ErrCode=1000, ErrMsg=잘못된 API Key)
+[2022-08-05 09:59:03.468:388650][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-05 09:59:03.469:388651][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220805095903005(String), 0000000003(String), 2022-08-05(String), 2(String), 1(String), 081(String), 370(Long), 0.169157917(BigDecimal), 1(Integer), 401(String), 2022-08-05 09:59:03.284(Timestamp), 2022-08-05 09:59:03.453(Timestamp), {
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000264", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}(String), test(String), null, 1000(String), 잘못된 API Key(String)
+[2022-08-05 09:59:03.480:388662][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-05 09:59:03.480:388662][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-05 09:59:03.481:388663][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000003(String), 20220805095903(String), 081(String), 1(String), 1(Long), 370(Long), 1(Long), 370(Long)
+[2022-08-05 09:59:03.488:388670][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 2
+[2022-08-05 10:04:12.512:697694][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 10:04:12.518:697700][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.FirmAPIController - TransferRequest=10000262,TransferRequest(api_key=7242191d-865c-48df-aa02-e3cf10bffd6d, org_code=10000262, drw_bank_code=088, telegram_no=0, drw_account=832210312031, drw_account_cntn=문세인, rv_bank_code=081, rv_account=46291012501007, rv_account_cntn=핍랄샐, amount=1000, tr_dt=20220602, tr_tm=155011)
+[2022-08-05 10:04:12.536:697718][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:04:12.537:697719][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 10:04:12.549:697731][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:04:12.550:697732][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-05 10:04:12.551:697733][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000001(String), 20220805(String)
+[2022-08-05 10:04:12.560:697742][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-05 10:04:12.560:697742][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.svc.FBService - 개시전문 여부 : false
+[2022-08-05 10:04:12.560:697742][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.svc.FBService - start openReq
+[2022-08-05 10:04:12.561:697743][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==>  Preparing: INSERT INTO TxTrace( CustId, TxDate, TxSequence, TxStarted ) VALUES ( ?,?,?,?) ON DUPLICATE KEY UPDATE TxSequence = TxSequence+1
+[2022-08-05 10:04:12.561:697743][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==> Parameters: 0000000001(String), 20220805(String), 1(String), Y(String)
+[2022-08-05 10:04:12.571:697753][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - <==    Updates: 1
+[2022-08-05 10:04:12.579:697761][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 10:04:12.579:697761][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/account/open ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000262",
+  "drw_bank_code" : "088",
+  "telegram_no" : 1
+}
+[2022-08-05 10:04:12.671:697853][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 10:04:12.671:697853][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - 520 520 ==> {"status":520,"error_code":"D017","error_message":"기관 거래번호 중복"}
+[2022-08-05 10:04:12.671:697853][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 10:04:12.675:697857][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:04:12.675:697857][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 10:04:12.686:697868][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:04:12.686:697868][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.svc.FileTelegramManager - getNextCounter.custCounter : {10000262={20220805=0}, 10000263={20220805=6}, 10000264={20220805=0}}
+[2022-08-05 10:04:12.686:697868][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.svc.FileTelegramManager - custCounter.get(orgCode).containsKey(today) : true
+[2022-08-05 10:04:12.687:697869][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==>  Preparing: INSERT INTO TxTrace( CustId, TxDate, TxSequence, TxStarted ) VALUES ( ?,?,?,?) ON DUPLICATE KEY UPDATE TxSequence = TxSequence+1
+[2022-08-05 10:04:12.687:697869][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==> Parameters: 0000000001(String), 20220805(String), 1(String), Y(String)
+[2022-08-05 10:04:12.697:697879][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - <==    Updates: 2
+[2022-08-05 10:04:12.697:697879][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 10:04:12.698:697880][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000001(String), 20220805(String)
+[2022-08-05 10:04:12.710:697892][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 10:04:12.712:697894][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.svc.FBService - txNo : 2
+[2022-08-05 10:04:12.716:697898][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 10:04:12.716:697898][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/transfer ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000262",
+  "drw_bank_code" : "088",
+  "telegram_no" : 2,
+  "drw_account" : "832210312031",
+  "drw_account_cntn" : "문세인",
+  "rv_bank_code" : "081",
+  "rv_account" : "46291012501007",
+  "rv_account_cntn" : "핍랄샐",
+  "amount" : 1000,
+  "tr_dt" : "20220602",
+  "tr_tm" : "155011"
+}
+[2022-08-05 10:04:17.256:702438][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 10:04:17.258:702440][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - 200 200 ==> {"status":200,"natv_tr_no":"20220805002089000006","request_at":"20220805100417","amount":1000}
+[2022-08-05 10:04:17.259:702441][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 10:04:17.268:702450][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-05 10:04:17.279:702461][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 10:04:17.280:702462][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000001(String), 2022-08-05(String)
+[2022-08-05 10:04:17.292:702474][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 10:04:17.297:702479][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220805100412006, CustId=0000000001, TxDate=2022-08-05, TelegramNo=2, TxType=1, BankCd=081, Size=370, RoundTrip=4.751588875, StmtCnt=1, Status=200, StartDT=2022-08-05 10:04:12.511, EndDT=2022-08-05 10:04:17.263, EncData={
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000262", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}, NatvTrNo=20220805002089000006, ErrCode=null, ErrMsg=null)
+[2022-08-05 10:04:17.299:702481][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-05 10:04:17.302:702484][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220805100412006(String), 0000000001(String), 2022-08-05(String), 2(String), 1(String), 081(String), 370(Long), 4.751588875(BigDecimal), 1(Integer), 200(String), 2022-08-05 10:04:12.511(Timestamp), 2022-08-05 10:04:17.263(Timestamp), {
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000262", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}(String), test(String), 20220805002089000006(String), null, null
+[2022-08-05 10:04:17.312:702494][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-05 10:04:17.316:702498][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-05 10:04:17.318:702500][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000001(String), 20220805100412(String), 081(String), 1(String), 1(Long), 370(Long), 1(Long), 370(Long)
+[2022-08-05 10:04:17.328:702510][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 2
+[2022-08-05 10:05:31.787:1025][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 33591 (/Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer)
+[2022-08-05 10:05:31.789:1027][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-05 10:05:31.789:1027][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-05 10:05:35.527:4765][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.548 seconds (JVM running for 5.435)
+[2022-08-05 10:05:35.534:4772][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 10:05:35.534:4772][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
+[2022-08-05 10:05:35.534:4772][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 10:05:35.651:4889][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-05 10:05:35.661:4899][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-05 10:05:35.687:4925][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 3
+[2022-08-05 10:05:35.711:4949][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:05:35.712:4950][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 10:05:35.721:4959][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:05:35.721:4959][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:05:35.721:4959][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 10:05:35.731:4969][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:05:35.731:4969][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:05:35.731:4969][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-05 10:05:35.740:4978][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:05:35.741:4979][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 10:05:35.741:4979][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
+[2022-08-05 10:05:35.741:4979][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 10:06:20.962:50200][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 10:06:20.988:50226][https-jsse-nio-9000-exec-2] INFO  com.inspien.fb.FirmAPIController - TransferRequest=10000262,TransferRequest(api_key=7242191d-865c-48df-aa02-e3cf10bffd6d, org_code=10000262, drw_bank_code=088, telegram_no=0, drw_account=832210312031, drw_account_cntn=문세인, rv_bank_code=081, rv_account=46291012501007, rv_account_cntn=핍랄샐, amount=1000, tr_dt=20220602, tr_tm=155011)
+[2022-08-05 10:06:21.206:50444][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:06:21.206:50444][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 10:06:21.214:50452][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:06:21.219:50457][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-05 10:06:21.220:50458][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000001(String), 20220805(String)
+[2022-08-05 10:06:21.244:50482][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-05 10:06:21.265:50503][https-jsse-nio-9000-exec-2] INFO  com.inspien.fb.svc.FBService - 개시전문 여부 : false
+[2022-08-05 10:06:21.269:50507][https-jsse-nio-9000-exec-2] INFO  com.inspien.fb.svc.FBService - start openReq
+[2022-08-05 10:06:21.275:50513][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==>  Preparing: INSERT INTO TxTrace( CustId, TxDate, TxSequence, TxStarted ) VALUES ( ?,?,?,?) ON DUPLICATE KEY UPDATE TxSequence = TxSequence+1
+[2022-08-05 10:06:21.276:50514][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==> Parameters: 0000000001(String), 20220805(String), 1(String), Y(String)
+[2022-08-05 10:06:21.290:50528][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - <==    Updates: 1
+[2022-08-05 10:06:21.331:50569][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 10:06:21.331:50569][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/account/open ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000262",
+  "drw_bank_code" : "088",
+  "telegram_no" : 1
+}
+[2022-08-05 10:06:21.709:50947][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 10:06:21.710:50948][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - 520 520 ==> {"status":520,"error_code":"D017","error_message":"기관 거래번호 중복"}
+[2022-08-05 10:06:21.710:50948][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 10:06:21.727:50965][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:06:21.727:50965][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 10:06:21.740:50978][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:06:21.742:50980][https-jsse-nio-9000-exec-2] DEBUG c.i.fb.svc.FileTelegramManager - getNextCounter.custCounter : {}
+[2022-08-05 10:06:21.747:50985][https-jsse-nio-9000-exec-2] INFO  com.inspien.fb.svc.FBService - txNo : 0
+[2022-08-05 10:06:21.752:50990][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 10:06:21.752:50990][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/transfer ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000262",
+  "drw_bank_code" : "088",
+  "telegram_no" : 0,
+  "drw_account" : "832210312031",
+  "drw_account_cntn" : "문세인",
+  "rv_bank_code" : "081",
+  "rv_account" : "46291012501007",
+  "rv_account_cntn" : "핍랄샐",
+  "amount" : 1000,
+  "tr_dt" : "20220602",
+  "tr_tm" : "155011"
+}
+[2022-08-05 10:06:21.852:51090][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 10:06:21.852:51090][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - 520 520 ==> {"status":520,"error_code":"D017","error_message":"기관 거래번호 중복"}
+[2022-08-05 10:06:21.852:51090][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 10:06:21.870:51108][https-jsse-nio-9000-exec-2] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-05 10:06:21.872:51110][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 10:06:21.873:51111][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000001(String), 2022-08-05(String)
+[2022-08-05 10:06:21.881:51119][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 10:06:21.890:51128][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220805100620001, CustId=0000000001, TxDate=2022-08-05, TelegramNo=1, TxType=1, BankCd=081, Size=370, RoundTrip=0.897436166, StmtCnt=1, Status=520, StartDT=2022-08-05 10:06:20.957, EndDT=2022-08-05 10:06:21.856, EncData={
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000262", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}, NatvTrNo=null, ErrCode=D017, ErrMsg=기관 거래번호 중복)
+[2022-08-05 10:06:21.917:51155][https-jsse-nio-9000-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-05 10:06:21.934:51172][https-jsse-nio-9000-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220805100620001(String), 0000000001(String), 2022-08-05(String), 1(String), 1(String), 081(String), 370(Long), 0.897436166(BigDecimal), 1(Integer), 520(String), 2022-08-05 10:06:20.957(Timestamp), 2022-08-05 10:06:21.856(Timestamp), {
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000262", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}(String), test(String), null, D017(String), 기관 거래번호 중복(String)
+[2022-08-05 10:06:21.944:51182][https-jsse-nio-9000-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-05 10:06:21.946:51184][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-05 10:06:21.947:51185][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000001(String), 20220805100620(String), 081(String), 1(String), 1(Long), 370(Long), 1(Long), 370(Long)
+[2022-08-05 10:06:21.959:51197][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 2
+[2022-08-05 10:12:57.352:836][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 33704 (/Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer)
+[2022-08-05 10:12:57.354:838][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-05 10:12:57.354:838][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-05 10:13:00.934:4418][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.215 seconds (JVM running for 5.095)
+[2022-08-05 10:13:00.941:4425][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 10:13:00.942:4426][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
+[2022-08-05 10:13:00.942:4426][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 10:13:01.051:4535][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-05 10:13:01.061:4545][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-05 10:13:01.087:4571][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 3
+[2022-08-05 10:13:01.110:4594][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:13:01.110:4594][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 10:13:01.120:4604][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:13:01.120:4604][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:13:01.120:4604][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 10:13:01.130:4614][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:13:01.130:4614][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:13:01.130:4614][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-05 10:13:01.139:4623][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:13:01.140:4624][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 10:13:01.140:4624][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
+[2022-08-05 10:13:01.140:4624][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 10:13:20.986:24470][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 10:13:20.993:24477][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.FirmAPIController - TransferRequest=10000262,TransferRequest(api_key=7242191d-865c-48df-aa02-e3cf10bffd6d, org_code=10000262, drw_bank_code=088, telegram_no=0, drw_account=832210312031, drw_account_cntn=문세인, rv_bank_code=081, rv_account=46291012501007, rv_account_cntn=핍랄샐, amount=1000, tr_dt=20220602, tr_tm=155011)
+[2022-08-05 10:13:21.051:24535][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:13:21.051:24535][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 10:13:21.063:24547][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:13:21.065:24549][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-05 10:13:21.066:24550][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000001(String), 20220805(String)
+[2022-08-05 10:13:21.076:24560][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-05 10:13:21.079:24563][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.svc.FBService - 개시전문 여부 : false
+[2022-08-05 10:13:21.080:24564][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.svc.FBService - start openReq
+[2022-08-05 10:13:21.083:24567][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==>  Preparing: INSERT INTO TxTrace( CustId, TxDate, TxSequence, TxStarted ) VALUES ( ?,?,?,?) ON DUPLICATE KEY UPDATE TxSequence = TxSequence+1
+[2022-08-05 10:13:21.083:24567][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==> Parameters: 0000000001(String), 20220805(String), 1(String), Y(String)
+[2022-08-05 10:13:21.092:24576][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - <==    Updates: 1
+[2022-08-05 10:13:21.118:24602][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 10:13:21.118:24602][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/account/open ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000262",
+  "drw_bank_code" : "088",
+  "telegram_no" : 1
+}
+[2022-08-05 10:13:21.288:24772][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 10:13:21.288:24772][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - 520 520 ==> {"status":520,"error_code":"D017","error_message":"기관 거래번호 중복"}
+[2022-08-05 10:13:21.288:24772][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 10:13:21.294:24778][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:13:21.295:24779][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 10:13:21.303:24787][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:13:21.304:24788][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.svc.FileTelegramManager - getNextCounter.custCounter : {}
+[2022-08-05 10:13:21.306:24790][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.svc.FBService - txNo : 0
+[2022-08-05 10:13:21.308:24792][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 10:13:21.308:24792][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/transfer ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000262",
+  "drw_bank_code" : "088",
+  "telegram_no" : 0,
+  "drw_account" : "832210312031",
+  "drw_account_cntn" : "문세인",
+  "rv_bank_code" : "081",
+  "rv_account" : "46291012501007",
+  "rv_account_cntn" : "핍랄샐",
+  "amount" : 1000,
+  "tr_dt" : "20220602",
+  "tr_tm" : "155011"
+}
+[2022-08-05 10:13:21.377:24861][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 10:13:21.377:24861][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - 520 520 ==> {"status":520,"error_code":"D017","error_message":"기관 거래번호 중복"}
+[2022-08-05 10:13:21.377:24861][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 10:13:21.390:24874][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-05 10:13:21.391:24875][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 10:13:21.392:24876][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000001(String), 2022-08-05(String)
+[2022-08-05 10:13:21.400:24884][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 10:13:21.406:24890][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220805101320001, CustId=0000000001, TxDate=2022-08-05, TelegramNo=1, TxType=1, BankCd=081, Size=370, RoundTrip=0.39332225, StmtCnt=1, Status=520, StartDT=2022-08-05 10:13:20.985, EndDT=2022-08-05 10:13:21.379, EncData={
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000262", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}, NatvTrNo=null, ErrCode=D017, ErrMsg=기관 거래번호 중복)
+[2022-08-05 10:13:21.427:24911][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-05 10:13:21.437:24921][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220805101320001(String), 0000000001(String), 2022-08-05(String), 1(String), 1(String), 081(String), 370(Long), 0.39332225(BigDecimal), 1(Integer), 520(String), 2022-08-05 10:13:20.985(Timestamp), 2022-08-05 10:13:21.379(Timestamp), {
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000262", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}(String), test(String), null, D017(String), 기관 거래번호 중복(String)
+[2022-08-05 10:13:21.446:24930][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-05 10:13:21.447:24931][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-05 10:13:21.447:24931][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000001(String), 20220805101320(String), 081(String), 1(String), 1(Long), 370(Long), 1(Long), 370(Long)
+[2022-08-05 10:13:21.458:24942][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 1
+[2022-08-05 10:14:02.979:66463][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 10:14:02.983:66467][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.FirmAPIController - TransferRequest=10000262,TransferRequest(api_key=7242191d-865c-48df-aa02-e3cf10bffd6d, org_code=10000262, drw_bank_code=088, telegram_no=0, drw_account=832210312031, drw_account_cntn=문세인, rv_bank_code=081, rv_account=46291012501007, rv_account_cntn=핍랄샐, amount=1000, tr_dt=20220602, tr_tm=155011)
+[2022-08-05 10:14:02.999:66483][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:14:02.999:66483][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 10:14:03.010:66494][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:14:03.011:66495][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-05 10:14:03.012:66496][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000001(String), 20220805(String)
+[2022-08-05 10:14:03.021:66505][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-05 10:14:03.022:66506][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.svc.FBService - 개시전문 여부 : true
+[2022-08-05 10:14:03.022:66506][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:14:03.022:66506][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 10:14:03.031:66515][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:14:03.031:66515][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.svc.FileTelegramManager - getNextCounter.custCounter : {10000262={20220805=0}}
+[2022-08-05 10:14:03.031:66515][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.svc.FileTelegramManager - custCounter.get(orgCode).containsKey(today) : true
+[2022-08-05 10:14:03.033:66517][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==>  Preparing: INSERT INTO TxTrace( CustId, TxDate, TxSequence, TxStarted ) VALUES ( ?,?,?,?) ON DUPLICATE KEY UPDATE TxSequence = TxSequence+1
+[2022-08-05 10:14:03.033:66517][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==> Parameters: 0000000001(String), 20220805(String), 1(String), Y(String)
+[2022-08-05 10:14:03.042:66526][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - <==    Updates: 2
+[2022-08-05 10:14:03.043:66527][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 10:14:03.044:66528][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000001(String), 20220805(String)
+[2022-08-05 10:14:03.059:66543][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 10:14:03.061:66545][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.svc.FBService - txNo : 2
+[2022-08-05 10:14:03.069:66553][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 10:14:03.069:66553][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/transfer ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000262",
+  "drw_bank_code" : "088",
+  "telegram_no" : 2,
+  "drw_account" : "832210312031",
+  "drw_account_cntn" : "문세인",
+  "rv_bank_code" : "081",
+  "rv_account" : "46291012501007",
+  "rv_account_cntn" : "핍랄샐",
+  "amount" : 1000,
+  "tr_dt" : "20220602",
+  "tr_tm" : "155011"
+}
+[2022-08-05 10:14:03.165:66649][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 10:14:03.168:66652][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - 520 520 ==> {"status":520,"error_code":"D017","error_message":"기관 거래번호 중복"}
+[2022-08-05 10:14:03.168:66652][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 10:14:03.174:66658][https-jsse-nio-9000-exec-3] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-05 10:14:03.174:66658][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 10:14:03.175:66659][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000001(String), 2022-08-05(String)
+[2022-08-05 10:14:03.183:66667][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 10:14:03.187:66671][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220805101402002, CustId=0000000001, TxDate=2022-08-05, TelegramNo=2, TxType=1, BankCd=081, Size=370, RoundTrip=0.194147042, StmtCnt=1, Status=520, StartDT=2022-08-05 10:14:02.978, EndDT=2022-08-05 10:14:03.173, EncData={
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000262", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}, NatvTrNo=null, ErrCode=D017, ErrMsg=기관 거래번호 중복)
+[2022-08-05 10:14:03.189:66673][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-05 10:14:03.189:66673][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220805101402002(String), 0000000001(String), 2022-08-05(String), 2(String), 1(String), 081(String), 370(Long), 0.194147042(BigDecimal), 1(Integer), 520(String), 2022-08-05 10:14:02.978(Timestamp), 2022-08-05 10:14:03.173(Timestamp), {
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000262", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}(String), test(String), null, D017(String), 기관 거래번호 중복(String)
+[2022-08-05 10:14:03.199:66683][https-jsse-nio-9000-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-05 10:14:03.200:66684][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-05 10:14:03.201:66685][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000001(String), 20220805101402(String), 081(String), 1(String), 1(Long), 370(Long), 1(Long), 370(Long)
+[2022-08-05 10:14:03.211:66695][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 2
+[2022-08-05 10:18:21.265:998][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 33909 (/Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer)
+[2022-08-05 10:18:21.267:1000][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-05 10:18:21.267:1000][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-05 10:18:23.426:3159][main] DEBUG c.i.fb.svc.FileTelegramManager - init.custCounter : {10000262={20220805=2}}
+[2022-08-05 10:18:24.915:4648][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.415 seconds (JVM running for 5.331)
+[2022-08-05 10:18:24.923:4656][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 10:18:24.923:4656][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
+[2022-08-05 10:18:24.923:4656][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 10:18:25.036:4769][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-05 10:18:25.045:4778][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-05 10:18:25.071:4804][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 3
+[2022-08-05 10:18:25.097:4830][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:18:25.098:4831][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 10:18:25.108:4841][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:18:25.108:4841][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:18:25.108:4841][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 10:18:25.118:4851][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:18:25.119:4852][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:18:25.119:4852][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-05 10:18:25.132:4865][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:18:25.137:4870][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 10:18:25.138:4871][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
+[2022-08-05 10:18:25.138:4871][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 10:18:45.961:25694][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 10:18:46.039:25772][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.FirmAPIController - TransferRequest=10000262,TransferRequest(api_key=7242191d-865c-48df-aa02-e3cf10bffd6d, org_code=10000262, drw_bank_code=088, telegram_no=0, drw_account=832210312031, drw_account_cntn=문세인, rv_bank_code=081, rv_account=46291012501007, rv_account_cntn=핍랄샐, amount=1000, tr_dt=20220602, tr_tm=155011)
+[2022-08-05 10:18:46.277:26010][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:18:46.277:26010][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 10:18:46.290:26023][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:18:46.309:26042][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-05 10:18:46.309:26042][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000001(String), 20220805(String)
+[2022-08-05 10:18:46.343:26076][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-05 10:18:46.343:26076][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.svc.FBService - 개시전문 여부 : true
+[2022-08-05 10:18:46.353:26086][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:18:46.353:26086][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 10:18:46.375:26108][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:18:46.375:26108][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.svc.FileTelegramManager - getNextCounter.custCounter : {10000262={20220805=2}}
+[2022-08-05 10:18:46.375:26108][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.svc.FileTelegramManager - custCounter.get(orgCode).containsKey(today) : true
+[2022-08-05 10:18:46.385:26118][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==>  Preparing: INSERT INTO TxTrace( CustId, TxDate, TxSequence, TxStarted ) VALUES ( ?,?,?,?) ON DUPLICATE KEY UPDATE TxSequence = TxSequence+1
+[2022-08-05 10:18:46.386:26119][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==> Parameters: 0000000001(String), 20220805(String), 1(String), Y(String)
+[2022-08-05 10:18:46.398:26131][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - <==    Updates: 2
+[2022-08-05 10:18:46.400:26133][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 10:18:46.403:26136][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000001(String), 20220805(String)
+[2022-08-05 10:18:46.412:26145][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 10:18:46.414:26147][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.svc.FBService - txNo : 3
+[2022-08-05 10:18:46.525:26258][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 10:18:46.526:26259][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/transfer ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000262",
+  "drw_bank_code" : "088",
+  "telegram_no" : 3,
+  "drw_account" : "832210312031",
+  "drw_account_cntn" : "문세인",
+  "rv_bank_code" : "081",
+  "rv_account" : "46291012501007",
+  "rv_account_cntn" : "핍랄샐",
+  "amount" : 1000,
+  "tr_dt" : "20220602",
+  "tr_tm" : "155011"
+}
+[2022-08-05 10:18:51.354:31087][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 10:18:51.355:31088][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - 200 200 ==> {"status":200,"natv_tr_no":"20220805002089000027","request_at":"20220805101851","amount":1000}
+[2022-08-05 10:18:51.356:31089][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 10:18:51.388:31121][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-05 10:18:51.398:31131][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 10:18:51.398:31131][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000001(String), 2022-08-05(String)
+[2022-08-05 10:18:51.406:31139][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 10:18:51.417:31150][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220805101845001, CustId=0000000001, TxDate=2022-08-05, TelegramNo=3, TxType=1, BankCd=081, Size=370, RoundTrip=5.42487225, StmtCnt=1, Status=200, StartDT=2022-08-05 10:18:45.943, EndDT=2022-08-05 10:18:51.368, EncData={
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000262", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}, NatvTrNo=20220805002089000027, ErrCode=null, ErrMsg=null)
+[2022-08-05 10:18:51.443:31176][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-05 10:18:51.453:31186][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220805101845001(String), 0000000001(String), 2022-08-05(String), 3(String), 1(String), 081(String), 370(Long), 5.42487225(BigDecimal), 1(Integer), 200(String), 2022-08-05 10:18:45.943(Timestamp), 2022-08-05 10:18:51.368(Timestamp), {
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000262", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}(String), test(String), 20220805002089000027(String), null, null
+[2022-08-05 10:18:51.467:31200][https-jsse-nio-9000-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-05 10:18:51.468:31201][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-05 10:18:51.469:31202][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000001(String), 20220805101845(String), 081(String), 1(String), 1(Long), 370(Long), 1(Long), 370(Long)
+[2022-08-05 10:18:51.481:31214][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 2
+[2022-08-05 10:43:54.261:1533994][https-jsse-nio-9000-exec-3] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 10:43:54.277:1534010][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:43:54.278:1534011][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000265(String)
+[2022-08-05 10:43:54.287:1534020][https-jsse-nio-9000-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 0
+[2022-08-05 10:56:24.545:2677][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 34505 (/Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer)
+[2022-08-05 10:56:24.551:2683][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-05 10:56:24.553:2685][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-05 10:56:27.202:5334][main] DEBUG c.i.fb.svc.FileTelegramManager - init.custCounter : {10000262={20220805=3}}
+[2022-08-05 10:56:28.712:6844][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 6.614 seconds (JVM running for 7.368)
+[2022-08-05 10:56:28.720:6852][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 10:56:28.721:6853][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
+[2022-08-05 10:56:28.721:6853][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 10:56:28.846:6978][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-05 10:56:28.857:6989][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-05 10:56:28.884:7016][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 3
+[2022-08-05 10:56:28.910:7042][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:56:28.911:7043][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 10:56:28.921:7053][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:56:28.922:7054][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:56:28.922:7054][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 10:56:28.930:7062][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:56:28.930:7062][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:56:28.930:7062][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-05 10:56:28.938:7070][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:56:28.939:7071][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 10:56:28.939:7071][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
+[2022-08-05 10:56:28.939:7071][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 10:57:21.456:59588][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 10:57:21.472:59604][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:57:21.472:59604][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000265(String)
+[2022-08-05 10:57:21.480:59612][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 0
+[2022-08-05 10:57:21.484:59616][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.FirmAPIController - custData : []
+[2022-08-05 10:59:09.612:836][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 34581 (/Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer)
+[2022-08-05 10:59:09.613:837][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-05 10:59:09.614:838][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-05 10:59:11.827:3051][main] DEBUG c.i.fb.svc.FileTelegramManager - init.custCounter : {10000262={20220805=3}}
+[2022-08-05 10:59:13.295:4519][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.304 seconds (JVM running for 5.025)
+[2022-08-05 10:59:13.301:4525][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 10:59:13.301:4525][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
+[2022-08-05 10:59:13.301:4525][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 10:59:13.419:4643][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-05 10:59:13.429:4653][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-05 10:59:13.455:4679][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 3
+[2022-08-05 10:59:13.480:4704][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:59:13.480:4704][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 10:59:13.491:4715][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:59:13.492:4716][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:59:13.492:4716][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 10:59:13.500:4724][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:59:13.501:4725][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 10:59:13.501:4725][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-05 10:59:13.509:4733][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 10:59:13.511:4735][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 10:59:13.511:4735][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
+[2022-08-05 10:59:13.511:4735][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 11:06:40.326:451550][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 11:06:40.367:451591][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 11:06:40.369:451593][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000265(String)
+[2022-08-05 11:06:40.382:451606][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 0
+[2022-08-05 11:06:40.398:451622][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.FirmAPIController - custData : []
+[2022-08-05 11:07:10.123:875][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 34709 (/Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer)
+[2022-08-05 11:07:10.125:877][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-05 11:07:10.126:878][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-05 11:07:12.278:3030][main] DEBUG c.i.fb.svc.FileTelegramManager - init.custCounter : {10000262={20220805=3}}
+[2022-08-05 11:07:13.731:4483][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.263 seconds (JVM running for 4.976)
+[2022-08-05 11:07:13.738:4490][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 11:07:13.738:4490][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
+[2022-08-05 11:07:13.738:4490][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 11:07:13.856:4608][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-05 11:07:13.866:4618][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-05 11:07:13.899:4651][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 3
+[2022-08-05 11:07:13.924:4676][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 11:07:13.925:4677][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 11:07:13.934:4686][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 11:07:13.934:4686][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 11:07:13.935:4687][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 11:07:13.944:4696][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 11:07:13.945:4697][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 11:07:13.945:4697][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-05 11:07:13.955:4707][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 11:07:13.956:4708][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 11:07:13.957:4709][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
+[2022-08-05 11:07:13.957:4709][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 11:08:35.682:86434][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 11:08:35.698:86450][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 11:08:35.702:86454][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000265(String)
+[2022-08-05 11:08:35.710:86462][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 0
+[2022-08-05 11:08:35.710:86462][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.FirmAPIController - custData : []
+[2022-08-05 11:11:38.917:860][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 34775 (/Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer)
+[2022-08-05 11:11:38.918:861][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-05 11:11:38.919:862][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-05 11:11:41.080:3023][main] DEBUG c.i.fb.svc.FileTelegramManager - init.custCounter : {10000262={20220805=3}}
+[2022-08-05 11:11:42.502:4445][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.231 seconds (JVM running for 4.941)
+[2022-08-05 11:11:42.510:4453][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 11:11:42.510:4453][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
+[2022-08-05 11:11:42.511:4454][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 11:11:42.622:4565][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-05 11:11:42.632:4575][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-05 11:11:42.659:4602][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 3
+[2022-08-05 11:11:42.683:4626][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 11:11:42.683:4626][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 11:11:42.693:4636][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 11:11:42.694:4637][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 11:11:42.694:4637][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 11:11:42.701:4644][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 11:11:42.701:4644][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 11:11:42.701:4644][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-05 11:11:42.710:4653][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 11:11:42.711:4654][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 11:11:42.711:4654][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
+[2022-08-05 11:11:42.711:4654][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 11:14:08.155:900][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 34825 (/Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer)
+[2022-08-05 11:14:08.156:901][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-05 11:14:08.157:902][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-05 11:14:11.772:4517][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.282 seconds (JVM running for 4.999)
+[2022-08-05 11:14:11.779:4524][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 11:14:11.779:4524][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
+[2022-08-05 11:14:11.779:4524][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 11:14:11.904:4649][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-05 11:14:11.914:4659][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-05 11:14:11.944:4689][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 3
+[2022-08-05 11:14:11.968:4713][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 11:14:11.968:4713][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 11:14:11.979:4724][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 11:14:11.979:4724][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 11:14:11.979:4724][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 11:14:11.988:4733][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 11:14:11.988:4733][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 11:14:11.988:4733][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-05 11:14:11.997:4742][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 11:14:11.999:4744][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 11:14:11.999:4744][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
+[2022-08-05 11:14:11.999:4744][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 11:19:01.002:293747][https-jsse-nio-9000-exec-1] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 11:19:01.194:293939][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 11:19:01.202:293947][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000265(String)
+[2022-08-05 11:19:01.217:293962][https-jsse-nio-9000-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 0
+[2022-08-05 11:19:01.246:293991][https-jsse-nio-9000-exec-1] INFO  com.inspien.fb.FirmAPIController - custData : []
+[2022-08-05 11:19:12.893:305638][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.FirmAPIController - accessCount=0, POST, 370, /transfer
+[2022-08-05 11:19:12.900:305645][https-jsse-nio-9000-exec-2] INFO  com.inspien.fb.FirmAPIController - custData : [CustMst(CustId=0000000001, CustNm=SAP테스트, OrgCd=10000262, CallbackURL=https://p200029-iflmap.hcisbp.ap1.hana.ondemand.com/http/BankStatementPost, ApiKey=7242191d-865c-48df-aa02-e3cf10bffd6d, PriContactNm=null, PriContactTel=null, PriContactEmail=null, SecContactNm=null, SecContactTel=null, SecContactEmail=null, TxSequence=@, InUse=Y)]
+[2022-08-05 11:19:12.932:305677][https-jsse-nio-9000-exec-2] INFO  com.inspien.fb.FirmAPIController - TransferRequest=10000262,TransferRequest(api_key=7242191d-865c-48df-aa02-e3cf10bffd6d, org_code=10000262, drw_bank_code=088, telegram_no=0, drw_account=832210312031, drw_account_cntn=문세인, rv_bank_code=081, rv_account=46291012501007, rv_account_cntn=핍랄샐, amount=1000, tr_dt=20220602, tr_tm=155011)
+[2022-08-05 11:19:12.994:305739][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 11:19:12.995:305740][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 11:19:13.005:305750][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 11:19:13.007:305752][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-05 11:19:13.007:305752][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000001(String), 20220805(String)
+[2022-08-05 11:19:13.017:305762][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-05 11:19:13.018:305763][https-jsse-nio-9000-exec-2] INFO  com.inspien.fb.svc.FBService - 개시전문 여부 : false
+[2022-08-05 11:19:13.018:305763][https-jsse-nio-9000-exec-2] INFO  com.inspien.fb.svc.FBService - start openReq
+[2022-08-05 11:19:13.021:305766][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==>  Preparing: INSERT INTO TxTrace( CustId, TxDate, TxSequence, TxStarted ) VALUES ( ?,?,?,?) ON DUPLICATE KEY UPDATE TxSequence = TxSequence+1
+[2022-08-05 11:19:13.021:305766][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - ==> Parameters: 0000000001(String), 20220805(String), 1(String), Y(String)
+[2022-08-05 11:19:13.030:305775][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.upsertTxTrace - <==    Updates: 1
+[2022-08-05 11:19:13.055:305800][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 11:19:13.055:305800][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/account/open ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000262",
+  "drw_bank_code" : "088",
+  "telegram_no" : 1
+}
+[2022-08-05 11:19:13.331:306076][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 11:19:13.331:306076][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - 520 520 ==> {"status":520,"error_code":"D017","error_message":"기관 거래번호 중복"}
+[2022-08-05 11:19:13.331:306076][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 11:19:13.340:306085][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 11:19:13.340:306085][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 11:19:13.350:306095][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 11:19:13.351:306096][https-jsse-nio-9000-exec-2] DEBUG c.i.fb.svc.FileTelegramManager - getNextCounter.custCounter : {}
+[2022-08-05 11:19:13.353:306098][https-jsse-nio-9000-exec-2] INFO  com.inspien.fb.svc.FBService - txNo : 0
+[2022-08-05 11:19:13.356:306101][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 11:19:13.357:306102][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://test-gw-firm.dozn.co.kr/api/rt/v1/transfer ==> {
+  "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d",
+  "org_code" : "10000262",
+  "drw_bank_code" : "088",
+  "telegram_no" : 0,
+  "drw_account" : "832210312031",
+  "drw_account_cntn" : "문세인",
+  "rv_bank_code" : "081",
+  "rv_account" : "46291012501007",
+  "rv_account_cntn" : "핍랄샐",
+  "amount" : 1000,
+  "tr_dt" : "20220602",
+  "tr_tm" : "155011"
+}
+[2022-08-05 11:19:13.431:306176][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-05 11:19:13.431:306176][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - 520 520 ==> {"status":520,"error_code":"D017","error_message":"기관 거래번호 중복"}
+[2022-08-05 11:19:13.431:306176][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+[2022-08-05 11:19:13.447:306192][https-jsse-nio-9000-exec-2] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-05 11:19:13.449:306194][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==>  Preparing: SELECT IFNULL(TxTrace.TxSequence,'0') FROM TxTrace WHERE CustId = ? AND TxDate = ?
+[2022-08-05 11:19:13.450:306195][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - ==> Parameters: 0000000001(String), 2022-08-05(String)
+[2022-08-05 11:19:13.461:306206][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectTxTrace - <==      Total: 1
+[2022-08-05 11:19:13.469:306214][https-jsse-nio-9000-exec-2] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220805111912002, CustId=0000000001, TxDate=2022-08-05, TelegramNo=1, TxType=1, BankCd=081, Size=370, RoundTrip=0.542850708, StmtCnt=1, Status=520, StartDT=2022-08-05 11:19:12.892, EndDT=2022-08-05 11:19:13.435, EncData={
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000262", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}, NatvTrNo=null, ErrCode=D017, ErrMsg=기관 거래번호 중복)
+[2022-08-05 11:19:13.495:306240][https-jsse-nio-9000-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-05 11:19:13.505:306250][https-jsse-nio-9000-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220805111912002(String), 0000000001(String), 2022-08-05(String), 1(String), 1(String), 081(String), 370(Long), 0.542850708(BigDecimal), 1(Integer), 520(String), 2022-08-05 11:19:12.892(Timestamp), 2022-08-05 11:19:13.435(Timestamp), {
+    "api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", 
+    "org_code" : "10000262", 
+    "drw_bank_code" : "088", 
+    "drw_account" : "832210312031", 
+    "drw_account_cntn" : "문세인",
+    "rv_bank_code" : "081", 
+    "rv_account" : "46291012501007", 
+    "rv_account_cntn" : "핍랄샐",
+    "amount" : 1000,
+    "tr_dt" : "20220602", 
+    "tr_tm" : "155011"
+}(String), test(String), null, D017(String), 기관 거래번호 중복(String)
+[2022-08-05 11:19:13.515:306260][https-jsse-nio-9000-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-05 11:19:13.516:306261][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-05 11:19:13.517:306262][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000001(String), 20220805111912(String), 081(String), 1(String), 1(Long), 370(Long), 1(Long), 370(Long)
+[2022-08-05 11:19:13.526:306271][https-jsse-nio-9000-exec-2] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 2
+[2022-08-05 13:19:09.171:1206][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 36347 (/Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_transfer)
+[2022-08-05 13:19:09.173:1208][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-05 13:19:09.173:1208][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-05 13:19:11.395:3430][main] DEBUG c.i.fb.svc.FileTelegramManager - init.custCounter : {10000262={20220805=0}}
+[2022-08-05 13:19:13.080:5115][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.616 seconds (JVM running for 5.918)
+[2022-08-05 13:19:13.087:5122][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 13:19:13.088:5123][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
+[2022-08-05 13:19:13.088:5123][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 13:19:13.204:5239][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-05 13:19:13.214:5249][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-05 13:19:13.241:5276][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 3
+[2022-08-05 13:19:13.267:5302][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 13:19:13.267:5302][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-05 13:19:13.276:5311][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 13:19:13.277:5312][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 13:19:13.277:5312][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-05 13:19:13.285:5320][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 13:19:13.286:5321][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-05 13:19:13.286:5321][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-05 13:19:13.300:5335][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-05 13:19:13.301:5336][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-05 13:19:13.302:5337][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
+[2022-08-05 13:19:13.302:5337][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------

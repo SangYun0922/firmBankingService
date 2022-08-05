@@ -1,0 +1,8 @@
+[2022-08-05 09:09:54.102:1884][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 30748 (/Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_crud)
+[2022-08-05 09:09:54.107:1889][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-05 09:09:54.108:1890][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-05 09:09:58.401:6183][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 5.2 seconds (JVM running for 7.018)
+[2022-08-05 09:24:26.314:924][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 32761 (/Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_crud)
+[2022-08-05 09:24:26.316:926][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-05 09:24:26.317:927][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-05 09:24:30.542:5152][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.935 seconds (JVM running for 5.698)

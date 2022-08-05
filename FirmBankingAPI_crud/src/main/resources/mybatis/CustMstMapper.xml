@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.inspien.fb.mapper.CustMstMapper">
+
+    <insert id="insert" parameterType="CustMst">
+        INSERT INTO CustMst VALUES(#{CustId}, #{CustNm}, #{OrgCd}, #{CallbackURL}, #{ApiKey}, #{PriContactNm}, #{PriContactTel}, #{PriContactEmail}, #{SecContactNm}, #{SecContactTel}, #{SecContactEmail}, #{TxSequence}, #{InUse}, NOW(), NULL)
+    </insert>
+
+    <select id="selectOne" parameterType="String" resultType="CustMst">
+        SELECT * FROM CustMst WHERE CustId = #{CustId}
+    </select>
+
+    <select id="selectMany" parameterType="String" resultType="CustMst">
+        SELECT * FROM CustMst
+    </select>
+
+    <update id="update" parameterType="CustMst">
+        UPDATE
+            CustMst
+        SET
+            CustNm = CASE WHEN #{CustNm} IS NULL THEN CustNm ELSE #{CustNm} END,
+            CallbackURL = CASE WHEN #{CallbackURL} IS NULL THEN CallbackURL ELSE #{CallbackURL} END,
+            InUse = CASE WHEN #{InUse} IS NULL THEN InUse ELSE #{InUse} END,
+            UpdatedAt = NOW()
+        WHERE
+            CustId = #{Id}
+    </update>
+
+    <delete id="delete" parameterType="String">
+        DELETE FROM CustMst WHERE  CustId = #{CustId}
+    </delete>
+</mapper>
+
