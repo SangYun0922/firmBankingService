@@ -12,7 +12,7 @@
         SELECT * FROM BankMst WHERE BankId = #{BankId}
     </select>
 
-    <select id="selectMany" parameterType="String" resultType="BankMst">
+    <select id="selectMany" resultType="BankMst">
         SELECT * FROM BankMst
     </select>
 

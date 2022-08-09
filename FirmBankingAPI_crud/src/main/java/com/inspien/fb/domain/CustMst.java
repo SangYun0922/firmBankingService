@@ -3,6 +3,9 @@ package com.inspien.fb.domain;
 
 import lombok.*;
 
+import java.sql.Time;
+import java.sql.Timestamp;
+
 @Getter
 @Setter
 @Data
@@ -21,7 +24,8 @@ public class CustMst{
     private String SecContactEmail;
     private String TxSequence;
     private String InUse;
-
+    private Timestamp CreatedAt;
+    private Timestamp UpdatedAt;
     public CustMst() {}
 
 }
