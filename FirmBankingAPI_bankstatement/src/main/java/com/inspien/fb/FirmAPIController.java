@@ -84,7 +84,7 @@ public class FirmAPIController {
 	}
 
 	//계좌이체 라우터 => 외부고객 -> 서비스 -> van
-	@PostMapping("/transfer")
+	@PostMapping("/api/rt/v1/transfer")
 	public ResponseEntity proxyPost(HttpServletRequest request, @RequestHeader HttpHeaders headers,  @RequestBody(required = false) byte[] body) throws IOException, URISyntaxException {
 		LocalDateTime startDateTime = LocalDateTime.now();
 		StopWatch stopWatch = new StopWatch();
@@ -194,7 +194,7 @@ public class FirmAPIController {
 	}
 
 	//거래명세 라우터 => van -> 서비스 -> 고객사
-	@PostMapping("/bankstatement")
+	@PostMapping("/api/rt/v1/bankstatement")
 	public ResponseEntity vanGateway(HttpServletRequest request, @RequestHeader HttpHeaders headers,  @RequestBody(required = false) byte[] body) throws IOException, URISyntaxException {
 		LocalDateTime startDateTime = LocalDateTime.now();
 		StopWatch stopWatch = new StopWatch();
@@ -229,12 +229,11 @@ public class FirmAPIController {
 		}
 		String custId = custData.get(0).getCustId();
 
-		openReqFlag = txTraceMapper.isExistTxTrace(custId,txIndexFormat);
-		log.info("개시전문 여부 : {}",openReqFlag );
+//		openReqFlag = txTraceMapper.isExistTxTrace(custId,txIndexFormat);
+//		log.info("개시전문 여부 : {}",openReqFlag );
 		writeLogs.insertFileLog(1,3,txIndex,custId,startDateTime,"van  \t","server\t",String.valueOf(statementReq));
 
-		log.info("CustMst = {}", custData);
-		if(openReqFlag) {
+//		if(openReqFlag) {
 			if (custData.size() == 1) { //org_code는 유일해야 한다. 따라서 쿼리 결과도 오직 단 한개이다.
 				if (custData.get(0).getInUse().equals("Y")) { //각 고객정보의 InUse 필드를 조회하여 "Y"라면 현재 사용하는 계정이고, "Y"가 아니라면 사용하지 않는 계정이다.
 					try {
@@ -266,9 +265,9 @@ public class FirmAPIController {
 			} else if (custData.size() > 1) {
 				response = new StatementResponse(401, "1001", "ORG_CODE_DUPLICATE_OCCURRENCE"); //org_code로 쿼리하였을떄, 결과값이 여러개라면 에러
 			}
-		}else{//개시전문 사용 전
-			response =  new StatementResponse(500, "9999", "OPEN_REQUEST_DOES_NOT_EXIST");
-		}
+//		}else{//개시전문 사용 전
+//			response =  new StatementResponse(500, "9999", "OPEN_REQUEST_DOES_NOT_EXIST");
+//		}
 		log.info("bankStatement response ==> {}",response);
 		LocalDateTime endDateTime = LocalDateTime.now();
 		stopWatch.stop();

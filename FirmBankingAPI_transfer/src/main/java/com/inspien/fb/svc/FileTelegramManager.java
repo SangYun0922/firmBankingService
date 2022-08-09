@@ -30,7 +30,7 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class FileTelegramManager {
 
-	@Value("${van.duzn.telegramrepo}") 
+	@Value("${van.duzn.telegramrepo}")
 	static public String REPO = "config";
 
 	private static String timezone = "Asia/Seoul";
@@ -38,13 +38,13 @@ public class FileTelegramManager {
 	private static Map<String , Map<String, AtomicLong> > custCounter = new HashMap<String , Map<String, AtomicLong>>();
 
 	private static boolean bInit = false;
-//	@Autowired
+	//	@Autowired
 //	private TxTraceMapper txTraceMapper;
 	private TxTraceMapper txTraceMapper = (TxTraceMapper) ApplicationContextProvider.getBean(TxTraceMapper.class);
 
 	@Autowired
 	private CustMstMapper custMstMapper;
-//	private WriteLogs writeLogs = (WriteLogs) ApplicationContextProvider.getBean(WriteLogs.class);
+	//	private WriteLogs writeLogs = (WriteLogs) ApplicationContextProvider.getBean(WriteLogs.class);
 	@Autowired
 	private WriteLogs writeLogs;
 
@@ -52,7 +52,7 @@ public class FileTelegramManager {
 		if(!bInit)
 			init();
 	}
-	
+
 	synchronized public void init() {
 		String today = DateTimeFormatter.ofPattern("yyyyMMdd").format(ZonedDateTime.now(ZoneId.of(timezone)));
 		File dir = Paths.get(REPO, today).toFile();
@@ -67,13 +67,13 @@ public class FileTelegramManager {
 						String orgCode = tokens[0].trim();
 						String date = tokens[1].trim();
 						long no = Long.valueOf(tokens[2].trim());
-						
+
 						Map<String, AtomicLong> m = new HashMap<String, AtomicLong>();
-						m.put(today, new AtomicLong(no)); 
+						m.put(today, new AtomicLong(no));
 						custCounter.put(orgCode, m );
 						log.debug("init.custCounter : {}", custCounter);
 					}
-					
+
 				} catch (IOException e) {
 					log.error("FileTelegramManager init failed.", e);
 				}
@@ -81,7 +81,7 @@ public class FileTelegramManager {
 		}
 		bInit = true;
 	}
-	
+
 	public long getNextCounter(String orgCode) throws IOException {
 		String today = DateTimeFormatter.ofPattern("yyyyMMdd").format(ZonedDateTime.now(ZoneId.of(timezone)));
 		List<CustMst> custMsts = custMstMapper.selectOne(orgCode);
@@ -114,15 +114,15 @@ public class FileTelegramManager {
 
 		return txNo;
 	}
-	
+
 	private void syncCounter(String orgCode, String date, long no) throws IOException {
 		File dir = Paths.get(REPO, date).toFile();
 		if(!dir.exists()) {
 			dir.mkdirs();
 		}
-		
+
 		File f = Paths.get(REPO, date, orgCode+".txt" ).toFile();
-		
+
 		StringBuffer sb = new StringBuffer();
 		sb.append(orgCode).append(",").append(date).append(",").append(no);
 		Files.write(Paths.get(REPO, date, orgCode+".txt" ), sb.toString().getBytes(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);

@@ -1,60 +1,950 @@
-[2022-08-05 09:19:36.323:919][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 30911 (/Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_bankstatement/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_bankstatement)
-[2022-08-05 09:19:36.331:927][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-05 09:19:36.333:929][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-05 09:19:40.283:4879][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.613 seconds (JVM running for 5.808)
-[2022-08-05 09:19:40.289:4885][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
-[2022-08-05 09:19:40.290:4886][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
-[2022-08-05 09:19:40.290:4886][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
-[2022-08-05 09:19:40.423:5019][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
-[2022-08-05 09:19:40.435:5031][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
-[2022-08-05 09:19:40.459:5055][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 2
-[2022-08-05 09:19:40.482:5078][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-05 09:19:40.485:5081][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
-[2022-08-05 09:19:40.497:5093][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-05 09:19:40.498:5094][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-05 09:19:40.498:5094][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
-[2022-08-05 09:19:40.506:5102][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-05 09:19:40.507:5103][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
-[2022-08-05 09:19:40.507:5103][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
-[2022-08-05 09:19:40.507:5103][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
-[2022-08-05 09:55:32.787:2157383][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
-[2022-08-05 09:55:32.791:2157387][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
-[2022-08-05 09:55:32.791:2157387][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.FirmAPIController - start local cache initializing
-[2022-08-05 09:55:32.791:2157387][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
-[2022-08-05 09:55:32.804:2157400][https-jsse-nio-9002-exec-3] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
-[2022-08-05 09:55:32.804:2157400][https-jsse-nio-9002-exec-3] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
-[2022-08-05 09:55:32.813:2157409][https-jsse-nio-9002-exec-3] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 3
-[2022-08-05 09:55:32.814:2157410][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-05 09:55:32.814:2157410][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
-[2022-08-05 09:55:32.822:2157418][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-05 09:55:32.823:2157419][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-05 09:55:32.823:2157419][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
-[2022-08-05 09:55:32.832:2157428][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-05 09:55:32.833:2157429][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-05 09:55:32.833:2157429][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
-[2022-08-05 09:55:32.843:2157439][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-05 09:55:32.843:2157439][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
-[2022-08-05 09:55:32.843:2157439][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.FirmAPIController - complete local cache initializing
-[2022-08-05 09:55:32.843:2157439][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
-[2022-08-05 13:24:41.336:1791][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 36455 (/Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_bankstatement/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/msa/FirmBankingAPI_bankstatement)
-[2022-08-05 13:24:41.337:1792][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-05 13:24:41.338:1793][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-05 13:24:45.406:5861][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 5.616 seconds (JVM running for 6.394)
-[2022-08-05 13:24:45.419:5874][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
-[2022-08-05 13:24:45.419:5874][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
-[2022-08-05 13:24:45.419:5874][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
-[2022-08-05 13:24:45.525:5980][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
-[2022-08-05 13:24:45.535:5990][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
-[2022-08-05 13:24:45.564:6019][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 3
-[2022-08-05 13:24:45.590:6045][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-05 13:24:45.591:6046][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
-[2022-08-05 13:24:45.631:6086][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-05 13:24:45.632:6087][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-05 13:24:45.632:6087][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
-[2022-08-05 13:24:45.646:6101][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-05 13:24:45.646:6101][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-05 13:24:45.647:6102][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
-[2022-08-05 13:24:45.669:6124][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-05 13:24:45.671:6126][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
-[2022-08-05 13:24:45.671:6126][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
-[2022-08-05 13:24:45.671:6126][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 09:23:52.918:1126][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 47658 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_bankstatement/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_bankstatement)
+[2022-08-08 09:23:52.924:1132][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-08 09:23:52.925:1133][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-08 09:23:56.428:4636][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.102 seconds (JVM running for 5.879)
+[2022-08-08 09:23:56.435:4643][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 09:23:56.435:4643][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
+[2022-08-08 09:23:56.435:4643][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 09:23:56.551:4759][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-08 09:23:56.563:4771][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-08 09:23:56.592:4800][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 4
+[2022-08-08 09:23:56.615:4823][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-08 09:23:56.615:4823][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-08 09:23:56.625:4833][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-08 09:23:56.627:4835][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-08 09:23:56.629:4837][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-08 09:23:56.638:4846][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-08 09:23:56.639:4847][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-08 09:23:56.639:4847][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-08 09:23:56.648:4856][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-08 09:23:56.650:4858][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-08 09:23:56.650:4858][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000267(String)
+[2022-08-08 09:23:56.661:4869][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-08 09:23:56.662:4870][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 09:23:56.662:4870][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
+[2022-08-08 09:23:56.662:4870][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 09:57:02.388:2917][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 49513 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_bankstatement/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_bankstatement)
+[2022-08-08 09:57:02.390:2919][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-08 09:57:02.391:2920][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-08 09:57:09.232:9761][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 9.285 seconds (JVM running for 10.553)
+[2022-08-08 09:57:09.241:9770][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 09:57:09.241:9770][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
+[2022-08-08 09:57:09.241:9770][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 09:57:09.373:9902][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-08 09:57:09.384:9913][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-08 09:57:09.422:9951][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 4
+[2022-08-08 09:57:09.456:9985][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-08 09:57:09.458:9987][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-08 09:57:09.471:10000][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-08 09:57:09.472:10001][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-08 09:57:09.472:10001][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-08 09:57:09.484:10013][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-08 09:57:09.484:10013][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-08 09:57:09.484:10013][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-08 09:57:09.494:10023][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-08 09:57:09.497:10026][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-08 09:57:09.497:10026][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000267(String)
+[2022-08-08 09:57:09.504:10033][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-08 09:57:09.505:10034][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 09:57:09.505:10034][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
+[2022-08-08 09:57:09.505:10034][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 10:34:23.979:2244508][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - vanAccessCount=1, POST, 612, /api/rt/v1/bankstatement
+[2022-08-08 10:34:23.986:2244515][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - StatementRequest=10000264,StatementRequest(org_code=10000264, bank_code=088, natv_tr_no=20220804002089000035, send_dt=20220804, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665)
+[2022-08-08 10:34:24.021:2244550][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - custData : [CustMst(CustId=0000000003, CustNm=Test, OrgCd=10000264, CallbackURL=https://localhost:9000, ApiKey=xxxxx-xxxxx-xxxxx-xxxxx, PriContactNm=null, PriContactTel=null, PriContactEmail=null, SecContactNm=null, SecContactTel=null, SecContactEmail=null, TxSequence=@, InUse=Y)]
+[2022-08-08 10:34:24.055:2244584][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-08 10:34:24.056:2244585][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000003(String), 20220808103423(String)
+[2022-08-08 10:34:24.069:2244598][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-08 10:34:24.070:2244599][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - 개시전문 여부 : false
+[2022-08-08 10:34:24.080:2244609][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - CustMst = [CustMst(CustId=0000000003, CustNm=Test, OrgCd=10000264, CallbackURL=https://localhost:9000, ApiKey=xxxxx-xxxxx-xxxxx-xxxxx, PriContactNm=null, PriContactTel=null, PriContactEmail=null, SecContactNm=null, SecContactTel=null, SecContactEmail=null, TxSequence=@, InUse=Y)]
+[2022-08-08 10:34:24.080:2244609][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - bankStatement response ==> StatementResponse(status=500, request_at=null, error_code=9999, error_message=OPEN_REQUEST_DOES_NOT_EXIST)
+[2022-08-08 10:34:24.087:2244616][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-08 10:34:24.096:2244625][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220808103423001, CustId=0000000003, TxDate=2022-08-08, TelegramNo=null, TxType=3, BankCd=088, Size=612, RoundTrip=0.107453916, StmtCnt=1, Status=500, StartDT=2022-08-08 10:34:23.976, EndDT=2022-08-08 10:34:24.085, EncData={
+"org_code":"10000264","bank_code":"088",
+"natv_tr_no":"20220804002089000035","send_dt":"20220804","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}, NatvTrNo=20220804002089000035, ErrCode=9999, ErrMsg=OPEN_REQUEST_DOES_NOT_EXIST)
+[2022-08-08 10:34:24.113:2244642][https-jsse-nio-9002-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-08 10:34:24.124:2244653][https-jsse-nio-9002-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220808103423001(String), 0000000003(String), 2022-08-08(String), null, 3(String), 088(String), 612(Long), 0.107453916(BigDecimal), 1(Integer), 500(String), 2022-08-08 10:34:23.976(Timestamp), 2022-08-08 10:34:24.085(Timestamp), {
+"org_code":"10000264","bank_code":"088",
+"natv_tr_no":"20220804002089000035","send_dt":"20220804","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}(String), test(String), 20220804002089000035(String), 9999(String), OPEN_REQUEST_DOES_NOT_EXIST(String)
+[2022-08-08 10:34:24.136:2244665][https-jsse-nio-9002-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-08 10:34:24.137:2244666][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-08 10:34:24.137:2244666][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000003(String), 20220808103423(String), 088(String), 3(String), 1(Long), 612(Long), 1(Long), 612(Long)
+[2022-08-08 10:34:24.147:2244676][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 1
+[2022-08-08 10:34:34.515:2255044][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - vanAccessCount=2, POST, 612, /api/rt/v1/bankstatement
+[2022-08-08 10:34:34.517:2255046][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - StatementRequest=10000262,StatementRequest(org_code=10000262, bank_code=088, natv_tr_no=20220804002089000035, send_dt=20220804, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665)
+[2022-08-08 10:34:34.518:2255047][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - custData : [CustMst(CustId=0000000001, CustNm=SAP테스트, OrgCd=10000262, CallbackURL=https://p200029-iflmap.hcisbp.ap1.hana.ondemand.com/http/BankStatementPost, ApiKey=7242191d-865c-48df-aa02-e3cf10bffd6d, PriContactNm=null, PriContactTel=null, PriContactEmail=null, SecContactNm=null, SecContactTel=null, SecContactEmail=null, TxSequence=@, InUse=Y)]
+[2022-08-08 10:34:34.526:2255055][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-08 10:34:34.527:2255056][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000001(String), 20220808103434(String)
+[2022-08-08 10:34:34.540:2255069][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-08 10:34:34.540:2255069][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - 개시전문 여부 : false
+[2022-08-08 10:34:34.544:2255073][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - CustMst = [CustMst(CustId=0000000001, CustNm=SAP테스트, OrgCd=10000262, CallbackURL=https://p200029-iflmap.hcisbp.ap1.hana.ondemand.com/http/BankStatementPost, ApiKey=7242191d-865c-48df-aa02-e3cf10bffd6d, PriContactNm=null, PriContactTel=null, PriContactEmail=null, SecContactNm=null, SecContactTel=null, SecContactEmail=null, TxSequence=@, InUse=Y)]
+[2022-08-08 10:34:34.544:2255073][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - bankStatement response ==> StatementResponse(status=500, request_at=null, error_code=9999, error_message=OPEN_REQUEST_DOES_NOT_EXIST)
+[2022-08-08 10:34:34.547:2255076][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-08 10:34:34.550:2255079][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220808103434002, CustId=0000000001, TxDate=2022-08-08, TelegramNo=null, TxType=3, BankCd=088, Size=612, RoundTrip=0.02967475, StmtCnt=1, Status=500, StartDT=2022-08-08 10:34:34.515, EndDT=2022-08-08 10:34:34.544, EncData={
+"org_code":"10000262","bank_code":"088",
+"natv_tr_no":"20220804002089000035","send_dt":"20220804","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}, NatvTrNo=20220804002089000035, ErrCode=9999, ErrMsg=OPEN_REQUEST_DOES_NOT_EXIST)
+[2022-08-08 10:34:34.551:2255080][https-jsse-nio-9002-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-08 10:34:34.552:2255081][https-jsse-nio-9002-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220808103434002(String), 0000000001(String), 2022-08-08(String), null, 3(String), 088(String), 612(Long), 0.02967475(BigDecimal), 1(Integer), 500(String), 2022-08-08 10:34:34.515(Timestamp), 2022-08-08 10:34:34.544(Timestamp), {
+"org_code":"10000262","bank_code":"088",
+"natv_tr_no":"20220804002089000035","send_dt":"20220804","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}(String), test(String), 20220804002089000035(String), 9999(String), OPEN_REQUEST_DOES_NOT_EXIST(String)
+[2022-08-08 10:34:34.564:2255093][https-jsse-nio-9002-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-08 10:34:34.565:2255094][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-08 10:34:34.566:2255095][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000001(String), 20220808103434(String), 088(String), 3(String), 1(Long), 612(Long), 1(Long), 612(Long)
+[2022-08-08 10:34:34.574:2255103][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 1
+[2022-08-08 10:35:13.212:2293741][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - vanAccessCount=3, POST, 598, /api/rt/v1/bankstatement
+[2022-08-08 10:35:13.213:2293742][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - StatementRequest=10000262,StatementRequest(org_code=10000262, bank_code=081, natv_tr_no=090001, send_dt=20220602, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665)
+[2022-08-08 10:35:13.213:2293742][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - custData : [CustMst(CustId=0000000001, CustNm=SAP테스트, OrgCd=10000262, CallbackURL=https://p200029-iflmap.hcisbp.ap1.hana.ondemand.com/http/BankStatementPost, ApiKey=7242191d-865c-48df-aa02-e3cf10bffd6d, PriContactNm=null, PriContactTel=null, PriContactEmail=null, SecContactNm=null, SecContactTel=null, SecContactEmail=null, TxSequence=@, InUse=Y)]
+[2022-08-08 10:35:13.222:2293751][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-08 10:35:13.223:2293752][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000001(String), 20220808103513(String)
+[2022-08-08 10:35:13.231:2293760][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-08 10:35:13.231:2293760][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - 개시전문 여부 : false
+[2022-08-08 10:35:13.234:2293763][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - CustMst = [CustMst(CustId=0000000001, CustNm=SAP테스트, OrgCd=10000262, CallbackURL=https://p200029-iflmap.hcisbp.ap1.hana.ondemand.com/http/BankStatementPost, ApiKey=7242191d-865c-48df-aa02-e3cf10bffd6d, PriContactNm=null, PriContactTel=null, PriContactEmail=null, SecContactNm=null, SecContactTel=null, SecContactEmail=null, TxSequence=@, InUse=Y)]
+[2022-08-08 10:35:13.235:2293764][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - bankStatement response ==> StatementResponse(status=500, request_at=null, error_code=9999, error_message=OPEN_REQUEST_DOES_NOT_EXIST)
+[2022-08-08 10:35:13.237:2293766][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-08 10:35:13.245:2293774][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220808103513003, CustId=0000000001, TxDate=2022-08-08, TelegramNo=null, TxType=3, BankCd=081, Size=598, RoundTrip=0.024127375, StmtCnt=1, Status=500, StartDT=2022-08-08 10:35:13.211, EndDT=2022-08-08 10:35:13.236, EncData={
+"org_code":"10000262","bank_code":"081",
+"natv_tr_no":"090001","send_dt":"20220602","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}, NatvTrNo=090001, ErrCode=9999, ErrMsg=OPEN_REQUEST_DOES_NOT_EXIST)
+[2022-08-08 10:35:13.245:2293774][https-jsse-nio-9002-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-08 10:35:13.246:2293775][https-jsse-nio-9002-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220808103513003(String), 0000000001(String), 2022-08-08(String), null, 3(String), 081(String), 598(Long), 0.024127375(BigDecimal), 1(Integer), 500(String), 2022-08-08 10:35:13.211(Timestamp), 2022-08-08 10:35:13.236(Timestamp), {
+"org_code":"10000262","bank_code":"081",
+"natv_tr_no":"090001","send_dt":"20220602","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}(String), test(String), 090001(String), 9999(String), OPEN_REQUEST_DOES_NOT_EXIST(String)
+[2022-08-08 10:35:13.257:2293786][https-jsse-nio-9002-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-08 10:35:13.259:2293788][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-08 10:35:13.259:2293788][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000001(String), 20220808103513(String), 081(String), 3(String), 1(Long), 598(Long), 1(Long), 598(Long)
+[2022-08-08 10:35:13.268:2293797][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 1
+[2022-08-08 10:35:37.120:2317649][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.FirmAPIController - vanAccessCount=4, POST, 598, /api/rt/v1/bankstatement
+[2022-08-08 10:35:37.124:2317653][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.FirmAPIController - StatementRequest=10000262,StatementRequest(org_code=10000262, bank_code=081, natv_tr_no=090001, send_dt=20220808, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665)
+[2022-08-08 10:35:37.125:2317654][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.FirmAPIController - custData : [CustMst(CustId=0000000001, CustNm=SAP테스트, OrgCd=10000262, CallbackURL=https://p200029-iflmap.hcisbp.ap1.hana.ondemand.com/http/BankStatementPost, ApiKey=7242191d-865c-48df-aa02-e3cf10bffd6d, PriContactNm=null, PriContactTel=null, PriContactEmail=null, SecContactNm=null, SecContactTel=null, SecContactEmail=null, TxSequence=@, InUse=Y)]
+[2022-08-08 10:35:37.140:2317669][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-08 10:35:37.140:2317669][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000001(String), 20220808103537(String)
+[2022-08-08 10:35:37.149:2317678][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-08 10:35:37.149:2317678][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.FirmAPIController - 개시전문 여부 : false
+[2022-08-08 10:35:37.153:2317682][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.FirmAPIController - CustMst = [CustMst(CustId=0000000001, CustNm=SAP테스트, OrgCd=10000262, CallbackURL=https://p200029-iflmap.hcisbp.ap1.hana.ondemand.com/http/BankStatementPost, ApiKey=7242191d-865c-48df-aa02-e3cf10bffd6d, PriContactNm=null, PriContactTel=null, PriContactEmail=null, SecContactNm=null, SecContactTel=null, SecContactEmail=null, TxSequence=@, InUse=Y)]
+[2022-08-08 10:35:37.153:2317682][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.FirmAPIController - bankStatement response ==> StatementResponse(status=500, request_at=null, error_code=9999, error_message=OPEN_REQUEST_DOES_NOT_EXIST)
+[2022-08-08 10:35:37.155:2317684][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-08 10:35:37.158:2317687][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220808103537004, CustId=0000000001, TxDate=2022-08-08, TelegramNo=null, TxType=3, BankCd=081, Size=598, RoundTrip=0.034405167, StmtCnt=1, Status=500, StartDT=2022-08-08 10:35:37.119, EndDT=2022-08-08 10:35:37.154, EncData={
+"org_code":"10000262","bank_code":"081",
+"natv_tr_no":"090001","send_dt":"20220808","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}, NatvTrNo=090001, ErrCode=9999, ErrMsg=OPEN_REQUEST_DOES_NOT_EXIST)
+[2022-08-08 10:35:37.158:2317687][https-jsse-nio-9002-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-08 10:35:37.160:2317689][https-jsse-nio-9002-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220808103537004(String), 0000000001(String), 2022-08-08(String), null, 3(String), 081(String), 598(Long), 0.034405167(BigDecimal), 1(Integer), 500(String), 2022-08-08 10:35:37.119(Timestamp), 2022-08-08 10:35:37.154(Timestamp), {
+"org_code":"10000262","bank_code":"081",
+"natv_tr_no":"090001","send_dt":"20220808","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}(String), test(String), 090001(String), 9999(String), OPEN_REQUEST_DOES_NOT_EXIST(String)
+[2022-08-08 10:35:37.170:2317699][https-jsse-nio-9002-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-08 10:35:37.172:2317701][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-08 10:35:37.173:2317702][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000001(String), 20220808103537(String), 081(String), 3(String), 1(Long), 598(Long), 1(Long), 598(Long)
+[2022-08-08 10:35:37.182:2317711][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 2
+[2022-08-08 10:36:47.509:2388038][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - vanAccessCount=5, POST, 598, /api/rt/v1/bankstatement
+[2022-08-08 10:36:47.511:2388040][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - StatementRequest=10000262,StatementRequest(org_code=10000262, bank_code=088, natv_tr_no=090001, send_dt=20220808, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665)
+[2022-08-08 10:36:47.511:2388040][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - custData : [CustMst(CustId=0000000001, CustNm=SAP테스트, OrgCd=10000262, CallbackURL=https://p200029-iflmap.hcisbp.ap1.hana.ondemand.com/http/BankStatementPost, ApiKey=7242191d-865c-48df-aa02-e3cf10bffd6d, PriContactNm=null, PriContactTel=null, PriContactEmail=null, SecContactNm=null, SecContactTel=null, SecContactEmail=null, TxSequence=@, InUse=Y)]
+[2022-08-08 10:36:47.519:2388048][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-08 10:36:47.519:2388048][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000001(String), 20220808103647(String)
+[2022-08-08 10:36:47.528:2388057][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-08 10:36:47.528:2388057][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - 개시전문 여부 : false
+[2022-08-08 10:36:47.531:2388060][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - CustMst = [CustMst(CustId=0000000001, CustNm=SAP테스트, OrgCd=10000262, CallbackURL=https://p200029-iflmap.hcisbp.ap1.hana.ondemand.com/http/BankStatementPost, ApiKey=7242191d-865c-48df-aa02-e3cf10bffd6d, PriContactNm=null, PriContactTel=null, PriContactEmail=null, SecContactNm=null, SecContactTel=null, SecContactEmail=null, TxSequence=@, InUse=Y)]
+[2022-08-08 10:36:47.532:2388061][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - bankStatement response ==> StatementResponse(status=500, request_at=null, error_code=9999, error_message=OPEN_REQUEST_DOES_NOT_EXIST)
+[2022-08-08 10:36:47.533:2388062][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-08 10:36:47.535:2388064][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220808103647005, CustId=0000000001, TxDate=2022-08-08, TelegramNo=null, TxType=3, BankCd=088, Size=598, RoundTrip=0.022340458, StmtCnt=1, Status=500, StartDT=2022-08-08 10:36:47.509, EndDT=2022-08-08 10:36:47.532, EncData={
+"org_code":"10000262","bank_code":"088",
+"natv_tr_no":"090001","send_dt":"20220808","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}, NatvTrNo=090001, ErrCode=9999, ErrMsg=OPEN_REQUEST_DOES_NOT_EXIST)
+[2022-08-08 10:36:47.535:2388064][https-jsse-nio-9002-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-08 10:36:47.536:2388065][https-jsse-nio-9002-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220808103647005(String), 0000000001(String), 2022-08-08(String), null, 3(String), 088(String), 598(Long), 0.022340458(BigDecimal), 1(Integer), 500(String), 2022-08-08 10:36:47.509(Timestamp), 2022-08-08 10:36:47.532(Timestamp), {
+"org_code":"10000262","bank_code":"088",
+"natv_tr_no":"090001","send_dt":"20220808","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}(String), test(String), 090001(String), 9999(String), OPEN_REQUEST_DOES_NOT_EXIST(String)
+[2022-08-08 10:36:47.546:2388075][https-jsse-nio-9002-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-08 10:36:47.548:2388077][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-08 10:36:47.549:2388078][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000001(String), 20220808103647(String), 088(String), 3(String), 1(Long), 598(Long), 1(Long), 598(Long)
+[2022-08-08 10:36:47.557:2388086][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 2
+[2022-08-08 10:42:31.041:2731570][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - vanAccessCount=6, POST, 598, /api/rt/v1/bankstatement
+[2022-08-08 10:42:31.045:2731574][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - StatementRequest=10000262,StatementRequest(org_code=10000262, bank_code=088, natv_tr_no=090001, send_dt=20220808, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665)
+[2022-08-08 10:42:31.046:2731575][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - custData : [CustMst(CustId=0000000001, CustNm=SAP테스트, OrgCd=10000262, CallbackURL=https://p200029-iflmap.hcisbp.ap1.hana.ondemand.com/http/BankStatementPost, ApiKey=7242191d-865c-48df-aa02-e3cf10bffd6d, PriContactNm=null, PriContactTel=null, PriContactEmail=null, SecContactNm=null, SecContactTel=null, SecContactEmail=null, TxSequence=@, InUse=Y)]
+[2022-08-08 10:42:31.057:2731586][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-08 10:42:31.058:2731587][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000001(String), 20220808104231(String)
+[2022-08-08 10:42:31.071:2731600][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-08 10:42:31.072:2731601][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - 개시전문 여부 : false
+[2022-08-08 10:42:31.080:2731609][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - CustMst = [CustMst(CustId=0000000001, CustNm=SAP테스트, OrgCd=10000262, CallbackURL=https://p200029-iflmap.hcisbp.ap1.hana.ondemand.com/http/BankStatementPost, ApiKey=7242191d-865c-48df-aa02-e3cf10bffd6d, PriContactNm=null, PriContactTel=null, PriContactEmail=null, SecContactNm=null, SecContactTel=null, SecContactEmail=null, TxSequence=@, InUse=Y)]
+[2022-08-08 10:42:31.081:2731610][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - bankStatement response ==> StatementResponse(status=500, request_at=null, error_code=9999, error_message=OPEN_REQUEST_DOES_NOT_EXIST)
+[2022-08-08 10:42:31.082:2731611][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-08 10:42:31.085:2731614][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220808104231006, CustId=0000000001, TxDate=2022-08-08, TelegramNo=null, TxType=3, BankCd=088, Size=598, RoundTrip=0.03958125, StmtCnt=1, Status=500, StartDT=2022-08-08 10:42:31.041, EndDT=2022-08-08 10:42:31.081, EncData={
+"org_code":"10000262","bank_code":"088",
+"natv_tr_no":"090001","send_dt":"20220808","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}, NatvTrNo=090001, ErrCode=9999, ErrMsg=OPEN_REQUEST_DOES_NOT_EXIST)
+[2022-08-08 10:42:31.086:2731615][https-jsse-nio-9002-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-08 10:42:31.089:2731618][https-jsse-nio-9002-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220808104231006(String), 0000000001(String), 2022-08-08(String), null, 3(String), 088(String), 598(Long), 0.03958125(BigDecimal), 1(Integer), 500(String), 2022-08-08 10:42:31.041(Timestamp), 2022-08-08 10:42:31.081(Timestamp), {
+"org_code":"10000262","bank_code":"088",
+"natv_tr_no":"090001","send_dt":"20220808","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}(String), test(String), 090001(String), 9999(String), OPEN_REQUEST_DOES_NOT_EXIST(String)
+[2022-08-08 10:42:31.099:2731628][https-jsse-nio-9002-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-08 10:42:31.100:2731629][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-08 10:42:31.101:2731630][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000001(String), 20220808104231(String), 088(String), 3(String), 1(Long), 598(Long), 1(Long), 598(Long)
+[2022-08-08 10:42:31.112:2731641][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 2
+[2022-08-08 10:43:49.196:891][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 50222 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_bankstatement/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_bankstatement)
+[2022-08-08 10:43:49.198:893][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-08 10:43:49.198:893][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-08 10:43:52.761:4456][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.223 seconds (JVM running for 4.941)
+[2022-08-08 10:43:52.768:4463][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 10:43:52.768:4463][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
+[2022-08-08 10:43:52.768:4463][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 10:43:52.888:4583][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-08 10:43:52.898:4593][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-08 10:43:52.927:4622][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 4
+[2022-08-08 10:43:52.950:4645][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-08 10:43:52.951:4646][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-08 10:43:52.962:4657][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-08 10:43:52.962:4657][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-08 10:43:52.962:4657][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-08 10:43:52.972:4667][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-08 10:43:52.973:4668][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-08 10:43:52.973:4668][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-08 10:43:52.981:4676][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-08 10:43:52.983:4678][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-08 10:43:52.983:4678][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000267(String)
+[2022-08-08 10:43:52.992:4687][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-08 10:43:52.993:4688][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 10:43:52.993:4688][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
+[2022-08-08 10:43:52.993:4688][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 10:44:58.392:70087][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - vanAccessCount=1, POST, 598, /api/rt/v1/bankstatement
+[2022-08-08 10:44:58.398:70093][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - StatementRequest=10000262,StatementRequest(org_code=10000262, bank_code=088, natv_tr_no=090001, send_dt=20220808, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665)
+[2022-08-08 10:44:58.434:70129][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - custData : [CustMst(CustId=0000000001, CustNm=SAP테스트, OrgCd=10000262, CallbackURL=https://p200029-iflmap.hcisbp.ap1.hana.ondemand.com/http/BankStatementPost, ApiKey=7242191d-865c-48df-aa02-e3cf10bffd6d, PriContactNm=null, PriContactTel=null, PriContactEmail=null, SecContactNm=null, SecContactTel=null, SecContactEmail=null, TxSequence=@, InUse=Y)]
+[2022-08-08 10:44:58.458:70153][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - callbackurl=https://p200029-iflmap.hcisbp.ap1.hana.ondemand.com/http/BankStatementPost
+[2022-08-08 10:44:58.485:70180][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.svc.FBService - req, callbackURL= StatementRequest(org_code=10000262, bank_code=088, natv_tr_no=090001, send_dt=20220808, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665), https://p200029-iflmap.hcisbp.ap1.hana.ondemand.com/http/BankStatementPost
+[2022-08-08 10:44:58.514:70209][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-08 10:44:58.514:70209][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://p200029-iflmap.hcisbp.ap1.hana.ondemand.com/http/BankStatementPost ==> {
+  "org_code" : "10000262",
+  "bank_code" : "088",
+  "natv_tr_no" : "090001",
+  "send_dt" : "20220808",
+  "send_tm" : "133243",
+  "account" : "52212601",
+  "scf_dt" : "20201222",
+  "scf_tm" : "150550",
+  "rnd_gb_code" : "21",
+  "scf_code" : "30",
+  "amount" : 5000,
+  "obc_amount" : 0,
+  "after_sign" : "-",
+  "after_amount" : 10000,
+  "cms_code" : "",
+  "can_tr_no" : "000000",
+  "can_ogn_dt" : "00000000",
+  "account_cntn" : "XXXXXX",
+  "cpt_rtu_org_code" : "100000XX",
+  "cpt_rtu_ogn_tr_dt" : "20220124",
+  "cpt_rtu_ogn_orr_no" : "ORRNO20220124142358912582",
+  "rv_nm" : "XXXXX",
+  "cpt_rtu_yn" : "Y",
+  "cpt_rq_dt" : "20201223",
+  "cpt_rq_no" : "FR5829495665"
+}
+[2022-08-08 10:44:59.705:71400][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-08 10:44:59.705:71400][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.svc.VANProxy - 401  ==> 
+[2022-08-08 10:44:59.706:71401][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+[2022-08-08 10:44:59.716:71411][https-jsse-nio-9002-exec-1] ERROR com.inspien.fb.FirmAPIController - {}
+com.fasterxml.jackson.databind.exc.MismatchedInputException: No content to map due to end-of-input
+ at [Source: (String)""; line: 1, column: 0]
+	at com.fasterxml.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:59)
+	at com.fasterxml.jackson.databind.ObjectMapper._initForReading(ObjectMapper.java:4765)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4667)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3629)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3597)
+	at com.inspien.fb.svc.DuznProxyImpl.transfer(DuznProxyImpl.java:74)
+	at com.inspien.fb.svc.FBService.transfer(FBService.java:128)
+	at com.inspien.fb.FirmAPIController.vanGateway(FirmAPIController.java:244)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+[2022-08-08 10:44:59.717:71412][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - bankStatement response ==> StatementResponse(status=500, request_at=null, error_code=9999, error_message=No content to map due to end-of-input
+ at [Source: (String)""; line: 1, column: 0])
+[2022-08-08 10:44:59.729:71424][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-08 10:44:59.743:71438][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220808104458001, CustId=0000000001, TxDate=2022-08-08, TelegramNo=null, TxType=3, BankCd=088, Size=598, RoundTrip=1.336575584, StmtCnt=1, Status=500, StartDT=2022-08-08 10:44:58.389, EndDT=2022-08-08 10:44:59.727, EncData={
+"org_code":"10000262","bank_code":"088",
+"natv_tr_no":"090001","send_dt":"20220808","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}, NatvTrNo=090001, ErrCode=9999, ErrMsg=No content to map due to end-of-input
+ at [Source: (String)""; line: 1, column: 0])
+[2022-08-08 10:44:59.776:71471][https-jsse-nio-9002-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-08 10:44:59.788:71483][https-jsse-nio-9002-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220808104458001(String), 0000000001(String), 2022-08-08(String), null, 3(String), 088(String), 598(Long), 1.336575584(BigDecimal), 1(Integer), 500(String), 2022-08-08 10:44:58.389(Timestamp), 2022-08-08 10:44:59.727(Timestamp), {
+"org_code":"10000262","bank_code":"088",
+"natv_tr_no":"090001","send_dt":"20220808","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}(String), test(String), 090001(String), 9999(String), No content to map due to end-of-input
+ at [Source: (String)""; line: 1, column: 0](String)
+[2022-08-08 10:44:59.798:71493][https-jsse-nio-9002-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-08 10:44:59.800:71495][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-08 10:44:59.801:71496][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000001(String), 20220808104458(String), 088(String), 3(String), 1(Long), 598(Long), 1(Long), 598(Long)
+[2022-08-08 10:44:59.808:71503][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 2
+[2022-08-08 10:46:25.544:157239][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - vanAccessCount=2, POST, 598, /api/rt/v1/bankstatement
+[2022-08-08 10:46:25.548:157243][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - StatementRequest=10000263,StatementRequest(org_code=10000263, bank_code=088, natv_tr_no=090001, send_dt=20220808, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665)
+[2022-08-08 10:46:25.549:157244][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - custData : [CustMst(CustId=0000000002, CustNm=인스피언(주), OrgCd=10000263, CallbackURL=https://localhost:9000, ApiKey=xxxxx-xxxxx-xxxxx-xxxxx, PriContactNm=null, PriContactTel=null, PriContactEmail=null, SecContactNm=null, SecContactTel=null, SecContactEmail=null, TxSequence=@, InUse=Y)]
+[2022-08-08 10:46:25.553:157248][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - callbackurl=https://localhost:9000
+[2022-08-08 10:46:25.555:157250][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.svc.FBService - req, callbackURL= StatementRequest(org_code=10000263, bank_code=088, natv_tr_no=090001, send_dt=20220808, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665), https://localhost:9000
+[2022-08-08 10:46:25.563:157258][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-08 10:46:25.563:157258][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://localhost:9000/ ==> {
+  "org_code" : "10000263",
+  "bank_code" : "088",
+  "natv_tr_no" : "090001",
+  "send_dt" : "20220808",
+  "send_tm" : "133243",
+  "account" : "52212601",
+  "scf_dt" : "20201222",
+  "scf_tm" : "150550",
+  "rnd_gb_code" : "21",
+  "scf_code" : "30",
+  "amount" : 5000,
+  "obc_amount" : 0,
+  "after_sign" : "-",
+  "after_amount" : 10000,
+  "cms_code" : "",
+  "can_tr_no" : "000000",
+  "can_ogn_dt" : "00000000",
+  "account_cntn" : "XXXXXX",
+  "cpt_rtu_org_code" : "100000XX",
+  "cpt_rtu_ogn_tr_dt" : "20220124",
+  "cpt_rtu_ogn_orr_no" : "ORRNO20220124142358912582",
+  "rv_nm" : "XXXXX",
+  "cpt_rtu_yn" : "Y",
+  "cpt_rq_dt" : "20201223",
+  "cpt_rq_no" : "FR5829495665"
+}
+[2022-08-08 10:46:25.667:157362][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-08 10:46:25.667:157362][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.svc.VANProxy - 404  ==> {"timestamp":"2022-08-08T01:46:25.646+00:00","status":404,"error":"Not Found","path":"/"}
+[2022-08-08 10:46:25.667:157362][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.3, cipher suite TLS_AES_128_GCM_SHA256
+[2022-08-08 10:46:25.678:157373][https-jsse-nio-9002-exec-3] ERROR com.inspien.fb.FirmAPIController - {}
+com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "timestamp" (class com.inspien.fb.model.StatementResponse), not marked as ignorable (4 known properties: "error_message", "status", "request_at", "error_code"])
+ at [Source: (String)"{"timestamp":"2022-08-08T01:46:25.646+00:00","status":404,"error":"Not Found","path":"/"}"; line: 1, column: 15] (through reference chain: com.inspien.fb.model.StatementResponse["timestamp"])
+	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:1127)
+	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:1989)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1700)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1678)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:319)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:176)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:322)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4674)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3629)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3597)
+	at com.inspien.fb.svc.DuznProxyImpl.transfer(DuznProxyImpl.java:74)
+	at com.inspien.fb.svc.FBService.transfer(FBService.java:128)
+	at com.inspien.fb.FirmAPIController.vanGateway(FirmAPIController.java:244)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+[2022-08-08 10:46:25.680:157375][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - bankStatement response ==> StatementResponse(status=500, request_at=null, error_code=9999, error_message=Unrecognized field "timestamp" (class com.inspien.fb.model.StatementResponse), not marked as ignorable (4 known properties: "error_message", "status", "request_at", "error_code"])
+ at [Source: (String)"{"timestamp":"2022-08-08T01:46:25.646+00:00","status":404,"error":"Not Found","path":"/"}"; line: 1, column: 15] (through reference chain: com.inspien.fb.model.StatementResponse["timestamp"]))
+[2022-08-08 10:46:25.682:157377][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-08 10:46:25.684:157379][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220808104625002, CustId=0000000002, TxDate=2022-08-08, TelegramNo=null, TxType=3, BankCd=088, Size=598, RoundTrip=0.137431292, StmtCnt=1, Status=500, StartDT=2022-08-08 10:46:25.543, EndDT=2022-08-08 10:46:25.68, EncData={
+"org_code":"10000263","bank_code":"088",
+"natv_tr_no":"090001","send_dt":"20220808","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}, NatvTrNo=090001, ErrCode=9999, ErrMsg=Unrecognized field "timestamp" (class com.inspien.fb.model.StatementResponse), not marked as ignorable (4 known properties: "error_message", "status", "request_at", "error_code"])
+ at [Source: (String)"{"timestamp":"2022-08-08T01:46:25.646+00:00","status":404,"error":"Not Found","path":"/"}"; line: 1, column: 15] (through reference chain: com.inspien.fb.model.StatementResponse["timestamp"]))
+[2022-08-08 10:46:25.695:157390][https-jsse-nio-9002-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-08 10:46:25.700:157395][https-jsse-nio-9002-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220808104625002(String), 0000000002(String), 2022-08-08(String), null, 3(String), 088(String), 598(Long), 0.137431292(BigDecimal), 1(Integer), 500(String), 2022-08-08 10:46:25.543(Timestamp), 2022-08-08 10:46:25.68(Timestamp), {
+"org_code":"10000263","bank_code":"088",
+"natv_tr_no":"090001","send_dt":"20220808","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}(String), test(String), 090001(String), 9999(String), Unrecognized field "timestamp" (class com.inspien.fb.model.StatementResponse), not marked as ignorable (4 known properties: "error_message", "status", "request_at", "error_code"])
+ at [Source: (String)"{"timestamp":"2022-08-08T01:46:25.646+00:00","status":404,"error":"Not Found","path":"/"}"; line: 1, column: 15] (through reference chain: com.inspien.fb.model.StatementResponse["timestamp"])(String)
+[2022-08-08 10:46:51.202:909][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 50355 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_bankstatement/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_bankstatement)
+[2022-08-08 10:46:51.203:910][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-08 10:46:51.204:911][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-08 10:46:54.887:4594][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.375 seconds (JVM running for 5.258)
+[2022-08-08 10:46:54.894:4601][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 10:46:54.894:4601][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
+[2022-08-08 10:46:54.894:4601][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 10:46:55.015:4722][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-08 10:46:55.025:4732][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-08 10:46:55.058:4765][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 4
+[2022-08-08 10:46:55.081:4788][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-08 10:46:55.081:4788][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-08 10:46:55.095:4802][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-08 10:46:55.095:4802][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-08 10:46:55.096:4803][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-08 10:46:55.106:4813][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-08 10:46:55.107:4814][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-08 10:46:55.109:4816][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-08 10:46:55.118:4825][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-08 10:46:55.120:4827][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-08 10:46:55.121:4828][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000267(String)
+[2022-08-08 10:46:55.129:4836][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-08 10:46:55.129:4836][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 10:46:55.129:4836][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
+[2022-08-08 10:46:55.129:4836][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 10:47:03.050:12757][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - vanAccessCount=1, POST, 598, /api/rt/v1/bankstatement
+[2022-08-08 10:47:03.057:12764][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - StatementRequest=10000263,StatementRequest(org_code=10000263, bank_code=088, natv_tr_no=090001, send_dt=20220808, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665)
+[2022-08-08 10:47:03.095:12802][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - custData : [CustMst(CustId=0000000002, CustNm=인스피언(주), OrgCd=10000263, CallbackURL=https://localhost:9000, ApiKey=xxxxx-xxxxx-xxxxx-xxxxx, PriContactNm=null, PriContactTel=null, PriContactEmail=null, SecContactNm=null, SecContactTel=null, SecContactEmail=null, TxSequence=@, InUse=Y)]
+[2022-08-08 10:47:03.117:12824][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - callbackurl=https://localhost:9000
+[2022-08-08 10:47:03.140:12847][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.svc.FBService - req, callbackURL= StatementRequest(org_code=10000263, bank_code=088, natv_tr_no=090001, send_dt=20220808, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665), https://localhost:9000
+[2022-08-08 10:47:03.164:12871][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-08 10:47:03.165:12872][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://localhost:9000/ ==> {
+  "org_code" : "10000263",
+  "bank_code" : "088",
+  "natv_tr_no" : "090001",
+  "send_dt" : "20220808",
+  "send_tm" : "133243",
+  "account" : "52212601",
+  "scf_dt" : "20201222",
+  "scf_tm" : "150550",
+  "rnd_gb_code" : "21",
+  "scf_code" : "30",
+  "amount" : 5000,
+  "obc_amount" : 0,
+  "after_sign" : "-",
+  "after_amount" : 10000,
+  "cms_code" : "",
+  "can_tr_no" : "000000",
+  "can_ogn_dt" : "00000000",
+  "account_cntn" : "XXXXXX",
+  "cpt_rtu_org_code" : "100000XX",
+  "cpt_rtu_ogn_tr_dt" : "20220124",
+  "cpt_rtu_ogn_orr_no" : "ORRNO20220124142358912582",
+  "rv_nm" : "XXXXX",
+  "cpt_rtu_yn" : "Y",
+  "cpt_rq_dt" : "20201223",
+  "cpt_rq_no" : "FR5829495665"
+}
+[2022-08-08 10:47:03.247:12954][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-08 10:47:03.247:12954][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.svc.VANProxy - 404  ==> {"timestamp":"2022-08-08T01:47:03.239+00:00","status":404,"error":"Not Found","path":"/"}
+[2022-08-08 10:47:03.247:12954][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.3, cipher suite TLS_AES_128_GCM_SHA256
+[2022-08-08 10:47:03.257:12964][https-jsse-nio-9002-exec-1] ERROR com.inspien.fb.FirmAPIController - {}
+com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "timestamp" (class com.inspien.fb.model.StatementResponse), not marked as ignorable (4 known properties: "error_message", "status", "request_at", "error_code"])
+ at [Source: (String)"{"timestamp":"2022-08-08T01:47:03.239+00:00","status":404,"error":"Not Found","path":"/"}"; line: 1, column: 15] (through reference chain: com.inspien.fb.model.StatementResponse["timestamp"])
+	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:1127)
+	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:1989)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1700)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1678)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:319)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:176)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:322)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4674)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3629)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3597)
+	at com.inspien.fb.svc.DuznProxyImpl.transfer(DuznProxyImpl.java:74)
+	at com.inspien.fb.svc.FBService.transfer(FBService.java:128)
+	at com.inspien.fb.FirmAPIController.vanGateway(FirmAPIController.java:244)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+[2022-08-08 10:47:03.257:12964][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - bankStatement response ==> StatementResponse(status=500, request_at=null, error_code=9999, error_message=Unrecognized field "timestamp" (class com.inspien.fb.model.StatementResponse), not marked as ignorable (4 known properties: "error_message", "status", "request_at", "error_code"])
+ at [Source: (String)"{"timestamp":"2022-08-08T01:47:03.239+00:00","status":404,"error":"Not Found","path":"/"}"; line: 1, column: 15] (through reference chain: com.inspien.fb.model.StatementResponse["timestamp"]))
+[2022-08-08 10:47:03.264:12971][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-08 10:47:03.277:12984][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220808104703001, CustId=0000000002, TxDate=2022-08-08, TelegramNo=null, TxType=3, BankCd=088, Size=598, RoundTrip=0.213346333, StmtCnt=1, Status=500, StartDT=2022-08-08 10:47:03.048, EndDT=2022-08-08 10:47:03.262, EncData={
+"org_code":"10000263","bank_code":"088",
+"natv_tr_no":"090001","send_dt":"20220808","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}, NatvTrNo=090001, ErrCode=9999, ErrMsg=Unrecognized field "timestamp" (class com.inspien.fb.model.StatementResponse), not marked as ignorable (4 known properties: "error_message", "status", "request_at", "error_code"])
+ at [Source: (String)"{"timestamp":"2022-08-08T01:47:03.239+00:00","status":404,"error":"Not Found","path":"/"}"; line: 1, column: 15] (through reference chain: com.inspien.fb.model.StatementResponse["timestamp"]))
+[2022-08-08 10:47:03.319:13026][https-jsse-nio-9002-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-08 10:47:03.331:13038][https-jsse-nio-9002-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220808104703001(String), 0000000002(String), 2022-08-08(String), null, 3(String), 088(String), 598(Long), 0.213346333(BigDecimal), 1(Integer), 500(String), 2022-08-08 10:47:03.048(Timestamp), 2022-08-08 10:47:03.262(Timestamp), {
+"org_code":"10000263","bank_code":"088",
+"natv_tr_no":"090001","send_dt":"20220808","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}(String), test(String), 090001(String), 9999(String), Unrecognized field "timestamp" (class com.inspien.fb.model.StatementResponse), not marked as ignorable (4 known properties: "error_message", "status", "request_at", "error_code"])
+ at [Source: (String)"{"timestamp":"2022-08-08T01:47:03.239+00:00","status":404,"error":"Not Found","path":"/"}"; line: 1, column: 15] (through reference chain: com.inspien.fb.model.StatementResponse["timestamp"])(String)
+[2022-08-08 10:49:35.216:164923][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.FirmAPIController - vanAccessCount=2, POST, 598, /api/rt/v1/bankstatement
+[2022-08-08 10:49:35.220:164927][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.FirmAPIController - StatementRequest=10000263,StatementRequest(org_code=10000263, bank_code=088, natv_tr_no=090001, send_dt=20220808, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665)
+[2022-08-08 10:49:35.222:164929][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.FirmAPIController - custData : [CustMst(CustId=0000000002, CustNm=인스피언(주), OrgCd=10000263, CallbackURL=https://localhost:9000, ApiKey=xxxxx-xxxxx-xxxxx-xxxxx, PriContactNm=null, PriContactTel=null, PriContactEmail=null, SecContactNm=null, SecContactTel=null, SecContactEmail=null, TxSequence=@, InUse=Y)]
+[2022-08-08 10:49:35.226:164933][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.FirmAPIController - callbackurl=https://localhost:9000
+[2022-08-08 10:49:35.227:164934][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.svc.FBService - req, callbackURL= StatementRequest(org_code=10000263, bank_code=088, natv_tr_no=090001, send_dt=20220808, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665), https://localhost:9000
+[2022-08-08 10:49:35.237:164944][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-08 10:49:35.237:164944][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://localhost:9000/ ==> {
+  "org_code" : "10000263",
+  "bank_code" : "088",
+  "natv_tr_no" : "090001",
+  "send_dt" : "20220808",
+  "send_tm" : "133243",
+  "account" : "52212601",
+  "scf_dt" : "20201222",
+  "scf_tm" : "150550",
+  "rnd_gb_code" : "21",
+  "scf_code" : "30",
+  "amount" : 5000,
+  "obc_amount" : 0,
+  "after_sign" : "-",
+  "after_amount" : 10000,
+  "cms_code" : "",
+  "can_tr_no" : "000000",
+  "can_ogn_dt" : "00000000",
+  "account_cntn" : "XXXXXX",
+  "cpt_rtu_org_code" : "100000XX",
+  "cpt_rtu_ogn_tr_dt" : "20220124",
+  "cpt_rtu_ogn_orr_no" : "ORRNO20220124142358912582",
+  "rv_nm" : "XXXXX",
+  "cpt_rtu_yn" : "Y",
+  "cpt_rq_dt" : "20201223",
+  "cpt_rq_no" : "FR5829495665"
+}
+[2022-08-08 10:49:35.287:164994][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-08 10:49:35.287:164994][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.svc.VANProxy - 404  ==> {"timestamp":"2022-08-08T01:49:35.282+00:00","status":404,"error":"Not Found","path":"/"}
+[2022-08-08 10:49:35.287:164994][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.3, cipher suite TLS_AES_128_GCM_SHA256
+[2022-08-08 10:49:35.291:164998][https-jsse-nio-9002-exec-2] ERROR com.inspien.fb.FirmAPIController - {}
+com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "timestamp" (class com.inspien.fb.model.StatementResponse), not marked as ignorable (4 known properties: "error_message", "status", "request_at", "error_code"])
+ at [Source: (String)"{"timestamp":"2022-08-08T01:49:35.282+00:00","status":404,"error":"Not Found","path":"/"}"; line: 1, column: 15] (through reference chain: com.inspien.fb.model.StatementResponse["timestamp"])
+	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:1127)
+	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:1989)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1700)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1678)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:319)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:176)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:322)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4674)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3629)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3597)
+	at com.inspien.fb.svc.DuznProxyImpl.transfer(DuznProxyImpl.java:74)
+	at com.inspien.fb.svc.FBService.transfer(FBService.java:128)
+	at com.inspien.fb.FirmAPIController.vanGateway(FirmAPIController.java:244)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+[2022-08-08 10:49:35.293:165000][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.FirmAPIController - bankStatement response ==> StatementResponse(status=500, request_at=null, error_code=9999, error_message=Unrecognized field "timestamp" (class com.inspien.fb.model.StatementResponse), not marked as ignorable (4 known properties: "error_message", "status", "request_at", "error_code"])
+ at [Source: (String)"{"timestamp":"2022-08-08T01:49:35.282+00:00","status":404,"error":"Not Found","path":"/"}"; line: 1, column: 15] (through reference chain: com.inspien.fb.model.StatementResponse["timestamp"]))
+[2022-08-08 10:49:35.294:165001][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-08 10:49:35.296:165003][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220808104935002, CustId=0000000002, TxDate=2022-08-08, TelegramNo=null, TxType=3, BankCd=088, Size=598, RoundTrip=0.077315125, StmtCnt=1, Status=500, StartDT=2022-08-08 10:49:35.215, EndDT=2022-08-08 10:49:35.293, EncData={
+"org_code":"10000263","bank_code":"088",
+"natv_tr_no":"090001","send_dt":"20220808","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}, NatvTrNo=090001, ErrCode=9999, ErrMsg=Unrecognized field "timestamp" (class com.inspien.fb.model.StatementResponse), not marked as ignorable (4 known properties: "error_message", "status", "request_at", "error_code"])
+ at [Source: (String)"{"timestamp":"2022-08-08T01:49:35.282+00:00","status":404,"error":"Not Found","path":"/"}"; line: 1, column: 15] (through reference chain: com.inspien.fb.model.StatementResponse["timestamp"]))
+[2022-08-08 10:49:35.311:165018][https-jsse-nio-9002-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-08 10:49:35.313:165020][https-jsse-nio-9002-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220808104935002(String), 0000000002(String), 2022-08-08(String), null, 3(String), 088(String), 598(Long), 0.077315125(BigDecimal), 1(Integer), 500(String), 2022-08-08 10:49:35.215(Timestamp), 2022-08-08 10:49:35.293(Timestamp), {
+"org_code":"10000263","bank_code":"088",
+"natv_tr_no":"090001","send_dt":"20220808","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}(String), test(String), 090001(String), 9999(String), Unrecognized field "timestamp" (class com.inspien.fb.model.StatementResponse), not marked as ignorable (4 known properties: "error_message", "status", "request_at", "error_code"])
+ at [Source: (String)"{"timestamp":"2022-08-08T01:49:35.282+00:00","status":404,"error":"Not Found","path":"/"}"; line: 1, column: 15] (through reference chain: com.inspien.fb.model.StatementResponse["timestamp"])(String)
+[2022-08-08 10:49:51.725:891][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 50414 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_bankstatement/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_bankstatement)
+[2022-08-08 10:49:51.727:893][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-08 10:49:51.727:893][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-08 10:49:55.329:4495][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.268 seconds (JVM running for 4.975)
+[2022-08-08 10:49:55.335:4501][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 10:49:55.336:4502][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
+[2022-08-08 10:49:55.336:4502][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 10:49:55.461:4627][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-08 10:49:55.471:4637][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-08 10:49:55.497:4663][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 4
+[2022-08-08 10:49:55.520:4686][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-08 10:49:55.520:4686][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-08 10:49:55.530:4696][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-08 10:49:55.531:4697][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-08 10:49:55.531:4697][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-08 10:49:55.538:4704][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-08 10:49:55.538:4704][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-08 10:49:55.539:4705][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-08 10:49:55.549:4715][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-08 10:49:55.551:4717][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-08 10:49:55.551:4717][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000267(String)
+[2022-08-08 10:49:55.562:4728][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-08 10:49:55.562:4728][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 10:49:55.563:4729][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
+[2022-08-08 10:49:55.563:4729][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-08 10:49:58.930:8096][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.FirmAPIController - vanAccessCount=1, POST, 598, /api/rt/v1/bankstatement
+[2022-08-08 10:49:58.936:8102][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.FirmAPIController - StatementRequest=10000263,StatementRequest(org_code=10000263, bank_code=088, natv_tr_no=090001, send_dt=20220808, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665)
+[2022-08-08 10:49:58.972:8138][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.FirmAPIController - custData : [CustMst(CustId=0000000002, CustNm=인스피언(주), OrgCd=10000263, CallbackURL=https://localhost:9000/bankstatement/test, ApiKey=xxxxx-xxxxx-xxxxx-xxxxx, PriContactNm=null, PriContactTel=null, PriContactEmail=null, SecContactNm=null, SecContactTel=null, SecContactEmail=null, TxSequence=@, InUse=Y)]
+[2022-08-08 10:49:58.996:8162][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.FirmAPIController - callbackurl=https://localhost:9000/bankstatement/test
+[2022-08-08 10:49:59.019:8185][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.svc.FBService - req, callbackURL= StatementRequest(org_code=10000263, bank_code=088, natv_tr_no=090001, send_dt=20220808, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665), https://localhost:9000/bankstatement/test
+[2022-08-08 10:49:59.044:8210][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-08 10:49:59.044:8210][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://localhost:9000/bankstatement/test ==> {
+  "org_code" : "10000263",
+  "bank_code" : "088",
+  "natv_tr_no" : "090001",
+  "send_dt" : "20220808",
+  "send_tm" : "133243",
+  "account" : "52212601",
+  "scf_dt" : "20201222",
+  "scf_tm" : "150550",
+  "rnd_gb_code" : "21",
+  "scf_code" : "30",
+  "amount" : 5000,
+  "obc_amount" : 0,
+  "after_sign" : "-",
+  "after_amount" : 10000,
+  "cms_code" : "",
+  "can_tr_no" : "000000",
+  "can_ogn_dt" : "00000000",
+  "account_cntn" : "XXXXXX",
+  "cpt_rtu_org_code" : "100000XX",
+  "cpt_rtu_ogn_tr_dt" : "20220124",
+  "cpt_rtu_ogn_orr_no" : "ORRNO20220124142358912582",
+  "rv_nm" : "XXXXX",
+  "cpt_rtu_yn" : "Y",
+  "cpt_rq_dt" : "20201223",
+  "cpt_rq_no" : "FR5829495665"
+}
+[2022-08-08 10:49:59.135:8301][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-08 10:49:59.136:8302][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.svc.VANProxy - 200  ==> {"status":200,"request_at":"202208084959"}
+[2022-08-08 10:49:59.136:8302][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.3, cipher suite TLS_AES_128_GCM_SHA256
+[2022-08-08 10:49:59.142:8308][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.FirmAPIController - bankStatement response ==> StatementResponse(status=200, request_at=202208084959, error_code=null, error_message=null)
+[2022-08-08 10:49:59.149:8315][https-jsse-nio-9002-exec-2] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-08 10:49:59.160:8326][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220808104958001, CustId=0000000002, TxDate=2022-08-08, TelegramNo=null, TxType=3, BankCd=088, Size=598, RoundTrip=0.217936667, StmtCnt=1, Status=200, StartDT=2022-08-08 10:49:58.928, EndDT=2022-08-08 10:49:59.147, EncData={
+"org_code":"10000263","bank_code":"088",
+"natv_tr_no":"090001","send_dt":"20220808","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}, NatvTrNo=090001, ErrCode=null, ErrMsg=null)
+[2022-08-08 10:49:59.196:8362][https-jsse-nio-9002-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-08 10:49:59.209:8375][https-jsse-nio-9002-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220808104958001(String), 0000000002(String), 2022-08-08(String), null, 3(String), 088(String), 598(Long), 0.217936667(BigDecimal), 1(Integer), 200(String), 2022-08-08 10:49:58.928(Timestamp), 2022-08-08 10:49:59.147(Timestamp), {
+"org_code":"10000263","bank_code":"088",
+"natv_tr_no":"090001","send_dt":"20220808","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}(String), test(String), 090001(String), null, null
+[2022-08-08 10:49:59.219:8385][https-jsse-nio-9002-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-08 10:49:59.220:8386][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-08 10:49:59.221:8387][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000002(String), 20220808104958(String), 088(String), 3(String), 1(Long), 598(Long), 1(Long), 598(Long)
+[2022-08-08 10:49:59.231:8397][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 1

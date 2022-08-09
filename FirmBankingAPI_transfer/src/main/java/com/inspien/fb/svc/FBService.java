@@ -51,10 +51,10 @@ public class FBService{
 	CustMstMapper custMstMapper;
 	@Autowired
 	TxTraceMapper txTraceMapper;
-	
+
 	public long getCounter(String orgCode) {
 		String today = DateTimeFormatter.ofPattern("yyyyMMdd").format(ZonedDateTime.now(ZoneId.of(timezone)));
-		
+
 		long txNo = 1;
 		if(custCounter.containsKey(orgCode)) {
 			if(custCounter.get(orgCode).containsKey(today)) {
@@ -104,14 +104,14 @@ public class FBService{
 		log.info("txNo : {}", txNo);
 		try {
 			req.setTelegram_no(txNo);
-	 		res = proxy.transfer(req);
-			
+			res = proxy.transfer(req);
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			log.error("fail to transfer => {}", e);
-		} 
-		
+		}
+
 		res.setRequest_at(DateTimeFormatter.ofPattern("yyyyMMddHHmmss").format(ZonedDateTime.now(ZoneId.of(timezone))));
 		return res;
 
@@ -122,8 +122,8 @@ public class FBService{
 		VANProxy proxy = new DuznProxyImpl();
 		proxy.init(null	, null);
 		StatementResponse res = null;
-			log.info("req, callbackURL= {}, {}", req, callbackUrl);
-			res = proxy.transfer(req, callbackUrl);
+		log.info("req, callbackURL= {}, {}", req, callbackUrl);
+		res = proxy.transfer(req, callbackUrl);
 
 		return res;
 	}

@@ -1,0 +1,5 @@
+TxType      To                  From                    TxIdx                               CustId                 TxDate                 startDT                EndDT                         	Dataÿ
+2	-----		server		202208080950550022	0000000001	2022-08-08	-------------------	2022-08-08 09:50:55	TransferCheckRequest(api_key=7242191d-865c-48df-aa02-e3cf10bffd6d, org_code=10000262, org_telegram_no=2, tr_dt=20220808, drw_bank_code=088)
+2	server		van  		202208080950550022	0000000001	2022-08-08	-------------------	2022-08-08 09:50:55	"{\n  \"api_key\" : \"7242191d-865c-48df-aa02-e3cf10bffd6d\",\n  \"org_code\" : \"10000262\",\n  \"org_telegram_no\" : 2,\n  \"tr_dt\" : \"20220808\",\n  \"drw_bank_code\" : \"088\"\n}"
+2	van  		server		202208080950550022	0000000001	2022-08-08	-------------------	2022-08-08 09:50:55	{"status":200,"natv_tr_no":"20220808002089000002","transfer_at":"20220808093624","amount":1000}
+2	server		-----		202208080950550022	0000000001	2022-08-08	-------------------	2022-08-08 09:50:55	TransferCheckResponse(status=200, natv_tr_no=20220808002089000002, transfer_at=20220808093624, amount=1000, error_code=null, error_message=null)

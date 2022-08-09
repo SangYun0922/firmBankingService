@@ -51,10 +51,10 @@ public class FBService{
 	CustMstMapper custMstMapper;
 	@Autowired
 	TxTraceMapper txTraceMapper;
-	
+
 	public long getCounter(String orgCode) {
 		String today = DateTimeFormatter.ofPattern("yyyyMMdd").format(ZonedDateTime.now(ZoneId.of(timezone)));
-		
+
 		long txNo = 1;
 		if(custCounter.containsKey(orgCode)) {
 			if(custCounter.get(orgCode).containsKey(today)) {
@@ -88,7 +88,7 @@ public class FBService{
 
 		if(!openReqFlag) { //개시전문
 			log.info("start openReq");
-			writeLogs.insertTxTraceLog(today,custId,1); //컬럼 생성
+			writeLogs.insertTxTraceLog(today,custId,1); //컬럼 생성 + 1로
 			long txNo = 1;
 			OpenRequest openReq = OpenRequest.builder()
 					.api_key(req.getApi_key())
@@ -104,14 +104,14 @@ public class FBService{
 		log.info("txNo : {}", txNo);
 		try {
 			req.setTelegram_no(txNo);
-	 		res = proxy.transfer(req);
-			
+			res = proxy.transfer(req);
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			log.error("fail to transfer => {}", e);
-		} 
-		
+		}
+
 		res.setRequest_at(DateTimeFormatter.ofPattern("yyyyMMddHHmmss").format(ZonedDateTime.now(ZoneId.of(timezone))));
 		return res;
 
@@ -120,12 +120,10 @@ public class FBService{
 	//2022.07.01 transfer added
 	public StatementResponse transfer(StatementRequest req, String callbackUrl) throws Exception {
 		VANProxy proxy = new DuznProxyImpl();
-		boolean openReqFlag = true; // 개시전문 여부(= 해당 컬럼 존재 여부 확인)
-
 		proxy.init(null	, null);
 		StatementResponse res = null;
-			log.info("req, callbackURL= {}, {}", req, callbackUrl);
-			res = proxy.transfer(req, callbackUrl);
+		log.info("req, callbackURL= {}, {}", req, callbackUrl);
+		res = proxy.transfer(req, callbackUrl);
 
 		return res;
 	}

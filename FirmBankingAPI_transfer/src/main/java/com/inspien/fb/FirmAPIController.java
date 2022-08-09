@@ -84,7 +84,7 @@ public class FirmAPIController {
 	}
 
 	//계좌이체 라우터 => 외부고객 -> 서비스 -> van
-	@PostMapping("/transfer")
+	@PostMapping("/api/rt/v1/transfer")
 	public ResponseEntity proxyPost(HttpServletRequest request, @RequestHeader HttpHeaders headers,  @RequestBody(required = false) byte[] body) throws IOException, URISyntaxException {
 		LocalDateTime startDateTime = LocalDateTime.now();
 		StopWatch stopWatch = new StopWatch();
@@ -194,7 +194,7 @@ public class FirmAPIController {
 	}
 
 	//거래명세 라우터 => van -> 서비스 -> 고객사
-	@PostMapping("/bankstatement")
+	@PostMapping("/api/rt/v1/bankstatement")
 	public ResponseEntity vanGateway(HttpServletRequest request, @RequestHeader HttpHeaders headers,  @RequestBody(required = false) byte[] body) throws IOException, URISyntaxException {
 		LocalDateTime startDateTime = LocalDateTime.now();
 		StopWatch stopWatch = new StopWatch();
