@@ -58,13 +58,10 @@ public class FileTelegramManager {
 		File dir = Paths.get(REPO, today).toFile();
 		if(dir.exists()) {
 			File[] files = dir.listFiles();
-			System.out.println("dir = " + dir);
-			System.out.println("files = " + files);
 			for (int i = 0; i < files.length; i++) {
 				try {
 					Path path = FileSystems.getDefault().getPath(dir.getPath(), files[i].getName());
 					String s = Files.readString(path);
-					
 					String[] tokens = s.split(",");
 					if(tokens != null && tokens.length == 3) {
 						String orgCode = tokens[0].trim();
@@ -100,14 +97,16 @@ public class FileTelegramManager {
 
 //				txNo = custCounter.get(orgCode).get(today).incrementAndGet();
 			}
-			else {
+			else { //오늘 거래내역이 아닌경우
 				// delete all data before put today
 				custCounter.get(orgCode).clear();
 				custCounter.get(orgCode).put(today, new AtomicLong(txNo));
 			}
 		}
-		else {
+		else {// config에 폴더가 존재하기 전 ==> 개시전문 전
 			Map<String, AtomicLong> counter = new HashMap<String, AtomicLong>();
+			writeLogs.insertTxTraceLog(today,custId,1);
+			txNo =  Long.parseLong(txTraceMapper.selectTxTrace(custId,today));
 			counter.put(today, new AtomicLong(txNo));
 			custCounter.put(orgCode, counter);
 		}

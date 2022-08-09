@@ -88,7 +88,7 @@ public class FBService{
 
 		if(!openReqFlag) { //개시전문
 			log.info("start openReq");
-			writeLogs.insertTxTraceLog(today,custId,1); //컬럼 생성
+			writeLogs.insertTxTraceLog(today,custId,1); //컬럼 생성 + 1로
 			long txNo = 1;
 			OpenRequest openReq = OpenRequest.builder()
 					.api_key(req.getApi_key())
