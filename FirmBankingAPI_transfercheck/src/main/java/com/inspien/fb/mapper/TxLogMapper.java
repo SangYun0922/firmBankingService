@@ -10,4 +10,5 @@ import java.util.Map;
 @Mapper
 public interface TxLogMapper {
     public boolean logAdd(@Param("key") String key, @Param("logData") TxLog logData);
+    public String selectMsgId(@Param("msgId") String msgId, @Param("txDate")String txDate);
 }

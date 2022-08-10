@@ -75,6 +75,7 @@ public class WriteLogs {
         txLogByJson.addProperty("CustId",custId);
         txLogByJson.addProperty("TxDate", dateFormat.format(startDateTime));
         txLogByJson.addProperty("TelegramNo",TxType == 1?txSequence:null);
+        txLogByJson.addProperty("MsgId",TxType == 3?null:reqJson.get("msg_id").getAsString());
         txLogByJson.addProperty("TxType", TxType); //transfer = 1; read = 2; bankstatment = 3
         txLogByJson.addProperty("BankCd",reqJson.get(TxType == 1?"rv_bank_code":(TxType==2?"drw_bank_code":"bank_code")).getAsString());
         txLogByJson.addProperty("Size",Size);
