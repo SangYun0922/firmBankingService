@@ -154,10 +154,11 @@ public class FirmAPIController {
 					temp.addProperty("Status", e.getStatus());
 					temp.addProperty("StartDT", String.valueOf(e.getStartDT()));
 					temp.addProperty("EndDT", String.valueOf(e.getEndDT()));
-					temp.addProperty("EncData", e.getEncData());
 					temp.addProperty("NatvTrNo", e.getNatvTrNo());
 					temp.addProperty("ErrCode", e.getErrCode());
 					temp.addProperty("ErrMsg", e.getErrMsg());
+					temp.addProperty("MsgId", e.getMsgId());
+					temp.addProperty("EncData", e.getEncData());
 					txlogJson.add(temp);
 				}
 				System.out.println("gson.toJson(txlogJson) = " + gson.toJson(txlogJson));

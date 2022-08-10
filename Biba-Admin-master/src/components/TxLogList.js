@@ -24,6 +24,7 @@ export default function TxLogList(props) {
                 <TextField source="NatvTrNo" />
                 <TextField source="ErrCode" />
                 <TextField source="ErrMsg" />
+                <TextField source="MsgId" />
                 <TextField source="EncData" />
             </Datagrid>
         </List>
