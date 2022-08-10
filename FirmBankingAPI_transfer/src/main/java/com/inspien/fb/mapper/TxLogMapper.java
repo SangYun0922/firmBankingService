@@ -7,4 +7,5 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface TxLogMapper {
     public boolean logAdd(@Param("key") String key, @Param("logData") TxLog logData);
+    public String selectMsgId(@Param("msgId") String msgId, @Param("txDate")String txDate);
 }

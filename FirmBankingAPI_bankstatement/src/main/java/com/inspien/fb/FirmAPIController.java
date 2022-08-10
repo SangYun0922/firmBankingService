@@ -73,6 +73,8 @@ public class FirmAPIController {
 
 	@Autowired
 	TxTraceMapper txTraceMapper;
+	@Autowired
+	TxLogMapper txLogMapper;
 
 	@Autowired
 	FBService fbSvc;
@@ -166,6 +168,10 @@ public class FirmAPIController {
 
 		Gson gson = new Gson();
 		TransferCheckRequest transferCheckReq = gson.fromJson(new String(body), TransferCheckRequest.class);
+		TransferCheckConvert transferCheckConvert = gson.fromJson(new String(body), TransferCheckConvert.class);
+
+		String txno = txLogMapper.selectMsgId(transferCheckConvert.getMsg_id(),transferCheckConvert.getTr_dt());
+		transferCheckReq.setOrg_telegram_no(Long.parseLong(txno));
 		log.info("transferCheckRequest : {}", transferCheckReq);
 		TransferCheckResponse response = null;
 		List<CustMst> custData = custMstService.getData(transferCheckReq.getOrg_code()); //Connect to mariaDB
@@ -229,8 +235,9 @@ public class FirmAPIController {
 		}
 		String custId = custData.get(0).getCustId();
 
-//		openReqFlag = txTraceMapper.isExistTxTrace(custId,txIndexFormat);
-//		log.info("개시전문 여부 : {}",openReqFlag );
+		openReqFlag = txTraceMapper.isExistTxTrace(custId,txIndexFormat.substring(0,8));
+		log.info("개시전문 여부 : {}",openReqFlag );
+
 		writeLogs.insertFileLog(1,3,txIndex,custId,startDateTime,"van  \t","server\t",String.valueOf(statementReq));
 
 //		if(openReqFlag) {

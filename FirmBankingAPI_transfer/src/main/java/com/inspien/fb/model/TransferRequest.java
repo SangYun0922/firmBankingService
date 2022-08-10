@@ -33,5 +33,6 @@ public class TransferRequest {
 	private long amount;
 	private String tr_dt;
 	private String tr_tm;
+	private String msg_id;
 	
 }
