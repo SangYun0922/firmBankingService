@@ -20,10 +20,10 @@ import { BeerList, BeerEdit, BeerCreate, BeerlistShow } from "./beerList";
 import { UserCreate, UserShow, UserEdit, UserList } from "./userList";
 
 import dataProvider from "./dataProvider";
-import { ReportList } from "./reportList";
 import CustList from './components/CustList'
 import BankList from './components/BankList'
 import TxLogList from './components/TxLogList'
+import TxStatList from './components/TxStatList'
 // const dataProvider = jsonServerProvider("http://localhost:4000/admin");
 console.log("::::::::dataProvider::::::", dataProvider);
 const App = () => (
@@ -35,7 +35,7 @@ const App = () => (
     <Resource name="Customer" list={CustList} />
     <Resource name="Bank" list={BankList} />
     <Resource name="Log" list={TxLogList} />
-
+    <Resource name="Stat" list={TxStatList} />
     {/* <Resource
       name="beerlist"
       list={BeerList}

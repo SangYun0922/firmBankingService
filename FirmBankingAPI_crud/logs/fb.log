@@ -1,506 +1,178 @@
-[2022-08-09 09:23:59.351:891][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 6713 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 09:23:59.358:898][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 09:23:59.359:899][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 09:24:03.095:4635][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.414 seconds (JVM running for 5.236)
-[2022-08-09 09:24:36.694:38234][https-jsse-nio-9006-exec-3] INFO  com.inspien.fb.FirmAPIController - table = BankMst
-[2022-08-09 09:24:36.716:38256][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 09:24:36.728:38268][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 09:24:36.752:38292][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 09:25:59.836:841][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 6790 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 09:25:59.838:843][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 09:25:59.839:844][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 09:26:03.325:4330][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.137 seconds (JVM running for 4.789)
-[2022-08-09 09:26:06.537:7542][https-jsse-nio-9006-exec-3] INFO  com.inspien.fb.FirmAPIController - table = BankMst
-[2022-08-09 09:26:06.557:7562][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 09:26:06.567:7572][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 09:26:06.594:7599][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 09:48:37.703:1152][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 7242 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 09:48:37.705:1154][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 09:48:37.705:1154][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 09:48:41.235:4684][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.25 seconds (JVM running for 5.264)
-[2022-08-09 09:48:45.870:9319][https-jsse-nio-9006-exec-3] INFO  com.inspien.fb.FirmAPIController - table = BankMst
-[2022-08-09 09:48:45.891:9340][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 09:48:45.903:9352][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 09:48:45.931:9380][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 09:49:15.706:832][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 7261 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 09:49:15.709:835][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 09:49:15.711:837][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 09:49:19.144:4270][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.075 seconds (JVM running for 4.723)
-[2022-08-09 09:49:24.205:9331][https-jsse-nio-9006-exec-3] INFO  com.inspien.fb.FirmAPIController - table = BankMst
-[2022-08-09 09:49:24.225:9351][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 09:49:24.236:9362][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 09:49:24.262:9388][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 09:49:24.268:9394][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 09:49:24.269:9395][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 09:49:24.280:9406][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 13:12:18.879:12184005][https-jsse-nio-9006-exec-2] INFO  com.inspien.fb.FirmAPIController - table = BankMst
-[2022-08-09 13:12:18.893:12184019][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 13:12:18.894:12184020][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 13:12:18.908:12184034][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 13:12:18.911:12184037][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 13:12:18.911:12184037][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 13:12:18.923:12184049][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 13:30:55.683:1231][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 19976 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 13:30:55.684:1232][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 13:30:55.686:1234][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 13:30:59.552:5100][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.482 seconds (JVM running for 5.951)
-[2022-08-09 13:32:46.703:112251][https-jsse-nio-9006-exec-3] INFO  com.inspien.fb.FirmAPIController - table = BankMst
-[2022-08-09 13:32:46.733:112281][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 13:32:46.747:112295][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 13:32:46.775:112323][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 13:32:46.782:112330][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 13:32:46.782:112330][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 13:32:46.793:112341][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 13:32:46.806:112354][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 13:32:46.806:112354][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 13:32:46.868:112416][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 13:40:29.306:1159][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 20157 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 13:40:29.308:1161][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 13:40:29.308:1161][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 13:40:32.945:4798][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.32 seconds (JVM running for 5.371)
-[2022-08-09 13:40:35.347:7200][https-jsse-nio-9006-exec-3] INFO  com.inspien.fb.FirmAPIController - table = BankMst
-[2022-08-09 13:40:35.614:7467][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 13:40:35.643:7496][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 13:40:35.811:7664][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 13:40:35.822:7675][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 13:40:35.824:7677][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 13:40:36.243:8096][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 13:40:36.285:8138][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 13:40:36.286:8139][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 13:40:36.395:8248][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 13:42:12.472:866][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 20211 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 13:42:12.474:868][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 13:42:12.475:869][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 13:42:15.973:4367][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.163 seconds (JVM running for 4.809)
-[2022-08-09 13:42:20.775:9169][https-jsse-nio-9006-exec-3] INFO  com.inspien.fb.FirmAPIController - table = BankMst
-[2022-08-09 13:42:21.082:9476][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 13:42:21.095:9489][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 13:42:21.772:10166][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 13:42:21.783:10177][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 13:42:21.784:10178][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 13:42:21.792:10186][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 13:42:21.794:10188][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 13:42:21.794:10188][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 13:42:21.803:10197][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 13:59:15.809:803][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 20629 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 13:59:15.810:804][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 13:59:15.811:805][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 13:59:20.291:5285][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 5.082 seconds (JVM running for 5.745)
-[2022-08-09 13:59:53.350:795][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 20657 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 13:59:53.352:797][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 13:59:53.352:797][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 13:59:56.864:4309][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.112 seconds (JVM running for 4.747)
-[2022-08-09 13:59:59.502:6947][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 13:59:59.517:6962][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 13:59:59.542:6987][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 13:59:59.548:6993][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 13:59:59.549:6994][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 13:59:59.569:7014][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 14:01:01.778:1455][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 20691 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 14:01:01.780:1457][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 14:01:01.781:1458][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 14:01:05.292:4969][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.358 seconds (JVM running for 5.499)
-[2022-08-09 14:01:07.996:7673][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 14:01:08.017:7694][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 14:01:08.123:7800][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 14:01:08.130:7807][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 14:01:08.130:7807][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 14:01:08.138:7815][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 14:03:08.685:815][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 20726 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 14:03:08.686:816][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 14:03:08.687:817][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 14:03:12.193:4323][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.125 seconds (JVM running for 5.019)
-[2022-08-09 14:03:16.269:8399][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 14:03:16.283:8413][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 14:03:16.302:8432][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 14:03:16.308:8438][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 14:03:16.309:8439][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 14:03:16.327:8457][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 14:05:07.423:843][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 20747 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 14:05:07.425:845][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 14:05:07.426:846][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 14:05:10.973:4393][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.198 seconds (JVM running for 4.839)
-[2022-08-09 14:05:14.081:7501][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 14:05:14.145:7565][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 14:05:14.267:7687][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 14:05:14.273:7693][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 14:05:14.273:7693][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 14:05:14.437:7857][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 14:08:08.034:827][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 20843 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 14:08:08.035:828][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 14:08:08.037:830][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 14:08:11.449:4242][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.049 seconds (JVM running for 4.702)
-[2022-08-09 14:08:15.052:7845][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 14:08:15.082:7875][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 14:08:15.339:8132][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 14:08:15.351:8144][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 14:08:15.353:8146][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 14:08:15.555:8348][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 14:08:46.485:840][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 20855 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 14:08:46.486:841][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 14:08:46.487:842][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 14:08:49.966:4321][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.118 seconds (JVM running for 4.772)
-[2022-08-09 14:08:53.679:8034][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 14:08:53.692:8047][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 14:08:53.716:8071][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 14:08:53.722:8077][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 14:08:53.723:8078][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 14:08:53.731:8086][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 14:32:30.271:1612][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 21259 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 14:32:30.272:1613][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 14:32:30.273:1614][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 14:32:33.907:5248][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.538 seconds (JVM running for 5.791)
-[2022-08-09 14:32:37.965:9306][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 14:32:37.984:9325][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 14:32:38.252:9593][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 14:32:38.255:9596][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 14:32:38.255:9596][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 14:32:38.330:9671][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 15:10:35.755:1646][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 21996 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 15:10:35.756:1647][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 15:10:35.757:1648][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 15:10:39.518:5409][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.383 seconds (JVM running for 6.082)
-[2022-08-09 15:10:58.018:23909][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 15:10:58.058:23949][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 15:10:58.481:24372][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 15:18:40.209:486100][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 15:18:40.211:486102][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 15:18:40.222:486113][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 15:18:51.632:497523][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 15:18:51.633:497524][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 15:18:51.655:497546][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 15:22:33.480:719371][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 15:22:33.481:719372][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 15:22:33.513:719404][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 15:25:10.565:876456][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 15:25:10.567:876458][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 15:25:10.595:876486][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 15:28:47.005:1092896][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 15:28:47.007:1092898][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 15:28:47.024:1092915][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 15:56:11.378:829][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 27568 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 15:56:11.380:831][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 15:56:11.380:831][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 15:56:15.074:4525][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.315 seconds (JVM running for 5.215)
-[2022-08-09 15:56:41.797:31248][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 15:56:41.816:31267][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 15:56:41.855:31306][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 15:58:00.609:110060][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 15:58:00.612:110063][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 15:58:00.622:110073][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:07:25.490:674941][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:07:25.493:674944][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:07:25.508:674959][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:23:15.653:1625104][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:23:15.656:1625107][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:23:15.695:1625146][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:23:27.054:855][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 28657 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 16:23:27.055:856][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 16:23:27.056:857][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 16:23:30.667:4468][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.268 seconds (JVM running for 5.322)
-[2022-08-09 16:23:59.156:32957][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:23:59.170:32971][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:23:59.195:32996][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:30:08.023:871][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 28761 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 16:30:08.025:873][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 16:30:08.026:874][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 16:30:11.459:4307][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.107 seconds (JVM running for 4.804)
-[2022-08-09 16:30:14.729:7577][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:30:14.761:7609][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:30:14.825:7673][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:30:51.211:993][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 28797 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 16:30:51.212:994][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 16:30:51.214:996][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 16:30:54.735:4517][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.314 seconds (JVM running for 4.977)
-[2022-08-09 16:31:08.831:18613][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:31:08.844:18626][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:31:08.876:18658][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:31:34.009:43791][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:31:34.011:43793][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:31:34.021:43803][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:31:35.080:44862][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:31:35.080:44862][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:31:35.091:44873][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:32:12.823:82605][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:32:12.824:82606][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:32:12.838:82620][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:33:33.334:163116][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:33:33.335:163117][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:33:33.346:163128][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:33:34.418:164200][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:33:34.419:164201][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:33:34.434:164216][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:33:48.610:792][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 28886 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 16:33:48.611:793][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 16:33:48.612:794][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 16:33:52.242:4424][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.235 seconds (JVM running for 5.052)
-[2022-08-09 16:33:57.264:9446][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:33:57.277:9459][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:33:57.306:9488][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:34:01.963:14145][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:34:01.963:14145][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:34:01.973:14155][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:34:02.838:15020][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:34:02.839:15021][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:34:02.848:15030][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:34:18.648:30830][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:34:18.649:30831][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:34:18.657:30839][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:34:19.625:31807][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:34:19.625:31807][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:34:19.639:31821][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:39:19.573:331755][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:39:19.576:331758][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:39:19.589:331771][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:43:13.248:565430][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:43:13.250:565432][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:43:13.264:565446][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:43:14.596:566778][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:43:14.596:566778][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:43:14.606:566788][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:43:15.671:567853][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:43:15.671:567853][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:43:15.689:567871][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:43:16.423:568605][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:43:16.424:568606][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:43:16.433:568615][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:43:24.990:577172][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:43:24.991:577173][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:43:25.064:577246][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:43:25.650:577832][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:43:25.651:577833][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:43:25.669:577851][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:43:26.410:578592][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:43:26.410:578592][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:43:26.419:578601][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:43:26.994:579176][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:43:26.994:579176][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:43:27.002:579184][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:43:27.684:579866][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:43:27.684:579866][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:43:27.706:579888][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:43:28.481:580663][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:43:28.482:580664][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:43:28.494:580676][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:43:29.578:581760][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:43:29.578:581760][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:43:29.590:581772][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:43:30.300:582482][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:43:30.300:582482][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:43:30.312:582494][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:46:09.111:847][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 29161 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 16:46:09.112:848][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 16:46:09.113:849][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 16:46:12.553:4289][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.098 seconds (JVM running for 4.869)
-[2022-08-09 16:46:15.577:7313][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:46:15.589:7325][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:46:15.618:7354][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:48:06.523:856][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 29218 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 16:48:06.524:857][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 16:48:06.524:857][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 16:48:09.968:4301][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.103 seconds (JVM running for 4.936)
-[2022-08-09 16:48:15.379:9712][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:48:15.422:9755][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:48:15.484:9817][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:50:57.932:829][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 29260 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 16:50:57.934:831][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 16:50:57.934:831][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 16:51:01.415:4312][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.128 seconds (JVM running for 4.958)
-[2022-08-09 16:51:04.685:7582][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:51:04.708:7605][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:51:04.786:7683][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:51:35.397:38294][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:51:35.398:38295][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:51:35.409:38306][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:51:37.208:40105][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:51:37.208:40105][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:51:37.218:40115][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:51:38.388:41285][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:51:38.389:41286][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:51:38.408:41305][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:52:46.245:791][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 29305 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 16:52:46.247:793][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 16:52:46.247:793][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 16:52:49.712:4258][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.062 seconds (JVM running for 4.717)
-[2022-08-09 16:52:56.609:11155][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:52:56.621:11167][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:52:56.649:11195][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:53:06.335:20881][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:53:06.336:20882][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:53:06.348:20894][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:53:51.723:912][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 29352 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 16:53:51.724:913][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 16:53:51.725:914][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 16:53:55.553:4742][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.536 seconds (JVM running for 5.391)
-[2022-08-09 16:56:19.936:826][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 29405 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 16:56:19.937:827][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 16:56:19.938:828][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 16:56:23.531:4421][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.234 seconds (JVM running for 5.049)
-[2022-08-09 16:56:28.781:9671][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 16:56:28.792:9682][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:56:28.822:9712][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 16:57:53.804:94694][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:57:53.807:94697][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:57:53.831:94721][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:57:55.689:96579][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 16:57:55.690:96580][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:57:55.710:96600][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 16:58:09.131:110021][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 16:58:09.132:110022][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:58:09.148:110038][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 16:58:09.977:110867][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 16:58:09.979:110869][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 16:58:09.988:110878][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 17:02:30.132:371022][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 17:02:30.136:371026][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:02:30.153:371043][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 17:05:40.663:561553][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 17:05:40.664:561554][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:05:40.676:561566][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 17:05:41.599:562489][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 17:05:41.600:562490][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:05:41.611:562501][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 17:05:42.066:562956][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 17:05:42.068:562958][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:05:42.088:562978][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 17:05:50.780:571670][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 17:05:50.780:571670][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:05:50.790:571680][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 17:05:53.158:574048][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 17:05:53.159:574049][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:05:53.169:574059][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 17:06:10.052:590942][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 17:06:10.055:590945][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:06:10.066:590956][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 17:06:11.092:591982][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 17:06:11.092:591982][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:06:11.104:591994][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 17:06:13.370:594260][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 17:06:13.371:594261][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:06:13.383:594273][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 17:07:05.937:858][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 29633 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 17:07:05.939:860][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 17:07:05.940:861][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 17:07:09.454:4375][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.174 seconds (JVM running for 4.846)
-[2022-08-09 17:07:18.228:13149][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 17:07:18.239:13160][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:07:18.266:13187][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 17:07:19.087:14008][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 17:07:19.088:14009][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:07:19.097:14018][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 17:07:21.799:16720][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 17:07:21.800:16721][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:07:21.810:16731][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 17:21:53.684:888605][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 17:21:53.687:888608][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:21:53.699:888620][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 17:41:02.232:818][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 30202 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 17:41:02.234:820][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 17:41:02.235:821][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 17:41:05.725:4311][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.123 seconds (JVM running for 4.783)
-[2022-08-09 17:41:14.818:13404][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
-[2022-08-09 17:41:14.839:13425][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:41:14.899:13485][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
-[2022-08-09 17:41:59.073:855][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 30266 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_crud)
-[2022-08-09 17:41:59.074:856][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-09 17:41:59.075:857][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-09 17:42:03.254:5036][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.821 seconds (JVM running for 5.728)
-[2022-08-09 17:42:03.900:5682][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 17:42:03.920:5702][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:42:03.953:5735][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 17:42:27.331:29113][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 17:42:27.332:29114][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:42:27.346:29128][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 17:42:30.563:32345][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 17:42:30.563:32345][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:42:30.573:32355][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 17:42:32.233:34015][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
-[2022-08-09 17:42:32.234:34016][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:42:32.305:34087][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
-[2022-08-09 17:42:56.459:58241][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 17:42:56.459:58241][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:42:56.479:58261][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 17:42:57.350:59132][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 17:42:57.352:59134][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:42:57.364:59146][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 17:42:58.249:60031][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
-[2022-08-09 17:42:58.250:60032][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:42:58.304:60086][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
-[2022-08-09 17:42:58.923:60705][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 17:42:58.923:60705][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:42:58.934:60716][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 17:43:04.355:66137][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
-[2022-08-09 17:43:04.356:66138][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:43:04.392:66174][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
-[2022-08-09 17:43:08.118:69900][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
-[2022-08-09 17:43:08.118:69900][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:43:08.164:69946][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
-[2022-08-09 17:43:12.343:74125][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
-[2022-08-09 17:43:12.344:74126][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:43:12.384:74166][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
-[2022-08-09 17:43:28.345:90127][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
-[2022-08-09 17:43:28.345:90127][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:43:28.383:90165][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
-[2022-08-09 17:43:29.008:90790][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
-[2022-08-09 17:43:29.009:90791][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:43:29.054:90836][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
-[2022-08-09 17:43:30.529:92311][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
-[2022-08-09 17:43:30.530:92312][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:43:30.567:92349][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
-[2022-08-09 17:43:35.409:97191][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
-[2022-08-09 17:43:35.409:97191][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:43:35.446:97228][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
-[2022-08-09 17:43:38.197:99979][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
-[2022-08-09 17:43:38.228:100010][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:43:38.296:100078][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
-[2022-08-09 17:43:38.950:100732][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
-[2022-08-09 17:43:38.951:100733][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:43:38.996:100778][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
-[2022-08-09 17:43:40.115:101897][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
-[2022-08-09 17:43:40.115:101897][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:43:40.149:101931][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
-[2022-08-09 17:43:53.229:115011][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
-[2022-08-09 17:43:53.230:115012][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:43:53.269:115051][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
-[2022-08-09 17:44:00.604:122386][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 17:44:00.605:122387][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:44:00.615:122397][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 17:44:01.086:122868][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 17:44:01.086:122868][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:44:01.100:122882][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 17:44:06.317:128099][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 17:44:06.317:128099][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:44:06.329:128111][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 17:44:08.377:130159][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
-[2022-08-09 17:44:08.377:130159][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:44:08.419:130201][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
-[2022-08-09 17:44:24.073:145855][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 17:44:24.074:145856][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:44:24.085:145867][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 17:44:26.120:147902][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
-[2022-08-09 17:44:26.121:147903][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:44:26.153:147935][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
-[2022-08-09 17:44:54.213:175995][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 17:44:54.215:175997][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:44:54.223:176005][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 17:44:55.459:177241][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 17:44:55.459:177241][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:44:55.468:177250][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 17:44:58.116:179898][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
-[2022-08-09 17:44:58.116:179898][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:44:58.149:179931][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
-[2022-08-09 17:45:16.236:198018][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 17:45:16.238:198020][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:45:16.285:198067][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 17:45:18.503:200285][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
-[2022-08-09 17:45:18.504:200286][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:45:18.582:200364][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
-[2022-08-09 17:45:19.342:201124][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
-[2022-08-09 17:45:19.342:201124][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:45:19.351:201133][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
-[2022-08-09 17:45:20.193:201975][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
-[2022-08-09 17:45:20.193:201975][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:45:20.202:201984][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
-[2022-08-09 17:45:21.202:202984][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
-[2022-08-09 17:45:21.202:202984][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
-[2022-08-09 17:45:21.229:203011][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 08:58:20.555:897][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 35158 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 08:58:20.567:909][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 08:58:20.569:911][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 08:59:10.733:775][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 35183 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 08:59:10.734:776][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 08:59:10.735:777][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 08:59:14.249:4291][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.109 seconds (JVM running for 4.757)
+[2022-08-10 09:01:04.946:114988][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:01:04.974:115016][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:01:04.989:115031][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:01:04.989:115031][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:01:05.063:115105][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:01:05.063:115105][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:01:10.693:120735][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 09:01:10.693:120735][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:01:11.172:121214][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 09:01:14.385:124427][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:01:14.386:124428][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:01:14.429:124471][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:01:23.272:133314][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 09:01:23.272:133314][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:01:23.298:133340][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 09:01:24.947:134989][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:01:24.949:134991][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:01:24.998:135040][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:01:37.687:147729][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 09:01:37.688:147730][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:01:37.698:147740][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 09:01:38.007:148049][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:01:38.007:148049][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:01:38.179:148221][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:01:39.513:149555][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
+[2022-08-10 09:01:39.514:149556][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:01:39.537:149579][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 09:19:14.999:1205041][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
+[2022-08-10 09:19:15.002:1205044][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:19:15.012:1205054][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 09:19:16.807:1206849][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:19:16.807:1206849][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:19:16.844:1206886][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:20:10.450:1260492][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 09:20:10.451:1260493][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:20:10.463:1260505][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 09:20:11.360:1261402][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
+[2022-08-10 09:20:11.361:1261403][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:20:11.376:1261418][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 09:20:15.499:1265541][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:20:15.499:1265541][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:20:15.531:1265573][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:20:16.225:1266267][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 09:20:16.225:1266267][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:20:16.233:1266275][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 09:20:17.034:1267076][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
+[2022-08-10 09:20:17.036:1267078][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:20:17.053:1267095][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 09:20:38.686:1288728][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 09:20:38.686:1288728][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:20:38.694:1288736][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 09:20:39.559:1289601][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
+[2022-08-10 09:20:39.559:1289601][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:20:39.569:1289611][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 09:20:41.793:1291835][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 09:20:41.793:1291835][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:20:41.801:1291843][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 09:20:42.374:1292416][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:20:42.374:1292416][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:20:42.408:1292450][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:40:08.949:803][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 36484 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 09:40:08.951:805][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 09:40:08.951:805][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 09:40:12.589:4443][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.248 seconds (JVM running for 5.078)
+[2022-08-10 09:40:28.384:20238][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 09:40:28.408:20262][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:40:28.429:20283][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 12
+[2022-08-10 09:41:43.372:95226][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:41:43.372:95226][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:41:43.416:95270][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:41:55.008:106862][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:41:55.009:106863][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:41:55.047:106901][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:43:14.356:186210][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 09:43:14.357:186211][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:43:14.372:186226][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 12
+[2022-08-10 09:43:44.522:216376][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:43:44.522:216376][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:43:44.562:216416][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:43:45.662:217516][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
+[2022-08-10 09:43:45.663:217517][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:43:45.679:217533][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 09:43:46.443:218297][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 09:43:46.445:218299][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:43:46.455:218309][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 09:43:47.225:219079][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
+[2022-08-10 09:43:47.226:219080][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:43:47.238:219092][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 09:43:48.138:219992][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 09:43:48.139:219993][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:43:48.151:220005][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 09:43:48.562:220416][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 09:43:48.563:220417][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:43:48.580:220434][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 12
+[2022-08-10 09:43:49.220:221074][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:43:49.220:221074][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:43:49.253:221107][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:43:50.090:221944][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 09:43:50.091:221945][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:43:50.101:221955][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 12
+[2022-08-10 09:44:01.500:233354][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:44:01.500:233354][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:44:01.536:233390][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:44:02.595:234449][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 09:44:02.595:234449][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:44:02.610:234464][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 09:44:06.231:238085][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:44:06.232:238086][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:44:06.267:238121][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:44:07.562:239416][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 09:44:07.563:239417][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:44:07.573:239427][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 12
+[2022-08-10 09:44:28.593:899][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 36662 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 09:44:28.594:900][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 09:44:28.595:901][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 09:44:32.148:4454][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.166 seconds (JVM running for 4.91)
+[2022-08-10 09:44:37.054:9360][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:44:37.077:9383][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:44:37.135:9441][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:44:37.447:9753][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 09:44:37.448:9754][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:44:37.471:9777][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 12
+[2022-08-10 09:44:56.491:28797][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:44:56.492:28798][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:44:56.525:28831][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:44:57.402:29708][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 09:44:57.408:29714][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:44:57.420:29726][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 12
+[2022-08-10 09:44:58.922:31228][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:44:58.922:31228][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:44:58.960:31266][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:44:59.540:31846][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 09:44:59.542:31848][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:44:59.556:31862][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 09:45:00.407:32713][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:45:00.407:32713][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:45:00.449:32755][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:45:01.244:33550][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 09:45:01.244:33550][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:45:01.258:33564][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 12
+[2022-08-10 09:45:20.949:53255][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:45:20.951:53257][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:45:20.984:53290][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:45:21.401:53707][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 09:45:21.402:53708][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:45:21.423:53729][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 12
+[2022-08-10 09:45:36.140:833][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 36753 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 09:45:36.141:834][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 09:45:36.142:835][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 09:45:39.829:4522][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.31 seconds (JVM running for 4.99)
+[2022-08-10 09:45:43.601:8294][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:45:43.623:8316][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:45:43.681:8374][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:45:50.533:15226][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 09:45:50.534:15227][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:45:50.578:15271][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 41
+[2022-08-10 09:45:56.531:21224][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 09:45:56.531:21224][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:45:56.545:21238][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 12
+[2022-08-10 09:46:01.314:26007][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 09:46:01.314:26007][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:46:01.328:26021][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 12
+[2022-08-10 09:46:02.324:27017][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 09:46:02.324:27017][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:46:02.333:27026][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 12
+[2022-08-10 09:46:05.258:29951][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 09:46:05.262:29955][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:46:05.271:29964][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 09:46:09.502:34195][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
+[2022-08-10 09:46:09.504:34197][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 09:46:09.517:34210][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4

@@ -11,11 +11,9 @@ import com.inspien.fb.domain.BankMst;
 import com.inspien.fb.domain.CustMst;
 
 import com.inspien.fb.domain.TxLog;
-import com.inspien.fb.svc.BankMstService;
-import com.inspien.fb.svc.CustMstService;
-import com.inspien.fb.svc.GetClient;
+import com.inspien.fb.domain.TxStat;
+import com.inspien.fb.svc.*;
 
-import com.inspien.fb.svc.TxLogService;
 import org.apache.hc.core5.http.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -34,13 +32,12 @@ public class FirmAPIController {
 	//2022.07.07 created;
 	@Autowired
 	CustMstService custMstService;
-
 	@Autowired
 	BankMstService bankMstService;
-
 	@Autowired
 	TxLogService txLogService;
-	
+	@Autowired
+	TxStatService txStatService;
 	@Autowired
 	GetClient getClient;
 
@@ -163,8 +160,28 @@ public class FirmAPIController {
 					temp.addProperty("ErrMsg", e.getErrMsg());
 					txlogJson.add(temp);
 				}
-				System.out.println("bankJson.getAsString() = " + gson.toJson(txlogJson));
+				System.out.println("gson.toJson(txlogJson) = " + gson.toJson(txlogJson));
 				return new ResponseEntity<>(gson.toJson(txlogJson), headers, HttpStatus.OK);
+			case ("Stat") :
+				List<TxStat> txStat = txStatService.readDataMany();
+				int txstat_length = txStat.size();
+				headers.add("X-Total-Count", String.valueOf(txstat_length));
+				JsonArray txstatJson = new JsonArray();
+				int idx = 1;
+				for (TxStat e : txStat) {
+					JsonObject temp = new JsonObject();
+					temp.addProperty("id", idx);
+					temp.addProperty("CustId",e.getCustId());
+					temp.addProperty("TxDate", e.getTxDate());
+					temp.addProperty("BankCd", e.getBankCd());
+					temp.addProperty("TxType", e.getTxType());
+					temp.addProperty("TxCnt", e.getTxCnt());
+					temp.addProperty("TxSize", e.getTxSize());
+					txstatJson.add(temp);
+					idx++;
+				}
+				System.out.println("gson.toJson(txstatJson) = " + gson.toJson(txstatJson));
+				return new ResponseEntity<>(gson.toJson(txstatJson), headers, HttpStatus.OK);
 			default:
 				return new ResponseEntity<>("null", HttpStatus.OK);
 		}

@@ -3,7 +3,6 @@ import {
     List,
     Datagrid,
     TextField,
-
 } from 'react-admin'
 
 export default function BankList(props) {
@@ -11,11 +10,12 @@ export default function BankList(props) {
         <List {...props}>
             <Datagrid>
                 <TextField source="id" />
+                <TextField source="CustId" />
+                <TextField source="TxDate" />
                 <TextField source="BankCd" />
-                <TextField source="BankNm" />
-                <TextField source="SwiftCd" />
-                <TextField source="CreatedAt" />
-                <TextField source="UpdatedAt" />
+                <TextField source="TxType" />
+                <TextField source="TxCnt" />
+                <TextField source="TxSize" />
             </Datagrid>
         </List>
     )
