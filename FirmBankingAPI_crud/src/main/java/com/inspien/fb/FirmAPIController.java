@@ -303,22 +303,48 @@ public class FirmAPIController {
 			return "updating success";
 	}
 
-	@GetMapping("delete/{table}/{id}") //하나의 데이터를 삭제할때
-	public String dbDelete(@PathVariable String table, @PathVariable String id) {
-		log.info("table = {}", table);
+	@DeleteMapping("/{table}/{id}") //하나의 데이터를 삭제할때
+	public ResponseEntity dbDelete(@PathVariable String table, @PathVariable String id) {
+		String ids = id.replace("filter=", "");
+		JsonObject jsonObject = JsonParser.parseString(ids).getAsJsonObject();
+		log.info("table = {} {} {}", table, id);
+		JsonArray id_list = jsonObject.get("id").getAsJsonArray();
+		System.out.println("id_list = " + id_list);
+		Gson gson = new Gson();
+		JsonObject temp = new JsonObject();
+		JsonArray jsonArray = new JsonArray();
 		switch (table) {
-			case ("CustMst") :
-				if (custMstService.deleteData(id) == 1)
-					return "Delete success";
-				else
-					return "Delete failed";
-			case ("BankMst") :
-				if (bankMstService.deleteData(id) == 1)
-					return "Delete success";
-				else
-					return "Delete failed";
+			case ("Customer") :
+				for (JsonElement e : id_list) {
+					try {
+						int res = custMstService.deleteData(e.getAsString());
+						if (res == 1) {
+							jsonArray.add(e.getAsString());
+						}
+					} catch (Exception err) {
+						err.printStackTrace();
+						continue;
+					}
+				}
+				break;
+			case ("Bank") :
+				for (JsonElement e : id_list) {
+					try {
+						int res = bankMstService.deleteData(e.getAsString());
+						if (res == 1) {
+							jsonArray.add(e.getAsString());
+						}
+					} catch (Exception err) {
+						err.printStackTrace();
+						continue;
+					}
+				}
+				break;
 			default:
-				return "Can not found Table";
+				temp.addProperty("state", "Can not Found Table");
+				return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
 		}
+		temp.add("data", jsonArray);
+		return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
 	}
 }

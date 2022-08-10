@@ -113,19 +113,19 @@ export default {
   //     .delete(`${apiUrl}/${resource}/${params.id}`)
   //     .then((data) => console.log("확인", data));
   // },
-  // delete: (resource, params) =>
-  //   httpClient(`${apiUrl}/${resource}/${params.id}`, {
-  //     method: "DELETE",
-  //   }).then(({ json }) => ({ data: json })),
+  delete: (resource, params) =>
+    httpClient(`${apiUrl}/${resource}/${params.id}`, {
+      method: "DELETE",
+    }).then(({ json }) => ({ data: json })),
 
-  // deleteMany: (resource, params) => {
-  //   const query = {
-  //     filter: JSON.stringify({ id: params.ids }),
-  //   };
-  //   console.log("deleteMany", query);
-  //   return httpClient(`${apiUrl}/${resource}/${stringify(query)}`, {
-  //     method: "DELETE",
-  //     body: JSON.stringify(params.ids),
-  //   }).then(({ json }) => ({ date: json }));
-  // },
+  deleteMany: (resource, params) => {
+    const query = {
+      filter: JSON.stringify({ id: params.ids }),
+    };
+    console.log("deleteMany", query);
+    return httpClient(`${apiUrl}/${resource}/${stringify(query)}`, {
+      method: "DELETE",
+      body: JSON.stringify(params.ids),
+    }).then(({ json }) => ({ data: [...params.ids] }));
+  },
 };

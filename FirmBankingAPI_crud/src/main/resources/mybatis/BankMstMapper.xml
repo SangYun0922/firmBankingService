@@ -33,11 +33,9 @@
     </update>
 
     <delete id="delete" parameterType="String">
-        DELETE FROM CustMst WHERE BankId = #{BankId}
+        DELETE FROM BankMst WHERE BankId = #{BankId}
     </delete>
-<!--    <insert id="insert" parameterType="CustMst">-->
-<!--        INSERT INTO CustMst VALUES -->
-<!--    </insert>-->
+
 </mapper>
 
 
