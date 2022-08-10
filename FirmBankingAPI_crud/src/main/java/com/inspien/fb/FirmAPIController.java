@@ -7,11 +7,8 @@ import java.time.ZoneId;
 import java.util.*;
 
 import com.google.gson.*;
-import com.inspien.fb.domain.BankMst;
-import com.inspien.fb.domain.CustMst;
+import com.inspien.fb.domain.*;
 
-import com.inspien.fb.domain.TxLog;
-import com.inspien.fb.domain.TxStat;
 import com.inspien.fb.svc.*;
 
 import org.apache.hc.core5.http.ParseException;
@@ -38,6 +35,9 @@ public class FirmAPIController {
 	TxLogService txLogService;
 	@Autowired
 	TxStatService txStatService;
+	@Autowired
+	TxTraceService txTraceService;
+
 	@Autowired
 	GetClient getClient;
 
@@ -167,10 +167,10 @@ public class FirmAPIController {
 				int txstat_length = txStat.size();
 				headers.add("X-Total-Count", String.valueOf(txstat_length));
 				JsonArray txstatJson = new JsonArray();
-				int idx = 1;
+				int idx_Stat = 1;
 				for (TxStat e : txStat) {
 					JsonObject temp = new JsonObject();
-					temp.addProperty("id", idx);
+					temp.addProperty("id", idx_Stat);
 					temp.addProperty("CustId",e.getCustId());
 					temp.addProperty("TxDate", e.getTxDate());
 					temp.addProperty("BankCd", e.getBankCd());
@@ -178,12 +178,30 @@ public class FirmAPIController {
 					temp.addProperty("TxCnt", e.getTxCnt());
 					temp.addProperty("TxSize", e.getTxSize());
 					txstatJson.add(temp);
-					idx++;
+					idx_Stat++;
 				}
-				System.out.println("gson.toJson(txstatJson) = " + gson.toJson(txstatJson));
+				log.debug("gson.toJson(txstatJson) = " + gson.toJson(txstatJson));
 				return new ResponseEntity<>(gson.toJson(txstatJson), headers, HttpStatus.OK);
+			case ("Trace") :
+				List<TxTrace> txTrace = txTraceService.readDataMany();
+				int txtrace_length = txTrace.size();
+				headers.add("X-Total-Count", String.valueOf(txtrace_length));
+				JsonArray txtraceJson = new JsonArray();
+				int idx_Trace = 1;
+				for (TxTrace e : txTrace) {
+					JsonObject temp = new JsonObject();
+					temp.addProperty("id", idx_Trace);
+					temp.addProperty("CustId",e.getCustId());
+					temp.addProperty("TxDate", e.getTxDate());
+					temp.addProperty("TxSequence",e.getTxSequence());
+					temp.addProperty("TxStarted", e.getTxStarted());
+					txtraceJson.add(temp);
+					idx_Trace++;
+				}
+				log.debug("gson.toJson(txtraceJson) = " + gson.toJson(txtraceJson));
+				return new ResponseEntity<>(gson.toJson(txtraceJson), headers, HttpStatus.OK);
 			default:
-				return new ResponseEntity<>("null", HttpStatus.OK);
+				return new ResponseEntity<>("Can not get Data", HttpStatus.OK);
 		}
 	}
 //	@GetMapping("/readlist") //테이블 전체 데이터를 읽을때

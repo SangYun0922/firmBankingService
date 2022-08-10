@@ -5,7 +5,7 @@ import {
     TextField,
 } from 'react-admin'
 
-export default function BankList(props) {
+export default function TxLogList(props) {
     return (
         <List {...props}>
             <Datagrid>

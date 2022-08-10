@@ -5,16 +5,14 @@ import {
     TextField,
 } from 'react-admin'
 
-export default function TxStatList(props) {
+export default function TxTraceList(props) {
     return (
         <List {...props}>
             <Datagrid>
                 <TextField source="CustId" />
                 <TextField source="TxDate" />
-                <TextField source="BankCd" />
-                <TextField source="TxType" />
-                <TextField source="TxCnt" />
-                <TextField source="TxSize" />
+                <TextField source="TxSequence" />
+                <TextField source="TxStarted" />
             </Datagrid>
         </List>
     )

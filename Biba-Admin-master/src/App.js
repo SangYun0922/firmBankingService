@@ -24,6 +24,7 @@ import CustList from './components/CustList'
 import BankList from './components/BankList'
 import TxLogList from './components/TxLogList'
 import TxStatList from './components/TxStatList'
+import TxTraceList from "./components/TxTraceList";
 // const dataProvider = jsonServerProvider("http://localhost:4000/admin");
 console.log("::::::::dataProvider::::::", dataProvider);
 const App = () => (
@@ -36,6 +37,7 @@ const App = () => (
     <Resource name="Bank" list={BankList} />
     <Resource name="Log" list={TxLogList} />
     <Resource name="Stat" list={TxStatList} />
+    <Resource name="Trace" list={TxTraceList} />
     {/* <Resource
       name="beerlist"
       list={BeerList}
