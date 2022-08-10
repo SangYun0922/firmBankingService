@@ -3,19 +3,26 @@ package com.inspien.fb;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.*;
 
 import com.google.gson.*;
 import com.inspien.fb.domain.BankMst;
 import com.inspien.fb.domain.CustMst;
 
+import com.inspien.fb.domain.TxLog;
 import com.inspien.fb.svc.BankMstService;
 import com.inspien.fb.svc.CustMstService;
 import com.inspien.fb.svc.GetClient;
 
+import com.inspien.fb.svc.TxLogService;
 import org.apache.hc.core5.http.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.boot.configurationprocessor.json.JSONObject;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import lombok.extern.slf4j.Slf4j;
@@ -31,6 +38,9 @@ public class FirmAPIController {
 	@Autowired
 	BankMstService bankMstService;
 
+	@Autowired
+	TxLogService txLogService;
+	
 	@Autowired
 	GetClient getClient;
 
@@ -80,19 +90,126 @@ public class FirmAPIController {
 		}
 	}
 
-	@GetMapping("/readlist/{table}") //테이블 전체 데이터를 읽을때
-	public String dbReadMany(@PathVariable String table) {
-		log.info("table = {}", table);
+	@GetMapping("/{table}")
+	public ResponseEntity getList(@PathVariable String table) {
 		Gson gson = new Gson();
+		HttpHeaders headers = new HttpHeaders();
 		switch (table) {
-			case ("CustMst") :
-				return gson.toJson(custMstService.readDataMany());
-			case ("BankMst") :
-				return gson.toJson(bankMstService.readDataMany());
+			case ("Customer") :
+				List<CustMst> custMst = custMstService.readDataMany();
+				int cust_length = custMst.size();
+				headers.add("X-Total-Count", String.valueOf(cust_length));
+				JsonArray custJson = new JsonArray();
+				for (CustMst e : custMst) {
+					JsonObject temp = new JsonObject();
+					temp.addProperty("id", e.getCustId());
+					temp.addProperty("CustNm", e.getCustNm());
+					temp.addProperty("OrgCd", e.getOrgCd());
+					temp.addProperty("CallbackURL", e.getCallbackURL());
+					temp.addProperty("ApiKey", e.getApiKey());
+					temp.addProperty("PriContactNm", e.getPriContactNm());
+					temp.addProperty("PriContactTel", e.getPriContactTel());
+					temp.addProperty("PriContactEmail", e.getPriContactEmail());
+					temp.addProperty("SecContactNm", e.getSecContactNm());
+					temp.addProperty("SecContactTel", e.getSecContactTel());
+					temp.addProperty("SecContactEmail", e.getSecContactEmail());
+					temp.addProperty("TxSequence", e.getTxSequence());
+					temp.addProperty("InUse", e.getInUse());
+					temp.addProperty("CreatedAt", String.valueOf(e.getCreatedAt()));
+					temp.addProperty("UpdatedAt", String.valueOf(e.getUpdatedAt()));
+					custJson.add(temp);
+				}
+				System.out.println("custJson.getAsString() = " + gson.toJson(custJson));
+				return new ResponseEntity<>(gson.toJson(custJson), headers, HttpStatus.OK);
+			case ("Bank") :
+				List<BankMst> bankMst = bankMstService.readDataMany();
+				int bank_length = bankMst.size();
+				headers.add("X-Total-Count", String.valueOf(bank_length));
+				JsonArray bankJson = new JsonArray();
+				for (BankMst e : bankMst) {
+					JsonObject temp = new JsonObject();
+					temp.addProperty("id", e.getBankId());
+					temp.addProperty("BankCd", e.getBankCd());
+					temp.addProperty("BankNm", e.getBankNm());
+					temp.addProperty("SwiftCd", e.getSwiftCd());
+					temp.addProperty("CreatedAt", String.valueOf(e.getCreatedAt()));
+					temp.addProperty("UpdatedAt", String.valueOf(e.getUpdatedAt()));
+					bankJson.add(temp);
+				}
+				System.out.println("bankJson.getAsString() = " + gson.toJson(bankJson));
+				return new ResponseEntity<>(gson.toJson(bankJson), headers, HttpStatus.OK);
+			case ("Log") :
+				List<TxLog> txLog = txLogService.readDataMany();
+				int txlog_length = txLog.size();
+				headers.add("X-Total-Count", String.valueOf(txlog_length));
+				JsonArray txlogJson = new JsonArray();
+				for (TxLog e : txLog) {
+					JsonObject temp = new JsonObject();
+					temp.addProperty("id",e.getTxIdx());
+					temp.addProperty("CustId",e.getCustId());
+					temp.addProperty("TxDate", e.getTxDate());
+					temp.addProperty("TelegramNo", e.getTelegramNo());
+					temp.addProperty("TxType", e.getTxType());
+					temp.addProperty("BankCd", e.getBankCd());
+					temp.addProperty("Size",e.getSize());
+					temp.addProperty("RoundTrip", e.getRoundTrip());
+					temp.addProperty("StmtCnt", e.getStmtCnt());
+					temp.addProperty("Status", e.getStatus());
+					temp.addProperty("StartDT", String.valueOf(e.getStartDT()));
+					temp.addProperty("EndDT", String.valueOf(e.getEndDT()));
+					temp.addProperty("EncData", e.getEncData());
+					temp.addProperty("NatvTrNo", e.getNatvTrNo());
+					temp.addProperty("ErrCode", e.getErrCode());
+					temp.addProperty("ErrMsg", e.getErrMsg());
+					txlogJson.add(temp);
+				}
+				System.out.println("bankJson.getAsString() = " + gson.toJson(txlogJson));
+				return new ResponseEntity<>(gson.toJson(txlogJson), headers, HttpStatus.OK);
 			default:
-				return "Can not found Table";
+				return new ResponseEntity<>("null", HttpStatus.OK);
 		}
 	}
+//	@GetMapping("/readlist") //테이블 전체 데이터를 읽을때
+//	public String dbReadMany() {
+//		List<CustMst> custMst = custMstService.readDataMany();
+//		List<BankMst> bankMst = bankMstService.readDataMany();
+//		Gson gson = new Gson();
+//		JsonObject jsonObject = new JsonObject();
+//		try {
+//			JsonArray custJson = new JsonArray();
+//			JsonArray bankJson = new JsonArray();
+//			for (CustMst e : custMst) {
+//				JsonObject temp = new JsonObject();
+//				temp.addProperty("CustId", e.getCustId());
+//				temp.addProperty("CustNm", e.getCustNm());
+//				temp.addProperty("OrgCd", e.getOrgCd());
+//				temp.addProperty("CallbankURL", e.getCallbackURL());
+//				temp.addProperty("ApiKey", e.getApiKey());
+//				temp.addProperty("PriContactNm", e.getPriContactNm());
+//				temp.addProperty("PriContactTel", e.getPriContactTel());
+//				temp.addProperty("PriContactEmail", e.getPriContactEmail());
+//				temp.addProperty("SecContactNm", e.getSecContactNm());
+//				temp.addProperty("SecContactTel", e.getSecContactTel());
+//				temp.addProperty("SecContactEmail", e.getSecContactEmail());
+//				temp.addProperty("TxSequence", e.getTxSequence());
+//				temp.addProperty("", e.getCustId());
+//				custJson.add(temp);
+//			}
+//			for (BankMst e : bankMst) {
+//				JsonObject temp = new JsonObject();
+//				temp.addProperty("BankId", e.getBankId());
+//				temp.addProperty("BankCd", e.getBankCd());
+//				temp.addProperty("BankNm", e.getBankNm());
+//				temp.addProperty("SwiftCd", e.getSwiftCd());
+//				bankJson.add(temp);
+//			}
+//			jsonObject.add("Customers", custJson);
+//			jsonObject.add("Banks", bankJson);
+//		} catch (JsonIOException e) {
+//			e.printStackTrace();
+//		}
+//		return gson.toJson(jsonObject);
+//	}
 
 	@PutMapping("/update/{table}/{id}") //데이터를 업데이트 할때,
 	public String dbUpdate(@PathVariable String table, @PathVariable String id, @RequestBody(required = false) byte[] body) throws IOException, URISyntaxException, ParseException {
