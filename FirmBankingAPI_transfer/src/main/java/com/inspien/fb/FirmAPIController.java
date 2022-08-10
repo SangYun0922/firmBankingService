@@ -99,7 +99,7 @@ public class FirmAPIController {
 		if (index.intValue() >= 999) {
 			index.set(0);
 		}
-		String seq = intFormatter.format(index.incrementAndGet()); 
+		String seq = intFormatter.format(index.incrementAndGet());
 		String txIndex = txIndexFormat+seq;
 
 		if(log.isInfoEnabled()) {
