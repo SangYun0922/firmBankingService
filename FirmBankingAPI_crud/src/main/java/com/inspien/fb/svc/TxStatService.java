@@ -14,8 +14,9 @@ public class TxStatService {
     @Autowired
     private TxStatMapper txStatMapper;
 
-    public List<TxStat> readDataMany() {
-        return txStatMapper.selectMany();
+    public int totalCount() { return txStatMapper.count(); }
+    public List<TxStat> readDataMany(int Start, int Limit) {
+        return txStatMapper.selectMany(Start, Limit);
     }
 
 }

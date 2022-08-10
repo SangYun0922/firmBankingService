@@ -8,5 +8,6 @@ import java.util.List;
 
 @Mapper
 public interface TxTraceMapper {
-    public List<TxTrace> selectMany(); //readMany
+    public int count(); //데이터 개수 가져오기
+    public List<TxTrace> selectMany(int Start, int Limit); //readMany
 }

@@ -4,6 +4,10 @@
 
 <mapper namespace="com.inspien.fb.mapper.CustMstMapper">
 
+    <select id="count" resultType="int">
+        select count(*) from CustMst
+    </select>
+
     <insert id="insert" parameterType="CustMst">
         INSERT INTO CustMst VALUES(#{CustId}, #{CustNm}, #{OrgCd}, #{CallbackURL}, #{ApiKey}, #{PriContactNm}, #{PriContactTel}, #{PriContactEmail}, #{SecContactNm}, #{SecContactTel}, #{SecContactEmail}, #{TxSequence}, #{InUse}, NOW(), NULL)
     </insert>
@@ -12,8 +16,8 @@
         SELECT * FROM CustMst WHERE CustId = #{CustId}
     </select>
 
-    <select id="selectMany"  resultType="CustMst">
-        SELECT * FROM CustMst
+    <select id="selectMany" parameterType="int" resultType="CustMst">
+        SELECT * FROM CustMst ORDER BY CustId ASC LIMIT #{Start}, #{Limit}
     </select>
 
     <update id="update" parameterType="CustMst">

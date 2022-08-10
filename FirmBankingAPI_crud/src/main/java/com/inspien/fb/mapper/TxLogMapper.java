@@ -9,5 +9,6 @@ import java.util.List;
 
 @Mapper
 public interface TxLogMapper {
-    public List<TxLog> selectMany(); //readMany
+    public int count(); //데이터 개수 가져오기
+    public List<TxLog> selectMany(int Start, int Limit); //readMany
 }

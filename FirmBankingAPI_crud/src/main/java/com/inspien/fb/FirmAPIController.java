@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.*;
 
 import lombok.extern.slf4j.Slf4j;
 
+import javax.servlet.http.HttpServletRequest;
+
 
 @Slf4j
 @RestController
@@ -88,14 +90,21 @@ public class FirmAPIController {
 	}
 
 	@GetMapping("/{table}")
-	public ResponseEntity getList(@PathVariable String table) {
+	public ResponseEntity getList(HttpServletRequest request, @PathVariable String table) {
+		int limit = Integer.valueOf(request.getParameter("limit"));
+		int page = Integer.valueOf(request.getParameter("page"));
+		int start = limit * page - limit;
+		String uri = request.getRequestURI();
+		log.debug("uri = {}, {}, {} ", uri, limit, page);
+
 		Gson gson = new Gson();
 		HttpHeaders headers = new HttpHeaders();
+		System.out.println("start = " + start);
+		System.out.println("limit = " + limit);
 		switch (table) {
 			case ("Customer") :
-				List<CustMst> custMst = custMstService.readDataMany();
-				int cust_length = custMst.size();
-				headers.add("X-Total-Count", String.valueOf(cust_length));
+				headers.add("X-Total-Count", String.valueOf(custMstService.totalCount()));
+				List<CustMst> custMst = custMstService.readDataMany(start, limit);
 				JsonArray custJson = new JsonArray();
 				for (CustMst e : custMst) {
 					JsonObject temp = new JsonObject();
@@ -119,9 +128,8 @@ public class FirmAPIController {
 				System.out.println("custJson.getAsString() = " + gson.toJson(custJson));
 				return new ResponseEntity<>(gson.toJson(custJson), headers, HttpStatus.OK);
 			case ("Bank") :
-				List<BankMst> bankMst = bankMstService.readDataMany();
-				int bank_length = bankMst.size();
-				headers.add("X-Total-Count", String.valueOf(bank_length));
+				headers.add("X-Total-Count", String.valueOf(bankMstService.totalCount()));
+				List<BankMst> bankMst = bankMstService.readDataMany(start, limit);
 				JsonArray bankJson = new JsonArray();
 				for (BankMst e : bankMst) {
 					JsonObject temp = new JsonObject();
@@ -136,9 +144,8 @@ public class FirmAPIController {
 				System.out.println("bankJson.getAsString() = " + gson.toJson(bankJson));
 				return new ResponseEntity<>(gson.toJson(bankJson), headers, HttpStatus.OK);
 			case ("Log") :
-				List<TxLog> txLog = txLogService.readDataMany();
-				int txlog_length = txLog.size();
-				headers.add("X-Total-Count", String.valueOf(txlog_length));
+				headers.add("X-Total-Count", String.valueOf(txLogService.totalCount()));
+				List<TxLog> txLog = txLogService.readDataMany(start, limit);
 				JsonArray txlogJson = new JsonArray();
 				for (TxLog e : txLog) {
 					JsonObject temp = new JsonObject();
@@ -164,9 +171,8 @@ public class FirmAPIController {
 				System.out.println("gson.toJson(txlogJson) = " + gson.toJson(txlogJson));
 				return new ResponseEntity<>(gson.toJson(txlogJson), headers, HttpStatus.OK);
 			case ("Stat") :
-				List<TxStat> txStat = txStatService.readDataMany();
-				int txstat_length = txStat.size();
-				headers.add("X-Total-Count", String.valueOf(txstat_length));
+				headers.add("X-Total-Count", String.valueOf(txStatService.totalCount()));
+				List<TxStat> txStat = txStatService.readDataMany(start, limit);
 				JsonArray txstatJson = new JsonArray();
 				int idx_Stat = 1;
 				for (TxStat e : txStat) {
@@ -184,9 +190,8 @@ public class FirmAPIController {
 				log.debug("gson.toJson(txstatJson) = " + gson.toJson(txstatJson));
 				return new ResponseEntity<>(gson.toJson(txstatJson), headers, HttpStatus.OK);
 			case ("Trace") :
-				List<TxTrace> txTrace = txTraceService.readDataMany();
-				int txtrace_length = txTrace.size();
-				headers.add("X-Total-Count", String.valueOf(txtrace_length));
+				headers.add("X-Total-Count", String.valueOf(txTraceService.totalCount()));
+				List<TxTrace> txTrace = txTraceService.readDataMany(start, limit);
 				JsonArray txtraceJson = new JsonArray();
 				int idx_Trace = 1;
 				for (TxTrace e : txTrace) {

@@ -4,6 +4,10 @@
 
 <mapper namespace="com.inspien.fb.mapper.BankMstMapper">
 
+    <select id="count" resultType="int">
+        select count(*) from BankMst
+    </select>
+
     <insert id="insert" parameterType="BankMst">
         INSERT INTO BankMst VALUES(#{BankId}, #{BankCd}, #{BankNm}, #{SwiftCd}, NOW(), NULL)
     </insert>
@@ -12,8 +16,8 @@
         SELECT * FROM BankMst WHERE BankId = #{BankId}
     </select>
 
-    <select id="selectMany" resultType="BankMst">
-        SELECT * FROM BankMst
+    <select id="selectMany" parameterType="int" resultType="BankMst">
+        SELECT * FROM BankMst ORDER BY BankId LIMIT #{Start}, #{Limit}
     </select>
 
     <update id="update" parameterType="BankMst">

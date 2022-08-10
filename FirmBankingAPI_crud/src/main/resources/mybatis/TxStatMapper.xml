@@ -3,7 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.inspien.fb.mapper.TxStatMapper">
 
-    <select id="selectMany" resultType="TxStat">
-        select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+    <select id="count" resultType="int">
+        select count(*) from TxStat
+    </select>
+
+    <select id="selectMany" parameterType="int" resultType="TxStat">
+        select * from TxStat order by CustId, TxDate, BankCd, TxType ASC LIMIT #{Start}, #{Limit}
     </select>
 </mapper>

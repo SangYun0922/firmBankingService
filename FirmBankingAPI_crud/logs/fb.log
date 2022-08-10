@@ -273,3 +273,595 @@
 [2022-08-10 10:11:33.967:37194][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
 [2022-08-10 10:11:33.980:37207][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
 [2022-08-10 10:11:33.992:37219][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 10:16:13.350:316577][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 10:16:13.356:316583][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:16:13.397:316624][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 44
+[2022-08-10 10:28:12.443:1035670][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 10:28:12.445:1035672][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:28:12.496:1035723][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 45
+[2022-08-10 10:28:13.946:1037173][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 10:28:13.947:1037174][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:28:13.960:1037187][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 13
+[2022-08-10 10:28:13.961:1037188][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txstatJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"081","TxType":"1","TxCnt":7,"TxSize":2614},{"id":2,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":2,"TxSize":1224},{"id":3,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"1","TxCnt":6,"TxSize":2220},{"id":4,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1196},{"id":5,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":4,"TxSize":2406},{"id":6,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":7,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":7,"TxSize":4522},{"id":8,"CustId":"0000000001","TxDate":"2022-08-10","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":9,"CustId":"0000000002","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":10,"CustId":"0000000002","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":598},{"id":11,"CustId":"0000000003","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":12,"CustId":"0000000003","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":13,"CustId":"0000000003","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1292}]
+[2022-08-10 10:28:14.376:1037603][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 10:28:14.376:1037603][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:28:14.419:1037646][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 45
+[2022-08-10 10:33:51.086:1374313][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 10:33:51.087:1374314][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:33:51.102:1374329][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 13
+[2022-08-10 10:33:51.104:1374331][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txstatJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"081","TxType":"1","TxCnt":7,"TxSize":2614},{"id":2,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":2,"TxSize":1224},{"id":3,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"1","TxCnt":6,"TxSize":2220},{"id":4,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1196},{"id":5,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":4,"TxSize":2406},{"id":6,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":7,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":7,"TxSize":4522},{"id":8,"CustId":"0000000001","TxDate":"2022-08-10","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":9,"CustId":"0000000002","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":10,"CustId":"0000000002","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":598},{"id":11,"CustId":"0000000003","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":12,"CustId":"0000000003","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":13,"CustId":"0000000003","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1292}]
+[2022-08-10 10:33:53.983:1377210][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 10:33:53.983:1377210][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:33:53.992:1377219][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 13
+[2022-08-10 10:33:53.993:1377220][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txstatJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"081","TxType":"1","TxCnt":7,"TxSize":2614},{"id":2,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":2,"TxSize":1224},{"id":3,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"1","TxCnt":6,"TxSize":2220},{"id":4,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1196},{"id":5,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":4,"TxSize":2406},{"id":6,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":7,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":7,"TxSize":4522},{"id":8,"CustId":"0000000001","TxDate":"2022-08-10","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":9,"CustId":"0000000002","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":10,"CustId":"0000000002","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":598},{"id":11,"CustId":"0000000003","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":12,"CustId":"0000000003","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":13,"CustId":"0000000003","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1292}]
+[2022-08-10 10:33:55.291:1378518][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 10:33:55.292:1378519][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:33:55.300:1378527][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 13
+[2022-08-10 10:33:55.300:1378527][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txstatJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"081","TxType":"1","TxCnt":7,"TxSize":2614},{"id":2,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":2,"TxSize":1224},{"id":3,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"1","TxCnt":6,"TxSize":2220},{"id":4,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1196},{"id":5,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":4,"TxSize":2406},{"id":6,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":7,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":7,"TxSize":4522},{"id":8,"CustId":"0000000001","TxDate":"2022-08-10","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":9,"CustId":"0000000002","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":10,"CustId":"0000000002","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":598},{"id":11,"CustId":"0000000003","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":12,"CustId":"0000000003","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":13,"CustId":"0000000003","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1292}]
+[2022-08-10 10:33:57.720:1380947][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
+[2022-08-10 10:33:57.720:1380947][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:33:57.731:1380958][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 10:33:58.509:1381736][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 10:33:58.509:1381736][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:33:58.559:1381786][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 45
+[2022-08-10 10:33:59.335:1382562][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 10:33:59.335:1382562][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:33:59.350:1382577][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 10:33:59.664:1382891][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
+[2022-08-10 10:33:59.665:1382892][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:33:59.685:1382912][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 10:34:41.462:1424689][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
+[2022-08-10 10:34:41.463:1424690][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:34:41.472:1424699][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 10:34:42.219:1425446][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
+[2022-08-10 10:34:42.219:1425446][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:34:42.230:1425457][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 10:34:45.939:1429166][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 10:34:45.940:1429167][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:34:45.949:1429176][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 10:34:46.520:1429747][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 10:34:46.521:1429748][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:34:46.569:1429796][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 45
+[2022-08-10 10:34:47.099:1430326][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 10:34:47.099:1430326][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:34:47.108:1430335][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 13
+[2022-08-10 10:34:47.108:1430335][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txstatJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"081","TxType":"1","TxCnt":7,"TxSize":2614},{"id":2,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":2,"TxSize":1224},{"id":3,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"1","TxCnt":6,"TxSize":2220},{"id":4,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1196},{"id":5,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":4,"TxSize":2406},{"id":6,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":7,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":7,"TxSize":4522},{"id":8,"CustId":"0000000001","TxDate":"2022-08-10","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":9,"CustId":"0000000002","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":10,"CustId":"0000000002","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":598},{"id":11,"CustId":"0000000003","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":12,"CustId":"0000000003","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":13,"CustId":"0000000003","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1292}]
+[2022-08-10 10:34:47.757:1430984][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==>  Preparing: select * from TxTrace order by CustId, TxDate ASC
+[2022-08-10 10:34:47.758:1430985][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:34:47.778:1431005][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectMany - <==      Total: 4
+[2022-08-10 10:34:47.779:1431006][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txtraceJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","TxSequence":"3","TxStarted":"Y"},{"id":2,"CustId":"0000000001","TxDate":"2022-08-08","TxSequence":"6","TxStarted":"Y"},{"id":3,"CustId":"0000000001","TxDate":"2022-08-09","TxSequence":"3","TxStarted":"Y"},{"id":4,"CustId":"0000000001","TxDate":"2022-08-10","TxSequence":"3","TxStarted":"Y"}]
+[2022-08-10 10:34:48.595:1431822][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 10:34:48.596:1431823][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:34:48.608:1431835][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 13
+[2022-08-10 10:34:48.608:1431835][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txstatJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"081","TxType":"1","TxCnt":7,"TxSize":2614},{"id":2,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":2,"TxSize":1224},{"id":3,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"1","TxCnt":6,"TxSize":2220},{"id":4,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1196},{"id":5,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":4,"TxSize":2406},{"id":6,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":7,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":7,"TxSize":4522},{"id":8,"CustId":"0000000001","TxDate":"2022-08-10","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":9,"CustId":"0000000002","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":10,"CustId":"0000000002","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":598},{"id":11,"CustId":"0000000003","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":12,"CustId":"0000000003","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":13,"CustId":"0000000003","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1292}]
+[2022-08-10 10:34:49.219:1432446][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 10:34:49.220:1432447][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:34:49.252:1432479][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 45
+[2022-08-10 10:34:50.009:1433236][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 10:34:50.010:1433237][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:34:50.022:1433249][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 10:34:50.874:1434101][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
+[2022-08-10 10:34:50.874:1434101][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:34:50.885:1434112][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 10:35:01.046:1444273][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 10:35:01.046:1444273][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:35:01.056:1444283][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 10:35:01.770:1444997][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 10:35:01.771:1444998][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:35:01.805:1445032][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 45
+[2022-08-10 10:35:12.963:1456190][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 10:35:12.965:1456192][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:35:13.001:1456228][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 45
+[2022-08-10 10:36:12.908:1516135][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 10:36:12.909:1516136][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:36:12.939:1516166][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 10:37:49.606:869][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 38224 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 10:37:49.609:872][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 10:37:49.611:874][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 10:37:53.176:4439][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.241 seconds (JVM running for 4.913)
+[2022-08-10 10:39:03.230:837][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 38280 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 10:39:03.232:839][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 10:39:03.233:840][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 10:39:07.359:4966][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.77 seconds (JVM running for 5.581)
+[2022-08-10 10:39:41.427:1048][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 38323 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 10:39:41.429:1050][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 10:39:41.430:1051][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 10:39:45.959:5580][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 5.383 seconds (JVM running for 6.024)
+[2022-08-10 10:40:00.518:20139][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 10:40:00.530:20151][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:40:00.598:20219][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 45
+[2022-08-10 10:40:07.565:27186][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 10:40:07.566:27187][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:40:07.587:27208][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 13
+[2022-08-10 10:40:07.590:27211][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txstatJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"081","TxType":"1","TxCnt":7,"TxSize":2614},{"id":2,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":2,"TxSize":1224},{"id":3,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"1","TxCnt":6,"TxSize":2220},{"id":4,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1196},{"id":5,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":4,"TxSize":2406},{"id":6,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":7,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":7,"TxSize":4522},{"id":8,"CustId":"0000000001","TxDate":"2022-08-10","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":9,"CustId":"0000000002","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":10,"CustId":"0000000002","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":598},{"id":11,"CustId":"0000000003","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":12,"CustId":"0000000003","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":13,"CustId":"0000000003","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1292}]
+[2022-08-10 10:42:24.498:822][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 38409 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 10:42:24.499:823][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 10:42:24.500:824][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 10:42:28.065:4389][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.187 seconds (JVM running for 4.86)
+[2022-08-10 10:42:32.243:8567][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, GET, -1 
+[2022-08-10 10:42:32.276:8600][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 10:42:32.287:8611][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:42:32.345:8669][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 45
+[2022-08-10 10:43:28.123:834][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 38426 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 10:43:28.125:836][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 10:43:28.126:837][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 10:43:31.841:4552][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.35 seconds (JVM running for 5.04)
+[2022-08-10 10:43:39.409:12120][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = org.apache.catalina.connector.RequestFacade@2f76a09f, {}, {} 
+[2022-08-10 10:43:39.436:12147][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
+[2022-08-10 10:43:39.448:12159][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:43:39.466:12177][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 10:48:18.902:1672][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 38554 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 10:48:18.905:1675][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 10:48:18.906:1676][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 10:48:22.798:5568][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 5.338 seconds (JVM running for 6.319)
+[2022-08-10 10:48:30.004:12774][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = org.apache.catalina.connector.RequestFacade@64eb7bad, 10, 1 
+[2022-08-10 10:48:30.026:12796][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 10:48:30.036:12806][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:48:30.051:12821][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 10:48:38.319:21089][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = org.apache.catalina.connector.RequestFacade@64eb7bad, 10, 1 
+[2022-08-10 10:48:38.336:21106][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
+[2022-08-10 10:48:38.336:21106][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:48:38.346:21116][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 10:48:45.649:28419][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = org.apache.catalina.connector.RequestFacade@64eb7bad, 10, 1 
+[2022-08-10 10:48:45.666:28436][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 10:48:45.667:28437][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:48:45.735:28505][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 45
+[2022-08-10 10:48:53.437:36207][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = org.apache.catalina.connector.RequestFacade@64eb7bad, 10, 2 
+[2022-08-10 10:48:53.454:36224][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 10:48:53.456:36226][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:48:53.502:36272][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 45
+[2022-08-10 10:49:42.100:790][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 38598 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 10:49:42.101:791][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 10:49:42.102:792][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 10:49:45.730:4420][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.222 seconds (JVM running for 4.893)
+[2022-08-10 10:49:53.441:12131][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = https://localhost:9006/Customer, 10, 1 
+[2022-08-10 10:49:53.460:12150][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
+[2022-08-10 10:49:53.470:12160][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:49:53.490:12180][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 10:49:59.389:18079][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = https://localhost:9006/Bank, 10, 1 
+[2022-08-10 10:49:59.431:18121][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 10:49:59.433:18123][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:49:59.462:18152][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 10:54:02.080:866][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 38704 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 10:54:02.081:867][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 10:54:02.082:868][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 10:54:05.671:4457][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.258 seconds (JVM running for 5.122)
+[2022-08-10 10:54:12.677:11463][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-10 10:54:12.709:11495][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
+[2022-08-10 10:54:12.729:11515][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:54:12.749:11535][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 10:54:20.358:19144][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Bank, 10, 1 
+[2022-08-10 10:54:20.376:19162][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 10:54:20.377:19163][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:54:20.395:19181][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 10:54:23.776:22562][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 2 
+[2022-08-10 10:54:23.800:22586][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 10:54:23.801:22587][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:54:23.931:22717][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 45
+[2022-08-10 10:54:36.038:34824][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 1 
+[2022-08-10 10:54:36.060:34846][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 10:54:36.061:34847][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:54:36.105:34891][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 45
+[2022-08-10 10:54:40.726:39512][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 2 
+[2022-08-10 10:54:40.746:39532][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 10:54:40.746:39532][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:54:40.784:39570][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 45
+[2022-08-10 10:54:42.616:41402][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 3 
+[2022-08-10 10:54:42.632:41418][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 10:54:42.633:41419][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:54:42.672:41458][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 45
+[2022-08-10 10:56:30.005:148791][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-10 10:56:30.020:148806][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst
+[2022-08-10 10:56:30.021:148807][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:56:30.039:148825][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 10:56:34.496:153282][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Bank, 10, 1 
+[2022-08-10 10:56:34.507:153293][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 10:56:34.507:153293][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:56:34.515:153301][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 10:56:48.468:167254][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 3 
+[2022-08-10 10:56:48.486:167272][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 10:56:48.486:167272][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:56:48.518:167304][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 45
+[2022-08-10 10:57:02.345:181131][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 1 
+[2022-08-10 10:57:02.362:181148][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 10:57:02.362:181148][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 10:57:02.398:181184][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 45
+[2022-08-10 11:09:33.093:812][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 39160 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 11:09:33.094:813][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 11:09:33.095:814][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 11:09:36.723:4442][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.251 seconds (JVM running for 5.124)
+[2022-08-10 11:09:39.626:7345][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 1 
+[2022-08-10 11:09:39.728:7447][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 11:09:39.787:7506][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 11:09:39.853:7572][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 45
+[2022-08-10 11:09:43.534:11253][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-10 11:09:43.550:11269][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-10 11:09:43.551:11270][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(String), 10(String)
+[2022-08-10 11:24:17.748:834][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 39449 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 11:24:17.749:835][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 11:24:17.750:836][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 11:24:21.264:4350][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.146 seconds (JVM running for 4.992)
+[2022-08-10 11:24:25.465:8551][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-10 11:24:25.491:8577][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-10 11:24:25.503:8589][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 11:24:25.519:8605][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 11:24:26.789:9875][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 1 
+[2022-08-10 11:24:26.806:9892][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC
+[2022-08-10 11:24:26.806:9892][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 
+[2022-08-10 11:24:26.860:9946][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 45
+[2022-08-10 11:24:33.537:16623][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-10 11:24:33.553:16639][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-10 11:24:33.553:16639][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 11:24:33.570:16656][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 12:21:23.197:3426283][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-10 12:21:23.373:3426459][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-10 12:21:23.374:3426460][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 12:21:23.384:3426470][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 12:22:07.945:869][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 40237 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 12:22:07.955:879][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 12:22:07.958:882][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 12:22:11.576:4500][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.303 seconds (JVM running for 4.985)
+[2022-08-10 12:22:22.405:15329][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 1 
+[2022-08-10 12:22:22.563:15487][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC LIMIT ?, ?
+[2022-08-10 12:22:22.586:15510][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 12:22:22.632:15556][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 10
+[2022-08-10 12:22:41.885:34809][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 25, 1 
+[2022-08-10 12:22:41.902:34826][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC LIMIT ?, ?
+[2022-08-10 12:22:41.902:34826][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 0(Integer), 25(Integer)
+[2022-08-10 12:22:41.959:34883][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 25
+[2022-08-10 12:22:51.552:44476][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-10 12:22:51.571:44495][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-10 12:22:51.571:44495][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 12:22:51.587:44511][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 12:22:53.394:46318][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Bank, 10, 1 
+[2022-08-10 12:22:53.404:46328][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 12:22:53.405:46329][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 12:22:53.415:46339][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 12:22:54.432:47356][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 25, 1 
+[2022-08-10 12:22:54.450:47374][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC LIMIT ?, ?
+[2022-08-10 12:22:54.450:47374][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 0(Integer), 25(Integer)
+[2022-08-10 12:22:54.474:47398][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 25
+[2022-08-10 12:22:55.409:48333][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Trace, 10, 1 
+[2022-08-10 12:22:55.425:48349][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==>  Preparing: select * from TxTrace order by CustId, TxDate ASC
+[2022-08-10 12:22:55.425:48349][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==> Parameters: 
+[2022-08-10 12:22:55.436:48360][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectMany - <==      Total: 4
+[2022-08-10 12:22:55.437:48361][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txtraceJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","TxSequence":"3","TxStarted":"Y"},{"id":2,"CustId":"0000000001","TxDate":"2022-08-08","TxSequence":"6","TxStarted":"Y"},{"id":3,"CustId":"0000000001","TxDate":"2022-08-09","TxSequence":"3","TxStarted":"Y"},{"id":4,"CustId":"0000000001","TxDate":"2022-08-10","TxSequence":"3","TxStarted":"Y"}]
+[2022-08-10 13:01:49.132:2382056][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Trace, 10, 1 
+[2022-08-10 13:01:49.243:2382167][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==>  Preparing: select * from TxTrace order by CustId, TxDate ASC
+[2022-08-10 13:01:49.244:2382168][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==> Parameters: 
+[2022-08-10 13:01:49.265:2382189][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectMany - <==      Total: 4
+[2022-08-10 13:01:49.269:2382193][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txtraceJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","TxSequence":"3","TxStarted":"Y"},{"id":2,"CustId":"0000000001","TxDate":"2022-08-08","TxSequence":"6","TxStarted":"Y"},{"id":3,"CustId":"0000000001","TxDate":"2022-08-09","TxSequence":"3","TxStarted":"Y"},{"id":4,"CustId":"0000000001","TxDate":"2022-08-10","TxSequence":"3","TxStarted":"Y"}]
+[2022-08-10 13:01:52.492:2385416][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 25, 1 
+[2022-08-10 13:01:52.511:2385435][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC LIMIT ?, ?
+[2022-08-10 13:01:52.511:2385435][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 0(Integer), 25(Integer)
+[2022-08-10 13:01:52.560:2385484][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 25
+[2022-08-10 13:01:59.366:2392290][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 1 
+[2022-08-10 13:01:59.382:2392306][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC LIMIT ?, ?
+[2022-08-10 13:01:59.382:2392306][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:01:59.400:2392324][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 10
+[2022-08-10 13:15:43.383:886][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 41091 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 13:15:43.386:889][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 13:15:43.386:889][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 13:15:46.988:4491][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.285 seconds (JVM running for 5.151)
+[2022-08-10 13:15:51.947:9450][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 1 
+[2022-08-10 13:15:51.970:9473][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.count - ==>  Preparing: select count(*) from TxLog
+[2022-08-10 13:15:51.981:9484][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.count - ==> Parameters: 
+[2022-08-10 13:15:51.996:9499][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.count - <==      Total: 1
+[2022-08-10 13:15:51.998:9501][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC LIMIT ?, ?
+[2022-08-10 13:15:51.999:9502][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:15:52.015:9518][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 10
+[2022-08-10 13:15:58.031:15534][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Bank, 10, 1 
+[2022-08-10 13:15:58.048:15551][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 13:15:58.048:15551][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 13:15:58.058:15561][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 13:15:59.986:17489][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 1 
+[2022-08-10 13:16:00.029:17532][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.count - ==>  Preparing: select count(*) from TxLog
+[2022-08-10 13:16:00.030:17533][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.count - ==> Parameters: 
+[2022-08-10 13:16:00.188:17691][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.count - <==      Total: 1
+[2022-08-10 13:16:00.192:17695][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC LIMIT ?, ?
+[2022-08-10 13:16:00.192:17695][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:16:00.349:17852][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 10
+[2022-08-10 13:16:04.808:22311][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 2 
+[2022-08-10 13:16:04.825:22328][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.count - ==>  Preparing: select count(*) from TxLog
+[2022-08-10 13:16:04.826:22329][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.count - ==> Parameters: 
+[2022-08-10 13:16:04.835:22338][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.count - <==      Total: 1
+[2022-08-10 13:16:04.836:22339][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC LIMIT ?, ?
+[2022-08-10 13:16:04.836:22339][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 10(Integer), 20(Integer)
+[2022-08-10 13:16:04.872:22375][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 20
+[2022-08-10 13:25:02.142:859][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 41243 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 13:25:02.143:860][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 13:25:02.144:861][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 13:25:05.622:4339][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.145 seconds (JVM running for 4.97)
+[2022-08-10 13:25:07.380:6097][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 2 
+[2022-08-10 13:25:07.425:6142][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.count - ==>  Preparing: select count(*) from TxLog
+[2022-08-10 13:25:07.458:6175][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.count - ==> Parameters: 
+[2022-08-10 13:25:07.484:6201][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.count - <==      Total: 1
+[2022-08-10 13:25:07.490:6207][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC LIMIT ?, ?
+[2022-08-10 13:25:07.492:6209][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 10(Integer), 10(Integer)
+[2022-08-10 13:25:07.519:6236][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 10
+[2022-08-10 13:25:17.839:16556][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 1 
+[2022-08-10 13:25:17.857:16574][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.count - ==>  Preparing: select count(*) from TxLog
+[2022-08-10 13:25:17.857:16574][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.count - ==> Parameters: 
+[2022-08-10 13:25:17.866:16583][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.count - <==      Total: 1
+[2022-08-10 13:25:17.867:16584][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC LIMIT ?, ?
+[2022-08-10 13:25:17.867:16584][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:25:17.890:16607][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 10
+[2022-08-10 13:25:56.455:55172][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 2 
+[2022-08-10 13:25:56.469:55186][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.count - ==>  Preparing: select count(*) from TxLog
+[2022-08-10 13:25:56.470:55187][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.count - ==> Parameters: 
+[2022-08-10 13:25:56.485:55202][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.count - <==      Total: 1
+[2022-08-10 13:25:56.487:55204][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC LIMIT ?, ?
+[2022-08-10 13:25:56.489:55206][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 10(Integer), 10(Integer)
+[2022-08-10 13:25:56.504:55221][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 10
+[2022-08-10 13:26:35.536:94253][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-10 13:26:35.545:94262][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-10 13:26:35.545:94262][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:26:35.557:94274][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 13:29:12.399:824][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 41347 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 13:29:12.401:826][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 13:29:12.402:827][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 13:29:15.996:4421][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.227 seconds (JVM running for 5.069)
+[2022-08-10 13:29:23.108:11533][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 2 
+[2022-08-10 13:29:23.136:11561][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.count - ==>  Preparing: select count(*) from TxLog
+[2022-08-10 13:29:23.148:11573][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.count - ==> Parameters: 
+[2022-08-10 13:29:23.166:11591][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.count - <==      Total: 1
+[2022-08-10 13:29:23.169:11594][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC LIMIT ?, ?
+[2022-08-10 13:29:23.170:11595][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 10(Integer), 10(Integer)
+[2022-08-10 13:29:23.185:11610][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 10
+[2022-08-10 13:29:24.770:13195][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-10 13:29:24.785:13210][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - ==>  Preparing: select count(*) from CustMst
+[2022-08-10 13:29:24.786:13211][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - ==> Parameters: 
+[2022-08-10 13:29:24.794:13219][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - <==      Total: 1
+[2022-08-10 13:29:24.795:13220][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-10 13:29:24.795:13220][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:29:24.806:13231][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 13:29:27.995:16420][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 2 
+[2022-08-10 13:29:28.013:16438][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.count - ==>  Preparing: select count(*) from TxLog
+[2022-08-10 13:29:28.016:16441][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.count - ==> Parameters: 
+[2022-08-10 13:29:28.029:16454][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.count - <==      Total: 1
+[2022-08-10 13:29:28.029:16454][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC LIMIT ?, ?
+[2022-08-10 13:29:28.030:16455][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 10(Integer), 10(Integer)
+[2022-08-10 13:29:28.045:16470][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 10
+[2022-08-10 13:29:32.440:20865][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-10 13:29:32.449:20874][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.count - ==>  Preparing: select count(*) from CustMst
+[2022-08-10 13:29:32.449:20874][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.count - ==> Parameters: 
+[2022-08-10 13:29:32.461:20886][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.count - <==      Total: 1
+[2022-08-10 13:29:32.462:20887][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-10 13:29:32.462:20887][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:29:32.475:20900][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 4
+[2022-08-10 13:34:57.230:345655][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-10 13:34:57.240:345665][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - ==>  Preparing: select count(*) from CustMst
+[2022-08-10 13:34:57.241:345666][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - ==> Parameters: 
+[2022-08-10 13:34:57.250:345675][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - <==      Total: 1
+[2022-08-10 13:34:57.250:345675][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-10 13:34:57.251:345676][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:34:57.269:345694][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 10
+[2022-08-10 13:34:58.935:347360][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Bank, 10, 1 
+[2022-08-10 13:34:58.949:347374][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst
+[2022-08-10 13:34:58.950:347375][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 
+[2022-08-10 13:34:58.959:347384][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 2
+[2022-08-10 13:34:59.498:347923][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-10 13:34:59.510:347935][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.count - ==>  Preparing: select count(*) from CustMst
+[2022-08-10 13:34:59.511:347936][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.count - ==> Parameters: 
+[2022-08-10 13:34:59.521:347946][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.count - <==      Total: 1
+[2022-08-10 13:34:59.521:347946][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-10 13:34:59.522:347947][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:34:59.532:347957][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 10
+[2022-08-10 13:35:02.130:350555][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 2 
+[2022-08-10 13:35:02.139:350564][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - ==>  Preparing: select count(*) from CustMst
+[2022-08-10 13:35:02.140:350565][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - ==> Parameters: 
+[2022-08-10 13:35:02.150:350575][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - <==      Total: 1
+[2022-08-10 13:35:02.151:350576][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-10 13:35:02.151:350576][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 10(Integer), 10(Integer)
+[2022-08-10 13:35:02.161:350586][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 1
+[2022-08-10 13:35:11.756:360181][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-10 13:35:11.772:360197][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - ==>  Preparing: select count(*) from CustMst
+[2022-08-10 13:35:11.773:360198][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - ==> Parameters: 
+[2022-08-10 13:35:11.783:360208][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - <==      Total: 1
+[2022-08-10 13:35:11.784:360209][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-10 13:35:11.784:360209][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:35:11.794:360219][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 10
+[2022-08-10 13:39:39.632:848][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 41705 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 13:39:39.636:852][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 13:39:39.638:854][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 13:39:43.188:4404][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.198 seconds (JVM running for 5.103)
+[2022-08-10 13:41:10.009:91225][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-10 13:41:10.034:91250][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.count - ==>  Preparing: select count(*) from CustMst
+[2022-08-10 13:41:10.045:91261][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.count - ==> Parameters: 
+[2022-08-10 13:41:10.061:91277][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.count - <==      Total: 1
+[2022-08-10 13:41:10.063:91279][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-10 13:41:10.064:91280][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:41:10.075:91291][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 10
+[2022-08-10 13:41:11.917:93133][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Bank, 10, 1 
+[2022-08-10 13:41:11.926:93142][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.BankMstMapper.count - ==>  Preparing: select count(*) from BankMst
+[2022-08-10 13:41:11.927:93143][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.BankMstMapper.count - ==> Parameters: 
+[2022-08-10 13:41:11.936:93152][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.BankMstMapper.count - <==      Total: 1
+[2022-08-10 13:41:11.936:93152][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst ORDER BY BankId LIMIT ?, ?
+[2022-08-10 13:41:11.937:93153][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:41:11.945:93161][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 10
+[2022-08-10 13:41:15.174:96390][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Bank, 10, 2 
+[2022-08-10 13:41:15.194:96410][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.BankMstMapper.count - ==>  Preparing: select count(*) from BankMst
+[2022-08-10 13:41:15.197:96413][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.BankMstMapper.count - ==> Parameters: 
+[2022-08-10 13:41:15.215:96431][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.BankMstMapper.count - <==      Total: 1
+[2022-08-10 13:41:15.216:96432][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst ORDER BY BankId LIMIT ?, ?
+[2022-08-10 13:41:15.217:96433][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 10(Integer), 10(Integer)
+[2022-08-10 13:41:15.226:96442][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 1
+[2022-08-10 13:41:17.831:99047][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Bank, 10, 1 
+[2022-08-10 13:41:17.859:99075][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.BankMstMapper.count - ==>  Preparing: select count(*) from BankMst
+[2022-08-10 13:41:17.860:99076][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.BankMstMapper.count - ==> Parameters: 
+[2022-08-10 13:41:17.888:99104][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.BankMstMapper.count - <==      Total: 1
+[2022-08-10 13:41:17.897:99113][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst ORDER BY BankId LIMIT ?, ?
+[2022-08-10 13:41:17.914:99130][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:41:17.936:99152][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 10
+[2022-08-10 13:41:25.458:106674][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 2 
+[2022-08-10 13:41:25.472:106688][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.count - ==>  Preparing: select count(*) from TxLog
+[2022-08-10 13:41:25.472:106688][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.count - ==> Parameters: 
+[2022-08-10 13:41:25.484:106700][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.count - <==      Total: 1
+[2022-08-10 13:41:25.485:106701][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC LIMIT ?, ?
+[2022-08-10 13:41:25.485:106701][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 10(Integer), 10(Integer)
+[2022-08-10 13:41:25.501:106717][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 10
+[2022-08-10 13:41:26.207:107423][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Bank, 10, 1 
+[2022-08-10 13:41:26.223:107439][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.BankMstMapper.count - ==>  Preparing: select count(*) from BankMst
+[2022-08-10 13:41:26.223:107439][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.BankMstMapper.count - ==> Parameters: 
+[2022-08-10 13:41:26.234:107450][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.BankMstMapper.count - <==      Total: 1
+[2022-08-10 13:41:26.235:107451][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst ORDER BY BankId LIMIT ?, ?
+[2022-08-10 13:41:26.235:107451][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:41:26.248:107464][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 10
+[2022-08-10 13:41:27.437:108653][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 2 
+[2022-08-10 13:41:27.444:108660][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.count - ==>  Preparing: select count(*) from TxLog
+[2022-08-10 13:41:27.444:108660][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.count - ==> Parameters: 
+[2022-08-10 13:41:27.453:108669][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.count - <==      Total: 1
+[2022-08-10 13:41:27.454:108670][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC LIMIT ?, ?
+[2022-08-10 13:41:27.454:108670][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 10(Integer), 10(Integer)
+[2022-08-10 13:41:27.478:108694][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 10
+[2022-08-10 13:41:29.199:110415][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Stat, 10, 1 
+[2022-08-10 13:41:29.216:110432][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 13:41:29.217:110433][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 13:41:29.230:110446][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 13
+[2022-08-10 13:41:29.232:110448][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txstatJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"081","TxType":"1","TxCnt":7,"TxSize":2614},{"id":2,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":2,"TxSize":1224},{"id":3,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"1","TxCnt":6,"TxSize":2220},{"id":4,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1196},{"id":5,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":4,"TxSize":2406},{"id":6,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":7,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":7,"TxSize":4522},{"id":8,"CustId":"0000000001","TxDate":"2022-08-10","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":9,"CustId":"0000000002","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":10,"CustId":"0000000002","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":598},{"id":11,"CustId":"0000000003","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":12,"CustId":"0000000003","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":13,"CustId":"0000000003","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1292}]
+[2022-08-10 13:41:34.040:115256][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Stat, 10, 2 
+[2022-08-10 13:41:34.047:115263][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 13:41:34.048:115264][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 13:41:34.065:115281][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 13
+[2022-08-10 13:41:34.067:115283][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txstatJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"081","TxType":"1","TxCnt":7,"TxSize":2614},{"id":2,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":2,"TxSize":1224},{"id":3,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"1","TxCnt":6,"TxSize":2220},{"id":4,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1196},{"id":5,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":4,"TxSize":2406},{"id":6,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":7,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":7,"TxSize":4522},{"id":8,"CustId":"0000000001","TxDate":"2022-08-10","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":9,"CustId":"0000000002","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":10,"CustId":"0000000002","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":598},{"id":11,"CustId":"0000000003","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":12,"CustId":"0000000003","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":13,"CustId":"0000000003","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1292}]
+[2022-08-10 13:41:35.151:116367][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Stat, 10, 1 
+[2022-08-10 13:41:35.167:116383][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC
+[2022-08-10 13:41:35.168:116384][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 
+[2022-08-10 13:41:35.180:116396][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 13
+[2022-08-10 13:41:35.184:116400][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txstatJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"081","TxType":"1","TxCnt":7,"TxSize":2614},{"id":2,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":2,"TxSize":1224},{"id":3,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"1","TxCnt":6,"TxSize":2220},{"id":4,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1196},{"id":5,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":4,"TxSize":2406},{"id":6,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":7,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":7,"TxSize":4522},{"id":8,"CustId":"0000000001","TxDate":"2022-08-10","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":9,"CustId":"0000000002","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":10,"CustId":"0000000002","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":598},{"id":11,"CustId":"0000000003","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":12,"CustId":"0000000003","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":13,"CustId":"0000000003","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1292}]
+[2022-08-10 13:44:53.272:860][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 41832 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 13:44:53.274:862][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 13:44:53.274:862][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 13:44:56.867:4455][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.243 seconds (JVM running for 4.927)
+[2022-08-10 13:45:02.369:9957][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 2 
+[2022-08-10 13:45:02.403:9991][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.count - ==>  Preparing: select count(*) from TxLog
+[2022-08-10 13:45:02.414:10002][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.count - ==> Parameters: 
+[2022-08-10 13:45:02.429:10017][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxLogMapper.count - <==      Total: 1
+[2022-08-10 13:45:02.431:10019][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC LIMIT ?, ?
+[2022-08-10 13:45:02.432:10020][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 10(Integer), 10(Integer)
+[2022-08-10 13:45:02.450:10038][https-jsse-nio-9006-exec-2] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 10
+[2022-08-10 13:45:02.702:10290][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Stat, 10, 1 
+[2022-08-10 13:45:02.703:10291][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxStatMapper.count - ==>  Preparing: select count(*) from TxStat
+[2022-08-10 13:45:02.703:10291][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxStatMapper.count - ==> Parameters: 
+[2022-08-10 13:45:02.721:10309][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxStatMapper.count - <==      Total: 1
+[2022-08-10 13:45:02.722:10310][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC LIMIT ?, ?
+[2022-08-10 13:45:02.723:10311][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:45:02.737:10325][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 10
+[2022-08-10 13:45:02.743:10331][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txstatJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"081","TxType":"1","TxCnt":7,"TxSize":2614},{"id":2,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":2,"TxSize":1224},{"id":3,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"1","TxCnt":6,"TxSize":2220},{"id":4,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1196},{"id":5,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":4,"TxSize":2406},{"id":6,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":7,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":7,"TxSize":4522},{"id":8,"CustId":"0000000001","TxDate":"2022-08-10","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":9,"CustId":"0000000002","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":10,"CustId":"0000000002","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":598}]
+[2022-08-10 13:45:13.117:20705][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Stat, 10, 2 
+[2022-08-10 13:45:13.127:20715][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxStatMapper.count - ==>  Preparing: select count(*) from TxStat
+[2022-08-10 13:45:13.130:20718][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxStatMapper.count - ==> Parameters: 
+[2022-08-10 13:45:13.142:20730][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxStatMapper.count - <==      Total: 1
+[2022-08-10 13:45:13.145:20733][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC LIMIT ?, ?
+[2022-08-10 13:45:13.147:20735][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 10(Integer), 10(Integer)
+[2022-08-10 13:45:13.157:20745][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 3
+[2022-08-10 13:45:13.160:20748][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txstatJson) = [{"id":1,"CustId":"0000000003","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":2,"CustId":"0000000003","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":3,"CustId":"0000000003","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1292}]
+[2022-08-10 13:46:49.754:117342][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Stat, 10, 1 
+[2022-08-10 13:46:49.771:117359][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxStatMapper.count - ==>  Preparing: select count(*) from TxStat
+[2022-08-10 13:46:49.771:117359][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxStatMapper.count - ==> Parameters: 
+[2022-08-10 13:46:49.781:117369][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxStatMapper.count - <==      Total: 1
+[2022-08-10 13:46:49.781:117369][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC LIMIT ?, ?
+[2022-08-10 13:46:49.782:117370][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:46:49.794:117382][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 10
+[2022-08-10 13:46:49.797:117385][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txstatJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"081","TxType":"1","TxCnt":7,"TxSize":2614},{"id":2,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":2,"TxSize":1224},{"id":3,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"1","TxCnt":6,"TxSize":2220},{"id":4,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1196},{"id":5,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":4,"TxSize":2406},{"id":6,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":7,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":7,"TxSize":4522},{"id":8,"CustId":"0000000001","TxDate":"2022-08-10","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":9,"CustId":"0000000002","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":10,"CustId":"0000000002","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":598}]
+[2022-08-10 13:47:06.810:134398][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Trace, 10, 1 
+[2022-08-10 13:47:06.830:134418][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==>  Preparing: select * from TxTrace order by CustId, TxDate ASC
+[2022-08-10 13:47:06.831:134419][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==> Parameters: 
+[2022-08-10 13:47:06.846:134434][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectMany - <==      Total: 4
+[2022-08-10 13:47:06.847:134435][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txtraceJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","TxSequence":"3","TxStarted":"Y"},{"id":2,"CustId":"0000000001","TxDate":"2022-08-08","TxSequence":"6","TxStarted":"Y"},{"id":3,"CustId":"0000000001","TxDate":"2022-08-09","TxSequence":"3","TxStarted":"Y"},{"id":4,"CustId":"0000000001","TxDate":"2022-08-10","TxSequence":"3","TxStarted":"Y"}]
+[2022-08-10 13:49:38.562:856][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 41961 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_crud)
+[2022-08-10 13:49:38.564:858][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-10 13:49:38.564:858][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-10 13:49:42.795:5089][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.896 seconds (JVM running for 5.734)
+[2022-08-10 13:51:43.616:125910][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Stat, 10, 1 
+[2022-08-10 13:51:43.645:125939][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxStatMapper.count - ==>  Preparing: select count(*) from TxStat
+[2022-08-10 13:51:43.656:125950][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxStatMapper.count - ==> Parameters: 
+[2022-08-10 13:51:43.676:125970][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxStatMapper.count - <==      Total: 1
+[2022-08-10 13:51:43.679:125973][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC LIMIT ?, ?
+[2022-08-10 13:51:43.679:125973][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:51:43.692:125986][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 10
+[2022-08-10 13:51:43.697:125991][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txstatJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"081","TxType":"1","TxCnt":7,"TxSize":2614},{"id":2,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":2,"TxSize":1224},{"id":3,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"1","TxCnt":6,"TxSize":2220},{"id":4,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1196},{"id":5,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":4,"TxSize":2406},{"id":6,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":7,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":7,"TxSize":4522},{"id":8,"CustId":"0000000001","TxDate":"2022-08-10","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":9,"CustId":"0000000002","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":10,"CustId":"0000000002","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":598}]
+[2022-08-10 13:51:43.938:126232][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Trace, 10, 1 
+[2022-08-10 13:51:43.939:126233][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxTraceMapper.count - ==>  Preparing: select count(*) from TxTrace
+[2022-08-10 13:51:43.939:126233][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxTraceMapper.count - ==> Parameters: 
+[2022-08-10 13:51:43.953:126247][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxTraceMapper.count - <==      Total: 1
+[2022-08-10 13:51:43.954:126248][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==>  Preparing: select * from TxTrace order by CustId, TxDate ASC LIMIT ?, ?
+[2022-08-10 13:51:43.954:126248][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:51:43.966:126260][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectMany - <==      Total: 10
+[2022-08-10 13:51:43.967:126261][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txtraceJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","TxSequence":"3","TxStarted":"Y"},{"id":2,"CustId":"0000000001","TxDate":"2022-08-08","TxSequence":"6","TxStarted":"Y"},{"id":3,"CustId":"0000000001","TxDate":"2022-08-09","TxSequence":"3","TxStarted":"Y"},{"id":4,"CustId":"0000000001","TxDate":"2022-08-10","TxSequence":"3","TxStarted":"Y"},{"id":5,"CustId":"0000000002","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":6,"CustId":"0000000003","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":7,"CustId":"0000000004","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":8,"CustId":"0000000005","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":9,"CustId":"0000000006","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":10,"CustId":"0000000007","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"}]
+[2022-08-10 13:51:47.763:130057][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Trace, 10, 2 
+[2022-08-10 13:51:47.779:130073][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxTraceMapper.count - ==>  Preparing: select count(*) from TxTrace
+[2022-08-10 13:51:47.780:130074][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxTraceMapper.count - ==> Parameters: 
+[2022-08-10 13:51:47.788:130082][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxTraceMapper.count - <==      Total: 1
+[2022-08-10 13:51:47.795:130089][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==>  Preparing: select * from TxTrace order by CustId, TxDate ASC LIMIT ?, ?
+[2022-08-10 13:51:47.795:130089][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==> Parameters: 10(Integer), 10(Integer)
+[2022-08-10 13:51:47.804:130098][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectMany - <==      Total: 2
+[2022-08-10 13:51:47.806:130100][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txtraceJson) = [{"id":1,"CustId":"0000000008","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":2,"CustId":"0000000009","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"}]
+[2022-08-10 13:51:50.265:132559][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Trace, 10, 1 
+[2022-08-10 13:51:50.281:132575][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxTraceMapper.count - ==>  Preparing: select count(*) from TxTrace
+[2022-08-10 13:51:50.281:132575][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxTraceMapper.count - ==> Parameters: 
+[2022-08-10 13:51:50.289:132583][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxTraceMapper.count - <==      Total: 1
+[2022-08-10 13:51:50.290:132584][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==>  Preparing: select * from TxTrace order by CustId, TxDate ASC LIMIT ?, ?
+[2022-08-10 13:51:50.290:132584][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:51:50.301:132595][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectMany - <==      Total: 10
+[2022-08-10 13:51:50.302:132596][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txtraceJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","TxSequence":"3","TxStarted":"Y"},{"id":2,"CustId":"0000000001","TxDate":"2022-08-08","TxSequence":"6","TxStarted":"Y"},{"id":3,"CustId":"0000000001","TxDate":"2022-08-09","TxSequence":"3","TxStarted":"Y"},{"id":4,"CustId":"0000000001","TxDate":"2022-08-10","TxSequence":"3","TxStarted":"Y"},{"id":5,"CustId":"0000000002","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":6,"CustId":"0000000003","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":7,"CustId":"0000000004","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":8,"CustId":"0000000005","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":9,"CustId":"0000000006","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":10,"CustId":"0000000007","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"}]
+[2022-08-10 13:51:51.793:134087][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Stat, 10, 1 
+[2022-08-10 13:51:51.809:134103][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxStatMapper.count - ==>  Preparing: select count(*) from TxStat
+[2022-08-10 13:51:51.810:134104][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxStatMapper.count - ==> Parameters: 
+[2022-08-10 13:51:51.824:134118][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxStatMapper.count - <==      Total: 1
+[2022-08-10 13:51:51.826:134120][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC LIMIT ?, ?
+[2022-08-10 13:51:51.826:134120][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:51:51.843:134137][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 10
+[2022-08-10 13:51:51.850:134144][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txstatJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"081","TxType":"1","TxCnt":7,"TxSize":2614},{"id":2,"CustId":"0000000001","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":2,"TxSize":1224},{"id":3,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"1","TxCnt":6,"TxSize":2220},{"id":4,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"081","TxType":"3","TxCnt":2,"TxSize":1196},{"id":5,"CustId":"0000000001","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":4,"TxSize":2406},{"id":6,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":7,"CustId":"0000000001","TxDate":"2022-08-09","BankCd":"081","TxType":"3","TxCnt":7,"TxSize":4522},{"id":8,"CustId":"0000000001","TxDate":"2022-08-10","BankCd":"081","TxType":"1","TxCnt":2,"TxSize":864},{"id":9,"CustId":"0000000002","TxDate":"2022-08-05","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":612},{"id":10,"CustId":"0000000002","TxDate":"2022-08-08","BankCd":"088","TxType":"3","TxCnt":1,"TxSize":598}]
+[2022-08-10 13:51:52.369:134663][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 2 
+[2022-08-10 13:51:52.402:134696][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.count - ==>  Preparing: select count(*) from TxLog
+[2022-08-10 13:51:52.402:134696][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.count - ==> Parameters: 
+[2022-08-10 13:51:52.415:134709][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.count - <==      Total: 1
+[2022-08-10 13:51:52.416:134710][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC LIMIT ?, ?
+[2022-08-10 13:51:52.416:134710][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 10(Integer), 10(Integer)
+[2022-08-10 13:51:52.441:134735][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 10
+[2022-08-10 13:51:53.058:135352][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Bank, 10, 1 
+[2022-08-10 13:51:53.075:135369][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.BankMstMapper.count - ==>  Preparing: select count(*) from BankMst
+[2022-08-10 13:51:53.076:135370][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.BankMstMapper.count - ==> Parameters: 
+[2022-08-10 13:51:53.091:135385][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.BankMstMapper.count - <==      Total: 1
+[2022-08-10 13:51:53.093:135387][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst ORDER BY BankId LIMIT ?, ?
+[2022-08-10 13:51:53.093:135387][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:51:53.107:135401][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 10
+[2022-08-10 13:51:55.285:137579][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Bank, 10, 2 
+[2022-08-10 13:51:55.300:137594][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.BankMstMapper.count - ==>  Preparing: select count(*) from BankMst
+[2022-08-10 13:51:55.300:137594][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.BankMstMapper.count - ==> Parameters: 
+[2022-08-10 13:51:55.309:137603][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.BankMstMapper.count - <==      Total: 1
+[2022-08-10 13:51:55.310:137604][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst ORDER BY BankId LIMIT ?, ?
+[2022-08-10 13:51:55.310:137604][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 10(Integer), 10(Integer)
+[2022-08-10 13:51:55.322:137616][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 1
+[2022-08-10 13:51:57.120:139414][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Bank, 10, 1 
+[2022-08-10 13:51:57.135:139429][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.BankMstMapper.count - ==>  Preparing: select count(*) from BankMst
+[2022-08-10 13:51:57.136:139430][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.BankMstMapper.count - ==> Parameters: 
+[2022-08-10 13:51:57.145:139439][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.BankMstMapper.count - <==      Total: 1
+[2022-08-10 13:51:57.145:139439][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst ORDER BY BankId LIMIT ?, ?
+[2022-08-10 13:51:57.146:139440][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:51:57.159:139453][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 10
+[2022-08-10 13:51:58.578:140872][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Trace, 10, 1 
+[2022-08-10 13:51:58.595:140889][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxTraceMapper.count - ==>  Preparing: select count(*) from TxTrace
+[2022-08-10 13:51:58.596:140890][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxTraceMapper.count - ==> Parameters: 
+[2022-08-10 13:51:58.605:140899][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxTraceMapper.count - <==      Total: 1
+[2022-08-10 13:51:58.606:140900][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==>  Preparing: select * from TxTrace order by CustId, TxDate ASC LIMIT ?, ?
+[2022-08-10 13:51:58.606:140900][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:51:58.618:140912][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxTraceMapper.selectMany - <==      Total: 10
+[2022-08-10 13:51:58.620:140914][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txtraceJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","TxSequence":"3","TxStarted":"Y"},{"id":2,"CustId":"0000000001","TxDate":"2022-08-08","TxSequence":"6","TxStarted":"Y"},{"id":3,"CustId":"0000000001","TxDate":"2022-08-09","TxSequence":"3","TxStarted":"Y"},{"id":4,"CustId":"0000000001","TxDate":"2022-08-10","TxSequence":"3","TxStarted":"Y"},{"id":5,"CustId":"0000000002","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":6,"CustId":"0000000003","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":7,"CustId":"0000000004","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":8,"CustId":"0000000005","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":9,"CustId":"0000000006","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":10,"CustId":"0000000007","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"}]
+[2022-08-10 13:52:09.137:151431][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Trace, 25, 1 
+[2022-08-10 13:52:09.155:151449][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxTraceMapper.count - ==>  Preparing: select count(*) from TxTrace
+[2022-08-10 13:52:09.155:151449][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxTraceMapper.count - ==> Parameters: 
+[2022-08-10 13:52:09.165:151459][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxTraceMapper.count - <==      Total: 1
+[2022-08-10 13:52:09.165:151459][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==>  Preparing: select * from TxTrace order by CustId, TxDate ASC LIMIT ?, ?
+[2022-08-10 13:52:09.166:151460][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==> Parameters: 0(Integer), 25(Integer)
+[2022-08-10 13:52:09.176:151470][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxTraceMapper.selectMany - <==      Total: 12
+[2022-08-10 13:52:09.177:151471][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txtraceJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","TxSequence":"3","TxStarted":"Y"},{"id":2,"CustId":"0000000001","TxDate":"2022-08-08","TxSequence":"6","TxStarted":"Y"},{"id":3,"CustId":"0000000001","TxDate":"2022-08-09","TxSequence":"3","TxStarted":"Y"},{"id":4,"CustId":"0000000001","TxDate":"2022-08-10","TxSequence":"3","TxStarted":"Y"},{"id":5,"CustId":"0000000002","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":6,"CustId":"0000000003","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":7,"CustId":"0000000004","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":8,"CustId":"0000000005","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":9,"CustId":"0000000006","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":10,"CustId":"0000000007","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":11,"CustId":"0000000008","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":12,"CustId":"0000000009","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"}]
+[2022-08-10 13:52:12.249:154543][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Trace, 10, 1 
+[2022-08-10 13:52:12.263:154557][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxTraceMapper.count - ==>  Preparing: select count(*) from TxTrace
+[2022-08-10 13:52:12.264:154558][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxTraceMapper.count - ==> Parameters: 
+[2022-08-10 13:52:12.275:154569][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxTraceMapper.count - <==      Total: 1
+[2022-08-10 13:52:12.276:154570][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==>  Preparing: select * from TxTrace order by CustId, TxDate ASC LIMIT ?, ?
+[2022-08-10 13:52:12.276:154570][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-10 13:52:12.286:154580][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectMany - <==      Total: 10
+[2022-08-10 13:52:12.290:154584][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - gson.toJson(txtraceJson) = [{"id":1,"CustId":"0000000001","TxDate":"2022-08-05","TxSequence":"3","TxStarted":"Y"},{"id":2,"CustId":"0000000001","TxDate":"2022-08-08","TxSequence":"6","TxStarted":"Y"},{"id":3,"CustId":"0000000001","TxDate":"2022-08-09","TxSequence":"3","TxStarted":"Y"},{"id":4,"CustId":"0000000001","TxDate":"2022-08-10","TxSequence":"3","TxStarted":"Y"},{"id":5,"CustId":"0000000002","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":6,"CustId":"0000000003","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":7,"CustId":"0000000004","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":8,"CustId":"0000000005","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":9,"CustId":"0000000006","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"},{"id":10,"CustId":"0000000007","TxDate":"2022-08-10","TxSequence":"x","TxStarted":"Y"}]

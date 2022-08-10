@@ -3,7 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.inspien.fb.mapper.TxTraceMapper">
 
-    <select id="selectMany" resultType="TxTrace">
-        select * from TxTrace order by CustId, TxDate ASC
+    <select id="count" resultType="int">
+        select count(*) from TxTrace
+    </select>
+
+    <select id="selectMany" parameterType="int" resultType="TxTrace">
+        select * from TxTrace order by CustId, TxDate ASC LIMIT #{Start}, #{Limit}
     </select>
 </mapper>

@@ -16,6 +16,7 @@ public class BankMstService {
     @Autowired
     private BankMstMapper bankMstMapper;
 
+    public int totalCount() { return bankMstMapper.count(); }
     public int insertData(BankMst bankMst) {
         return bankMstMapper.insert(bankMst);
     }
@@ -23,8 +24,8 @@ public class BankMstService {
         return bankMstMapper.selectOne(BankId);
     }
 
-    public List<BankMst> readDataMany() {
-        return bankMstMapper.selectMany();
+    public List<BankMst> readDataMany(int Start, int Limit) {
+        return bankMstMapper.selectMany(Start, Limit);
     }
 
     public int updateData(BankMst bankMst) {

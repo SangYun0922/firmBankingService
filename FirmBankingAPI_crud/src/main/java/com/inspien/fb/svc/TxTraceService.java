@@ -14,7 +14,9 @@ public class TxTraceService {
     @Autowired
     private TxTraceMapper txTraceMapper;
 
-    public List<TxTrace> readDataMany() {
-        return txTraceMapper.selectMany();
+    public int totalCount() { return txTraceMapper.count(); }
+
+    public List<TxTrace> readDataMany(int Start, int Limit) {
+        return txTraceMapper.selectMany(Start, Limit);
     }
 }

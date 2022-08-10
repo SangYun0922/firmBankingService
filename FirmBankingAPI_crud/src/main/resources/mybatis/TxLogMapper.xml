@@ -3,7 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.inspien.fb.mapper.TxLogMapper">
 
-    <select id="selectMany" resultType="TxLog">
-        select * from TxLog order by TxIdx ASC
+    <select id="count" resultType="int">
+        select count(*) from TxLog
+    </select>
+
+    <select id="selectMany" parameterType="int" resultType="TxLog">
+        select * from TxLog order by TxIdx ASC LIMIT #{Start}, #{Limit}
     </select>
 </mapper>
