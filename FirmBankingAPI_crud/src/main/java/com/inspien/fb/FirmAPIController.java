@@ -52,26 +52,33 @@ public class FirmAPIController {
 		return info;
 	}
 
-	@PostMapping("/insert/{table}") //하나의 데이터를 테이블에 삽입할때
-	public String dbInsertOne(@PathVariable String table ,@RequestBody(required = false) byte[] body) {
+	@PostMapping("/{table}") //하나의 데이터를 테이블에 삽입할때
+	public ResponseEntity dbInsertOne(@PathVariable String table ,@RequestBody(required = false) byte[] body) {
 		log.info("table = {}", table);
 		Gson gson = new Gson();
 		switch (table) {
-			case ("CustMst") :
+			case ("Customer") :
 				CustMst custMst = gson.fromJson(new String(body), CustMst.class);
-				if (custMstService.insertData(custMst) == 1)
-					return "Insert success";
-				else
-					return "Insert failed";
-			case ("BankMst") :
+				JsonObject temp = new JsonObject();
+				temp.addProperty("id", custMst.getCustId());
+				if (custMstService.insertData(custMst) == 1) {
+					return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
+				}
+				else {
+					return new ResponseEntity<>("fail", HttpStatus.OK);
+				}
+			case ("Bank") :
 				BankMst bankMst = gson.fromJson(new String(body), BankMst.class);
-				log.info("BankMst : {}", bankMst);
-				if (bankMstService.insertData(bankMst) == 1)
-					return "Insert success";
-				else
-					return "Insert failed";
+				JsonObject temp_2 = new JsonObject();
+				temp_2.addProperty("id", bankMst.getBankId());
+				if (bankMstService.insertData(bankMst) == 1) {
+					return new ResponseEntity<>(gson.toJson(temp_2), HttpStatus.OK);
+				}
+				else {
+					return new ResponseEntity<>("fail", HttpStatus.OK);
+				}
 			default:
-				return "Can not found Table";
+				return new ResponseEntity<>("Can not found Table", HttpStatus.OK);
 		}
 	}
 

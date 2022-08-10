@@ -20,8 +20,8 @@ import { BeerList, BeerEdit, BeerCreate, BeerlistShow } from "./beerList";
 import { UserCreate, UserShow, UserEdit, UserList } from "./userList";
 
 import dataProvider from "./dataProvider";
-import CustList from './components/CustList'
-import BankList from './components/BankList'
+import { CustList, CustCreate } from './components/CustList'
+import { BankList, BankCreate } from './components/BankList'
 import TxLogList from './components/TxLogList'
 import TxStatList from './components/TxStatList'
 import TxTraceList from "./components/TxTraceList";
@@ -33,11 +33,11 @@ const App = () => (
   // authProvider={authProvider}
   // dashboard={Dashboard}
   >
-    <Resource name="Customer" list={CustList} />
-    <Resource name="Bank" list={BankList} />
-    <Resource name="Log" list={TxLogList} />
-    <Resource name="Stat" list={TxStatList} />
-    <Resource name="Trace" list={TxTraceList} />
+    <Resource name="Customer" list={CustList} create={CustCreate} icon={UserIcon} />
+    <Resource name="Bank" list={BankList} create={BankCreate} icon={ContactMailIcon} />
+    <Resource name="Log" list={TxLogList} icon={AssignmentIcon} />
+    <Resource name="Stat" list={TxStatList} icon={LocalBarIcon} />
+    <Resource name="Trace" list={TxTraceList} icon={CommentIcon} />
     {/* <Resource
       name="beerlist"
       list={BeerList}

@@ -95,13 +95,13 @@ export default {
   //   }).then(({ json }) => ({ data: json }));
   // },
 
-  // create: (resource, params) =>
-  //   httpClient(`${apiUrl}/${resource}`, {
-  //     method: "POST",
-  //     body: JSON.stringify(params.data),
-  //   }).then(({ json }) => ({
-  //     data: { ...params.data, id: json.id },
-  //   })),
+  create: (resource, params) =>
+    httpClient(`${apiUrl}/${resource}`, {
+      method: "POST",
+      body: JSON.stringify(params.data),
+    }).then(({ json }) => ({
+      data: { ...params.data, id: json.id },
+    })),
 
   // delete: (resource, params) => {
   //   // console.log(":::::::delete resource:::::", resource);
