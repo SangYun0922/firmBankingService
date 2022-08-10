@@ -15,7 +15,6 @@ export default {
 
     // Pagination and sort
     const query = `limit=${perPage}&page=${page}&orderBy=${field}&orderDir=${order}&search=${q}`;
-    // Filter?
     console.log("::::query:::::", query);
 
     const url = `${apiUrl}/${resource}?${query}`;
@@ -25,21 +24,6 @@ export default {
       total: parseInt(headers.get("X-Total-Count").split("/").pop(), 10),
     }));
   },
-  // getList: (resource, params) => {
-  //   const { page, perPage } = params.pagination;
-  //   const { field, order } = params.sort;
-  //   const query = {
-  //     sort: JSON.stringify([field, order]),
-  //     range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
-  //     filter: JSON.stringify(params.filter),
-  //   };
-  //   const url = `${apiUrl}/${resource}?${stringify(query)}`;
-
-  //   return httpClient(url).then(({ headers, json }) => ({
-  //     data: json,
-  //     total: parseInt(headers.get("X-Total-Count").split("/").pop(), 10),
-  //   }));
-  // },
 
   // getOne: (resource, params) =>
   //   httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
@@ -55,28 +39,6 @@ export default {
   //   };
   //   const url = `${apiUrl}/${resource}?${stringify(query)}`;
   //   return httpClient(url).then(({ json }) => ({ data: json }));
-  // },
-
-  // getManyReference: (resource, params) => {
-  //   console.log("::::::resource:::::::", resource);
-  //   console.log("::::::params:::::::", params);
-  //   const { page, perPage } = params.pagination;
-  //   const { field, order } = params.sort;
-  //   const query = {
-  //     sort: JSON.stringify([field, order]),
-  //     range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
-  //     filter: JSON.stringify({
-  //       ...params.filter,
-  //       [params.target]: params.id,
-  //     }),
-  //   };
-  //   const url = `${apiUrl}/${resource}?${stringify(query)}`;
-  //   console.log(":::::::url:::::::", url);
-
-  //   return httpClient(url).then(({ headers, json }) => ({
-  //     data: json,
-  //     total: parseInt(headers.get("X-Total-Count").split("/").pop(), 10),
-  //   }));
   // },
 
   // update: (resource, params) =>
@@ -103,16 +65,6 @@ export default {
       data: { ...params.data, id: json.id },
     })),
 
-  // delete: (resource, params) => {
-  //   // console.log(":::::::delete resource:::::", resource);
-  //   // console.log("::::::::delete::::::", params.id);
-  //   // httpClient(`${apiUrl}/${resource}/${params.id}`, {
-  //   //   method: "DELETE",
-  //   // }).then(({ json }) => ({ data: json }));
-  //   axios
-  //     .delete(`${apiUrl}/${resource}/${params.id}`)
-  //     .then((data) => console.log("확인", data));
-  // },
   delete: (resource, params) =>
     httpClient(`${apiUrl}/${resource}/${params.id}`, {
       method: "DELETE",
