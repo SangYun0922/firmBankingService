@@ -95,6 +95,7 @@ public class FBService{
 					.org_code(req.getOrg_code())
 					.drw_bank_code(req.getDrw_bank_code())
 					.telegram_no(txNo)
+//					.msg_id(req.getMsg_id()) 개시전문시 msg_id 필요 x
 					.build();
 			proxy.open(openReq);
 

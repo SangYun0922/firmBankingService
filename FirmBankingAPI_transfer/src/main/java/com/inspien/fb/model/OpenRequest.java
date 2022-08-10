@@ -21,4 +21,5 @@ public class OpenRequest {
 	private String org_code;
 	private String drw_bank_code;
 	private long telegram_no;
+//	private String msg_id;
 }
