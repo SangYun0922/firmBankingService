@@ -1,0 +1,17 @@
+{
+	"ulid": "01GA5RCSXER7VVHB9338503HEV",
+	"minTime": 1659938405953,
+	"maxTime": 1659945600000,
+	"stats": {
+		"numSamples": 21660,
+		"numSeries": 722,
+		"numChunks": 722
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01GA5RCSXER7VVHB9338503HEV"
+		]
+	},
+	"version": 1
+}
