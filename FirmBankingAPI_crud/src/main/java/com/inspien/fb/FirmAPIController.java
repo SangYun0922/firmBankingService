@@ -217,47 +217,6 @@ public class FirmAPIController {
 				return new ResponseEntity<>("Can not get Data", HttpStatus.OK);
 		}
 	}
-//	@GetMapping("/readlist") //테이블 전체 데이터를 읽을때
-//	public String dbReadMany() {
-//		List<CustMst> custMst = custMstService.readDataMany();
-//		List<BankMst> bankMst = bankMstService.readDataMany();
-//		Gson gson = new Gson();
-//		JsonObject jsonObject = new JsonObject();
-//		try {
-//			JsonArray custJson = new JsonArray();
-//			JsonArray bankJson = new JsonArray();
-//			for (CustMst e : custMst) {
-//				JsonObject temp = new JsonObject();
-//				temp.addProperty("CustId", e.getCustId());
-//				temp.addProperty("CustNm", e.getCustNm());
-//				temp.addProperty("OrgCd", e.getOrgCd());
-//				temp.addProperty("CallbankURL", e.getCallbackURL());
-//				temp.addProperty("ApiKey", e.getApiKey());
-//				temp.addProperty("PriContactNm", e.getPriContactNm());
-//				temp.addProperty("PriContactTel", e.getPriContactTel());
-//				temp.addProperty("PriContactEmail", e.getPriContactEmail());
-//				temp.addProperty("SecContactNm", e.getSecContactNm());
-//				temp.addProperty("SecContactTel", e.getSecContactTel());
-//				temp.addProperty("SecContactEmail", e.getSecContactEmail());
-//				temp.addProperty("TxSequence", e.getTxSequence());
-//				temp.addProperty("", e.getCustId());
-//				custJson.add(temp);
-//			}
-//			for (BankMst e : bankMst) {
-//				JsonObject temp = new JsonObject();
-//				temp.addProperty("BankId", e.getBankId());
-//				temp.addProperty("BankCd", e.getBankCd());
-//				temp.addProperty("BankNm", e.getBankNm());
-//				temp.addProperty("SwiftCd", e.getSwiftCd());
-//				bankJson.add(temp);
-//			}
-//			jsonObject.add("Customers", custJson);
-//			jsonObject.add("Banks", bankJson);
-//		} catch (JsonIOException e) {
-//			e.printStackTrace();
-//		}
-//		return gson.toJson(jsonObject);
-//	}
 
 	@PutMapping("/update/{table}/{id}") //데이터를 업데이트 할때,
 	public String dbUpdate(@PathVariable String table, @PathVariable String id, @RequestBody(required = false) byte[] body) throws IOException, URISyntaxException, ParseException {
