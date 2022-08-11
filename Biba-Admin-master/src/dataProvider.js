@@ -25,10 +25,10 @@ export default {
     }));
   },
 
-  // getOne: (resource, params) =>
-  //   httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
-  //     data: json,
-  //   })),
+  getOne: (resource, params) =>
+    httpClient(`${apiUrl}/read/${resource}/${params.id}`).then(({ json }) => ({
+      data: json,
+    })),
 
   // getMany: (resource, params) => {
   //   console.log("::::::resource:::::::", resource);
@@ -41,21 +41,21 @@ export default {
   //   return httpClient(url).then(({ json }) => ({ data: json }));
   // },
 
-  // update: (resource, params) =>
-  //   httpClient(`${apiUrl}/${resource}/${params.id}`, {
-  //     method: "PUT",
-  //     body: JSON.stringify(params.data),
-  //   }).then(({ json }) => ({ data: json })),
+  update: (resource, params) =>
+    httpClient(`${apiUrl}/${resource}/${params.id}`, {
+      method: "PUT",
+      body: JSON.stringify(params.data),
+    }).then(({ json }) => ({ data: json })),
 
-  // updateMany: (resource, params) => {
-  //   const query = {
-  //     filter: JSON.stringify({ id: params.ids }),
-  //   };
-  //   return httpClient(`${apiUrl}/${resource}?${stringify(query)}`, {
-  //     method: "PUT",
-  //     body: JSON.stringify(params.data),
-  //   }).then(({ json }) => ({ data: json }));
-  // },
+  updateMany: (resource, params) => {
+    const query = {
+      filter: JSON.stringify({ id: params.ids }),
+    };
+    return httpClient(`${apiUrl}/${resource}?${stringify(query)}`, {
+      method: "PUT",
+      body: JSON.stringify(params.data),
+    }).then(({ json }) => ({ data: json }));
+  },
 
   create: (resource, params) =>
     httpClient(`${apiUrl}/${resource}`, {

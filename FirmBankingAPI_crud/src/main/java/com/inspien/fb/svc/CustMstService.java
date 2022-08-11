@@ -31,6 +31,7 @@ public class CustMstService {
         return custMstMapper.selectMany(Start, Limit);
     }
     public int updateData(CustMst custMst) {
+        log.debug("custMst = {}", custMst);
         return custMstMapper.update(custMst);
     }
     public int deleteData(String CustId) {

@@ -24,12 +24,13 @@
         UPDATE
             BankMst
         SET
+            BankId = CASE WHEN #{BankId} IS NULL THEN BankId ELSE #{BankId} END,
             BankCd = CASE WHEN #{BankCd} IS NULL THEN BankCd ELSE #{BankCd} END,
             BankNm = CASE WHEN #{BankNm} IS NULL THEN BankNm ELSE #{BankNm} END,
             SwiftCd = CASE WHEN #{SwiftCd} IS NULL THEN SwiftCd ELSE #{SwiftCd} END,
             UpdatedAt = NOW()
         WHERE
-            BankId = #{Id}
+            BankId = #{BankId}
     </update>
 
     <delete id="delete" parameterType="String">

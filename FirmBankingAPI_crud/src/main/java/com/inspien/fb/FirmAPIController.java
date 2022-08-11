@@ -83,16 +83,34 @@ public class FirmAPIController {
 	}
 
 	@GetMapping("/read/{table}/{id}") //하나의 데이터를 읽을때
-	public String dbReadOne(@PathVariable String table, @PathVariable String id) {
+	public ResponseEntity dbReadOne(@PathVariable String table, @PathVariable String id) {
 		log.info("table = {}", table);
 		Gson gson = new Gson();
+		JsonObject temp = new JsonObject();
 		switch (table) {
-			case ("CustMst") :
-				return gson.toJson(custMstService.readDataOne(id));
-			case ("BankMst") :
-				return gson.toJson(bankMstService.readDataOne(id));
+			case ("Customer") :
+				if (custMstService.readDataOne(id).size() == 1) {
+					temp.addProperty("id", id);
+					temp.addProperty("status", "success");
+					return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
+				}
+				else {
+					temp.addProperty("status", "fail");
+					return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
+				}
+			case ("Bank") :
+				if (bankMstService.readDataOne(id).size() == 1) {
+					temp.addProperty("id", id);
+					temp.addProperty("status", "success");
+					return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
+				}
+				else {
+					temp.addProperty("status", "fail");
+					return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
+				}
 			default:
-				return "Can not found Table";
+				temp.addProperty("status", "fail");
+				return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
 		}
 	}
 
@@ -103,11 +121,8 @@ public class FirmAPIController {
 		int start = limit * page - limit;
 		String uri = request.getRequestURI();
 		log.debug("uri = {}, {}, {} ", uri, limit, page);
-
 		Gson gson = new Gson();
 		HttpHeaders headers = new HttpHeaders();
-		System.out.println("start = " + start);
-		System.out.println("limit = " + limit);
 		switch (table) {
 			case ("Customer") :
 				headers.add("X-Total-Count", String.valueOf(custMstService.totalCount()));
@@ -132,7 +147,6 @@ public class FirmAPIController {
 					temp.addProperty("UpdatedAt", String.valueOf(e.getUpdatedAt()));
 					custJson.add(temp);
 				}
-				System.out.println("custJson.getAsString() = " + gson.toJson(custJson));
 				return new ResponseEntity<>(gson.toJson(custJson), headers, HttpStatus.OK);
 			case ("Bank") :
 				headers.add("X-Total-Count", String.valueOf(bankMstService.totalCount()));
@@ -148,7 +162,6 @@ public class FirmAPIController {
 					temp.addProperty("UpdatedAt", String.valueOf(e.getUpdatedAt()));
 					bankJson.add(temp);
 				}
-				System.out.println("bankJson.getAsString() = " + gson.toJson(bankJson));
 				return new ResponseEntity<>(gson.toJson(bankJson), headers, HttpStatus.OK);
 			case ("Log") :
 				headers.add("X-Total-Count", String.valueOf(txLogService.totalCount()));
@@ -175,7 +188,6 @@ public class FirmAPIController {
 					temp.addProperty("EncData", e.getEncData());
 					txlogJson.add(temp);
 				}
-				System.out.println("gson.toJson(txlogJson) = " + gson.toJson(txlogJson));
 				return new ResponseEntity<>(gson.toJson(txlogJson), headers, HttpStatus.OK);
 			case ("Stat") :
 				headers.add("X-Total-Count", String.valueOf(txStatService.totalCount()));
@@ -194,7 +206,6 @@ public class FirmAPIController {
 					txstatJson.add(temp);
 					idx_Stat++;
 				}
-				log.debug("gson.toJson(txstatJson) = " + gson.toJson(txstatJson));
 				return new ResponseEntity<>(gson.toJson(txstatJson), headers, HttpStatus.OK);
 			case ("Trace") :
 				headers.add("X-Total-Count", String.valueOf(txTraceService.totalCount()));
@@ -211,31 +222,31 @@ public class FirmAPIController {
 					txtraceJson.add(temp);
 					idx_Trace++;
 				}
-				log.debug("gson.toJson(txtraceJson) = " + gson.toJson(txtraceJson));
 				return new ResponseEntity<>(gson.toJson(txtraceJson), headers, HttpStatus.OK);
 			default:
 				return new ResponseEntity<>("Can not get Data", HttpStatus.OK);
 		}
 	}
 
-	@PutMapping("/update/{table}/{id}") //데이터를 업데이트 할때,
-	public String dbUpdate(@PathVariable String table, @PathVariable String id, @RequestBody(required = false) byte[] body) throws IOException, URISyntaxException, ParseException {
+	@PutMapping("/{table}/{id}") //데이터를 업데이트 할때,
+	public ResponseEntity dbUpdate(@PathVariable String table, @PathVariable String id, @RequestBody(required = false) byte[] body) throws IOException, URISyntaxException, ParseException {
 		log.info("table = {}", table);
 		Gson gson = new Gson();
+		JsonObject temp = new JsonObject();
+		temp.addProperty("id", id);
 		switch (table) {
-			case ("CustMst") :
+			case ("Customer") :
 				CustMst custMst = gson.fromJson(new String(body), CustMst.class);
 				custMst.setCustId(id);
-				log.info("custMst : {}", custMst);
 				if (custMstService.updateData(custMst) != 1) {
-					return "updating failed";
+					temp.addProperty("Updating Failed", "No Target Services");
+					return new ResponseEntity(gson.toJson(temp), HttpStatus.OK);
 				}
 				else {
 					List<String> targets = new ArrayList<>();
 					String response = getClient.callAPIGet(new String[]{configMgmt.getEurekaServer()});
 					JsonObject jsonObject = JsonParser.parseString(response).getAsJsonObject();
 					JsonArray eurekaApps = jsonObject.get("applications").getAsJsonObject().get("application").getAsJsonArray();
-
 					for (JsonElement e : eurekaApps) {
 						JsonObject app = e.getAsJsonObject();
 						if ((Objects.equals(app.get("name").getAsString(), "BANKSTATEMENT-SERVICE")) || (Objects.equals(app.get("name").getAsString(), "TRANSFER-SERVICE"))) {
@@ -243,23 +254,48 @@ public class FirmAPIController {
 							instance.iterator().forEachRemaining(i -> targets.add(i.getAsJsonObject().get("secureHealthCheckUrl").getAsString().replace("actuator/health", "") + "update"));
 						}
 					}
-
-					log.info("targets : {}", targets);
-					getClient.callAPIGet(targets.toArray(new String[targets.size()]));
-					return "updating success";
+					log.debug("targets : {}", targets);
+					if (targets.isEmpty()) {
+						temp.addProperty("status", "No Target Services");
+						return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
+					} else {
+						temp.addProperty("status", "Updating Success");
+						getClient.callAPIGet(targets.toArray(new String[targets.size()]));
+						return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
+					}
 				}
-			case ("BankMst") :
+			case ("Bank") :
 				BankMst bankMst = gson.fromJson(new String(body), BankMst.class);
 				bankMst.setBankId(id);
-				log.info("bankMst : {}", bankMst);
 				if (bankMstService.updateData(bankMst) != 1) {
-					return "updating failed";
+					temp.addProperty("Updating Failed", "No Target Services");
+					return new ResponseEntity(gson.toJson(temp), HttpStatus.OK);
 				}
-				break;
+				else {
+					List<String> targets = new ArrayList<>();
+					String response = getClient.callAPIGet(new String[]{configMgmt.getEurekaServer()});
+					JsonObject jsonObject = JsonParser.parseString(response).getAsJsonObject();
+					JsonArray eurekaApps = jsonObject.get("applications").getAsJsonObject().get("application").getAsJsonArray();
+					for (JsonElement e : eurekaApps) {
+						JsonObject app = e.getAsJsonObject();
+						if ((Objects.equals(app.get("name").getAsString(), "BANKSTATEMENT-SERVICE")) || (Objects.equals(app.get("name").getAsString(), "TRANSFER-SERVICE"))) {
+							JsonArray instance = app.get("instance").getAsJsonArray();
+							instance.iterator().forEachRemaining(i -> targets.add(i.getAsJsonObject().get("secureHealthCheckUrl").getAsString().replace("actuator/health", "") + "update"));
+						}
+					}
+					log.debug("targets : {}", targets);
+					if (targets.isEmpty()) {
+						temp.addProperty("status", "No Target Services");
+						return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
+					} else {
+						temp.addProperty("status", "Updating Success");
+						getClient.callAPIGet(targets.toArray(new String[targets.size()]));
+						return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
+					}
+				}
 			default:
-				return "Can not found Table";
+				return new ResponseEntity<>("Can not found Table", HttpStatus.OK);
 		}
-			return "updating success";
 	}
 
 	@DeleteMapping("/{table}/{id}") //하나의 데이터를 삭제할때
@@ -268,10 +304,16 @@ public class FirmAPIController {
 		JsonObject jsonObject = JsonParser.parseString(ids).getAsJsonObject();
 		log.info("table = {} {} {}", table, id);
 		JsonArray id_list = jsonObject.get("id").getAsJsonArray();
-		System.out.println("id_list = " + id_list);
+
 		Gson gson = new Gson();
 		JsonObject temp = new JsonObject();
 		JsonArray jsonArray = new JsonArray();
+
+		if (id_list.size() == 0) {
+			temp.addProperty("status", "Can not find id");
+			return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
+		}
+
 		switch (table) {
 			case ("Customer") :
 				for (JsonElement e : id_list) {
@@ -300,7 +342,7 @@ public class FirmAPIController {
 				}
 				break;
 			default:
-				temp.addProperty("state", "Can not Found Table");
+				temp.addProperty("status", "Can not find Table");
 				return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
 		}
 		temp.add("data", jsonArray);
