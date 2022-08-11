@@ -30,17 +30,6 @@ export default {
       data: json,
     })),
 
-  // getMany: (resource, params) => {
-  //   console.log("::::::resource:::::::", resource);
-  //   console.log("::::::params:::::::", params);
-
-  //   const query = {
-  //     filter: JSON.stringify({ id: params.ids }),
-  //   };
-  //   const url = `${apiUrl}/${resource}?${stringify(query)}`;
-  //   return httpClient(url).then(({ json }) => ({ data: json }));
-  // },
-
   update: (resource, params) =>
     httpClient(`${apiUrl}/${resource}/${params.id}`, {
       method: "PUT",

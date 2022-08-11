@@ -1,5 +1,5 @@
 {
-  "name": "biba-admin",
+  "name": "firmbanking-admin",
   "proxy": "https://localhost:9006",
   "version": "0.1.0",
   "private": true,

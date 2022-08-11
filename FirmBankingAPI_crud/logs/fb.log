@@ -1911,3 +1911,171 @@
 [2022-08-11 14:02:42.904:15595][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.svc.GetClient - Executing request GET https://localhost:9000/update
 [2022-08-11 14:02:43.070:15761][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.svc.GetClient - ----------------------------------------
 [2022-08-11 14:02:43.070:15761][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.svc.GetClient - 200 ==> update complete
+[2022-08-11 14:07:13.091:285782][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-11 14:07:13.110:285801][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - ==>  Preparing: select count(*) from CustMst
+[2022-08-11 14:07:13.113:285804][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - ==> Parameters: 
+[2022-08-11 14:07:13.140:285831][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - <==      Total: 1
+[2022-08-11 14:07:13.143:285834][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-11 14:07:13.144:285835][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:07:13.157:285848][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 10
+[2022-08-11 14:07:13.416:286107][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-11 14:07:13.416:286107][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - ==>  Preparing: select count(*) from CustMst
+[2022-08-11 14:07:13.416:286107][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - ==> Parameters: 
+[2022-08-11 14:07:13.427:286118][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - <==      Total: 1
+[2022-08-11 14:07:13.427:286118][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-11 14:07:13.428:286119][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:07:13.444:286135][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 10
+[2022-08-11 14:07:17.717:290408][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Bank, 10, 1 
+[2022-08-11 14:07:17.724:290415][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.BankMstMapper.count - ==>  Preparing: select count(*) from BankMst
+[2022-08-11 14:07:17.725:290416][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.BankMstMapper.count - ==> Parameters: 
+[2022-08-11 14:07:17.737:290428][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.BankMstMapper.count - <==      Total: 1
+[2022-08-11 14:07:17.737:290428][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst ORDER BY BankId LIMIT ?, ?
+[2022-08-11 14:07:17.737:290428][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:07:17.749:290440][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 10
+[2022-08-11 14:07:22.264:294955][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 1 
+[2022-08-11 14:07:22.294:294985][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.count - ==>  Preparing: select count(*) from TxLog
+[2022-08-11 14:07:22.294:294985][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.count - ==> Parameters: 
+[2022-08-11 14:07:22.304:294995][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.count - <==      Total: 1
+[2022-08-11 14:07:22.305:294996][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC LIMIT ?, ?
+[2022-08-11 14:07:22.305:294996][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:07:22.328:295019][https-jsse-nio-9006-exec-3] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 10
+[2022-08-11 14:09:54.112:446803][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 1 
+[2022-08-11 14:09:54.131:446822][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.count - ==>  Preparing: select count(*) from TxLog
+[2022-08-11 14:09:54.132:446823][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.count - ==> Parameters: 
+[2022-08-11 14:09:54.151:446842][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.count - <==      Total: 1
+[2022-08-11 14:09:54.152:446843][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC LIMIT ?, ?
+[2022-08-11 14:09:54.152:446843][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:09:54.172:446863][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 10
+[2022-08-11 14:10:35.606:488297][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Bank, 10, 1 
+[2022-08-11 14:10:35.615:488306][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.BankMstMapper.count - ==>  Preparing: select count(*) from BankMst
+[2022-08-11 14:10:35.616:488307][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.BankMstMapper.count - ==> Parameters: 
+[2022-08-11 14:10:35.625:488316][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.BankMstMapper.count - <==      Total: 1
+[2022-08-11 14:10:35.625:488316][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst ORDER BY BankId LIMIT ?, ?
+[2022-08-11 14:10:35.625:488316][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:10:35.637:488328][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 10
+[2022-08-11 14:10:38.429:491120][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-11 14:10:38.471:491162][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - ==>  Preparing: select count(*) from CustMst
+[2022-08-11 14:10:38.471:491162][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - ==> Parameters: 
+[2022-08-11 14:10:38.486:491177][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - <==      Total: 1
+[2022-08-11 14:10:38.488:491179][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-11 14:10:38.489:491180][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:10:38.542:491233][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 10
+[2022-08-11 14:14:50.605:743296][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-11 14:14:50.636:743327][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - ==>  Preparing: select count(*) from CustMst
+[2022-08-11 14:14:50.638:743329][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - ==> Parameters: 
+[2022-08-11 14:14:50.668:743359][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - <==      Total: 1
+[2022-08-11 14:14:50.670:743361][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-11 14:14:50.671:743362][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:14:50.702:743393][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 10
+[2022-08-11 14:15:32.451:785142][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-11 14:15:32.479:785170][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.count - ==>  Preparing: select count(*) from CustMst
+[2022-08-11 14:15:32.480:785171][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.count - ==> Parameters: 
+[2022-08-11 14:15:32.514:785205][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.count - <==      Total: 1
+[2022-08-11 14:15:32.515:785206][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-11 14:15:32.518:785209][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:15:32.547:785238][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 10
+[2022-08-11 14:16:25.754:838445][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-11 14:16:25.800:838491][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - ==>  Preparing: select count(*) from CustMst
+[2022-08-11 14:16:25.800:838491][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - ==> Parameters: 
+[2022-08-11 14:16:25.842:838533][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - <==      Total: 1
+[2022-08-11 14:16:25.844:838535][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-11 14:16:25.844:838535][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:16:25.878:838569][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 10
+[2022-08-11 14:16:26.734:839425][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-11 14:16:26.751:839442][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - ==>  Preparing: select count(*) from CustMst
+[2022-08-11 14:16:26.752:839443][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - ==> Parameters: 
+[2022-08-11 14:16:26.808:839499][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - <==      Total: 1
+[2022-08-11 14:16:26.809:839500][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-11 14:16:26.809:839500][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:16:26.855:839546][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 10
+[2022-08-11 14:16:27.411:840102][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-11 14:16:27.449:840140][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.count - ==>  Preparing: select count(*) from CustMst
+[2022-08-11 14:16:27.449:840140][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.count - ==> Parameters: 
+[2022-08-11 14:16:27.501:840192][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.count - <==      Total: 1
+[2022-08-11 14:16:27.503:840194][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-11 14:16:27.505:840196][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:16:27.543:840234][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 10
+[2022-08-11 14:16:28.172:840863][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-11 14:16:28.231:840922][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.count - ==>  Preparing: select count(*) from CustMst
+[2022-08-11 14:16:28.231:840922][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.count - ==> Parameters: 
+[2022-08-11 14:16:28.300:840991][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.CustMstMapper.count - <==      Total: 1
+[2022-08-11 14:16:28.301:840992][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-11 14:16:28.302:840993][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:16:28.367:841058][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 10
+[2022-08-11 14:16:30.433:843124][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-11 14:16:30.442:843133][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - ==>  Preparing: select count(*) from CustMst
+[2022-08-11 14:16:30.443:843134][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - ==> Parameters: 
+[2022-08-11 14:16:30.453:843144][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.CustMstMapper.count - <==      Total: 1
+[2022-08-11 14:16:30.455:843146][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-11 14:16:30.455:843146][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:16:30.477:843168][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 10
+[2022-08-11 14:16:31.399:844090][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-11 14:16:31.408:844099][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - ==>  Preparing: select count(*) from CustMst
+[2022-08-11 14:16:31.410:844101][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - ==> Parameters: 
+[2022-08-11 14:16:31.439:844130][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - <==      Total: 1
+[2022-08-11 14:16:31.440:844131][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-11 14:16:31.440:844131][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:16:31.453:844144][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 10
+[2022-08-11 14:17:26.883:899574][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Bank, 10, 1 
+[2022-08-11 14:17:26.962:899653][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.BankMstMapper.count - ==>  Preparing: select count(*) from BankMst
+[2022-08-11 14:17:26.963:899654][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.BankMstMapper.count - ==> Parameters: 
+[2022-08-11 14:17:27.024:899715][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.BankMstMapper.count - <==      Total: 1
+[2022-08-11 14:17:27.027:899718][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst ORDER BY BankId LIMIT ?, ?
+[2022-08-11 14:17:27.027:899718][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:17:27.080:899771][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 10
+[2022-08-11 14:17:28.746:901437][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Log, 10, 1 
+[2022-08-11 14:17:28.833:901524][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.count - ==>  Preparing: select count(*) from TxLog
+[2022-08-11 14:17:28.834:901525][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.count - ==> Parameters: 
+[2022-08-11 14:17:28.921:901612][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.count - <==      Total: 1
+[2022-08-11 14:17:28.923:901614][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==>  Preparing: select * from TxLog order by TxIdx ASC LIMIT ?, ?
+[2022-08-11 14:17:28.923:901614][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:17:29.031:901722][https-jsse-nio-9006-exec-1] DEBUG c.i.f.mapper.TxLogMapper.selectMany - <==      Total: 10
+[2022-08-11 14:17:29.757:902448][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-11 14:17:29.778:902469][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - ==>  Preparing: select count(*) from CustMst
+[2022-08-11 14:17:29.779:902470][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - ==> Parameters: 
+[2022-08-11 14:17:29.811:902502][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - <==      Total: 1
+[2022-08-11 14:17:29.812:902503][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-11 14:17:29.812:902503][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:17:29.835:902526][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 10
+[2022-08-11 14:17:30.412:903103][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Bank, 10, 1 
+[2022-08-11 14:17:30.440:903131][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.BankMstMapper.count - ==>  Preparing: select count(*) from BankMst
+[2022-08-11 14:17:30.443:903134][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.BankMstMapper.count - ==> Parameters: 
+[2022-08-11 14:17:30.483:903174][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.BankMstMapper.count - <==      Total: 1
+[2022-08-11 14:17:30.484:903175][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst ORDER BY BankId LIMIT ?, ?
+[2022-08-11 14:17:30.489:903180][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:17:30.515:903206][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 10
+[2022-08-11 14:17:30.813:903504][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Stat, 10, 1 
+[2022-08-11 14:17:30.816:903507][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxStatMapper.count - ==>  Preparing: select count(*) from TxStat
+[2022-08-11 14:17:30.816:903507][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxStatMapper.count - ==> Parameters: 
+[2022-08-11 14:17:30.838:903529][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.TxStatMapper.count - <==      Total: 1
+[2022-08-11 14:17:30.840:903531][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC LIMIT ?, ?
+[2022-08-11 14:17:30.841:903532][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:17:30.862:903553][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 10
+[2022-08-11 14:17:31.259:903950][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Trace, 10, 1 
+[2022-08-11 14:17:31.260:903951][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxTraceMapper.count - ==>  Preparing: select count(*) from TxTrace
+[2022-08-11 14:17:31.261:903952][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxTraceMapper.count - ==> Parameters: 
+[2022-08-11 14:17:31.271:903962][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.TxTraceMapper.count - <==      Total: 1
+[2022-08-11 14:17:31.274:903965][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==>  Preparing: select * from TxTrace order by CustId, TxDate ASC LIMIT ?, ?
+[2022-08-11 14:17:31.274:903965][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:17:31.290:903981][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.TxTraceMapper.selectMany - <==      Total: 10
+[2022-08-11 14:17:32.006:904697][https-jsse-nio-9006-exec-2] DEBUG com.inspien.fb.FirmAPIController - uri = /Stat, 10, 1 
+[2022-08-11 14:17:32.016:904707][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxStatMapper.count - ==>  Preparing: select count(*) from TxStat
+[2022-08-11 14:17:32.017:904708][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxStatMapper.count - ==> Parameters: 
+[2022-08-11 14:17:32.025:904716][https-jsse-nio-9006-exec-2] DEBUG c.i.fb.mapper.TxStatMapper.count - <==      Total: 1
+[2022-08-11 14:17:32.026:904717][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - ==>  Preparing: select * from TxStat order by CustId, TxDate, BankCd, TxType ASC LIMIT ?, ?
+[2022-08-11 14:17:32.027:904718][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:17:32.038:904729][https-jsse-nio-9006-exec-2] DEBUG c.i.f.m.TxStatMapper.selectMany - <==      Total: 10
+[2022-08-11 14:17:32.426:905117][https-jsse-nio-9006-exec-1] DEBUG com.inspien.fb.FirmAPIController - uri = /Bank, 10, 1 
+[2022-08-11 14:17:32.426:905117][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.BankMstMapper.count - ==>  Preparing: select count(*) from BankMst
+[2022-08-11 14:17:32.426:905117][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.BankMstMapper.count - ==> Parameters: 
+[2022-08-11 14:17:32.435:905126][https-jsse-nio-9006-exec-1] DEBUG c.i.fb.mapper.BankMstMapper.count - <==      Total: 1
+[2022-08-11 14:17:32.435:905126][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==>  Preparing: SELECT * FROM BankMst ORDER BY BankId LIMIT ?, ?
+[2022-08-11 14:17:32.436:905127][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:17:32.445:905136][https-jsse-nio-9006-exec-1] DEBUG c.i.f.m.BankMstMapper.selectMany - <==      Total: 10
+[2022-08-11 14:17:33.460:906151][https-jsse-nio-9006-exec-3] DEBUG com.inspien.fb.FirmAPIController - uri = /Customer, 10, 1 
+[2022-08-11 14:17:33.508:906199][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - ==>  Preparing: select count(*) from CustMst
+[2022-08-11 14:17:33.509:906200][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - ==> Parameters: 
+[2022-08-11 14:17:33.563:906254][https-jsse-nio-9006-exec-3] DEBUG c.i.fb.mapper.CustMstMapper.count - <==      Total: 1
+[2022-08-11 14:17:33.568:906259][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==>  Preparing: SELECT * FROM CustMst ORDER BY CustId ASC LIMIT ?, ?
+[2022-08-11 14:17:33.569:906260][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - ==> Parameters: 0(Integer), 10(Integer)
+[2022-08-11 14:17:33.605:906296][https-jsse-nio-9006-exec-3] DEBUG c.i.f.m.CustMstMapper.selectMany - <==      Total: 10
