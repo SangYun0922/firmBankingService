@@ -278,7 +278,7 @@ public class FirmAPIController {
 					JsonArray eurekaApps = jsonObject.get("applications").getAsJsonObject().get("application").getAsJsonArray();
 					for (JsonElement e : eurekaApps) {
 						JsonObject app = e.getAsJsonObject();
-						if ((Objects.equals(app.get("name").getAsString(), "BANKSTATEMENT-SERVICE")) || (Objects.equals(app.get("name").getAsString(), "TRANSFER-SERVICE"))) {
+						if ((Objects.equals(app.get("name").getAsString(), "BANKSTATEMENT-SERVICE")) || (Objects.equals(app.get("name").getAsString(), "TRANSFER-SERVICE")) || (Objects.equals(app.get("name").getAsString(), "TRANSFERCHECK-SERVICE"))) {
 							JsonArray instance = app.get("instance").getAsJsonArray();
 							instance.iterator().forEachRemaining(i -> targets.add(i.getAsJsonObject().get("secureHealthCheckUrl").getAsString().replace("actuator/health", "") + "update"));
 						}
