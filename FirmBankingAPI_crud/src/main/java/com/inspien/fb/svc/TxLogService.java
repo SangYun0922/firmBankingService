@@ -14,8 +14,9 @@ public class TxLogService {
     @Autowired
     private TxLogMapper txLogMapper;
 
-    public List<TxLog> readDataMany() {
-        return txLogMapper.selectMany();
+    public int totalCount() { return txLogMapper.count(); }
+    public List<TxLog> readDataMany(int Start, int Limit) {
+        return txLogMapper.selectMany(Start, Limit);
     }
 
 }

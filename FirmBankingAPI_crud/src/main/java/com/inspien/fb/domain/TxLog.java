@@ -27,10 +27,11 @@ public class TxLog {
     private String Status;
     private Timestamp StartDT;
     private Timestamp EndDT;
-    private String EncData;
     private String NatvTrNo;
     private String ErrCode;
     private String ErrMsg;
+    private String MsgId;
+    private String EncData;
 
     public TxLog(){}
 }

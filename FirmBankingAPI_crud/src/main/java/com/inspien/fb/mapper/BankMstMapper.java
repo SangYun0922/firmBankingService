@@ -9,9 +9,10 @@ import java.util.List;
 @Mapper
 public interface BankMstMapper {
 
+    public int count(); //데이터 개수 가져오기
     public int insert(BankMst bankMst); //insertOne
     public List<BankMst> selectOne(String BankId); //readOne
-    public List<BankMst> selectMany(); //readMany
+    public List<BankMst> selectMany(int Start, int Limit); //readMany
     public int update(BankMst bankMst); //updateOne
     public int delete(String BankId); //delete
 }

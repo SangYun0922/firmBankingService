@@ -20,21 +20,20 @@ public class CustMstService {
     @Autowired
     private CustMstMapper custMstMapper;
 
+    public int totalCount() { return custMstMapper.count(); }
     public int insertData(CustMst custMst) {
         return custMstMapper.insert(custMst);
     }
     public List<CustMst> readDataOne(String CustId) {
         return custMstMapper.selectOne(CustId);
     }
-
-    public List<CustMst> readDataMany() {
-        return custMstMapper.selectMany();
+    public List<CustMst> readDataMany(int Start, int Limit) {
+        return custMstMapper.selectMany(Start, Limit);
     }
-
     public int updateData(CustMst custMst) {
+        log.debug("custMst = {}", custMst);
         return custMstMapper.update(custMst);
     }
-
     public int deleteData(String CustId) {
         return custMstMapper.delete(CustId);
     }
