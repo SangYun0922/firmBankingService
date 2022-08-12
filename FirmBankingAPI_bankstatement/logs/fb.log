@@ -1,103 +1,219 @@
-[2022-08-11 13:54:18.237:962][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 61949 (/Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_bankstatement/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBanking_admin/FirmBankingAPI_bankstatement)
-[2022-08-11 13:54:18.239:964][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
-[2022-08-11 13:54:18.240:965][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
-[2022-08-11 13:54:27.036:9761][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 9.553 seconds (JVM running for 10.295)
-[2022-08-11 13:54:27.047:9772][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
-[2022-08-11 13:54:27.047:9772][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
-[2022-08-11 13:54:27.047:9772][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
-[2022-08-11 13:54:27.205:9930][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
-[2022-08-11 13:54:27.215:9940][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
-[2022-08-11 13:54:27.242:9967][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 18
-[2022-08-11 13:54:27.283:10008][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-11 13:54:27.285:10010][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
-[2022-08-11 13:54:27.301:10026][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-11 13:54:27.302:10027][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-11 13:54:27.302:10027][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
-[2022-08-11 13:54:27.332:10057][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-11 13:54:27.333:10058][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-11 13:54:27.334:10059][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
-[2022-08-11 13:54:27.357:10082][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-11 13:54:27.360:10085][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-11 13:54:27.360:10085][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000265(String)
-[2022-08-11 13:54:27.384:10109][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-11 13:54:27.385:10110][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-11 13:54:27.386:10111][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: test(String)
-[2022-08-11 13:54:27.410:10135][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 14
-[2022-08-11 13:54:27.420:10145][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
-[2022-08-11 13:54:27.420:10145][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
-[2022-08-11 13:54:27.420:10145][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
-[2022-08-11 13:57:47.811:210536][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
-[2022-08-11 13:57:47.813:210538][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
-[2022-08-11 13:57:47.813:210538][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.FirmAPIController - start local cache initializing
-[2022-08-11 13:57:47.814:210539][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
-[2022-08-11 13:57:47.843:210568][https-jsse-nio-9002-exec-3] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
-[2022-08-11 13:57:47.843:210568][https-jsse-nio-9002-exec-3] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
-[2022-08-11 13:57:47.858:210583][https-jsse-nio-9002-exec-3] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 18
-[2022-08-11 13:57:47.859:210584][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-11 13:57:47.859:210584][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
-[2022-08-11 13:57:47.878:210603][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-11 13:57:47.879:210604][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-11 13:57:47.879:210604][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
-[2022-08-11 13:57:47.901:210626][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-11 13:57:47.901:210626][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-11 13:57:47.901:210626][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
-[2022-08-11 13:57:47.920:210645][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-11 13:57:47.920:210645][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-11 13:57:47.920:210645][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000265(String)
-[2022-08-11 13:57:47.942:210667][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-11 13:57:47.942:210667][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-11 13:57:47.943:210668][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: test(String)
-[2022-08-11 13:57:47.967:210692][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 14
-[2022-08-11 13:57:47.968:210693][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
-[2022-08-11 13:57:47.968:210693][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.FirmAPIController - complete local cache initializing
-[2022-08-11 13:57:47.968:210693][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
-[2022-08-11 14:00:25.144:367869][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
-[2022-08-11 14:00:25.146:367871][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
-[2022-08-11 14:00:25.146:367871][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.FirmAPIController - start local cache initializing
-[2022-08-11 14:00:25.146:367871][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
-[2022-08-11 14:00:25.175:367900][https-jsse-nio-9002-exec-1] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
-[2022-08-11 14:00:25.177:367902][https-jsse-nio-9002-exec-1] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
-[2022-08-11 14:00:25.196:367921][https-jsse-nio-9002-exec-1] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 18
-[2022-08-11 14:00:25.197:367922][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-11 14:00:25.198:367923][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
-[2022-08-11 14:00:25.213:367938][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-11 14:00:25.216:367941][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-11 14:00:25.217:367942][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
-[2022-08-11 14:00:25.242:367967][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-11 14:00:25.244:367969][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-11 14:00:25.244:367969][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
-[2022-08-11 14:00:25.271:367996][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-11 14:00:25.272:367997][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-11 14:00:25.272:367997][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000265(String)
-[2022-08-11 14:00:25.296:368021][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-11 14:00:25.297:368022][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-11 14:00:25.297:368022][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: test(String)
-[2022-08-11 14:00:25.327:368052][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 14
-[2022-08-11 14:00:25.328:368053][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
-[2022-08-11 14:00:25.328:368053][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.FirmAPIController - complete local cache initializing
-[2022-08-11 14:00:25.328:368053][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
-[2022-08-11 14:02:42.763:505488][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
-[2022-08-11 14:02:42.765:505490][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
-[2022-08-11 14:02:42.765:505490][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.FirmAPIController - start local cache initializing
-[2022-08-11 14:02:42.765:505490][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
-[2022-08-11 14:02:42.780:505505][https-jsse-nio-9002-exec-2] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
-[2022-08-11 14:02:42.781:505506][https-jsse-nio-9002-exec-2] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
-[2022-08-11 14:02:42.804:505529][https-jsse-nio-9002-exec-2] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 18
-[2022-08-11 14:02:42.808:505533][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-11 14:02:42.809:505534][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
-[2022-08-11 14:02:42.827:505552][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-11 14:02:42.828:505553][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-11 14:02:42.828:505553][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
-[2022-08-11 14:02:42.843:505568][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-11 14:02:42.844:505569][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-11 14:02:42.844:505569][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
-[2022-08-11 14:02:42.855:505580][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-11 14:02:42.855:505580][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-11 14:02:42.856:505581][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000265(String)
-[2022-08-11 14:02:42.870:505595][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
-[2022-08-11 14:02:42.871:505596][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
-[2022-08-11 14:02:42.871:505596][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: test(String)
-[2022-08-11 14:02:42.894:505619][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 14
-[2022-08-11 14:02:42.896:505621][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
-[2022-08-11 14:02:42.896:505621][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.FirmAPIController - complete local cache initializing
-[2022-08-11 14:02:42.896:505621][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
+[2022-08-12 11:21:49.587:1548][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 10256 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_bankstatement/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_bankstatement)
+[2022-08-12 11:21:49.596:1557][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-12 11:21:49.601:1562][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-12 11:21:53.238:5199][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.978 seconds (JVM running for 5.884)
+[2022-08-12 11:21:53.244:5205][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-12 11:21:53.245:5206][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
+[2022-08-12 11:21:53.245:5206][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-12 11:21:53.371:5332][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-12 11:21:53.382:5343][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-12 11:21:53.410:5371][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 18
+[2022-08-12 11:21:53.433:5394][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-12 11:21:53.435:5396][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-12 11:21:53.446:5407][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-12 11:21:53.448:5409][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-12 11:21:53.449:5410][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-12 11:21:53.457:5418][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-12 11:21:53.458:5419][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-12 11:21:53.458:5419][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-12 11:21:53.467:5428][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-12 11:21:53.471:5432][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-12 11:21:53.472:5433][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000265(String)
+[2022-08-12 11:21:53.480:5441][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-12 11:21:53.481:5442][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-12 11:21:53.482:5443][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: test(String)
+[2022-08-12 11:21:53.495:5456][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 14
+[2022-08-12 11:21:53.497:5458][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-12 11:21:53.497:5458][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
+[2022-08-12 11:21:53.497:5458][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-12 11:22:17.442:29403][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - vanAccessCount=1, POST, 598, /api/rt/v1/bankstatement
+[2022-08-12 11:22:17.449:29410][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - StatementRequest=10000263,StatementRequest(org_code=10000263, bank_code=088, natv_tr_no=090001, send_dt=20220808, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665)
+[2022-08-12 11:22:17.482:29443][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - custData : [CustMst(CustId=0000000002, CustNm=인스피언(주), OrgCd=10000263, CallbackURL=https://localhost:9000/bankstatement/test, ApiKey=xxxxx-xxxxx-xxxxx-xxxxx, PriContactNm=null, PriContactTel=null, PriContactEmail=null, SecContactNm=null, SecContactTel=null, SecContactEmail=null, TxSequence=@, InUse=Y)]
+[2022-08-12 11:22:17.511:29472][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-12 11:22:17.512:29473][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000002(String), 20220812(String)
+[2022-08-12 11:22:17.522:29483][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-12 11:22:17.522:29483][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - 개시전문 여부 : false
+[2022-08-12 11:22:17.527:29488][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - callbackurl=https://localhost:9000/bankstatement/test
+[2022-08-12 11:22:17.551:29512][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.svc.FBService - req, callbackURL= StatementRequest(org_code=10000263, bank_code=088, natv_tr_no=090001, send_dt=20220808, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665), https://localhost:9000/bankstatement/test
+[2022-08-12 11:22:17.574:29535][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-12 11:22:17.574:29535][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://localhost:9000/bankstatement/test ==> {
+  "org_code" : "10000263",
+  "bank_code" : "088",
+  "natv_tr_no" : "090001",
+  "send_dt" : "20220808",
+  "send_tm" : "133243",
+  "account" : "52212601",
+  "scf_dt" : "20201222",
+  "scf_tm" : "150550",
+  "rnd_gb_code" : "21",
+  "scf_code" : "30",
+  "amount" : 5000,
+  "obc_amount" : 0,
+  "after_sign" : "-",
+  "after_amount" : 10000,
+  "cms_code" : "",
+  "can_tr_no" : "000000",
+  "can_ogn_dt" : "00000000",
+  "account_cntn" : "XXXXXX",
+  "cpt_rtu_org_code" : "100000XX",
+  "cpt_rtu_ogn_tr_dt" : "20220124",
+  "cpt_rtu_ogn_orr_no" : "ORRNO20220124142358912582",
+  "rv_nm" : "XXXXX",
+  "cpt_rtu_yn" : "Y",
+  "cpt_rq_dt" : "20201223",
+  "cpt_rq_no" : "FR5829495665"
+}
+[2022-08-12 11:22:17.729:29690][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-12 11:22:17.730:29691][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.svc.VANProxy - 200  ==> {"status":200,"request_at":"202208122217"}
+[2022-08-12 11:22:17.731:29692][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.3, cipher suite TLS_AES_128_GCM_SHA256
+[2022-08-12 11:22:17.741:29702][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.FirmAPIController - bankStatement response ==> StatementResponse(status=200, request_at=202208122217, error_code=null, error_message=null)
+[2022-08-12 11:22:17.752:29713][https-jsse-nio-9002-exec-3] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-12 11:22:17.763:29724][https-jsse-nio-9002-exec-3] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220812112217001, CustId=0000000002, TxDate=2022-08-12, TelegramNo=null, MsgId=null, TxType=3, BankCd=088, Size=598, RoundTrip=0.307918334, StmtCnt=1, Status=200, StartDT=2022-08-12 11:22:17.441, EndDT=2022-08-12 11:22:17.749, EncData={
+"org_code":"10000263","bank_code":"088",
+"natv_tr_no":"090001","send_dt":"20220808","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}, NatvTrNo=090001, ErrCode=null, ErrMsg=null)
+[2022-08-12 11:22:17.781:29742][https-jsse-nio-9002-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, MsgId, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-12 11:22:17.790:29751][https-jsse-nio-9002-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220812112217001(String), 0000000002(String), 2022-08-12(String), null, null, 3(String), 088(String), 598(Long), 0.307918334(BigDecimal), 1(Integer), 200(String), 2022-08-12 11:22:17.441(Timestamp), 2022-08-12 11:22:17.749(Timestamp), {
+"org_code":"10000263","bank_code":"088",
+"natv_tr_no":"090001","send_dt":"20220808","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}(String), test(String), 090001(String), null, null
+[2022-08-12 11:22:17.809:29770][https-jsse-nio-9002-exec-3] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-12 11:22:17.810:29771][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-12 11:22:17.810:29771][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000002(String), 20220812112217(String), 088(String), 3(String), 1(Long), 598(Long), 1(Long), 598(Long)
+[2022-08-12 11:22:17.818:29779][https-jsse-nio-9002-exec-3] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 1
+[2022-08-12 13:43:48.077:944][main] INFO  c.i.fb.FirmBankingApiApplication - Starting FirmBankingApiApplication using Java 11.0.11 on Kimui-MacBookPro.local with PID 12231 (/Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_bankstatement/build/classes/java/main started by skwx50000 in /Users/skwx50000/Desktop/spring/firmBankingService/FirmBankingAPI_bankstatement)
+[2022-08-12 13:43:48.079:946][main] DEBUG c.i.fb.FirmBankingApiApplication - Running with Spring Boot v2.6.7, Spring v5.3.19
+[2022-08-12 13:43:48.080:947][main] INFO  c.i.fb.FirmBankingApiApplication - No active profile set, falling back to 1 default profile: "default"
+[2022-08-12 13:43:51.625:4492][main] INFO  c.i.fb.FirmBankingApiApplication - Started FirmBankingApiApplication in 4.241 seconds (JVM running for 5.236)
+[2022-08-12 13:43:51.636:4503][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-12 13:43:51.636:4503][main] DEBUG c.i.fb.FirmBankingApiApplication - start local cache initializing
+[2022-08-12 13:43:51.636:4503][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-12 13:43:51.782:4649][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-12 13:43:51.793:4660][main] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-12 13:43:51.821:4688][main] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 18
+[2022-08-12 13:43:51.846:4713][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-12 13:43:51.849:4716][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-12 13:43:51.861:4728][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-12 13:43:51.862:4729][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-12 13:43:51.862:4729][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-12 13:43:51.869:4736][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-12 13:43:51.874:4741][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-12 13:43:51.874:4741][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-12 13:43:51.881:4748][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-12 13:43:51.883:4750][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-12 13:43:51.883:4750][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000265(String)
+[2022-08-12 13:43:51.891:4758][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-12 13:43:51.892:4759][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-12 13:43:51.892:4759][main] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: test(String)
+[2022-08-12 13:43:51.904:4771][main] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 14
+[2022-08-12 13:43:51.905:4772][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-12 13:43:51.905:4772][main] DEBUG c.i.fb.FirmBankingApiApplication - complete local cache initializing
+[2022-08-12 13:43:51.905:4772][main] DEBUG c.i.fb.FirmBankingApiApplication - ----------------------------------------
+[2022-08-12 14:45:37.532:3710399][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
+[2022-08-12 14:45:37.536:3710403][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
+[2022-08-12 14:45:37.537:3710404][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.FirmAPIController - start local cache initializing
+[2022-08-12 14:45:37.537:3710404][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
+[2022-08-12 14:45:37.548:3710415][https-jsse-nio-9002-exec-2] DEBUG c.i.f.mapper.CustMstMapper.initData - ==>  Preparing: SELECT OrgCd FROM CustMst WHERE InUse = "Y"
+[2022-08-12 14:45:37.548:3710415][https-jsse-nio-9002-exec-2] DEBUG c.i.f.mapper.CustMstMapper.initData - ==> Parameters: 
+[2022-08-12 14:45:37.565:3710432][https-jsse-nio-9002-exec-2] DEBUG c.i.f.mapper.CustMstMapper.initData - <==      Total: 18
+[2022-08-12 14:45:37.566:3710433][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-12 14:45:37.566:3710433][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000262(String)
+[2022-08-12 14:45:37.576:3710443][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-12 14:45:37.577:3710444][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-12 14:45:37.577:3710444][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000263(String)
+[2022-08-12 14:45:37.588:3710455][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-12 14:45:37.588:3710455][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-12 14:45:37.588:3710455][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000264(String)
+[2022-08-12 14:45:37.597:3710464][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-12 14:45:37.598:3710465][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-12 14:45:37.598:3710465][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: 10000265(String)
+[2022-08-12 14:45:37.606:3710473][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 1
+[2022-08-12 14:45:37.607:3710474][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==>  Preparing: SELECT * FROM CustMst WHERE OrgCd = ?
+[2022-08-12 14:45:37.607:3710474][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - ==> Parameters: test(String)
+[2022-08-12 14:45:37.673:3710540][https-jsse-nio-9002-exec-2] DEBUG c.i.f.m.CustMstMapper.selectOne - <==      Total: 14
+[2022-08-12 14:45:37.676:3710543][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
+[2022-08-12 14:45:37.676:3710543][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.FirmAPIController - complete local cache initializing
+[2022-08-12 14:45:37.676:3710543][https-jsse-nio-9002-exec-2] DEBUG com.inspien.fb.FirmAPIController - ----------------------------------------
+[2022-08-12 15:01:24.218:4657085][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - vanAccessCount=1, POST, 598, /api/rt/v1/bankstatement
+[2022-08-12 15:01:24.230:4657097][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - StatementRequest=10000263,StatementRequest(org_code=10000263, bank_code=088, natv_tr_no=090001, send_dt=20220808, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665)
+[2022-08-12 15:01:24.275:4657142][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - custData : [CustMst(CustId=0000000002, CustNm=인스피언(주), OrgCd=10000263, CallbackURL=https://localhost:9000/bankstatement/test, ApiKey=xxxxx-xxxxx-xxxxx-xxxxx, PriContactNm=null, PriContactTel=null, PriContactEmail=null, SecContactNm=null, SecContactTel=null, SecContactEmail=null, TxSequence=@, InUse=Y)]
+[2022-08-12 15:01:24.339:4657206][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==>  Preparing: SELECT EXISTS( SELECT * FROM TxTrace WHERE CustId = ? AND TxDate = ?)
+[2022-08-12 15:01:24.340:4657207][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - ==> Parameters: 0000000002(String), 20220812(String)
+[2022-08-12 15:01:24.379:4657246][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.T.isExistTxTrace - <==      Total: 1
+[2022-08-12 15:01:24.379:4657246][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - 개시전문 여부 : false
+[2022-08-12 15:01:24.386:4657253][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - callbackurl=https://localhost:9000/bankstatement/test
+[2022-08-12 15:01:24.418:4657285][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.svc.FBService - req, callbackURL= StatementRequest(org_code=10000263, bank_code=088, natv_tr_no=090001, send_dt=20220808, send_tm=133243, account=52212601, scf_dt=20201222, scf_tm=150550, rnd_gb_code=21, scf_code=30, amount=5000, obc_amount=0, after_sign=-, after_amount=10000, cms_code=, can_tr_no=000000, can_ogn_dt=00000000, account_cntn=XXXXXX, mid=null, cpt_rtu_org_code=100000XX, cpt_rtu_ogn_tr_dt=20220124, cpt_rtu_ogn_tr_no=null, cpt_rtu_ogn_orr_no=ORRNO20220124142358912582, rv_nm=XXXXX, cpt_rtu_yn=Y, cpt_rq_dt=20201223, cpt_rq_no=FR5829495665), https://localhost:9000/bankstatement/test
+[2022-08-12 15:01:24.460:4657327][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-12 15:01:24.461:4657328][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.svc.VANProxy - Executing request POST https://localhost:9000/bankstatement/test ==> {
+  "org_code" : "10000263",
+  "bank_code" : "088",
+  "natv_tr_no" : "090001",
+  "send_dt" : "20220808",
+  "send_tm" : "133243",
+  "account" : "52212601",
+  "scf_dt" : "20201222",
+  "scf_tm" : "150550",
+  "rnd_gb_code" : "21",
+  "scf_code" : "30",
+  "amount" : 5000,
+  "obc_amount" : 0,
+  "after_sign" : "-",
+  "after_amount" : 10000,
+  "cms_code" : "",
+  "can_tr_no" : "000000",
+  "can_ogn_dt" : "00000000",
+  "account_cntn" : "XXXXXX",
+  "cpt_rtu_org_code" : "100000XX",
+  "cpt_rtu_ogn_tr_dt" : "20220124",
+  "cpt_rtu_ogn_orr_no" : "ORRNO20220124142358912582",
+  "rv_nm" : "XXXXX",
+  "cpt_rtu_yn" : "Y",
+  "cpt_rq_dt" : "20201223",
+  "cpt_rq_no" : "FR5829495665"
+}
+[2022-08-12 15:01:24.551:4657418][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.svc.VANProxy - ----------------------------------------
+[2022-08-12 15:01:24.551:4657418][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.svc.VANProxy - 200  ==> {"status":200,"request_at":"202208120124"}
+[2022-08-12 15:01:24.551:4657418][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.svc.VANProxy - SSL protocol TLSv1.3, cipher suite TLS_AES_128_GCM_SHA256
+[2022-08-12 15:01:24.557:4657424][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.FirmAPIController - bankStatement response ==> StatementResponse(status=200, request_at=202208120124, error_code=null, error_message=null)
+[2022-08-12 15:01:24.567:4657434][https-jsse-nio-9002-exec-1] INFO  com.inspien.fb.WriteLogs - start db insert
+[2022-08-12 15:01:24.580:4657447][https-jsse-nio-9002-exec-1] DEBUG com.inspien.fb.WriteLogs - txlog : TxLog(TxIdx=20220812150124001, CustId=0000000002, TxDate=2022-08-12, TelegramNo=null, MsgId=null, TxType=3, BankCd=088, Size=598, RoundTrip=0.350195042, StmtCnt=1, Status=200, StartDT=2022-08-12 15:01:24.211, EndDT=2022-08-12 15:01:24.563, EncData={
+"org_code":"10000263","bank_code":"088",
+"natv_tr_no":"090001","send_dt":"20220808","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}, NatvTrNo=090001, ErrCode=null, ErrMsg=null)
+[2022-08-12 15:01:24.594:4657461][https-jsse-nio-9002-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==>  Preparing: INSERT INTO TxLog( TxIdx, CustId, TxDate, TelegramNo, MsgId, TxType, BankCd, Size, RoundTrip, StmtCnt, Status, StartDT, EndDT, EncData, NatvTrNo, ErrCode, ErrMsg ) values( ?,?,?,?,?,?,?, ?,?,?,?,?,?, HEX(AES_ENCRYPT(?,SHA2(?,512))),?,?,?)
+[2022-08-12 15:01:24.606:4657473][https-jsse-nio-9002-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - ==> Parameters: 20220812150124001(String), 0000000002(String), 2022-08-12(String), null, null, 3(String), 088(String), 598(Long), 0.350195042(BigDecimal), 1(Integer), 200(String), 2022-08-12 15:01:24.211(Timestamp), 2022-08-12 15:01:24.563(Timestamp), {
+"org_code":"10000263","bank_code":"088",
+"natv_tr_no":"090001","send_dt":"20220808","send_tm":"133243",
+"account":"52212601","scf_dt":"20201222","scf_tm":"150550",
+"rnd_gb_code":"21","scf_code":"30","amount":"5000","obc_amount":"0",
+"after_sign":"-","after_amount":"10000","cms_code":"","can_tr_no":"000000","can_ogn_dt":"00000000",
+"account_cntn":"XXXXXX","mid":null,
+"cpt_rtu_org_code":"100000XX","cpt_rtu_ogn_tr_dt":"20220124",
+"cpt_rtu_ogn_tr_no:":"000024","cpt_rtu_ogn_orr_no":"ORRNO20220124142358912582",
+"rv_nm":"XXXXX","cpt_rtu_yn":"Y","cpt_rq_dt":"20201223","cpt_rq_no": "FR5829495665"
+}(String), test(String), 090001(String), null, null
+[2022-08-12 15:01:24.637:4657504][https-jsse-nio-9002-exec-1] DEBUG c.i.fb.mapper.TxLogMapper.logAdd - <==    Updates: 1
+[2022-08-12 15:01:24.638:4657505][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==>  Preparing: INSERT INTO TxStat( CustId, TxDate, BankCd, TxType, TxCnt, TxSize ) VALUES( ?,?,?,?,?,?) ON DUPLICATE KEY UPDATE TxCnt =TxCnt+ ?,TxSize = TxSize+ ?
+[2022-08-12 15:01:24.639:4657506][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - ==> Parameters: 0000000002(String), 20220812150124(String), 088(String), 3(String), 1(Long), 598(Long), 1(Long), 598(Long)
+[2022-08-12 15:01:24.669:4657536][https-jsse-nio-9002-exec-1] DEBUG c.i.f.m.TxStatMapper.insertTxStat - <==    Updates: 2

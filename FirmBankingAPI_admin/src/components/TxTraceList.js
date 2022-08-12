@@ -10,6 +10,7 @@ export default function TxTraceList(props) {
         <List {...props}>
             <Datagrid>
                 <TextField source="CustId" />
+                <TextField source="OrgCd" />
                 <TextField source="TxDate" />
                 <TextField source="TxSequence" />
                 <TextField source="TxStarted" />

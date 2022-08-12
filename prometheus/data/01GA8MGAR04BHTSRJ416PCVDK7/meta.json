@@ -1,0 +1,17 @@
+{
+	"ulid": "01GA8MGAR04BHTSRJ416PCVDK7",
+	"minTime": 1660284001897,
+	"maxTime": 1660291200000,
+	"stats": {
+		"numSamples": 286875,
+		"numSeries": 682,
+		"numChunks": 2713
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01GA8MGAR04BHTSRJ416PCVDK7"
+		]
+	},
+	"version": 1
+}

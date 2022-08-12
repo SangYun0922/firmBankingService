@@ -38,14 +38,16 @@ dependencies {
 	implementation group: 'org.apache.httpcomponents.client5', name: 'httpclient5', version: '5.1'
 
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'//use mybatis
-	implementation 'org.mybatis:mybatis-typehandlers-jsr310:1.0.2'
+	implementation 'org.mybatis:mybatis-typehandlers-jsr310:1.0.2'//use mybatis
 	implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.4' // use MariaDB
 
 	implementation 'org.springframework.boot:spring-boot-starter-cache'//use spring-boot cache
 
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
-	
+
+	implementation 'io.micrometer:micrometer-core'
+	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
 }
 
 dependencyManagement {

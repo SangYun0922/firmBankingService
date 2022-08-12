@@ -20,7 +20,48 @@ rule_files:
 # Here it's Prometheus itself.
 scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
-  - job_name: "demo-app"
+  - job_name: "eureka-server"
     metrics_path: "/actuator/prometheus"
     static_configs:
-      - targets: ['localhost:8081']
+      - targets: ['localhost:6901']
+
+  - job_name: "api-gateway-service"
+    scheme: https
+    metrics_path: "/actuator/prometheus"
+    tls_config:
+      insecure_skip_verify: true
+    static_configs:
+      - targets: ['localhost:8080']
+
+  - job_name: "transfer-service"
+    scheme: https
+    metrics_path: "/actuator/prometheus"
+    tls_config:
+      insecure_skip_verify: true
+    static_configs:
+      - targets: ['localhost:9000']
+
+  - job_name: "bankstatement-service"
+    scheme: https
+    metrics_path: "/actuator/prometheus"
+    tls_config:
+      insecure_skip_verify: true
+    static_configs:
+      - targets: ['localhost:9002']
+      
+  - job_name: "transfercheck-service"
+    scheme: https
+    metrics_path: "/actuator/prometheus"
+    tls_config:
+      insecure_skip_verify: true
+    static_configs:
+      - targets: ['localhost:9004']
+
+  - job_name: "crud-service"
+    scheme: https
+    metrics_path: "/actuator/prometheus"
+    tls_config:
+      insecure_skip_verify: true
+    static_configs:
+      - targets: ['localhost:9006']
+

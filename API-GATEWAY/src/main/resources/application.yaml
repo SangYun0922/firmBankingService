@@ -15,18 +15,17 @@ spring:
           predicates:
             - Path=/api/rt/v1/bankstatement/**
 
-        - id: CRUD-SERVICE
-          uri: lb://CRUD-SERVICE
-          predicates:
-            - Path=/crud/**
-          filters:
-            - RewritePath=/crud/(?<segment>.*), /$\{segment}
-
         - id: TRANSFERCHECK-SERVICE
           uri: lb://TRANSFERCHECK-SERVICE
           predicates:
             - Path=/api/rt/v1/transfer/check/**
 
+#        - id: CRUD-SERVICE
+#          uri: lb://CRUD-SERVICE
+#          predicates:
+#            - Path=/crud/**
+#          filters:
+#            - RewritePath=/crud/(?<segment>.*), /$\{segment}
 
 server:
   port: 8080
@@ -56,9 +55,16 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: health, info, metrics, prometheus
+
   endpoint:
     shutdown:
       enabled: true
     health:
       show-details: always # actuator에서 디테일한 정보들을 확인하기 위해 설정
+    prometheus:
+      enabled: true
+
+  metrics:
+    tags:
+      application: ${spring.application.name}

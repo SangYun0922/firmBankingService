@@ -32,6 +32,11 @@ public class TxLog {
     private String ErrMsg;
     private String MsgId;
     private String EncData;
+    private String OrgCd;
+
+    //admin 페이지로 추가적으로 CustNm, BankNm을 보내준다.
+    private String CustNm;
+    private String BankNm;
 
     public TxLog(){}
 }
