@@ -9,12 +9,14 @@ export default function TxLogList(props) {
     return (
         <List {...props}>
             <Datagrid>
-                <TextField source="id" />
-                <TextField source="CustId" />
                 <TextField source="TxDate" />
+                <TextField source="id" />
+                <TextField source="CustNm" />
+                <TextField source="OrgCd" />
+                <TextField source="MsgId" />
                 <TextField source="TelegramNo" />
                 <TextField source="TxType" />
-                <TextField source="BankCd" />
+                <TextField source="BankNm" />
                 <TextField source="Size" />
                 <TextField source="RoundTrip" />
                 <TextField source="StmtCnt" />
@@ -24,7 +26,6 @@ export default function TxLogList(props) {
                 <TextField source="NatvTrNo" />
                 <TextField source="ErrCode" />
                 <TextField source="ErrMsg" />
-                <TextField source="MsgId" />
                 <TextField source="EncData" />
             </Datagrid>
         </List>

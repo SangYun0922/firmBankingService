@@ -186,6 +186,9 @@ public class FirmAPIController {
 					temp.addProperty("ErrMsg", e.getErrMsg());
 					temp.addProperty("MsgId", e.getMsgId());
 					temp.addProperty("EncData", e.getEncData());
+					temp.addProperty("CustNm", e.getCustNm());
+					temp.addProperty("BankNm", e.getBankNm());
+					temp.addProperty("OrgCd", e.getOrgCd());
 					txlogJson.add(temp);
 				}
 				return new ResponseEntity<>(gson.toJson(txlogJson), headers, HttpStatus.OK);
@@ -198,11 +201,14 @@ public class FirmAPIController {
 					JsonObject temp = new JsonObject();
 					temp.addProperty("id", idx_Stat);
 					temp.addProperty("CustId",e.getCustId());
+					temp.addProperty("CustNm", e.getCustNm());
 					temp.addProperty("TxDate", e.getTxDate());
 					temp.addProperty("BankCd", e.getBankCd());
+					temp.addProperty("BankNm", e.getBankNm());
 					temp.addProperty("TxType", e.getTxType());
 					temp.addProperty("TxCnt", e.getTxCnt());
 					temp.addProperty("TxSize", e.getTxSize());
+					temp.addProperty("OrgCd", e.getOrgCd());
 					txstatJson.add(temp);
 					idx_Stat++;
 				}
@@ -216,9 +222,11 @@ public class FirmAPIController {
 					JsonObject temp = new JsonObject();
 					temp.addProperty("id", idx_Trace);
 					temp.addProperty("CustId",e.getCustId());
+					temp.addProperty("CustNm", e.getCustNm());
 					temp.addProperty("TxDate", e.getTxDate());
 					temp.addProperty("TxSequence",e.getTxSequence());
 					temp.addProperty("TxStarted", e.getTxStarted());
+					temp.addProperty("OrgCd", e.getOrgCd());
 					txtraceJson.add(temp);
 					idx_Trace++;
 				}

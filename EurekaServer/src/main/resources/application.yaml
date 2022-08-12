@@ -1,6 +1,9 @@
 server:
   port: 6901
-  name: eureka-server
+
+spring:
+  application:
+    name: eureka-server
 
 eureka:
   server:
@@ -16,3 +19,17 @@ eureka:
     fetch-registry: false
     service-url:
        defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+management:
+  endpoint:
+    prometheus:
+      enabled: true
+
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, prometheus
+
+  metrics:
+    tags:
+      application: ${spring.application.name}

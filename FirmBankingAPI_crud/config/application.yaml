@@ -104,6 +104,20 @@ eureka:
     secure-port-enabled: true
     secure-port: ${server.port}
 
+management:
+  endpoint:
+    prometheus:
+      enabled: true
+
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, prometheus
+
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
 url:
   eurekaServer: ${eureka.client.service-url.defaultzone}apps
 

@@ -8,6 +8,9 @@
     </select>
 
     <select id="selectMany" parameterType="int" resultType="TxStat">
-        select * from TxStat order by CustId, TxDate, BankCd, TxType ASC LIMIT #{Start}, #{Limit}
+        select TxStat.*,CustMst.CustNm, BankMst.`BankNm` from TxStat
+            JOIN CustMst ON TxStat.CustId = CustMst.CustId
+            JOIN BankMst ON TxStat.BankCd = BankMst.BankCd order by TxDate
+            DESC LIMIT  #{Start}, #{Limit}
     </select>
 </mapper>

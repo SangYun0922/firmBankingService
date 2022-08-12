@@ -17,4 +17,9 @@ public class TxStat {
     private String TxType;
     private long TxCnt; //unsigned mediumint
     private long TxSize; //unsigned int
+    private String OrgCd;
+
+    //admin 페이지로 추가적으로 CustNm, BankNm을 보내준다.
+    private String CustNm;
+    private String BankNm;
 }

@@ -9,9 +9,10 @@ export default function TxStatList(props) {
     return (
         <List {...props}>
             <Datagrid>
-                <TextField source="CustId" />
                 <TextField source="TxDate" />
-                <TextField source="BankCd" />
+                <TextField source="OrgCd" />
+                <TextField source="CustNm" />
+                <TextField source="BankNm" />
                 <TextField source="TxType" />
                 <TextField source="TxCnt" />
                 <TextField source="TxSize" />

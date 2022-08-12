@@ -8,6 +8,6 @@
     </select>
 
     <select id="selectMany" parameterType="int" resultType="TxLog">
-        select * from TxLog order by TxIdx ASC LIMIT #{Start}, #{Limit}
+        select TxLog.*,CustMst.CustNm, BankMst.`BankNm` from TxLog JOIN CustMst ON TxLog.CustId = CustMst.CustId JOIN BankMst ON TxLog.BankCd = BankMst.BankCd order by TxIdx DESC LIMIT #{Start}, #{Limit}
     </select>
 </mapper>
