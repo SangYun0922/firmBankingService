@@ -9,10 +9,10 @@ export default function TxLogList(props) {
     return (
         <List {...props}>
             <Datagrid>
+                <TextField source="TxDate" />
                 <TextField source="id" />
                 <TextField source="CustNm" />
                 <TextField source="OrgCd" />
-                <TextField source="TxDate" />
                 <TextField source="MsgId" />
                 <TextField source="TelegramNo" />
                 <TextField source="TxType" />

@@ -222,9 +222,11 @@ public class FirmAPIController {
 					JsonObject temp = new JsonObject();
 					temp.addProperty("id", idx_Trace);
 					temp.addProperty("CustId",e.getCustId());
+					temp.addProperty("CustNm", e.getCustNm());
 					temp.addProperty("TxDate", e.getTxDate());
 					temp.addProperty("TxSequence",e.getTxSequence());
 					temp.addProperty("TxStarted", e.getTxStarted());
+					temp.addProperty("OrgCd", e.getOrgCd());
 					txtraceJson.add(temp);
 					idx_Trace++;
 				}

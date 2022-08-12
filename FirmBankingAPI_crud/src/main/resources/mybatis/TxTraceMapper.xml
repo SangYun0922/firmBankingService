@@ -8,6 +8,7 @@
     </select>
 
     <select id="selectMany" parameterType="int" resultType="TxTrace">
-        select * from TxTrace order by CustId, TxDate ASC LIMIT #{Start}, #{Limit}
+        select TxTrace.*,CustMst.CustNm from TxTrace
+            JOIN CustMst ON TxTrace.CustId = CustMst.CustId order by TxDate DESC LIMIT #{Start}, #{Limit}
     </select>
 </mapper>
