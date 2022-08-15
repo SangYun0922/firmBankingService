@@ -20,12 +20,12 @@ spring:
           predicates:
             - Path=/api/rt/v1/transfer/check/**
 
-#        - id: CRUD-SERVICE
-#          uri: lb://CRUD-SERVICE
-#          predicates:
-#            - Path=/crud/**
-#          filters:
-#            - RewritePath=/crud/(?<segment>.*), /$\{segment}
+        - id: CRUD-SERVICE
+          uri: lb://CRUD-SERVICE
+          predicates:
+            - Path=/crud/**
+          filters:
+            - RewritePath=/crud/(?<segment>.*), /$\{segment}
 
 server:
   port: 8080

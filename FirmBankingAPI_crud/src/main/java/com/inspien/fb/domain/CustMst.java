@@ -24,8 +24,8 @@ public class CustMst{
     private String SecContactEmail;
     private String TxSequence;
     private String InUse;
-    private Timestamp CreatedAt;
-    private Timestamp UpdatedAt;
+    private String CreatedAt;
+    private String UpdatedAt;
     public CustMst() {}
 
 }

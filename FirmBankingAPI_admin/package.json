@@ -1,6 +1,6 @@
 {
   "name": "firmbanking-admin",
-  "proxy": "https://localhost:9006",
+  "proxy": "https://localhost:8080/crud",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

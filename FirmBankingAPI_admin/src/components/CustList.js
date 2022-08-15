@@ -3,6 +3,7 @@ import {
     List,
     Create,
     Edit,
+    Show,
     Filter,
     Datagrid,
     TextField,
@@ -10,7 +11,9 @@ import {
     EmailField,
     TextInput,
     SimpleForm,
-    EditButton
+    EditButton,
+    SimpleShowLayout,
+    ShowButton
 } from 'react-admin'
 
 export const CustFilter = (props) => (
@@ -19,9 +22,9 @@ export const CustFilter = (props) => (
     </Filter>
 );
 
-export const CustList = (props) => (
-    <List {...props}>
-        <Datagrid>
+export const CustShow = (props) => (
+    <Show title="Customer View" {...props}>
+        <SimpleShowLayout>
             <TextField source="id" />
             <TextField source="CustNm" />
             <TextField source="OrgCd" />
@@ -37,7 +40,21 @@ export const CustList = (props) => (
             <TextField source="InUse" />
             <TextField source="CreatedAt" />
             <TextField source="UpdatedAt" />
-            <EditButton />
+        </SimpleShowLayout>
+    </Show>
+);
+
+export const CustList = (props) => (
+    <List {...props}>
+        <Datagrid>
+            <TextField source="id" />
+            <TextField source="CustNm" />
+            <TextField source="OrgCd" />
+            <UrlField source="CallbackURL" />
+            <TextField source="ApiKey" />
+            <TextField source="TxSequence" />
+            <TextField source="InUse" />
+            <ShowButton />
         </Datagrid>
     </List>
 )
@@ -65,7 +82,7 @@ export const CustCreate = (props) => (
 export const CustEdit = (props) => (
     <Edit title="Edit Cust" {...props}>
         <SimpleForm>
-            <TextInput source="CustId" />
+            <TextInput source="id" />
             <TextInput source="CustNm" />
             <TextInput source="OrgCd" />
             <TextInput source="CallbackURL" />
