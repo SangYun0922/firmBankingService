@@ -3,7 +3,6 @@ package com.inspien.fb;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.*;
 
 import com.google.gson.*;
@@ -14,7 +13,6 @@ import com.inspien.fb.svc.*;
 import org.apache.hc.core5.http.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,7 +39,7 @@ public class FirmAPIController {
 	TxTraceService txTraceService;
 
 	@Autowired
-	GetClient getClient;
+	GetTargetService getTargetService;
 
 	@Autowired
 	ConfigMgmt configMgmt;
@@ -299,67 +297,37 @@ public class FirmAPIController {
 				CustMst custMst = gson.fromJson(new String(body), CustMst.class);
 				custMst.setCustId(id);
 				if (custMstService.updateData(custMst) != 1) {
-					temp.addProperty("Updating Failed", "No Target Services");
+					temp.addProperty("status", "Wrong Id value");
 					return new ResponseEntity(gson.toJson(temp), HttpStatus.OK);
 				}
-				else {
-					List<String> targets = new ArrayList<>();
-					String response = getClient.callAPIGet(new String[]{configMgmt.getEurekaServer()});
-					JsonObject jsonObject = JsonParser.parseString(response).getAsJsonObject();
-					JsonArray eurekaApps = jsonObject.get("applications").getAsJsonObject().get("application").getAsJsonArray();
-					for (JsonElement e : eurekaApps) {
-						JsonObject app = e.getAsJsonObject();
-						if ((Objects.equals(app.get("name").getAsString(), "BANKSTATEMENT-SERVICE")) || (Objects.equals(app.get("name").getAsString(), "TRANSFER-SERVICE"))) {
-							JsonArray instance = app.get("instance").getAsJsonArray();
-							instance.iterator().forEachRemaining(i -> targets.add(i.getAsJsonObject().get("secureHealthCheckUrl").getAsString().replace("actuator/health", "") + "update"));
-						}
-					}
-					log.debug("targets : {}", targets);
-					if (targets.isEmpty()) {
-						temp.addProperty("status", "No Target Services");
-						return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
-					} else {
-						temp.addProperty("status", "Updating Success");
-						getClient.callAPIGet(targets.toArray(new String[targets.size()]));
-						return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
-					}
-				}
+				break;
 			case ("Bank") :
 				BankMst bankMst = gson.fromJson(new String(body), BankMst.class);
 				bankMst.setBankId(id);
 				if (bankMstService.updateData(bankMst) != 1) {
-					temp.addProperty("Updating Failed", "No Target Services");
+					temp.addProperty("status", "Wrong Id value");
 					return new ResponseEntity(gson.toJson(temp), HttpStatus.OK);
 				}
-				else {
-					List<String> targets = new ArrayList<>();
-					String response = getClient.callAPIGet(new String[]{configMgmt.getEurekaServer()});
-					JsonObject jsonObject = JsonParser.parseString(response).getAsJsonObject();
-					JsonArray eurekaApps = jsonObject.get("applications").getAsJsonObject().get("application").getAsJsonArray();
-					for (JsonElement e : eurekaApps) {
-						JsonObject app = e.getAsJsonObject();
-						if ((Objects.equals(app.get("name").getAsString(), "BANKSTATEMENT-SERVICE")) || (Objects.equals(app.get("name").getAsString(), "TRANSFER-SERVICE")) || (Objects.equals(app.get("name").getAsString(), "TRANSFERCHECK-SERVICE"))) {
-							JsonArray instance = app.get("instance").getAsJsonArray();
-							instance.iterator().forEachRemaining(i -> targets.add(i.getAsJsonObject().get("secureHealthCheckUrl").getAsString().replace("actuator/health", "") + "update"));
-						}
-					}
-					log.debug("targets : {}", targets);
-					if (targets.isEmpty()) {
-						temp.addProperty("status", "No Target Services");
-						return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
-					} else {
-						temp.addProperty("status", "Updating Success");
-						getClient.callAPIGet(targets.toArray(new String[targets.size()]));
-						return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
-					}
-				}
+				break;
 			default:
-				return new ResponseEntity<>("Can not found Table", HttpStatus.OK);
+				temp.addProperty("status", "Can not found Table");
+				return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
+		}
+		String response = getTargetService.callAPIGet(new String[]{configMgmt.getEurekaServer()});
+		List<String> targets = getTargetService.getTargets(response);
+		log.debug("targets : {}", targets);
+		if (targets.isEmpty()) {
+			temp.addProperty("status", "No Target Services");
+			return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
+		} else {
+			temp.addProperty("status", "Updating Success");
+			getTargetService.callAPIGet(targets.toArray(new String[targets.size()]));
+			return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
 		}
 	}
 
-	@DeleteMapping("/{table}/{id}") //하나의 데이터를 삭제할때
-	public ResponseEntity dbDelete(@PathVariable String table, @PathVariable String id) {
+	@DeleteMapping("/{table}/{id}") //데이터를 삭제할때
+	public ResponseEntity dbDelete(@PathVariable String table, @PathVariable String id) throws URISyntaxException, IOException, ParseException {
 		String ids = id.replace("filter=", "");
 		JsonObject jsonObject = JsonParser.parseString(ids).getAsJsonObject();
 		log.info("table = {} {} {}", table, id);
@@ -370,7 +338,7 @@ public class FirmAPIController {
 		JsonArray jsonArray = new JsonArray();
 
 		if (id_list.size() == 0) {
-			temp.addProperty("status", "Can not find id");
+			temp.addProperty("status", "Wrong Id value");
 			return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
 		}
 
@@ -402,10 +370,19 @@ public class FirmAPIController {
 				}
 				break;
 			default:
-				temp.addProperty("status", "Can not find Table");
+				temp.addProperty("status", "Can not found Table");
 				return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
 		}
-		temp.add("data", jsonArray);
-		return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
+		String response = getTargetService.callAPIGet(new String[]{configMgmt.getEurekaServer()});
+		List<String> targets = getTargetService.getTargets(response);
+		log.debug("targets : {}", targets);
+		if (targets.isEmpty()) {
+			temp.addProperty("status", "No Target Services");
+			return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
+		} else {
+			temp.addProperty("status", "Delete And Updating Success");
+			getTargetService.callAPIGet(targets.toArray(new String[targets.size()]));
+			return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
+		}
 	}
 }

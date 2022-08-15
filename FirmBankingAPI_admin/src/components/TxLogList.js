@@ -39,7 +39,7 @@ export const TxLogList = (props) => (
             <TextField source="TxDate" />
             <TextField source="CustNm" />
             <TextField source="OrgCd" />
-            <TextField source="MsgId" />
+            {/* <TextField source="MsgId" /> */}
             <TextField source="TelegramNo" />
             <TextField source="TxType" />
             <TextField source="BankNm" />
