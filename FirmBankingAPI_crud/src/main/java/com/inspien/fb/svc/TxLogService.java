@@ -1,5 +1,6 @@
 package com.inspien.fb.svc;
 
+import com.inspien.fb.domain.CustMst;
 import com.inspien.fb.domain.TxLog;
 import com.inspien.fb.mapper.TxLogMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -18,5 +19,7 @@ public class TxLogService {
     public List<TxLog> readDataMany(int Start, int Limit) {
         return txLogMapper.selectMany(Start, Limit);
     }
-
+    public List<TxLog> readDataOne(String TxIdx) {
+        return txLogMapper.selectOne(TxIdx);
+    }
 }

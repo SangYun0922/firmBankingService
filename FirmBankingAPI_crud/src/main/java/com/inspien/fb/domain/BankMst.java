@@ -16,8 +16,8 @@ public class BankMst{
     private String BankCd;
     private String BankNm;
     private String SwiftCd;
-    private Timestamp CreatedAt;
-    private Timestamp UpdatedAt;
+    private String CreatedAt;
+    private String UpdatedAt;
     public BankMst() {}
 
 }

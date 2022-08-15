@@ -87,11 +87,27 @@ public class FirmAPIController {
 		log.info("table = {}", table);
 		Gson gson = new Gson();
 		JsonObject temp = new JsonObject();
+		temp.addProperty("id", id);
 		switch (table) {
 			case ("Customer") :
-				if (custMstService.readDataOne(id).size() == 1) {
-					temp.addProperty("id", id);
-					temp.addProperty("status", "success");
+				List<CustMst> custMst = custMstService.readDataOne(id);
+				if (custMst.size() == 1) {
+					CustMst e = custMst.get(0);
+					temp.addProperty("CustNm", e.getCustNm());
+					temp.addProperty("OrgCd", e.getOrgCd());
+					temp.addProperty("CallbackURL", e.getCallbackURL());
+					temp.addProperty("ApiKey", e.getApiKey());
+					temp.addProperty("PriContactNm", e.getPriContactNm());
+					temp.addProperty("PriContactTel", e.getPriContactTel());
+					temp.addProperty("PriContactEmail", e.getPriContactEmail());
+					temp.addProperty("SecContactNm", e.getSecContactNm());
+					temp.addProperty("SecContactTel", e.getSecContactTel());
+					temp.addProperty("SecContactEmail", e.getSecContactEmail());
+					temp.addProperty("TxSequence", e.getTxSequence());
+					temp.addProperty("InUse", e.getInUse());
+					temp.addProperty("CreatedAt", String.valueOf(e.getCreatedAt()));
+					temp.addProperty("UpdatedAt", String.valueOf(e.getUpdatedAt()));
+					log.info("temp = {}", temp);
 					return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
 				}
 				else {
@@ -99,9 +115,45 @@ public class FirmAPIController {
 					return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
 				}
 			case ("Bank") :
-				if (bankMstService.readDataOne(id).size() == 1) {
-					temp.addProperty("id", id);
-					temp.addProperty("status", "success");
+				List<BankMst> bankMst = bankMstService.readDataOne(id);
+				if (bankMst.size() == 1) {
+					BankMst e = bankMst.get(0);
+					temp.addProperty("BankCd", e.getBankCd());
+					temp.addProperty("BankNm", e.getBankNm());
+					temp.addProperty("SwiftCd", e.getSwiftCd());
+					temp.addProperty("CreatedAt", String.valueOf(e.getCreatedAt()));
+					temp.addProperty("UpdatedAt", String.valueOf(e.getUpdatedAt()));
+					log.info("temp = {}", temp);
+					return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
+				}
+				else {
+					temp.addProperty("status", "fail");
+					return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
+				}
+			case ("Log") :
+				List<TxLog> txLog = txLogService.readDataOne(id);
+				if (txLog.size() == 1) {
+					TxLog e = txLog.get(0);
+					temp.addProperty("CustId",e.getCustId());
+					temp.addProperty("TxDate", e.getTxDate());
+					temp.addProperty("TelegramNo", e.getTelegramNo());
+					temp.addProperty("TxType", e.getTxType());
+					temp.addProperty("BankCd", e.getBankCd());
+					temp.addProperty("Size",e.getSize());
+					temp.addProperty("RoundTrip", e.getRoundTrip());
+					temp.addProperty("StmtCnt", e.getStmtCnt());
+					temp.addProperty("Status", e.getStatus());
+					temp.addProperty("StartDT", String.valueOf(e.getStartDT()));
+					temp.addProperty("EndDT", String.valueOf(e.getEndDT()));
+					temp.addProperty("NatvTrNo", e.getNatvTrNo());
+					temp.addProperty("ErrCode", e.getErrCode());
+					temp.addProperty("ErrMsg", e.getErrMsg());
+					temp.addProperty("MsgId", e.getMsgId());
+					temp.addProperty("EncData", e.getEncData());
+					temp.addProperty("CustNm", e.getCustNm());
+					temp.addProperty("BankNm", e.getBankNm());
+					temp.addProperty("OrgCd", e.getOrgCd());
+					log.info("temp = {}", temp);
 					return new ResponseEntity<>(gson.toJson(temp), HttpStatus.OK);
 				}
 				else {

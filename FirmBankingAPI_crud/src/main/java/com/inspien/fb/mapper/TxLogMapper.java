@@ -11,4 +11,5 @@ import java.util.List;
 public interface TxLogMapper {
     public int count(); //데이터 개수 가져오기
     public List<TxLog> selectMany(int Start, int Limit); //readMany
+    public List<TxLog> selectOne(String TxIdx); //readOne
 }

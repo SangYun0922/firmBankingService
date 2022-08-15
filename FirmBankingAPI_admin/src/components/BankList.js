@@ -8,7 +8,10 @@ import {
     Create,
     SimpleForm,
     TextInput,
-    EditButton
+    EditButton,
+    Show,
+    SimpleShowLayout,
+    ShowButton,
 } from 'react-admin'
 
 export const BankFilter = (props) => (
@@ -24,9 +27,7 @@ export const BankList = (props) => (
             <TextField source="BankCd" />
             <TextField source="BankNm" />
             <TextField source="SwiftCd" />
-            <TextField source="CreatedAt" />
-            <TextField source="UpdatedAt" />
-            <EditButton />
+            <ShowButton />
         </Datagrid>
     </List>
 );
@@ -42,10 +43,23 @@ export const BankCreate = (props) => (
     </Create>
 );
 
+export const BankShow = (props) => (
+    <Show title="Bank View" {...props}>
+        <SimpleShowLayout>
+            <TextField source="id" />
+            <TextField source="BankCd" />
+            <TextField source="BankNm" />
+            <TextField source="SwiftCd" />
+            <TextField source="CreatedAt" />
+            <TextField source="UpdatedAt" />
+        </SimpleShowLayout>
+    </Show>
+);
+
 export const BankEdit = (props) => (
     <Edit title="Edit Bank" {...props}>
         <SimpleForm>
-            <TextInput source="BankId" />
+            <TextInput source="id" />
             <TextInput source="BankCd" />
             <TextInput source="BankNm" />
             <TextInput source="SwiftCd" />
