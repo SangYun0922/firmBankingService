@@ -48,7 +48,7 @@ public class FirmAPIController {
 
 	@GetMapping("/ping")
 	public APIInfo ping() {
-		APIInfo info = APIInfo.builder().app("FirmBankingAPI").ver("1.0").timestamp(LocalDateTime.now()).build();
+		APIInfo info = APIInfo.builder().app("FirmBankingAPI-CRUD").ver("1.0").timestamp(LocalDateTime.now()).build();
 		return info;
 	}
 

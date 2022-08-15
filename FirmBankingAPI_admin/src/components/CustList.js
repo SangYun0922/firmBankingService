@@ -3,6 +3,7 @@ import {
     List,
     Create,
     Edit,
+    Show,
     Filter,
     Datagrid,
     TextField,
@@ -10,13 +11,25 @@ import {
     EmailField,
     TextInput,
     SimpleForm,
-    EditButton
+    EditButton,
+    SimpleShowLayout
 } from 'react-admin'
 
 export const CustFilter = (props) => (
     <Filter {...props}>
         <TextInput label="Search" source="q" alwaysOn />
     </Filter>
+);
+
+export const CustShow = (props) => (
+    <Show title="Customer View" {...props}>
+        <SimpleShowLayout>
+            <TextField source="title" />
+            <TextField source="email" />
+            <TextField source="password" />
+            <TextField source="nickname" />
+        </SimpleShowLayout>
+    </Show>
 );
 
 export const CustList = (props) => (
