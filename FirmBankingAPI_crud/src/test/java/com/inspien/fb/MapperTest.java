@@ -1,30 +1,22 @@
 package com.inspien.fb;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Iterator;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.inspien.fb.domain.CustMst;
 import com.inspien.fb.mapper.CustMstMapper;
 import com.inspien.fb.svc.CustMstService;
-import com.inspien.fb.svc.GetClient;
+import com.inspien.fb.svc.GetTargetService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.hc.core5.http.ParseException;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.inspien.fb.model.TransferRequest;
 import com.inspien.fb.model.TransferResponse;
-import com.inspien.fb.svc.FBService;
-import com.inspien.fb.svc.FileTelegramManager;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -37,7 +29,7 @@ public class MapperTest {
     CustMstMapper custMstMapper;
 
     @Autowired
-    GetClient getClient;
+    GetTargetService getClient;
 
     @Test //AWS RDS MariaDB와 연결 되는지 테스트
     public void testDB() {

@@ -6,7 +6,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Iterator;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,9 +13,6 @@ import org.junit.jupiter.api.Test;
 
 import com.inspien.fb.model.TransferRequest;
 import com.inspien.fb.model.TransferResponse;
-import com.inspien.fb.svc.FBService;
-import com.inspien.fb.svc.FileTelegramManager;
-
 
 
 @Slf4j
