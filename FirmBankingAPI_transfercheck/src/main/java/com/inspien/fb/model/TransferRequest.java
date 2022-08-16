@@ -20,7 +20,7 @@ public class TransferRequest {
 //	"rv_bank_code" : "081", "rv_account" : "46291012501007", "rv_account_cntn" : "핍랄샐",
 //	"amount" : 1000,
 //	"tr_dt" : "20220602", "tr_tm" : "155011"
-
+		
 	private String api_key;
 	private String org_code;
 	private String drw_bank_code;
@@ -34,5 +34,5 @@ public class TransferRequest {
 	private String tr_dt;
 	private String tr_tm;
 	private String msg_id;
-
+	
 }

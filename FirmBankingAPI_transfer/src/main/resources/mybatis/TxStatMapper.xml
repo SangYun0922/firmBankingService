@@ -5,6 +5,7 @@
 <mapper namespace="com.inspien.fb.mapper.TxStatMapper">
     <sql id="TxStatColumns">
         CustId,
+        OrgCd,
         TxDate,
         BankCd,
         TxType,
@@ -14,7 +15,7 @@
 
 <insert id="insertTxStat" parameterType="TxStat">
     INSERT INTO TxStat(<include refid="TxStatColumns"/>) VALUES(
-        #{CustId},#{TxDate},#{BankCd},#{TxType},#{TxCnt},#{TxSize}) ON DUPLICATE KEY UPDATE
+        #{CustId},#{OrgCd},#{TxDate},#{BankCd},#{TxType},#{TxCnt},#{TxSize}) ON DUPLICATE KEY UPDATE
         TxCnt =TxCnt+ #{TxCnt},TxSize = TxSize+ #{TxSize}
 </insert>
 </mapper>

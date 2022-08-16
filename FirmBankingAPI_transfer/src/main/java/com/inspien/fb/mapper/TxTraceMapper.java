@@ -9,4 +9,5 @@ public interface TxTraceMapper {
     public boolean upsertTxTrace(TxTrace txTrace);
     public String selectTxTrace(@Param("custId") String custId, @Param("today") String today);
     public boolean isExistTxTrace(@Param("custId") String custId, @Param("today") String today);
+    public void minusTxTrace(@Param("custId") String custId, @Param("today") String today);
 }

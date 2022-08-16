@@ -16,7 +16,7 @@ import lombok.ToString;
 public class OpenRequest {
 
 //	"api_key" : "7242191d-865c-48df-aa02-e3cf10bffd6d", "org_code" : "10000262", "drw_bank_code" : "004", "telegram_no" : 3,
-
+		
 	private String api_key;
 	private String org_code;
 	private String drw_bank_code;

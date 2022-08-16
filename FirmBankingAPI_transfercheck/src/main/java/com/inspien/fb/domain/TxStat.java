@@ -7,6 +7,7 @@ import lombok.Setter;
 @Setter
 public class TxStat {
     private String CustId;
+    private String OrgCd;
     private String TxDate;
     private String BankCd;
     private String TxType;

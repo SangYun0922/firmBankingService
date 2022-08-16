@@ -5,6 +5,7 @@
     <sql id="TxLogColums">
         TxIdx,
         CustId,
+        OrgCd,
         TxDate,
         TelegramNo,
         MsgId,
@@ -25,16 +26,16 @@
     <insert id="logAdd" parameterType="MAP">
 
         INSERT INTO TxLog(<include refid="TxLogColums" />) values(
-        #{logData.TxIdx},#{logData.CustId},#{logData.TxDate},#{logData.TelegramNo},#{logData.MsgId},#{logData.TxType},#{logData.BankCd},
-        #{logData.Size},#{logData.RoundTrip},#{logData.StmtCnt},#{logData.Status},#{logData.StartDT},#{logData.EndDT},
-        HEX(AES_ENCRYPT(#{logData.EncData},SHA2(#{key},512))),#{logData.NatvTrNo},#{logData.ErrCode},#{logData.ErrMsg})
+        #{logData.TxIdx},#{logData.CustId},#{logData.OrgCd},#{logData.TxDate},#{logData.TelegramNo},#{logData.MsgId},#{logData.TxType},#{logData.BankCd},
+                     #{logData.Size},#{logData.RoundTrip},#{logData.StmtCnt},#{logData.Status},#{logData.StartDT},#{logData.EndDT},
+                        HEX(AES_ENCRYPT(#{logData.EncData},SHA2(#{key},512))),#{logData.NatvTrNo},#{logData.ErrCode},#{logData.ErrMsg})
     </insert>
     <select id="selectMsgId" parameterType="MAP" resultType="String">
         SELECT TelegramNo FROM TxLog
-        WHERE MsgId = #{msgId} and TxType = 1 and TxDate = #{txDate}
+            WHERE MsgId = #{msgId} and TxType = 1 and TxDate = #{txDate}
         UNION ALL
         SELECT COUNT(*) FROM TxLog
-        WHERE MsgId = #{msgId} and TxType = 1 and TxDate = #{txDate}
-            LIMIT 1
+            WHERE MsgId = #{msgId} and TxType = 1 and TxDate = #{txDate}
+        LIMIT 1
     </select>
 </mapper>

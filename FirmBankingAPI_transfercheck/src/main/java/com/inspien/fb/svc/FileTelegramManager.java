@@ -92,7 +92,7 @@ public class FileTelegramManager {
 		if(custCounter.containsKey(orgCode)) { //custCounter에 해당 orgCode가 있으면
 			if(custCounter.get(orgCode).containsKey(today)) { //오늘 거래 내역이 있으면
 				log.debug("custCounter.get(orgCode).containsKey(today) : {}", custCounter.get(orgCode).containsKey(today));
-				writeLogs.insertTxTraceLog(today,custId,1);
+				writeLogs.insertTxTraceLog(today,custId,1,orgCode);
 				txNo =  Long.parseLong(txTraceMapper.selectTxTrace(custId,today));
 
 //				txNo = custCounter.get(orgCode).get(today).incrementAndGet();
@@ -105,7 +105,7 @@ public class FileTelegramManager {
 		}
 		else {// config에 폴더가 존재하기 전 ==> 개시전문 전
 			Map<String, AtomicLong> counter = new HashMap<String, AtomicLong>();
-			writeLogs.insertTxTraceLog(today,custId,1);
+			writeLogs.insertTxTraceLog(today,custId,1,orgCode);
 			txNo =  Long.parseLong(txTraceMapper.selectTxTrace(custId,today));
 			counter.put(today, new AtomicLong(txNo));
 			custCounter.put(orgCode, counter);
