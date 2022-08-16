@@ -37,6 +37,7 @@ import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.apache.hc.core5.http.ssl.TLS;
 import org.apache.hc.core5.ssl.SSLContexts;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 
@@ -57,6 +58,7 @@ public abstract class VANProxy {
 	KeyStore trustKeyStore;
 	HttpClientConnectionManager cm = null;
 
+	@Autowired
 	private WriteLogs writeLogs = (WriteLogs) ApplicationContextProvider.getBean(WriteLogs.class);
 	
 	public void init(String trustKeyStorePath, String trustKeyStorePassword) throws KeyManagementException, NoSuchAlgorithmException, KeyStoreException, CertificateException, FileNotFoundException, IOException, UnrecoverableKeyException {

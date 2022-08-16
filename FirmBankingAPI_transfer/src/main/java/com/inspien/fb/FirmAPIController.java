@@ -121,7 +121,7 @@ public class FirmAPIController {
 		String custId = custData.get(0).getCustId();
 		log.info("TransferRequest={},{}", transferReq.getOrg_code(), transferReq);
 		writeLogs.insertFileLog(1,1,txIndex,custId,startDateTime,"-----\t","server\t",String.valueOf(transferReq));
-
+		writeLogs.insertTxStatLog(txIndexFormat,custId,1,size,transferReq.getRv_bank_code(),transferReq.getOrg_code());
 		if(custData.size() == 1) {
 			if (custData.get(0).getInUse().equals("Y")) { //각 고객정보의 InUse 필드를 조회하여 "Y"라면 현재 사용하는 계정이고, "Y"가 아니라면 사용하지 않는 계정이다.
 				try {
@@ -147,8 +147,11 @@ public class FirmAPIController {
 		writeLogs.insertFileLog(4,1,txIndex,custId,endDateTime,"server\t","-----\t",String.valueOf(response));
 		String reqBody = new String(body);
 		String resBody = gson.toJson(response);
-		writeLogs.insertDataBaseLog(custId,startDateTime,endDateTime,1,size,stopWatch.getTotalTimeSeconds(),reqBody,resBody,txIndex);
-		writeLogs.insertTxStatLog(txIndexFormat,custId,1,size,transferReq.getRv_bank_code());
+		try{
+			writeLogs.insertDataBaseLog(custId,startDateTime,endDateTime,1,size,stopWatch.getTotalTimeSeconds(),reqBody,resBody,txIndex);}
+		catch(Exception e){
+			response = new TransferResponse(500, "9999", "CANNOT_INSERT_LOG_DATABASE");
+		}
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
 
@@ -237,6 +240,7 @@ public class FirmAPIController {
 		openReqFlag = txTraceMapper.isExistTxTrace(custId,txIndexFormat.substring(0,8));
 		log.info("개시전문 여부 : {}",openReqFlag );
 		writeLogs.insertFileLog(1,3,txIndex,custId,startDateTime,"van  \t","server\t",String.valueOf(statementReq));
+		writeLogs.insertTxStatLog(txIndexFormat,custId,3,size,statementReq.getBank_code(),statementReq.getOrg_code());
 
 		log.info("CustMst = {}", custData);
 		if(openReqFlag) {
@@ -282,7 +286,6 @@ public class FirmAPIController {
 		String reqBody = new String(body);
 		String resBody = gson.toJson(response);
 		writeLogs.insertDataBaseLog(custId,startDateTime,endDateTime,3,size,stopWatch.getTotalTimeSeconds(),reqBody,resBody,txIndex);
-		writeLogs.insertTxStatLog(txIndexFormat,custId,3,size,statementReq.getBank_code());
 		return new ResponseEntity<>(gson.toJson(response), HttpStatus.OK);
 	}
 
@@ -303,7 +306,7 @@ public class FirmAPIController {
 	@GetMapping("/update") //DB update 라우터, 해당 라우터로 요청이 들어오게 되면, Cache를 Evict한뒤, 다시 refresh한다.
 	public String dbUpdate() {
 		log.debug("----------------------------------------");
-		System.out.println("Arrived Message!");
+		log.info("Arrived Message!");
 		log.debug("----------------------------------------");
 		log.debug("start local cache initializing");
 		log.debug("----------------------------------------");

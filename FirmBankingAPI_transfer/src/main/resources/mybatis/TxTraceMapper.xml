@@ -5,13 +5,14 @@
 <mapper namespace="com.inspien.fb.mapper.TxTraceMapper">
     <sql id="TxTraceColumns">
         CustId,
+        OrgCd,
         TxDate,
         TxSequence,
         TxStarted
     </sql>
     <insert id="upsertTxTrace" parameterType="TxTrace">
         INSERT INTO TxTrace(<include refid="TxTraceColumns"/>) VALUES (
-            #{CustId},#{TxDate},#{TxSequence},#{TxStarted}) ON DUPLICATE KEY UPDATE
+            #{CustId},#{OrgCd},#{TxDate},#{TxSequence},#{TxStarted}) ON DUPLICATE KEY UPDATE
             TxSequence = TxSequence+1
     </insert>
 
@@ -25,5 +26,10 @@
             SELECT * FROM TxTrace
             WHERE CustId = #{custId} AND TxDate = #{today})
     </select>
+
+    <update id="minusTxTrace" parameterType="MAP">
+        UPDATE TxTrace SET TxSequence = TxSequence-1
+        WHERE CustId = #{custId} AND TxDate = #{today}
+    </update>
 
 </mapper>

@@ -73,6 +73,7 @@ public class WriteLogs {
         }
         txLogByJson.addProperty("TxIdx",idx);
         txLogByJson.addProperty("CustId",custId);
+        txLogByJson.addProperty("OrgCd",reqJson.get("org_code").getAsString());
         txLogByJson.addProperty("TxDate", dateFormat.format(startDateTime));
         txLogByJson.addProperty("TelegramNo",TxType == 1?txSequence:null);
         txLogByJson.addProperty("MsgId",TxType == 3?null:reqJson.get("msg_id").getAsString());
@@ -92,7 +93,6 @@ public class WriteLogs {
     }
 
     public void insertFileLog(int cnt,int txType,String txIdx,String custId,LocalDateTime dateTime,String to, String from,String data) throws IOException {
-        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
         FileInputStream fis = null;
@@ -102,11 +102,11 @@ public class WriteLogs {
             if (cnt == 1){
                 this.transactionIdx = txIdx+txType;
                 this.customerId = custId;
-                fis = new FileInputStream("logs/format.txt");
+                fis = new FileInputStream("../logs/format.txt");
                 fos = new FileOutputStream(String.format("../logs/%s.txt",transactionIdx));
                 int readData = 0;
                 while(readData !=-1){
-                    readData = fis.read();
+                    readData = fis.read(    );
                     fos.write(readData);
                 }
                 fos.write("\n".getBytes());
@@ -116,12 +116,11 @@ public class WriteLogs {
             String fromFormat = dateTimeFormatter.format(dateTime);
             fos = new FileOutputStream(String.format("../logs/%s.txt",transactionIdx),true);
             fos.write(String.format("%d\t",txType).getBytes());
+            fos.write(String.format("%s\t",fromFormat).getBytes());
             fos.write(String.format("%s\t",to).getBytes());
             fos.write(String.format("%s\t",from).getBytes());
             fos.write(String.format("%s\t",transactionIdx).getBytes());
             fos.write(String.format("%s\t",customerId).getBytes());
-            fos.write(String.format("%s\t",dateFormat.format(dateTime)).getBytes());
-            fos.write(Objects.equals(to,"server")?String.format("%s\t-------------------\t",fromFormat).getBytes():String.format("-------------------\t%s\t",fromFormat).getBytes());
             fos.write(data.getBytes());
             fos.write("\n".getBytes());
 
@@ -132,11 +131,12 @@ public class WriteLogs {
     }
 
     //transfer일때만 사용
-    public void insertTxTraceLog(String dateTime,String custId,long telegramNo) throws IOException {
+    public void insertTxTraceLog(String dateTime,String custId,long telegramNo,String orgCd) throws IOException {
         JsonObject txTraceByJson = new JsonObject();
         TxTrace txTrace = null;
 
         txTraceByJson.addProperty("CustId",custId);
+        txTraceByJson.addProperty("OrgCd",orgCd);
         txTraceByJson.addProperty("TxDate",dateTime);
         txTraceByJson.addProperty("TxSequence",telegramNo);
         txTraceByJson.addProperty("TxStarted",telegramNo==0?"N":"Y");
@@ -145,11 +145,12 @@ public class WriteLogs {
         txTraceMapper.upsertTxTrace(txTrace);
     }
 
-    public void insertTxStatLog(String dateTime, String custId,int txType,long size,String bankCd ){
+    public void insertTxStatLog(String dateTime, String custId,int txType,long size,String bankCd,String orgCd ){
         JsonObject txStatByJson = new JsonObject();
         TxStat txStat = null;
 
         txStatByJson.addProperty("CustId",custId);
+        txStatByJson.addProperty("OrgCd",orgCd);
         txStatByJson.addProperty("TxDate",dateTime);
         txStatByJson.addProperty("BankCd",bankCd);
         txStatByJson.addProperty("TxType",txType);
